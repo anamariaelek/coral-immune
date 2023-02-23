@@ -1,0 +1,9 @@
+fastqc
+gene_counts
+genome
+raw_reads
+
+*out
+Control*
+cApUp*
+cGAMP*
