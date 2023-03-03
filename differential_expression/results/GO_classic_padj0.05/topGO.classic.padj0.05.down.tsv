@@ -1,0 +1,97 @@
+group	GO.ID	Term	Annotated	Significant	Expected	pval_test	pval_adj	ontology
+down	GO:0016491	oxidoreductase activity	591	56	23.75	8.7e-10	3.15288e-06	MF
+down	GO:0090482	vitamin transmembrane transporter activi...	35	11	1.41	6.6e-08	0.000119592	MF
+down	GO:0008484	sulfuric ester hydrolase activity	15	7	0.6	7.8e-07	0.00094224	MF
+down	GO:0004065	arylsulfatase activity	11	6	0.44	1.6e-06	0.001208	MF
+down	GO:0015347	sodium-independent organic anion transme...	7	5	0.28	2e-06	0.001208	MF
+down	GO:0090416	nicotinate transmembrane transporter act...	7	5	0.28	2e-06	0.001208	MF
+down	GO:0008028	monocarboxylic acid transmembrane transp...	42	10	1.69	4.5e-06	0.0023103	MF
+down	GO:0051213	dioxygenase activity	62	12	2.49	5.1e-06	0.0023103	MF
+down	GO:0005342	organic acid transmembrane transporter a...	88	14	3.54	9.5e-06	0.003322	MF
+down	GO:0046943	carboxylic acid transmembrane transporte...	88	14	3.54	9.5e-06	0.003322	MF
+down	GO:0003943	N-acetylgalactosamine-4-sulfatase activi...	9	5	0.36	1.1e-05	0.003322	MF
+down	GO:0015101	organic cation transmembrane transporter...	21	7	0.84	1.1e-05	0.003322	MF
+down	GO:0016706	2-oxoglutarate-dependent dioxygenase act...	49	10	1.97	2e-05	0.00557538461538462	MF
+down	GO:0005326	neurotransmitter transmembrane transport...	23	7	0.92	2.2e-05	0.00569485714285714	MF
+down	GO:0008514	organic anion transmembrane transporter ...	121	16	4.86	2.5e-05	0.00604	MF
+down	GO:0015245	fatty acid transmembrane transporter act...	6	4	0.24	3.6e-05	0.008154	MF
+down	GO:0005452	inorganic anion exchanger activity	12	5	0.48	6.4e-05	0.0122071578947368	MF
+down	GO:0004656	procollagen-proline 4-dioxygenase activi...	3	3	0.12	6.4e-05	0.0122071578947368	MF
+down	GO:0019798	procollagen-proline dioxygenase activity	3	3	0.12	6.4e-05	0.0122071578947368	MF
+down	GO:0008509	anion transmembrane transporter activity	191	20	7.68	7.9e-05	0.0143148	MF
+down	GO:0048018	receptor ligand activity	73	11	2.93	0.00014	0.02416	MF
+down	GO:0015183	L-aspartate transmembrane transporter ac...	8	4	0.32	0.00016	0.0263563636363636	MF
+down	GO:0016705	oxidoreductase activity, acting on paire...	115	14	4.62	2e-04	0.0315130434782609	MF
+down	GO:0003987	acetate-CoA ligase activity	4	3	0.16	0.00025	0.032616	MF
+down	GO:0004758	serine C-palmitoyltransferase activity	4	3	0.16	0.00025	0.032616	MF
+down	GO:0016454	C-palmitoyltransferase activity	4	3	0.16	0.00025	0.032616	MF
+down	GO:0031545	peptidyl-proline 4-dioxygenase activity	4	3	0.16	0.00025	0.032616	MF
+down	GO:0016614	oxidoreductase activity, acting on CH-OH...	91	12	3.66	0.00026	0.032616	MF
+down	GO:0005313	L-glutamate transmembrane transporter ac...	9	4	0.36	0.00027	0.032616	MF
+down	GO:0015172	acidic amino acid transmembrane transpor...	9	4	0.36	0.00027	0.032616	MF
+down	GO:0042910	xenobiotic transmembrane transporter act...	16	5	0.64	0.00031	0.03624	MF
+down	GO:0001228	DNA-binding transcription activator acti...	231	21	9.28	0.00039	0.0441675	MF
+down	GO:0001216	DNA-binding transcription activator acti...	232	21	9.32	0.00041	0.0450254545454545	MF
+down	GO:0005576	extracellular region	1279	82	51.13	6.1e-06	0.010938	CC
+down	GO:0035686	sperm fibrous sheath	5	4	0.2	1.2e-05	0.010938	CC
+down	GO:0005615	extracellular space	607	46	24.27	1.8e-05	0.010938	CC
+down	GO:0009986	cell surface	474	38	18.95	3e-05	0.0115456666666667	CC
+down	GO:0016010	dystrophin-associated glycoprotein compl...	11	5	0.44	3.8e-05	0.0115456666666667	CC
+down	GO:0090665	glycoprotein complex	11	5	0.44	3.8e-05	0.0115456666666667	CC
+down	GO:0005788	endoplasmic reticulum lumen	231	23	9.24	4.9e-05	0.012761	CC
+down	GO:0016222	procollagen-proline 4-dioxygenase comple...	3	3	0.12	6.3e-05	0.014356125	CC
+down	GO:0006855	xenobiotic transmembrane transport	80	17	3.19	1.2e-08	7.8944e-05	BP
+down	GO:0042908	xenobiotic transport	81	17	3.23	1.4e-08	7.8944e-05	BP
+down	GO:0035461	vitamin transmembrane transport	46	13	1.84	1.6e-08	7.8944e-05	BP
+down	GO:0042445	hormone metabolic process	172	23	6.86	3.2e-07	0.00118416	BP
+down	GO:0097065	anterior head development	27	9	1.08	5.8e-07	0.00143086	BP
+down	GO:0044281	small molecule metabolic process	1658	104	66.16	5.8e-07	0.00143086	BP
+down	GO:0009435	NAD biosynthetic process	35	10	1.4	6.8e-07	0.00143790857142857	BP
+down	GO:0019674	NAD metabolic process	53	12	2.11	8.3e-07	0.0015357075	BP
+down	GO:0051180	vitamin transport	76	14	3.03	1.5e-06	0.002467	BP
+down	GO:0015747	urate transport	7	5	0.28	1.9e-06	0.00255670909090909	BP
+down	GO:2001142	nicotinate transport	7	5	0.28	1.9e-06	0.00255670909090909	BP
+down	GO:0006082	organic acid metabolic process	922	65	36.79	3.2e-06	0.00387129230769231	BP
+down	GO:0044283	small molecule biosynthetic process	642	50	25.62	3.4e-06	0.00387129230769231	BP
+down	GO:0043252	sodium-independent organic anion transpo...	8	5	0.32	5e-06	0.004625625	BP
+down	GO:0061580	colon epithelial cell migration	8	5	0.32	5e-06	0.004625625	BP
+down	GO:0061582	intestinal epithelial cell migration	8	5	0.32	5e-06	0.004625625	BP
+down	GO:0043627	response to estrogen	74	13	2.95	6.1e-06	0.00531130588235294	BP
+down	GO:0072348	sulfur compound transport	44	10	1.76	6.7e-06	0.00550963333333333	BP
+down	GO:0046173	polyol biosynthetic process	36	9	1.44	8.4e-06	0.00643565217391305	BP
+down	GO:0030207	chondroitin sulfate catabolic process	14	6	0.56	8.9e-06	0.00643565217391305	BP
+down	GO:0035270	endocrine system development	113	16	4.51	9.7e-06	0.00643565217391305	BP
+down	GO:0019359	nicotinamide nucleotide biosynthetic pro...	56	11	2.23	1e-05	0.00643565217391305	BP
+down	GO:0019363	pyridine nucleotide biosynthetic process	56	11	2.23	1e-05	0.00643565217391305	BP
+down	GO:0019362	pyridine nucleotide metabolic process	104	15	4.15	1.5e-05	0.00853961538461538	BP
+down	GO:0046496	nicotinamide nucleotide metabolic proces...	104	15	4.15	1.5e-05	0.00853961538461538	BP
+down	GO:0034754	cellular hormone metabolic process	80	13	3.19	1.5e-05	0.00853961538461538	BP
+down	GO:0043436	oxoacid metabolic process	909	62	36.27	1.6e-05	0.00877155555555556	BP
+down	GO:0072525	pyridine-containing compound biosyntheti...	59	11	2.35	1.8e-05	0.00951557142857143	BP
+down	GO:0061213	positive regulation of mesonephros devel...	10	5	0.4	2.1e-05	0.0107186896551724	BP
+down	GO:0072524	pyridine-containing compound metabolic p...	109	15	4.35	2.6e-05	0.0128284	BP
+down	GO:0061061	muscle structure development	637	47	25.42	2.8e-05	0.0130078181818182	BP
+down	GO:1903825	organic acid transmembrane transport	123	16	4.91	2.9e-05	0.0130078181818182	BP
+down	GO:1905039	carboxylic acid transmembrane transport	123	16	4.91	2.9e-05	0.0130078181818182	BP
+down	GO:1901615	organic hydroxy compound metabolic proce...	439	36	17.52	3e-05	0.0130605882352941	BP
+down	GO:0001101	response to acid chemical	289	27	11.53	3.3e-05	0.0139561714285714	BP
+down	GO:0061217	regulation of mesonephros development	11	5	0.44	3.7e-05	0.0152131666666667	BP
+down	GO:0098656	anion transmembrane transport	229	23	9.14	4.2e-05	0.0168022702702703	BP
+down	GO:0006066	alcohol metabolic process	263	25	10.5	4.9e-05	0.0190867894736842	BP
+down	GO:0009725	response to hormone	710	50	28.33	5.2e-05	0.019736	BP
+down	GO:1901136	carbohydrate derivative catabolic proces...	144	17	5.75	5.8e-05	0.0214629	BP
+down	GO:0006735	NADH regeneration	12	5	0.48	6.2e-05	0.022203	BP
+down	GO:0001579	medium-chain fatty acid transport	3	3	0.12	6.3e-05	0.022203	BP
+down	GO:0060675	ureteric bud morphogenesis	47	9	1.88	8.3e-05	0.0279219545454546	BP
+down	GO:0072171	mesonephric tubule morphogenesis	47	9	1.88	8.3e-05	0.0279219545454546	BP
+down	GO:0015695	organic cation transport	59	10	2.35	9.9e-05	0.0318564782608696	BP
+down	GO:0034308	primary alcohol metabolic process	59	10	2.35	9.9e-05	0.0318564782608696	BP
+down	GO:0042446	hormone biosynthetic process	72	11	2.87	0.00012	0.0377923404255319	BP
+down	GO:0072078	nephron tubule morphogenesis	50	9	2	0.00014	0.0411166666666667	BP
+down	GO:0072088	nephron epithelium morphogenesis	50	9	2	0.00014	0.0411166666666667	BP
+down	GO:0006590	thyroid hormone generation	8	4	0.32	0.00015	0.0411166666666667	BP
+down	GO:0061724	lipophagy	8	4	0.32	0.00015	0.0411166666666667	BP
+down	GO:0070778	L-aspartate transmembrane transport	8	4	0.32	0.00015	0.0411166666666667	BP
+down	GO:1904502	regulation of lipophagy	8	4	0.32	0.00015	0.0411166666666667	BP
+down	GO:1904504	positive regulation of lipophagy	8	4	0.32	0.00015	0.0411166666666667	BP
+down	GO:0072028	nephron morphogenesis	51	9	2.04	0.00016	0.0430603636363636	BP
