@@ -38,6 +38,7 @@ library(pathview)
 library(clusterProfiler)
 library(KEGGREST)
 library(gage)
+library(openxlsx)
 source("functions.R")
 ```
 
@@ -49,6 +50,39 @@ res_dir <- file.path(dat_dir, "results")
 fig_dir <- file.path(dat_dir, "plots")
 for (newdir in c(res_dir, fig_dir))
   dir.create(newdir, showWarnings = FALSE)
+```
+
+Gene annotations
+
+```{r}
+# all gene annotations
+gene_ann <- fread(
+    file.path("annotation", "Spis_annotation_v7_2020-10-26_clean"),
+    select = 1:3
+)
+tf_ann <- fread(
+  file.path("annotation", "curated_TFh_Spis_EDITED_NAMES.csv"),
+  header = FALSE
+)[, c(1, 3, 2)]
+setnames(gene_ann, c("gene", "pfam", "og"))
+setnames(tf_ann, c("gene", "pfam", "og"))
+gene_ann <- rbindlist(list(
+  tf_ann, gene_ann[!gene %in% tf_ann$gene]
+))
+gene_ann[, name := ""]
+gene_ann[og != "", name := paste(gene, og, sep = " | ")]
+gene_ann[
+  nchar(name) > 70,
+  name := paste0(substr(name, 1, 67), "...")
+]
+
+# gene sets of interest
+cglr_genes <- readLines(file.path("annotation", "cGLR.txt"))
+cglr_genes <- paste0("Spis_", cglr_genes)
+cglr_genes <- str_replace(cglr_genes, "\\.", "_")
+sting_genes <- readLines(file.path("annotation", "STING.txt"))
+sting_genes <- paste0("Spis_", sting_genes)
+sting_genes <- str_replace(sting_genes, "\\.", "_")
 ```
 
 ## Mapping QCs
@@ -194,7 +228,10 @@ gp_pch
 ```
 
 ```{r include=FALSE, eval=TRUE}
-pdf(file.path(fig_dir, "tpms_var.pdf"), width=8, height=6)
+pdf(
+  file.path(fig_dir, "tpms_var.pdf"),
+  width = 8, height = 6
+)
 gp_pch
 dev.off()
 ```
@@ -204,9 +241,7 @@ Data for differential expression analysis
 ```{r}
 # kill samples
 kill <- c(
-  "cApUp-1C",
   "cApUp-2A",
-  "cApUp-2B",
   "cApUp-2C",
   "Control-1A"
 )
@@ -400,13 +435,6 @@ gene_marks <- intersect(genes_high, genes_deseq)
 Load gene sets of interest
 
 ```{r}
-cglr_genes <- readLines(file.path("annotation", "cGLR.txt"))
-cglr_genes <- paste0("Spis_", cglr_genes)
-cglr_genes <- str_replace(cglr_genes, "\\.", "_")
-sting_genes <- readLines(file.path("annotation", "STING.txt"))
-sting_genes <- paste0("Spis_", sting_genes)
-sting_genes <- str_replace(sting_genes, "\\.", "_")
-
 gene_marks <- unique(c(
   gene_marks,
   cglr_genes[cglr_genes %in% rownames(norm_mt)],
@@ -480,31 +508,17 @@ clusters_dt[, group := as.integer(group)]
 setorder(clusters_dt, group)
 gene_order <- clusters_dt$gene
 
-# gene annotations
-gene_ann <- fread(
-    file.path("annotation", "Spis_annotation_v7_2020-10-26_clean"),
-    select = 1:3
-)
-tf_ann <- fread(
-  file.path("annotation", "curated_TFh_Spis_EDITED_NAMES.csv"),
-  header = FALSE
-)[, c(1, 3, 2)]
-setnames(gene_ann, c("gene", "pfam", "og"))
-setnames(tf_ann, c("gene", "pfam", "og"))
-gene_ann <- rbindlist(list(
-  tf_ann, gene_ann[!gene %in% tf_ann$gene]
-))
-gene_ann[, name := ""]
-gene_ann[og != "", name := paste(gene, og, sep = " | ")]
-gene_ann[
-  nchar(name) > 70,
-  name := paste0(substr(name, 1, 67), "...")
-]
+# gene annotaiton
+clusters_dt[, gene := factor(gene, levels = gene_order)]
+setorder(clusters_dt, gene)
 clusters_dt <- merge.data.table(
   clusters_dt, gene_ann,
-  by = "gene", all.x = TRUE
+  by = "gene", all.x = TRUE, sort = FALSE
 )
+
 # save
+clusters_dt[, clusters := NULL]
+clusters_dt[, name := NULL]
 fwrite(clusters_dt, file.path(res_dir, "genes_clusters.tsv"), sep = "\t")
 ```
 
@@ -688,45 +702,110 @@ saveRDS(ddscol, file.path(res_dir, "ddscol.rds"))
 
 Contrasts to control
 ```{r}
-dds <- readRDS(file.path(res_dir, "ddscol.rds"))
+dds <- readRDS(file.path(res_dir, "dds.rds"))
 padj_thr <- 0.05
 
-contrast <- c("treatment", "cApUp", "control")
-res_capup <- results(dds, contrast = contrast)
-res_lfc_capup <- lfcShrink(dds, contrast = contrast, type = "ashr")
+# get results tables
+contrast_capup <- c("treatment", "cApUp", "control")
+res_capup <- results(dds, contrast = contrast_capup)
+res_lfc_capup <- lfcShrink(dds, contrast = contrast_capup, type = "ashr")
+
+contrast_cgamp <- c("treatment", "cGAMP", "control")
+res_cgamp <- results(dds, contrast = contrast_cgamp)
+res_lfc_cgamp <- lfcShrink(dds, contrast = contrast_cgamp, type = "ashr")
+
+# add gene annotations
+res_list <- sapply(
+  list(
+    "cApUp" = res_lfc_capup,
+    "cGAMP" = res_lfc_cgamp
+  ),
+  function(x) {
+    dt <- as.data.table(x, keep.rownames = "gene")
+    dt[is.na(pvalue), pvalue := 1]
+    dt[is.na(padj), padj := 1]
+    dt_ann <- merge.data.table(
+      dt, gene_ann,
+      by = "gene",
+      all.x = TRUE
+    )
+    dt_ann[is.na(dt_ann)] <- ""
+    dt_ann[, TF := gene %in% tf_ann$gene]
+    dt_ann[, STING := gene %in% sting_genes]
+    dt_ann[, cGLR := gene %in% cglr_genes]
+    dt_ann[, name := ""]
+    setorder(dt_ann, padj, log2FoldChange)
+    dt_ann
+}, simplify = FALSE, USE.NAMES = FALSE)
+
+# significant genes from gene lists of interest
+dt_sign <- rbindlist(sapply(names(res_list), function(x) {
+  res_list[[x]][
+    padj < 0.05 & (cGLR==TRUE | STING == TRUE)][
+      order(-log2FoldChange)][, 1:8]
+}, simplify = FALSE, USE.NAMES = TRUE), idcol = "treatment")
+setorder(dt_sign, -log2FoldChange)
+
+# significant TFs
+dt_tfs <- rbindlist(sapply(names(res_list), function(x) {
+  res_list[[x]][
+    padj < 0.05 & (TF==TRUE)][
+      order(-log2FoldChange)][, 1:8]
+}, simplify = FALSE, USE.NAMES = TRUE), idcol = "treatment")
+setorder(dt_tfs, -log2FoldChange)
+
+# save results to excel
+res_list <- c(
+  res_list,
+  list(
+    "STING_cGLR_significant_genes" = dt_sign,
+    "TFs_significant genes" = dt_tfs
+  )
+)
+wb <- createWorkbook()
+for (i in names(res_list)) {
+  message(i)
+  addWorksheet(wb, sheetName = i)
+  writeData(wb, sheet = i, res_list[[i]])
+}
+saveWorkbook(
+  wb,
+  file.path(res_dir, sprintf("dds_res_ashr.xlsx")),
+  overwrite = TRUE
+)
+
+# plot
 gp_capup_vo <- ggplotVolcano(
   res_lfc_capup, padj_thr = padj_thr,
   lims_fc = c(-3, 3), lims_sig = c(NA, 25),
-  title = sprintf("%s vs %s", contrast[2], contrast[3])
+  title = sprintf("%s vs %s", contrast_capup[2], contrast_capup[3])
 )
 gp_capup_ma <- ggplotMA(
   res_lfc_capup, padj_thr = padj_thr,
   lims_fc = c(-3, 3), lims_mean = c(NA, NA), trans_mean = "log10",
-  title = sprintf("%s vs %s", contrast[2], contrast[3])
+  title = sprintf("%s vs %s", contrast_capup[2], contrast_capup[3])
 )
 
-contrast <- c("treatment", "cGAMP", "control")
-res_cgamp <- results(dds, contrast = contrast)
-res_lfc_cgamp <- lfcShrink(dds, contrast = contrast, type = "ashr")
 gp_cgamp_vo <- ggplotVolcano(
   res_lfc_cgamp, padj_thr = padj_thr,
   lims_fc = c(-3, 3), lims_sig = c(NA, 25),
-  title = sprintf("%s vs %s", contrast[2], contrast[3])
+  title = sprintf("%s vs %s", contrast_cgamp[2], contrast_cgamp[3])
 )
 gp_cgamp_ma <- ggplotMA(
   res_lfc_cgamp, padj_thr = padj_thr,
   lims_fc = c(-3, 3), lims_mean = c(NA, NA), trans_mean = "log10",
-  title = sprintf("%s vs %s", contrast[2], contrast[3])
+  title = sprintf("%s vs %s", contrast_cgamp[2], contrast_cgamp[3])
 )
 
 gp_pch <- ((gp_capup_vo + gp_capup_ma) / (gp_cgamp_vo + gp_cgamp_ma)) +
   plot_layout(guides = "collect") & theme(legend.position = "bottom")
 gp_pch
+
 ```
 
 ```{r include=FALSE, eval=TRUE}
 pdf(
-  file.path(fig_dir, sprintf("volcano_plots_padj%s.pdf", padj_thr)),
+  file.path(fig_dir, sprintf("dds_res_ashr_padj%s.pdf", padj_thr)),
   width = 10, height = 12
 )
 gp_pch
@@ -834,7 +913,29 @@ for (i in unique(go_dt$group)) {
   )
 }
 
+res_list <- sapply(unique(go_dt$group), function(i) {
+  go_dt[group == i & pval_adj < padj_thr][, group := NULL]
+}, simplify = FALSE, USE.NAMES = TRUE)
+wb <- createWorkbook()
+for (i in names(res_list)) {
+  message(i)
+  addWorksheet(wb, sheetName = i)
+  writeData(wb, sheet = i, res_list[[i]])
+}
+saveWorkbook(
+  wb,
+  file.path(res_dir, sprintf("go_res_padj%s.xlsx", padj_thr)),
+  overwrite = TRUE
+)
+```
+
+Plot
+
+```{r}
 # select significant results
+go_dt <- fread(
+  file.path(go_dir, sprintf("topGO.%s.padj%s.tsv", tgalg, padj_thr))
+)
 go_sign <- go_dt[pval_adj < 0.01][["GO.ID"]]
 go_sign_dt <- go_dt[GO.ID %in% go_sign][order(pval_adj, decreasing = FALSE)]
 go_sign_dt[, logpadj := -1 * log10(pval_adj)]
@@ -847,7 +948,8 @@ plot_dt[, go_id := factor(
     plot_dt[group == "up"][order(Significant)][["GO.ID"]]
   )
 )]
-plot_dt[, gene_num := Significant]#[gene_num > 100, gene_num := 100]
+plot_dt[, group := factor(group, levels = c("capup", "cgamp", "up", "down"))]
+plot_dt[, gene_num := Significant][gene_num > 800, gene_num := 800]
 go_vect <- structure(plot_dt$label, names = as.character(plot_dt$go_id))
 
 gp <- ggplot(plot_dt, aes(group, go_id, size = gene_num, fill = pval_adj)) +
@@ -855,7 +957,7 @@ gp <- ggplot(plot_dt, aes(group, go_id, size = gene_num, fill = pval_adj)) +
   labs(
     x = "", y = "GO term",
     size = "significant genes",
-    fill = "adjusted\np value"
+    fill = "-log10\nadjusted\np value"
   ) +
   scale_fill_distiller() +
   scale_y_discrete(labels = go_vect, position = "right") +
@@ -866,7 +968,7 @@ gp
 ```{r include=FALSE, eval=TRUE}
 pdf(
   file.path(fig_dir, sprintf("go%s_plot_padj%s.pdf", tgalg, padj_thr)),
-  height = 72,
+  height = 76,
   width = 12,
   useDingbats = TRUE
 )
@@ -971,12 +1073,29 @@ Visualize KEGG pathways
 require(clusterProfiler)
 require(pathview)
 
+kegg_dt <- fread(file.path(kegg_dir, sprintf("kegg.results.padj%s.tsv", padj_thr)))
+
 # top pathways
-kegg_sig <- kegg_dt[q.val<padj_thr]
+kegg_sig <- kegg_dt[q.val < padj_thr]
 fwrite(
   kegg_sig,
   file.path(kegg_dir, sprintf("kegg.results.significant.padj%s.tsv", padj_thr)),
   sep = "\t"
+)
+
+res_list <- sapply(unique(kegg_sig$group), function(i) {
+  kegg_sig[group == i][order(q.val)][, group := NULL]
+}, simplify = FALSE, USE.NAMES = TRUE)
+wb <- createWorkbook()
+for (i in names(res_list)) {
+  message(i)
+  addWorksheet(wb, sheetName = i)
+  writeData(wb, sheet = i, res_list[[i]])
+}
+saveWorkbook(
+  wb,
+  file.path(res_dir, sprintf("kegg_res_padj%s.xlsx", padj_thr)),
+  overwrite = TRUE
 )
 
 # load kegg info

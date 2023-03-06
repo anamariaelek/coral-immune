@@ -1,836 +1,836 @@
-gene	clusters	group	pfam	og	name
-Spis_Spis10645_1	1	1			
-Spis_Spis13728_1	4	4			
-Spis_Spis13729_1	4	4			
-Spis_Spis13751_1	7	7			
-Spis_Spis14348_1	6	6			
-Spis_Spis14506_1	4	4			
-Spis_Spis14561_1	5	5			
-Spis_Spis14732_1	3	3			
-Spis_Spis14795_1	9	9			
-Spis_Spis16479_1	3	3			
-Spis_Spis168_1	4	4			
-Spis_Spis169_1	4	4			
-Spis_Spis1757_1	2	2			
-Spis_Spis18978_1	9	9			
-Spis_Spis20046_1	9	9			
-Spis_Spis21323_1	5	5			
-Spis_Spis22141_1	5	5			
-Spis_Spis22699_1	2	2			
-Spis_Spis23867_1	1	1			
-Spis_Spis24095_1	5	5			
-Spis_Spis24242_1	1	1			
-Spis_Spis24243_1	1	1			
-Spis_Spis24497_1	7	7			
-Spis_Spis2456_1	6	6			
-Spis_Spis24683_1	7	7			
-Spis_Spis24917_1	7	7			
-Spis_Spis24995_1	5	5			
-Spis_Spis25029_1	1	1			
-Spis_Spis25315_1	2	2			
-Spis_Spis25549_1	3	3			
-Spis_Spis25897_1	9	9			
-Spis_Spis3061_1	8	8			
-Spis_Spis3465_1	7	7			
-Spis_Spis3943_1	9	9			
-Spis_Spis4474_1	3	3			
-Spis_Spis4905_1	5	5			
-Spis_Spis7117_1	7	7			
-Spis_Spis7585_1	3	3			
-Spis_Spis7736_1	3	3			
-Spis_Spis9588_1	10	10			
-Spis_XP_022777477_1	7	7	TLD/	TLD domain-containing protein 1-like	Spis_XP_022777477_1 | TLD domain-containing protein 1-like
-Spis_XP_022777516_1	10	10	Ephrin/	Ephrin.HG1.0:AL691442/EFNA1/EFNA2/EFNA3/EFNA4/EFNA5/EFNB1/EFNB2/EFNB3	Spis_XP_022777516_1 | Ephrin.HG1.0:AL691442/EFNA1/EFNA2/EFNA3/EFNA4...
-Spis_XP_022777544_1	7	7	""	""	""
-Spis_XP_022777712_1	10	10	""	""	""
-Spis_XP_022777738_1	7	7	EGF_3/	uromodulin	Spis_XP_022777738_1 | uromodulin
-Spis_XP_022777771_1	9	9	CHAT/	tetratricopeptide_repeat_domain_28	Spis_XP_022777771_1 | tetratricopeptide_repeat_domain_28
-Spis_XP_022777811_1	8	8	Lectin_C/EGF_CA/EGF_CA/CUB/SRCR/SRCR/	Lectin_C.HG4.2:NA	Spis_XP_022777811_1 | Lectin_C.HG4.2:NA
-Spis_XP_022777813_1	1	1	""	""	""
-Spis_XP_022777815_1	7	7	""	E3 ubiquitin-protein ligase rnf213-alpha-like	Spis_XP_022777815_1 | E3 ubiquitin-protein ligase rnf213-alpha-like
-Spis_XP_022778006_1	7	7	EGF_3/TLD/TLD/	signal_peptide_CUB_domain_and_EGF_like_domain_containing_2	Spis_XP_022778006_1 | signal_peptide_CUB_domain_and_EGF_like_domain...
-Spis_XP_022778125_1	9	9	FGF/	FGF.HG1.9:like:FGF8/FGF17/FGF18:likeclu:34	Spis_XP_022778125_1 | FGF.HG1.9:like:FGF8/FGF17/FGF18:likeclu:34
-Spis_XP_022778185_1	10	10	GFP/	GFP-like fluorescent chromoprotein amFP486	Spis_XP_022778185_1 | GFP-like fluorescent chromoprotein amFP486
-Spis_XP_022778218_1	3	3	""	""	""
-Spis_XP_022778286_1	1	1	MFS_1/	major_facilitator_superfamily_domain_containing_12	Spis_XP_022778286_1 | major_facilitator_superfamily_domain_containi...
-Spis_XP_022778432_1	1	1	MARVEL/	MARVEL.HG1.25:like:CMTM3/CMTM4/CMTM5/CMTM6/CMTM7/CMTM8/MAL/MAL2/MALL/MARVELD1/MARVELD2/MYADM/MYADML2/OCLN/PLLP/PLP2:likeclu:0	Spis_XP_022778432_1 | MARVEL.HG1.25:like:CMTM3/CMTM4/CMTM5/CMTM6/CM...
-Spis_XP_022778881_1	4	4	Ank_5/	ankyrin_repeat_domain_22	Spis_XP_022778881_1 | ankyrin_repeat_domain_22
-Spis_XP_022778934_1	3	3	MORN/	""	""
-Spis_XP_022778944_1	10	10	MORN/MORN/	MORN_repeat_containing_1	Spis_XP_022778944_1 | MORN_repeat_containing_1
-Spis_XP_022778950_1	8	8	Amino_oxidase/Amino_oxidase/	lysine_demethylase_1B	Spis_XP_022778950_1 | lysine_demethylase_1B
-Spis_XP_022778966_1	3	3	cNMP_binding/	cyclic_nucleotide_binding_domain_containing_2	Spis_XP_022778966_1 | cyclic_nucleotide_binding_domain_containing_2
-Spis_XP_022778969_1	1	1	MACPF/	DELTA-thalatoxin-Avl2a-like	Spis_XP_022778969_1 | DELTA-thalatoxin-Avl2a-like
-Spis_XP_022778973_1	10	10	MACPF/	LOW QUALITY PROTEIN: DELTA-thalatoxin-Avl2a-like	Spis_XP_022778973_1 | LOW QUALITY PROTEIN: DELTA-thalatoxin-Avl2a-like
-Spis_XP_022779065_1	10	10	CAP/Trypsin/	ovochymase_1	Spis_XP_022779065_1 | ovochymase_1
-Spis_XP_022779066_1	4	4	MACPF/	DELTA-alicitoxin-Pse2b-like	Spis_XP_022779066_1 | DELTA-alicitoxin-Pse2b-like
-Spis_XP_022779133_1	8	8	SDF/	solute_carrier_family_1_member_2	Spis_XP_022779133_1 | solute_carrier_family_1_member_2
-Spis_XP_022779255_1	8	8	Collagen/Collagen/COLFI/	Collagen.HG2.31:like:COL1A1/COL1A2/COL2A1/COL3A1/COL5A2:likeclu:26	Spis_XP_022779255_1 | Collagen.HG2.31:like:COL1A1/COL1A2/COL2A1/COL...
-Spis_XP_022779265_1	1	1	Pyr_redox_2/	apoptosis_inducing_factor_mitochondria_associated_2	Spis_XP_022779265_1 | apoptosis_inducing_factor_mitochondria_associ...
-Spis_XP_022779334_1	1	1	VWA/VWA/VWA/VWA/Collagen/Collagen/COLFI/	Collagen.HG2.33:like:COL1A1/COL1A2/COL2A1/COL3A1/COL5A2:likeclu:26	Spis_XP_022779334_1 | Collagen.HG2.33:like:COL1A1/COL1A2/COL2A1/COL...
-Spis_XP_022779335_1	8	8	Collagen/Collagen/Collagen/Collagen/COLFI/	Collagen.HG2.31:like:COL1A1/COL1A2/COL2A1/COL3A1/COL5A2:likeclu:26	Spis_XP_022779335_1 | Collagen.HG2.31:like:COL1A1/COL1A2/COL2A1/COL...
-Spis_XP_022779345_1	6	6	WAP/VWA/	collagen_type_XIV_alpha_1_chain	Spis_XP_022779345_1 | collagen_type_XIV_alpha_1_chain
-Spis_XP_022779378_1	7	7	""	""	""
-Spis_XP_022779460_1	6	6	Il2rg/	chromosome_22_open_reading_frame_15	Spis_XP_022779460_1 | chromosome_22_open_reading_frame_15
-Spis_XP_022779493_1	6	6	DUF4962/Sulfotransfer_1/	dermatan_sulfate_epimerase_like	Spis_XP_022779493_1 | dermatan_sulfate_epimerase_like
-Spis_XP_022779509_1	9	9	Hint_2/	neural_EGFL_like_1	Spis_XP_022779509_1 | neural_EGFL_like_1
-Spis_XP_022779541_1	2	2	Mab-21/	Mab_21_domain_containing_2	Spis_XP_022779541_1 | Mab_21_domain_containing_2
-Spis_XP_022779557_1	1	1	""	neurogenic locus notch homolog protein 1-like isoform X1	Spis_XP_022779557_1 | neurogenic locus notch homolog protein 1-like...
-Spis_XP_022779730_1	1	1	Acyl-CoA_dh_N/Acyl-CoA_dh_1/FAD_binding_6/NAD_binding_1/	cytochrome_b5_reductase_3	Spis_XP_022779730_1 | cytochrome_b5_reductase_3
-Spis_XP_022779763_1	10	10	""	""	""
-Spis_XP_022779765_1	5	5	Mab-21/	mab_21_like_3	Spis_XP_022779765_1 | mab_21_like_3
-Spis_XP_022779768_1	1	1	Tctex-1/	Tctex1_domain_containing_1	Spis_XP_022779768_1 | Tctex1_domain_containing_1
-Spis_XP_022779771_1	6	6	""	""	""
-Spis_XP_022779853_1	10	10	Phospholip_A2_1/	phospholipase_A2_group_IIA	Spis_XP_022779853_1 | phospholipase_A2_group_IIA
-Spis_XP_022779882_1	10	10	""	dickkopf-related protein 3-like	Spis_XP_022779882_1 | dickkopf-related protein 3-like
-Spis_XP_022779906_1	10	10	""	dickkopf-related protein 3-like	Spis_XP_022779906_1 | dickkopf-related protein 3-like
-Spis_XP_022779932_1	10	10	""	""	""
-Spis_XP_022779991_1	7	7	""	""	""
-Spis_XP_022780192_1	8	8	C2/C2/	Synaptotagmin.HG1.39:like:SYT1/SYT2/SYT3/SYT4/SYT5/SYT6/SYT7/SYT8/SYT9/SYT10/SYT11/SYT12/SYT13/SYT17:likeclu:25/30/31/36/38/40/41	Spis_XP_022780192_1 | Synaptotagmin.HG1.39:like:SYT1/SYT2/SYT3/SYT4...
-Spis_XP_022780216_1	5	5	Ank_2/Ank_2/Mab-21/	protein_phosphatase_1_regulatory_subunit_13_like	Spis_XP_022780216_1 | protein_phosphatase_1_regulatory_subunit_13_like
-Spis_XP_022780354_1	10	10	DUF885/	""	""
-Spis_XP_022780416_1	6	6	""	""	""
-Spis_XP_022780462_1	6	6	DUF885/	""	""
-Spis_XP_022780504_1	7	7	""	hemicentin_2	Spis_XP_022780504_1 | hemicentin_2
-Spis_XP_022780554_1	7	7	SH3_2/SH3_1/	Abelson_helper_integration_site_1	Spis_XP_022780554_1 | Abelson_helper_integration_site_1
-Spis_XP_022780690_1	6	6	""	skeletal aspartic acid-rich protein 2-like	Spis_XP_022780690_1 | skeletal aspartic acid-rich protein 2-like
-Spis_XP_022780695_1	5	5	TMEM173/	stimulator_of_interferon_response_cGAMP_interactor_1	Spis_XP_022780695_1 | stimulator_of_interferon_response_cGAMP_inter...
-Spis_XP_022780711_1	9	9	""	""	""
-Spis_XP_022780712_1	7	7	""	""	""
-Spis_XP_022780747_1	10	10	PLAT/EGF/CAP/Lectin_C/	Lectin_C.HG15.4:NA	Spis_XP_022780747_1 | Lectin_C.HG15.4:NA
-Spis_XP_022780772_1	5	5	""	""	""
-Spis_XP_022780781_1	10	10	Laminin_G_3/Laminin_G_3/Laminin_G_3/Laminin_G_3/	Laminin.HG4.1:NA	Spis_XP_022780781_1 | Laminin.HG4.1:NA
-Spis_XP_022780783_1	6	6	PA/Peptidase_M28/TFR_dimer/	folate_hydrolase_1	Spis_XP_022780783_1 | folate_hydrolase_1
-Spis_XP_022780819_1	4	4	Laminin_G_3/	Laminin.HG4.3:NA	Spis_XP_022780819_1 | Laminin.HG4.3:NA
-Spis_XP_022780848_1	4	4	Cu_amine_oxidN2/DUF1965/Cu_amine_oxid/	amine_oxidase_copper_containing_1	Spis_XP_022780848_1 | amine_oxidase_copper_containing_1
-Spis_XP_022780981_1	5	5	AAA_11/AAA_11/AAA_12/	zinc_finger_NFX1_type_containing_1	Spis_XP_022780981_1 | zinc_finger_NFX1_type_containing_1
-Spis_XP_022781044_1	3	3	Acyl_transf_1/	malonyl_CoA_acyl_carrier_protein_transacylase	Spis_XP_022781044_1 | malonyl_CoA_acyl_carrier_protein_transacylase
-Spis_XP_022781214_1	1	1	An_peroxidase/Lectin_C/	peroxidasin	Spis_XP_022781214_1 | peroxidasin
-Spis_XP_022781222_1	8	8	7tm_1/	GPCR-rhodopsin.HG14.4:NA	Spis_XP_022781222_1 | GPCR-rhodopsin.HG14.4:NA
-Spis_XP_022781440_1	3	3	PALP/	serine_dehydratase	Spis_XP_022781440_1 | serine_dehydratase
-Spis_XP_022781487_1	4	4	DUF885/	""	""
-Spis_XP_022781500_1	6	6	""	myosin_light_chain_1	Spis_XP_022781500_1 | myosin_light_chain_1
-Spis_XP_022781621_1	7	7	I-set/Ig_3/Ig_3/TIR_2/	TIR.HG1.11:like:IL1R1/IL1RAP/IL1RAPL1/IL1RAPL2/IL1RL1/IL1RL2/IL18R1/IL18RAP/SIGIRR:likeclu:9	Spis_XP_022781621_1 | TIR.HG1.11:like:IL1R1/IL1RAP/IL1RAPL1/IL1RAPL...
-Spis_XP_022781678_1	3	3	Endonuclease_NS/	""	""
-Spis_XP_022781682_1	10	10	""	formin-like protein 7 isoform X2	Spis_XP_022781682_1 | formin-like protein 7 isoform X2
-Spis_XP_022781725_1	10	10	""	""	""
-Spis_XP_022781771_1	10	10	""	""	""
-Spis_XP_022781799_1	10	10	""	glycine-rich protein 23-like isoform X7	Spis_XP_022781799_1 | glycine-rich protein 23-like isoform X7
-Spis_XP_022781919_1	3	3	""	""	""
-Spis_XP_022781966_1	1	1	RUN/	RUN_and_FYVE_domain_containing_4	Spis_XP_022781966_1 | RUN_and_FYVE_domain_containing_4
-Spis_XP_022781993_1	1	1	G_glu_transpept/	""	""
-Spis_XP_022781995_1	3	3	""	""	""
-Spis_XP_022782020_1	3	3	Mab-21/	mab_21_like_1	Spis_XP_022782020_1 | mab_21_like_1
-Spis_XP_022782025_1	6	6	""	""	""
-Spis_XP_022782080_1	7	7	EGF_CA/cEGF/EGF_CA/EGF_CA/EGF_CA/Sushi/Sushi/Ig_3/	sushi_von_Willebrand_factor_type_A_EGF_and_pentraxin_domain_containing_1	Spis_XP_022782080_1 | sushi_von_Willebrand_factor_type_A_EGF_and_pe...
-Spis_XP_022782083_1	7	7	Ephrin_rec_like/	signal_peptide_CUB_domain_and_EGF_like_domain_containing_3	Spis_XP_022782083_1 | signal_peptide_CUB_domain_and_EGF_like_domain...
-Spis_XP_022782117_1	1	1	SelP_N/	selenoprotein_P	Spis_XP_022782117_1 | selenoprotein_P
-Spis_XP_022782128_1	4	4	""	""	""
-Spis_XP_022782129_1	9	9	EF-hand_7/EF-hand_7/	sorcin	Spis_XP_022782129_1 | sorcin
-Spis_XP_022782153_1	7	7	Hexokinase_1/Hexokinase_2/	glucokinase	Spis_XP_022782153_1 | glucokinase
-Spis_XP_022782256_1	1	1	NAD_binding_5/Inos-1-P_synth/	inositol_3_phosphate_synthase_1	Spis_XP_022782256_1 | inositol_3_phosphate_synthase_1
-Spis_XP_022782284_1	5	5	""	""	""
-Spis_XP_022782373_1	3	3	Folate_rec/	""	""
-Spis_XP_022782385_1	8	8	""	LOW QUALITY PROTEIN: unconventional myosin-XVIIIa-like	Spis_XP_022782385_1 | LOW QUALITY PROTEIN: unconventional myosin-XV...
-Spis_XP_022782452_1	1	1	""	""	""
-Spis_XP_022782610_1	6	6	SSF/	SSF.HG2.7:like:SLC5A3:likeclu:6	Spis_XP_022782610_1 | SSF.HG2.7:like:SLC5A3:likeclu:6
-Spis_XP_022782623_1	6	6	""	""	""
-Spis_XP_022782661_1	7	7	zf-CHY/	""	""
-Spis_XP_022782678_1	9	9	""	galaxin-like	Spis_XP_022782678_1 | galaxin-like
-Spis_XP_022782720_1	1	1	Granulin/Granulin/	granulin_precursor	Spis_XP_022782720_1 | granulin_precursor
-Spis_XP_022782799_1	6	6	DAO/	FAD_dependent_oxidoreductase_domain_containing_1	Spis_XP_022782799_1 | FAD_dependent_oxidoreductase_domain_containing_1
-Spis_XP_022782820_1	10	10	Vps62/Vps62/	""	""
-Spis_XP_022782959_1	8	8	Zona_pellucida/	""	""
-Spis_XP_022782960_1	5	5	Mab-21/	Mab_21_domain_containing_2	Spis_XP_022782960_1 | Mab_21_domain_containing_2
-Spis_XP_022782970_1	10	10	""	proline-rich protein 36-like	Spis_XP_022782970_1 | proline-rich protein 36-like
-Spis_XP_022782988_1	4	4	SEA/	""	""
-Spis_XP_022782999_1	8	8	Zona_pellucida/Zona_pellucida/Zona_pellucida/Zona_pellucida/	""	""
-Spis_XP_022783033_1	7	7	""	""	""
-Spis_XP_022783145_1	3	3	DUF1445/	D_glutamate_cyclase	Spis_XP_022783145_1 | D_glutamate_cyclase
-Spis_XP_022783240_1	1	1	PFL-like/	""	""
-Spis_XP_022783257_1	10	10	Lectin_C/Lectin_C/VWA/	mannose_receptor_C_type_2	Spis_XP_022783257_1 | mannose_receptor_C_type_2
-Spis_XP_022783270_1	7	7	fn2/fn2/fn2/	fibronectin.HG4.1:like:ELSPBP1:likeclu:0	Spis_XP_022783270_1 | fibronectin.HG4.1:like:ELSPBP1:likeclu:0
-Spis_XP_022783317_1	3	3	Thioredoxin_8/	nucleoredoxin_like_2	Spis_XP_022783317_1 | nucleoredoxin_like_2
-Spis_XP_022783442_1	9	9	CECR6_TMEM121/	""	""
-Spis_XP_022783595_1	9	9	NIDO/AMOP/VWD/Sushi/Sushi/	sushi_domain_containing_2	Spis_XP_022783595_1 | sushi_domain_containing_2
-Spis_XP_022783669_1	4	4	""	protein DD3-3-like isoform X1	Spis_XP_022783669_1 | protein DD3-3-like isoform X1
-Spis_XP_022783671_1	4	4	""	protein DD3-3-like	Spis_XP_022783671_1 | protein DD3-3-like
-Spis_XP_022783801_1	7	7	""	Fas_cell_surface_death_receptor	Spis_XP_022783801_1 | Fas_cell_surface_death_receptor
-Spis_XP_022783827_1	10	10	""	mucin-7-like	Spis_XP_022783827_1 | mucin-7-like
-Spis_XP_022783869_1	10	10	Lectin_C/	C_type_lectin_domain_containing_10A	Spis_XP_022783869_1 | C_type_lectin_domain_containing_10A
-Spis_XP_022783886_1	7	7	PG_binding_1/Peptidase_M10/	matrix_metallopeptidase_19	Spis_XP_022783886_1 | matrix_metallopeptidase_19
-Spis_XP_022783887_1	7	7	PG_binding_1/Peptidase_M10/ShK/	matrix_metallopeptidase_3	Spis_XP_022783887_1 | matrix_metallopeptidase_3
-Spis_XP_022783895_1	4	4	Gal_Lectin/Gal_Lectin/Gal_Lectin/Gal_Lectin/	adhesion_G_protein_coupled_receptor_L3	Spis_XP_022783895_1 | adhesion_G_protein_coupled_receptor_L3
-Spis_XP_022783952_1	3	3	PG_binding_1/Peptidase_M10/	matrix_metallopeptidase_13	Spis_XP_022783952_1 | matrix_metallopeptidase_13
-Spis_XP_022783981_1	9	9	""	""	""
-Spis_XP_022783992_1	5	5	WSC/An_peroxidase/	prostaglandin_endoperoxide_synthase_2	Spis_XP_022783992_1 | prostaglandin_endoperoxide_synthase_2
-Spis_XP_022784034_1	6	6	Trefoil/NtCtMGAM_N/Gal_mutarotas_2/Glyco_hydro_31/	maltase_glucoamylase	Spis_XP_022784034_1 | maltase_glucoamylase
-Spis_XP_022784042_1	7	7	MAM/Trypsin/	ovochymase_1	Spis_XP_022784042_1 | ovochymase_1
-Spis_XP_022784087_1	3	3	EcKinase/	""	""
-Spis_XP_022784090_1	3	3	RRM_1/RRM_1/	RRM.HG41.0:RBPMS/RBPMS2	Spis_XP_022784090_1 | RRM.HG41.0:RBPMS/RBPMS2
-Spis_XP_022784143_1	3	3	TPMT/	thiopurine_S_methyltransferase	Spis_XP_022784143_1 | thiopurine_S_methyltransferase
-Spis_XP_022784146_1	6	6	Anoct_dimer/Anoctamin/	anoctamin_3	Spis_XP_022784146_1 | anoctamin_3
-Spis_XP_022784241_1	1	1	Cu-oxidase_3/Cu-oxidase/Cu-oxidase_2/	hephaestin	Spis_XP_022784241_1 | hephaestin
-Spis_XP_022784329_1	6	6	MCM_N/MCM_OB/MCM/MCM_lid/	minichromosome_maintenance_complex_component_5	Spis_XP_022784329_1 | minichromosome_maintenance_complex_component_5
-Spis_XP_022784348_1	6	6	Peptidase_S9/	acylaminoacyl_peptide_hydrolase	Spis_XP_022784348_1 | acylaminoacyl_peptide_hydrolase
-Spis_XP_022784353_1	10	10	Peptidase_M10/	matrix_metallopeptidase_15	Spis_XP_022784353_1 | matrix_metallopeptidase_15
-Spis_XP_022784454_1	9	9	Pkinase/TBK1_ULD/	Pkinase.HG86.1:IKBKE/TBK1	Spis_XP_022784454_1 | Pkinase.HG86.1:IKBKE/TBK1
-Spis_XP_022784466_1	8	8	""	""	""
-Spis_XP_022784472_1	9	9	Ras/	ras_homolog_family_member_C	Spis_XP_022784472_1 | ras_homolog_family_member_C
-Spis_XP_022784603_1	10	10	GST_N/GST_C_3/	glutathione_S_transferase_mu_3	Spis_XP_022784603_1 | glutathione_S_transferase_mu_3
-Spis_XP_022784635_1	5	5	TMEM173/	stimulator_of_interferon_response_cGAMP_interactor_1	Spis_XP_022784635_1 | stimulator_of_interferon_response_cGAMP_inter...
-Spis_XP_022784636_1	9	9	TMEM173/	stimulator_of_interferon_response_cGAMP_interactor_1	Spis_XP_022784636_1 | stimulator_of_interferon_response_cGAMP_inter...
-Spis_XP_022784637_1	9	9	TMEM173/	stimulator_of_interferon_response_cGAMP_interactor_1	Spis_XP_022784637_1 | stimulator_of_interferon_response_cGAMP_inter...
-Spis_XP_022784639_1	9	9	TMEM173/	stimulator_of_interferon_response_cGAMP_interactor_1	Spis_XP_022784639_1 | stimulator_of_interferon_response_cGAMP_inter...
-Spis_XP_022784673_1	3	3	TMEM173/	stimulator_of_interferon_response_cGAMP_interactor_1	Spis_XP_022784673_1 | stimulator_of_interferon_response_cGAMP_inter...
-Spis_XP_022784675_1	6	6	Zona_pellucida/	uromodulin	Spis_XP_022784675_1 | uromodulin
-Spis_XP_022784683_1	3	3	dCMP_cyt_deam_1/	cytidine_and_dCMP_deaminase_domain_containing_1	Spis_XP_022784683_1 | cytidine_and_dCMP_deaminase_domain_containing_1
-Spis_XP_022784703_1	9	9	TMEM173/	stimulator_of_interferon_response_cGAMP_interactor_1	Spis_XP_022784703_1 | stimulator_of_interferon_response_cGAMP_inter...
-Spis_XP_022784710_1	7	7	Glyco_hydro_18/	chitinase_1	Spis_XP_022784710_1 | chitinase_1
-Spis_XP_022784735_1	7	7	Collagen/I-set/Ig_3/F5_F8_type_C/	Collagen.HG1.0:like:COLEC10/COLEC11/FCN1/FCN2/GLDN/MARCO/MBL2/MSR1/SCARA5/SFTPD:likeclu:2/7/9/12/13/15	Spis_XP_022784735_1 | Collagen.HG1.0:like:COLEC10/COLEC11/FCN1/FCN2...
-Spis_XP_022784736_1	7	7	Collagen/Collagen/I-set/Ig_3/Ig_3/F5_F8_type_C/	Collagen.HG1.0:like:COLEC10/COLEC11/FCN1/FCN2/GLDN/MARCO/MBL2/MSR1/SCARA5/SFTPD:likeclu:2/7/9/12/13/15	Spis_XP_022784736_1 | Collagen.HG1.0:like:COLEC10/COLEC11/FCN1/FCN2...
-Spis_XP_022784838_1	3	3	Spectrin/	Spectrin.HG3.0:like:DMD/DRP2/UTRN:likeclu:2	Spis_XP_022784838_1 | Spectrin.HG3.0:like:DMD/DRP2/UTRN:likeclu:2
-Spis_XP_022784867_1	6	6	""	""	""
-Spis_XP_022784873_1	5	5	""	""	""
-Spis_XP_022784876_1	6	6	Sulfotransfer_3/	""	""
-Spis_XP_022784942_1	1	1	""	""	""
-Spis_XP_022784982_1	6	6	DOMON/	DBH-like monooxygenase protein 2 homolog	Spis_XP_022784982_1 | DBH-like monooxygenase protein 2 homolog
-Spis_XP_022785063_1	1	1	Calx-beta/Zona_pellucida/	CUB_and_zona_pellucida_like_domains_1	Spis_XP_022785063_1 | CUB_and_zona_pellucida_like_domains_1
-Spis_XP_022785096_1	9	9	adh_short/adh_short_C2/	sterol_dehydrogenase.HG2.0:like:AL049779/DHRS13/DHRSX/HSD17B7/RDH11/RDH12/RDH13/RDH14/WWOX:likeclu:2/4	Spis_XP_022785096_1 | sterol_dehydrogenase.HG2.0:like:AL049779/DHRS...
-Spis_XP_022785115_1	1	1	CUB/CUB/Zona_pellucida/	CUB_and_zona_pellucida_like_domains_1	Spis_XP_022785115_1 | CUB_and_zona_pellucida_like_domains_1
-Spis_XP_022785133_1	3	3	GPP34/	""	""
-Spis_XP_022785288_1	5	5	Mab-21/	mab_21_like_3	Spis_XP_022785288_1 | mab_21_like_3
-Spis_XP_022785413_1	5	5	""	""	""
-Spis_XP_022785458_1	1	1	Collagen/Collagen/	Collagen.HG6.2:NA	Spis_XP_022785458_1 | Collagen.HG6.2:NA
-Spis_XP_022785465_1	1	1	ADH_N/ADH_zinc_N/	tumor_protein_p53_inducible_protein_3	Spis_XP_022785465_1 | tumor_protein_p53_inducible_protein_3
-Spis_XP_022785476_1	9	9	""	""	""
-Spis_XP_022785513_1	8	8	wnt/	wnt.HG1.1:like:WNT8A/WNT8B:likeclu:2	Spis_XP_022785513_1 | wnt.HG1.1:like:WNT8A/WNT8B:likeclu:2
-Spis_XP_022785544_1	4	4	CH/CH/Spectrin/	Spectrin.HG3.0:like:DMD/DRP2/UTRN:likeclu:2	Spis_XP_022785544_1 | Spectrin.HG3.0:like:DMD/DRP2/UTRN:likeclu:2
-Spis_XP_022785567_1	3	3	CH/CH/Spectrin/	Spectrin.HG3.0:like:DMD/DRP2/UTRN:likeclu:2	Spis_XP_022785567_1 | Spectrin.HG3.0:like:DMD/DRP2/UTRN:likeclu:2
-Spis_XP_022785637_1	6	6	""	""	""
-Spis_XP_022785669_1	6	6	ACAS_N/AMP-binding/AMP-binding_C/	acyl_CoA_synthetase_short_chain_family_member_3	Spis_XP_022785669_1 | acyl_CoA_synthetase_short_chain_family_member_3
-Spis_XP_022785875_1	7	7	Death/	""	""
-Spis_XP_022785880_1	4	4	""	vegetative cell wall protein gp1-like	Spis_XP_022785880_1 | vegetative cell wall protein gp1-like
-Spis_XP_022785891_1	7	7	zf-C3HC4_2/RAWUL/	BMI1_proto_oncogene_polycomb_ring_finger	Spis_XP_022785891_1 | BMI1_proto_oncogene_polycomb_ring_finger
-Spis_XP_022785965_1	7	7	MFS_2/MFS_1/	major_facilitator_superfamily_domain_containing_12	Spis_XP_022785965_1 | major_facilitator_superfamily_domain_containi...
-Spis_XP_022785973_1	9	9	""	""	""
-Spis_XP_022786014_1	3	3	Sarcoglycan_1/	Sarcoglycan.HG1.1:SGCD/SGCG/SGCZ	Spis_XP_022786014_1 | Sarcoglycan.HG1.1:SGCD/SGCG/SGCZ
-Spis_XP_022786035_1	9	9	GBP/Peptidase_S74/	""	""
-Spis_XP_022786045_1	9	9	GBP/	""	""
-Spis_XP_022786049_1	5	5	CARD/Death/	caspase_recruitment_domain_family_member_10	Spis_XP_022786049_1 | caspase_recruitment_domain_family_member_10
-Spis_XP_022786062_1	9	9	""	""	""
-Spis_XP_022786105_1	6	6	Sulfatase/	iduronate_2_sulfatase	Spis_XP_022786105_1 | iduronate_2_sulfatase
-Spis_XP_022786116_1	10	10	ApeC/	""	""
-Spis_XP_022786118_1	5	5	Tropomyosin/	tropomyosin-like	Spis_XP_022786118_1 | tropomyosin-like
-Spis_XP_022786203_1	1	1		HLH.like:ASCL1/ASCL2	Spis_XP_022786203_1 | HLH.like:ASCL1/ASCL2
-Spis_XP_022786230_1	8	8	Collagen/Collagen/	Collagen.HG8.4:NA	Spis_XP_022786230_1 | Collagen.HG8.4:NA
-Spis_XP_022786249_1	5	5	Peptidase_S8/P_proprotein/TSP_1/TSP_1/	proprotein_convertase_subtilisin_kexin_type_6	Spis_XP_022786249_1 | proprotein_convertase_subtilisin_kexin_type_6
-Spis_XP_022786290_1	7	7	Peptidase_S8/P_proprotein/TSP_1/TSP_1/TSP_1/TSP_1/	proprotein_convertase_subtilisin_kexin_type_4	Spis_XP_022786290_1 | proprotein_convertase_subtilisin_kexin_type_4
-Spis_XP_022786308_1	7	7	BRICHOS/	""	""
-Spis_XP_022786498_1	5	5	""	""	""
-Spis_XP_022786520_1	8	8	Pyridoxal_deC/	glutamate_decarboxylase_like_1	Spis_XP_022786520_1 | glutamate_decarboxylase_like_1
-Spis_XP_022786534_1	8	8	Pyridoxal_deC/	""	""
-Spis_XP_022786561_1	8	8	TSP_1/TSP_1/TSP_1/TSP_1/TSP1_ADAMTS/Ig_3/	cartilage_intermediate_layer_protein	Spis_XP_022786561_1 | cartilage_intermediate_layer_protein
-Spis_XP_022786592_1	3	3	Ca_hom_mod/	protein FAM26E-like	Spis_XP_022786592_1 | protein FAM26E-like
-Spis_XP_022786614_1	6	6	TIMP/	TIMP_metallopeptidase_inhibitor_3	Spis_XP_022786614_1 | TIMP_metallopeptidase_inhibitor_3
-Spis_XP_022786637_1	7	7	TIMP/	TIMP_metallopeptidase_inhibitor_3	Spis_XP_022786637_1 | TIMP_metallopeptidase_inhibitor_3
-Spis_XP_022786665_1	1	1	Transferrin/	melanotransferrin	Spis_XP_022786665_1 | melanotransferrin
-Spis_XP_022786676_1	5	5	BRICHOS/	""	""
-Spis_XP_022786680_1	1	1	F-box-like/WD40/WD40/WD40/WD40/	epithelial_cell_transforming_2_like	Spis_XP_022786680_1 | epithelial_cell_transforming_2_like
-Spis_XP_022786692_1	10	10	VWA/VWA/	collagen_type_VI_alpha_5_chain	Spis_XP_022786692_1 | collagen_type_VI_alpha_5_chain
-Spis_XP_022786717_1	10	10	Ldl_recept_a/Ldl_recept_a/Ldl_recept_a/	sortilin_related_receptor_1	Spis_XP_022786717_1 | sortilin_related_receptor_1
-Spis_XP_022786719_1	4	4	Pyridoxal_deC/	""	""
-Spis_XP_022786730_1	9	9	Pyridoxal_deC/	""	""
-Spis_XP_022786741_1	1	1	""	""	""
-Spis_XP_022786756_1	1	1	RSN1_TM/PHM7_cyt/RSN1_7TM/	transmembrane_protein_63B	Spis_XP_022786756_1 | transmembrane_protein_63B
-Spis_XP_022786943_1	6	6	2OG-FeII_Oxy_3/	prolyl_4_hydroxylase_transmembrane	Spis_XP_022786943_1 | prolyl_4_hydroxylase_transmembrane
-Spis_XP_022787005_1	6	6	2OG-FeII_Oxy_3/	prolyl_4_hydroxylase_transmembrane	Spis_XP_022787005_1 | prolyl_4_hydroxylase_transmembrane
-Spis_XP_022787007_1	5	5	Mab-21/	Mab_21_domain_containing_2	Spis_XP_022787007_1 | Mab_21_domain_containing_2
-Spis_XP_022787101_1	2	2	CUB/CUB/FXa_inhibition/Zona_pellucida/	oncoprotein_induced_transcript_3	Spis_XP_022787101_1 | oncoprotein_induced_transcript_3
-Spis_XP_022787110_1	1	1	FXa_inhibition/FXa_inhibition/Zona_pellucida/	CUB_and_zona_pellucida_like_domains_1	Spis_XP_022787110_1 | CUB_and_zona_pellucida_like_domains_1
-Spis_XP_022787119_1	10	10	Lipocalin_2/	apolipoprotein_D	Spis_XP_022787119_1 | apolipoprotein_D
-Spis_XP_022787151_1	4	4	zf-C3HC4_3/	""	""
-Spis_XP_022787156_1	1	1	Lipocalin_2/	apolipoprotein_D	Spis_XP_022787156_1 | apolipoprotein_D
-Spis_XP_022787167_1	7	7	Tyrosinase/	tyrosinase	Spis_XP_022787167_1 | tyrosinase
-Spis_XP_022787224_1	8	8	Lectin_C/EGF_CA/EGF_3/EGF_3/TLD/	Lectin_C.HG4.2:NA	Spis_XP_022787224_1 | Lectin_C.HG4.2:NA
-Spis_XP_022787367_1	8	8	TGF_beta/	TGF_beta.HG1.25:like:INHA/INHBA/INHBB/INHBC/INHBE:likeclu:29/31	Spis_XP_022787367_1 | TGF_beta.HG1.25:like:INHA/INHBA/INHBB/INHBC/I...
-Spis_XP_022787383_1	3	3	zf-C3HC4_2/zf-TRAF/zf-TRAF/	TNF_receptor_associated_factor_3	Spis_XP_022787383_1 | TNF_receptor_associated_factor_3
-Spis_XP_022787406_1	10	10	""	vegetative cell wall protein gp1-like	Spis_XP_022787406_1 | vegetative cell wall protein gp1-like
-Spis_XP_022787410_1	3	3	Mab-21/	""	""
-Spis_XP_022787439_1	5	5	Mab-21/	Mab_21_domain_containing_2	Spis_XP_022787439_1 | Mab_21_domain_containing_2
-Spis_XP_022787450_1	6	6	""	protein rolling stone-like	Spis_XP_022787450_1 | protein rolling stone-like
-Spis_XP_022787501_1	7	7	7tm_1/	GPCR-rhodopsin.HG25.14:NA	Spis_XP_022787501_1 | GPCR-rhodopsin.HG25.14:NA
-Spis_XP_022787512_1	3	3	DUF4062/NACHT/	NACHT_and_WD_repeat_domain_containing_2	Spis_XP_022787512_1 | NACHT_and_WD_repeat_domain_containing_2
-Spis_XP_022787516_1	3	3	Filamin/NHL/	NHL_repeat_containing_E3_ubiquitin_protein_ligase_1	Spis_XP_022787516_1 | NHL_repeat_containing_E3_ubiquitin_protein_li...
-Spis_XP_022787562_1	1	1	LRR_5/7tm_1/	GPCR-rhodopsin.HG57.1:FSHR/LHCGR/TSHR	Spis_XP_022787562_1 | GPCR-rhodopsin.HG57.1:FSHR/LHCGR/TSHR
-Spis_XP_022787667_1	7	7	ShK/ShK/ShK/CAP/	GLI_pathogenesis_related_2	Spis_XP_022787667_1 | GLI_pathogenesis_related_2
-Spis_XP_022787864_1	8	8	Ldl_recept_b/SRCR/SRCR/SRCR/FXa_inhibition/SRCR/SRCR/SRCR/Ldl_recept_b/FXa_inhibition/SRCR/SRCR/SRCR/	Ldl_recept_b.HG1.8:like:EGF/LDLR/LRP1/LRP1B/LRP2/LRP4/LRP5/LRP5L/LRP6/LRP8/VLDLR:likeclu:16/18/19/20/24/27	Spis_XP_022787864_1 | Ldl_recept_b.HG1.8:like:EGF/LDLR/LRP1/LRP1B/L...
-Spis_XP_022787887_1	9	9	""	""	""
-Spis_XP_022787895_1	1	1	Sulfotransfer_3/	tyrosylprotein_sulfotransferase_2	Spis_XP_022787895_1 | tyrosylprotein_sulfotransferase_2
-Spis_XP_022787898_1	7	7	Astacin/ShK/ShK/Trypsin/	chymotrypsin_like	Spis_XP_022787898_1 | chymotrypsin_like
-Spis_XP_022787899_1	7	7	""	""	""
-Spis_XP_022787910_1	7	7	Lectin_C/Lectin_C/	mannose_receptor_C_type_2	Spis_XP_022787910_1 | mannose_receptor_C_type_2
-Spis_XP_022787941_1	4	4	Peptidase_M13_N/Peptidase_M13/	endothelin_converting_enzyme_2	Spis_XP_022787941_1 | endothelin_converting_enzyme_2
-Spis_XP_022787954_1	3	3	TFAP4	HLH.TFAP4	Spis_XP_022787954_1 | HLH.TFAP4
-Spis_XP_022787964_1	7	7	I-set/Ig_3/Ig_3/Fibrinogen_C/	NCam.HG3.10:like:MFAP3L:likeclu:3	Spis_XP_022787964_1 | NCam.HG3.10:like:MFAP3L:likeclu:3
-Spis_XP_022788020_1	3	3	Mab-21/	Mab_21_domain_containing_2	Spis_XP_022788020_1 | Mab_21_domain_containing_2
-Spis_XP_022788034_1	10	10	TIMP/	TIMP_metallopeptidase_inhibitor_3	Spis_XP_022788034_1 | TIMP_metallopeptidase_inhibitor_3
-Spis_XP_022788074_1	7	7	LPMO_10/	""	""
-Spis_XP_022788244_1	7	7	""	""	""
-Spis_XP_022788278_1	8	8	""	""	""
-Spis_XP_022788336_1	10	10	islike:JUN/JUNB/JUND	bZIP.JUN/JUNB/JUND	Spis_XP_022788336_1 | bZIP.JUN/JUNB/JUND
-Spis_XP_022788408_1	3	3	HlyIII/	progestin_and_adipoQ_receptor_family_member_5	Spis_XP_022788408_1 | progestin_and_adipoQ_receptor_family_member_5
-Spis_XP_022788470_1	2	2	""	""	""
-Spis_XP_022788500_1	10	10	""	""	""
-Spis_XP_022788575_1	4	4	""	aspartate, glycine, lysine and serine-rich protein-like	Spis_XP_022788575_1 | aspartate, glycine, lysine and serine-rich pr...
-Spis_XP_022788666_1	9	9	""	""	""
-Spis_XP_022788692_1	3	3	ATP-gua_PtransN/ATP-gua_Ptrans/	creatine_kinase_B	Spis_XP_022788692_1 | creatine_kinase_B
-Spis_XP_022788743_1	10	10	Ig_3/	peroxidasin homolog	Spis_XP_022788743_1 | peroxidasin homolog
-Spis_XP_022788789_1	1	1	Sugar_tr/	Sugar_tr.HG1.1:like:SLC22A1/SLC22A2/SLC22A3/SLC22A4/SLC22A5/SLC22A6/SLC22A7/SLC22A8/SLC22A9/SLC22A10/SLC22A11/SLC22A12/SLC22A13/SLC22A14/SLC22A15/SLC22A16/SLC22A17/SLC22A23/SLC22A24/SLC22A25/SLC22A31:likeclu:4/6/10/11/12/24/25/26/29/30/31/37/74/76/77	Spis_XP_022788789_1 | Sugar_tr.HG1.1:like:SLC22A1/SLC22A2/SLC22A3/S...
-Spis_XP_022788891_1	10	10	Peptidase_M13_N/Peptidase_M13/	endothelin_converting_enzyme_1	Spis_XP_022788891_1 | endothelin_converting_enzyme_1
-Spis_XP_022788893_1	10	10	HNF_HMBOX1	Homeodomains.HNF_HMBOX1	Spis_XP_022788893_1 | Homeodomains.HNF_HMBOX1
-Spis_XP_022789220_1	7	7	Patched/ketoacyl-synt/Ketoacyl-synt_C/KAsynt_C_assoc/Acyl_transf_1/PS-DH/KR/Thioesterase/	Patched.HG2.3:NA	Spis_XP_022789220_1 | Patched.HG2.3:NA
-Spis_XP_022789286_1	5	5	FGF/	FGF.HG1.39:like:FGF8/FGF17/FGF18:likeclu:34	Spis_XP_022789286_1 | FGF.HG1.39:like:FGF8/FGF17/FGF18:likeclu:34
-Spis_XP_022789330_1	10	10	Astacin/Astacin/	bone_morphogenetic_protein_1	Spis_XP_022789330_1 | bone_morphogenetic_protein_1
-Spis_XP_022789359_1	7	7	MACPF/	""	""
-Spis_XP_022789375_1	3	3	DAN/	""	""
-Spis_XP_022789398_1	7	7	PAN_1/	""	""
-Spis_XP_022789479_1	10	10	""	""	""
-Spis_XP_022789489_1	10	10	""	""	""
-Spis_XP_022789491_1	10	10	""	""	""
-Spis_XP_022789498_1	10	10	""	spidroin-1-like isoform X2	Spis_XP_022789498_1 | spidroin-1-like isoform X2
-Spis_XP_022789503_1	10	10	""	""	""
-Spis_XP_022789505_1	4	4	""	""	""
-Spis_XP_022789521_1	4	4	""	""	""
-Spis_XP_022789525_1	10	10	""	keratin-associated protein 10-6-like	Spis_XP_022789525_1 | keratin-associated protein 10-6-like
-Spis_XP_022789665_1	6	6	Ank_2/TRP_2/Ion_trans/	ion-NaKCa.HG5.0:TRPC1/TRPC3/TRPC4/TRPC5/TRPC6/TRPC7	Spis_XP_022789665_1 | ion-NaKCa.HG5.0:TRPC1/TRPC3/TRPC4/TRPC5/TRPC6...
-Spis_XP_022790012_1	3	3	CH/	calponin_1	Spis_XP_022790012_1 | calponin_1
-Spis_XP_022790112_1	3	3	fn3/fn3/fn3/	fibronectin.HG2.7:like:AXL/MERTK/NPHS1/ROS1/TEK/TIE1/TYRO3/VSIG10L2:likeclu:13/15/17/18/24	Spis_XP_022790112_1 | fibronectin.HG2.7:like:AXL/MERTK/NPHS1/ROS1/T...
-Spis_XP_022790136_1	4	4	AbfB/TSP_1/TSP_1/	thrombospondin_1	Spis_XP_022790136_1 | thrombospondin_1
-Spis_XP_022790152_1	10	10	AbfB/fn2/fn2/	fibronectin.HG4.10:like:ELSPBP1:likeclu:0	Spis_XP_022790152_1 | fibronectin.HG4.10:like:ELSPBP1:likeclu:0
-Spis_XP_022790163_1	10	10	AbfB/	""	""
-Spis_XP_022790178_1	4	4	AbfB/	""	""
-Spis_XP_022790188_1	10	10	""	""	""
-Spis_XP_022790199_1	4	4	""	mucin-2-like	Spis_XP_022790199_1 | mucin-2-like
-Spis_XP_022790272_1	3	3	MFS_1_like/	major_facilitator_superfamily_domain_containing_6	Spis_XP_022790272_1 | major_facilitator_superfamily_domain_containi...
-Spis_XP_022790296_1	1	1	Collagen/Collagen/Collagen/	Collagen.HG16.0:NA	Spis_XP_022790296_1 | Collagen.HG16.0:NA
-Spis_XP_022790299_1	3	3	Phosphodiest/	ectonucleotide_pyrophosphatase_phosphodiesterase_family_member_5	Spis_XP_022790299_1 | ectonucleotide_pyrophosphatase_phosphodiester...
-Spis_XP_022790350_1	6	6	AAA/Rep_fac_C/	replication_factor_C_subunit_4	Spis_XP_022790350_1 | replication_factor_C_subunit_4
-Spis_XP_022790458_1	5	5	Mab-21/	Mab_21_domain_containing_2	Spis_XP_022790458_1 | Mab_21_domain_containing_2
-Spis_XP_022790471_1	10	10	MFS_1/	Sugar_tr.HG5.1:NA	Spis_XP_022790471_1 | Sugar_tr.HG5.1:NA
-Spis_XP_022790518_1	10	10	islike:PRD_DUX4/PRD_DUXA/PRD_DUXB	Homeodomains.PRD_DUX4/PRD_DUXA/PRD_DUXB	Spis_XP_022790518_1 | Homeodomains.PRD_DUX4/PRD_DUXA/PRD_DUXB
-Spis_XP_022790575_1	9	9	BTB/BTB/BACK/	BTB.HG1.21:like:AL033529/BACH1/BACH2/BCL6/BCL6B/ENC1/GZF1/HIC1/HIC2/IPP/IVNS1ABP/KBTBD2/KBTBD3/KBTBD4/KBTBD6/KBTBD7/KBTBD8/KBTBD11/KBTBD12/KBTBD13/KEAP1/KLHL1/KLHL2/KLHL3/KLHL4/KLHL5/KLHL6/KLHL7/KLHL8/KLHL9/KLHL10/KLHL12/KLHL13/KLHL14/KLHL15/KLHL17/KLHL18/KLHL20/KLHL21/KLHL22/KLHL23/KLHL24/KLHL25/KLHL26/KLHL28/KLHL29/KLHL30/KLHL31/KLHL32/KLHL33/KLHL34/KLHL35/KLHL36/KLHL38/KLHL40/KLHL41/MYNN/NACC1/NACC2/PATZ1/ZBTB1/ZBTB2/ZBTB3/ZBTB4/ZBTB5/ZBTB6/ZBTB7A/ZBTB7B/ZBTB7C/ZBTB8A/ZBTB8B/ZBTB9/ZBTB10/ZBTB11/ZBTB12/ZBTB14/ZBTB16/ZBTB17/ZBTB18/ZBTB20/ZBTB21/ZBTB22/ZBTB24/ZBTB25/ZBTB26/ZBTB32/ZBTB33/ZBTB34/ZBTB37/ZBTB38/ZBTB39/ZBTB40/ZBTB41/ZBTB42/ZBTB43/ZBTB44/ZBTB45/ZBTB46/ZBTB47/ZBTB48/ZBTB49/ZNF131:likeclu:10/16/17/22/26/27/29/30/33/34/36/38/40/44/46/47/48/51/52/54/56/57/58/59/61/62/65/66/68/69/71/72/74/76/78/79/80/82/86/88/89/91/95/96/97/98/99/100/101/102/103/104/105/106/107/108/109/110/111/112/113/114/115/116/117/118/119/120/121/122/123/124/125/126/127/134	Spis_XP_022790575_1 | BTB.HG1.21:like:AL033529/BACH1/BACH2/BCL6/BCL...
-Spis_XP_022790618_1	1	1	Fz/Fz/	Frizzled.HG1.12:like:FRZB/FZD1/FZD2/FZD3/FZD4/FZD5/FZD6/FZD7/FZD8/FZD9/FZD10/GPR157/MFRP/SFRP1/SFRP2/SFRP4/SFRP5/SMO:likeclu:15/16/23/25/29/31/32/33/37	Spis_XP_022790618_1 | Frizzled.HG1.12:like:FRZB/FZD1/FZD2/FZD3/FZD4...
-Spis_XP_022790632_1	7	7	Kunitz_BPTI/Kunitz_BPTI/	alpha_1_microglobulin_bikunin_precursor	Spis_XP_022790632_1 | alpha_1_microglobulin_bikunin_precursor
-Spis_XP_022790633_1	6	6	Aldo_ket_red/	aldo_keto_reductase_family_7_member_A2	Spis_XP_022790633_1 | aldo_keto_reductase_family_7_member_A2
-Spis_XP_022790678_1	7	7	Gla/F5_F8_type_C/	AE_binding_protein_1	Spis_XP_022790678_1 | AE_binding_protein_1
-Spis_XP_022790912_1	1	1	Sulfatase/Sulfatase_C/	steroid_sulfatase	Spis_XP_022790912_1 | steroid_sulfatase
-Spis_XP_022790998_1	8	8	""	branched-chain-amino-acid aminotransferase-like protein 2	Spis_XP_022790998_1 | branched-chain-amino-acid aminotransferase-li...
-Spis_XP_022791001_1	7	7	TNF/	""	""
-Spis_XP_022791169_1	6	6	MCM_N/MCM_OB/MCM/MCM_lid/	minichromosome_maintenance_complex_component_7	Spis_XP_022791169_1 | minichromosome_maintenance_complex_component_7
-Spis_XP_022791195_1	6	6	Ras/	RAP2B_member_of_RAS_oncogene_family	Spis_XP_022791195_1 | RAP2B_member_of_RAS_oncogene_family
-Spis_XP_022791207_1	7	7	""	""	""
-Spis_XP_022791276_1	3	3	PARG_cat/PARG_cat/	poly_ADP_ribose_glycohydrolase	Spis_XP_022791276_1 | poly_ADP_ribose_glycohydrolase
-Spis_XP_022791342_1	2	2	""	""	""
-Spis_XP_022791402_1	5	5	""	probable serine/threonine-protein kinase DDB_G0277165	Spis_XP_022791402_1 | probable serine/threonine-protein kinase DDB_...
-Spis_XP_022791409_1	9	9	zf-CHY/zf-RING_2/	zinc finger CCCH domain-containing protein 13-like	Spis_XP_022791409_1 | zinc finger CCCH domain-containing protein 13...
-Spis_XP_022791600_1	9	9	NB-ARC/NosD/zf-MYND/	stress_induced_phosphoprotein_1	Spis_XP_022791600_1 | stress_induced_phosphoprotein_1
-Spis_XP_022791673_1	8	8	wnt/	wnt.HG1.19:WNT6	Spis_XP_022791673_1 | wnt.HG1.19:WNT6
-Spis_XP_022791679_1	10	10	CAP/	GLI_pathogenesis_related_2	Spis_XP_022791679_1 | GLI_pathogenesis_related_2
-Spis_XP_022791704_1	6	6	p450/	CYP.HG4.0:CYP11A1/CYP11B1/CYP11B2/CYP24A1/CYP27A1/CYP27B1/CYP27C1	Spis_XP_022791704_1 | CYP.HG4.0:CYP11A1/CYP11B1/CYP11B2/CYP24A1/CYP...
-Spis_XP_022791713_1	3	3	Gal-3-0_sulfotr/Gal-3-0_sulfotr/	galactose_3_O_sulfotransferase_1	Spis_XP_022791713_1 | galactose_3_O_sulfotransferase_1
-Spis_XP_022791734_1	3	3	adh_short_C2/	sterol_dehydrogenase.HG1.19:DHRS2/DHRS4/DHRS4L2	Spis_XP_022791734_1 | sterol_dehydrogenase.HG1.19:DHRS2/DHRS4/DHRS4L2
-Spis_XP_022791736_1	10	10	CAP/	""	""
-Spis_XP_022791745_1	4	4	CAP/	GLI_pathogenesis_related_2	Spis_XP_022791745_1 | GLI_pathogenesis_related_2
-Spis_XP_022791746_1	1	1	CENP-I/	centromere_protein_I	Spis_XP_022791746_1 | centromere_protein_I
-Spis_XP_022791759_1	10	10	CAP/	GLI_pathogenesis_related_2	Spis_XP_022791759_1 | GLI_pathogenesis_related_2
-Spis_XP_022791794_1	6	6	BRICHOS/	""	""
-Spis_XP_022791919_1	10	10	7tm_1/	GPCR-rhodopsin.HG5.46:like:ADORA1/ADORA3/GPR119/TMIGD3:likeclu:40/45	Spis_XP_022791919_1 | GPCR-rhodopsin.HG5.46:like:ADORA1/ADORA3/GPR1...
-Spis_XP_022791920_1	1	1	MFS_1/	solute_carrier_family_46_member_1	Spis_XP_022791920_1 | solute_carrier_family_46_member_1
-Spis_XP_022791922_1	1	1	Ras/	RAS_like_estrogen_regulated_growth_inhibitor	Spis_XP_022791922_1 | RAS_like_estrogen_regulated_growth_inhibitor
-Spis_XP_022791945_1	10	10	Sugar_tr/	Sugar_tr.HG1.36:like:SLC22A15:likeclu:4	Spis_XP_022791945_1 | Sugar_tr.HG1.36:like:SLC22A15:likeclu:4
-Spis_XP_022792027_1	7	7	ShK/Trypsin/	transmembrane_serine_protease_3	Spis_XP_022792027_1 | transmembrane_serine_protease_3
-Spis_XP_022792048_1	7	7	Glycos_transf_2/Ricin_B_lectin/	polypeptide_N_acetylgalactosaminyltransferase_6	Spis_XP_022792048_1 | polypeptide_N_acetylgalactosaminyltransferase_6
-Spis_XP_022792109_1	6	6	Fz/Fz/	Frizzled.HG1.12:like:FRZB/FZD1/FZD2/FZD3/FZD4/FZD5/FZD6/FZD7/FZD8/FZD9/FZD10/GPR157/MFRP/SFRP1/SFRP2/SFRP4/SFRP5/SMO:likeclu:15/16/23/25/29/31/32/33/37	Spis_XP_022792109_1 | Frizzled.HG1.12:like:FRZB/FZD1/FZD2/FZD3/FZD4...
-Spis_XP_022792216_1	4	4	7tm_1/	GPCR-rhodopsin.HG16.9:NA	Spis_XP_022792216_1 | GPCR-rhodopsin.HG16.9:NA
-Spis_XP_022792312_1	9	9	Amino_oxidase/	interleukin_4_induced_1	Spis_XP_022792312_1 | interleukin_4_induced_1
-Spis_XP_022792317_1	6	6		HMGbox_Sox.like:BHMG1/SOX1/SOX2/SOX3/SOX14/SOX15/SOX21/SRY	Spis_XP_022792317_1 | HMGbox_Sox.like:BHMG1/SOX1/SOX2/SOX3/SOX14/SO...
-Spis_XP_022792363_1	4	4	Laminin_G_3/Lectin_C/	Lectin_C.HG5.10:like:DGCR2:likeclu:1	Spis_XP_022792363_1 | Lectin_C.HG5.10:like:DGCR2:likeclu:1
-Spis_XP_022792467_1	10	10	MIP/	aquaporin_3_Gill_blood_group_	Spis_XP_022792467_1 | aquaporin_3_Gill_blood_group_
-Spis_XP_022792476_1	1	1	MIP/	aquaporin_3_Gill_blood_group_	Spis_XP_022792476_1 | aquaporin_3_Gill_blood_group_
-Spis_XP_022792536_1	4	4	DUF885/	""	""
-Spis_XP_022792545_1	1	1	""	serum response factor homolog A-like isoform X1	Spis_XP_022792545_1 | serum response factor homolog A-like isoform X1
-Spis_XP_022792715_1	10	10	PhyH/	phytanoyl_CoA_2_hydroxylase	Spis_XP_022792715_1 | phytanoyl_CoA_2_hydroxylase
-Spis_XP_022792717_1	1	1	I-set/TIR_2/	TIR.HG1.11:like:IL1R1/IL1RAP/IL1RAPL1/IL1RAPL2/IL1RL1/IL1RL2/IL18R1/IL18RAP/SIGIRR:likeclu:9	Spis_XP_022792717_1 | TIR.HG1.11:like:IL1R1/IL1RAP/IL1RAPL1/IL1RAPL...
-Spis_XP_022792718_1	9	9	""	""	""
-Spis_XP_022792730_1	9	9	""	""	""
-Spis_XP_022792784_1	6	6	""	""	""
-Spis_XP_022792842_1	2	2	MIase/	""	""
-Spis_XP_022792871_1	7	7	""	""	""
-Spis_XP_022792901_1	7	7	Zip/	solute_carrier_family_39_member_10	Spis_XP_022792901_1 | solute_carrier_family_39_member_10
-Spis_XP_022792919_1	1	1	Fz/	Frizzled.HG1.12:like:FRZB/FZD1/FZD2/FZD3/FZD4/FZD5/FZD6/FZD7/FZD8/FZD9/FZD10/GPR157/MFRP/SFRP1/SFRP2/SFRP4/SFRP5/SMO:likeclu:15/16/23/25/29/31/32/33/37	Spis_XP_022792919_1 | Frizzled.HG1.12:like:FRZB/FZD1/FZD2/FZD3/FZD4...
-Spis_XP_022792926_1	6	6	C2/C2/FerI/C2/FerB/C2/C2/C2/Ferlin_C/	Synaptotagmin.HG3.2:DYSF/MYOF	Spis_XP_022792926_1 | Synaptotagmin.HG3.2:DYSF/MYOF
-Spis_XP_022792932_1	1	1	Pex24p/C2/C2/	Synaptotagmin.HG3.2:DYSF/MYOF	Spis_XP_022792932_1 | Synaptotagmin.HG3.2:DYSF/MYOF
-Spis_XP_022792965_1	10	10	FerI/C2/C2/	dysferlin	Spis_XP_022792965_1 | dysferlin
-Spis_XP_022793018_1	6	6	Collagen/Collagen/Ig_3/Ig_3/TLD/	Collagen.HG1.0:like:COLEC10/COLEC11/FCN1/FCN2/GLDN/MARCO/MBL2/MSR1/SCARA5/SFTPD:likeclu:2/7/9/12/13/15	Spis_XP_022793018_1 | Collagen.HG1.0:like:COLEC10/COLEC11/FCN1/FCN2...
-Spis_XP_022793023_1	8	8	Collagen/Collagen/Ig_3/Ig_3/TLD/	Collagen.HG1.0:like:COLEC10/COLEC11/FCN1/FCN2/GLDN/MARCO/MBL2/MSR1/SCARA5/SFTPD:likeclu:2/7/9/12/13/15	Spis_XP_022793023_1 | Collagen.HG1.0:like:COLEC10/COLEC11/FCN1/FCN2...
-Spis_XP_022793097_1	7	7	PAN_1/	""	""
-Spis_XP_022793099_1	3	3	Kelch_1/Kelch_1/Kelch_1/Kelch_1/	kelch-like protein 28	Spis_XP_022793099_1 | kelch-like protein 28
-Spis_XP_022793128_1	1	1	VWC/VWD/C8/TIL/	BMP_binding_endothelial_regulator	Spis_XP_022793128_1 | BMP_binding_endothelial_regulator
-Spis_XP_022793144_1	7	7	zf-RING_2/zf-B_box/	tripartite_motif_containing_2	Spis_XP_022793144_1 | tripartite_motif_containing_2
-Spis_XP_022793185_1	6	6	zf-B_box/	nucleoporin_98_and_96_precursor	Spis_XP_022793185_1 | nucleoporin_98_and_96_precursor
-Spis_XP_022793242_1	1	1	""	""	""
-Spis_XP_022793246_1	10	10	""	rRNA-processing protein EFG1-like	Spis_XP_022793246_1 | rRNA-processing protein EFG1-like
-Spis_XP_022793250_1	1	1	""	C1q_and_TNF_related_12	Spis_XP_022793250_1 | C1q_and_TNF_related_12
-Spis_XP_022793426_1	6	6	14-3-3/	tyrosine_3_monooxygenase_tryptophan_5_monooxygenase_activation_protein_beta	Spis_XP_022793426_1 | tyrosine_3_monooxygenase_tryptophan_5_monooxy...
-Spis_XP_022793467_1	3	3	zf-RING_UBOX/zf-B_box/Filamin/DUF5128/NHL/NHL/NHL/	tripartite_motif_containing_2	Spis_XP_022793467_1 | tripartite_motif_containing_2
-Spis_XP_022793470_1	7	7	DUF4430/	""	""
-Spis_XP_022793617_1	2	2	""	LDL_receptor_related_protein_1	Spis_XP_022793617_1 | LDL_receptor_related_protein_1
-Spis_XP_022793625_1	3	3	HAD_2/	""	""
-Spis_XP_022793643_1	10	10	Glyco_transf_18/	alpha_1_6_mannosylglycoprotein_6_beta_N_acetylglucosaminyltransferase	Spis_XP_022793643_1 | alpha_1_6_mannosylglycoprotein_6_beta_N_acety...
-Spis_XP_022793765_1	3	3	""	integumentary mucin C.1-like	Spis_XP_022793765_1 | integumentary mucin C.1-like
-Spis_XP_022793814_1	8	8	LRR_8/	leucine-rich repeat-containing protein 4C-like isoform X2	Spis_XP_022793814_1 | leucine-rich repeat-containing protein 4C-lik...
-Spis_XP_022793983_1	9	9	""	N_acetyltransferase_16_putative_	Spis_XP_022793983_1 | N_acetyltransferase_16_putative_
-Spis_XP_022793988_1	4	4	COesterase/	COesterase.HG1.8:like:NLGN1/NLGN2/NLGN3/NLGN4X/NLGN4Y:likeclu:13	Spis_XP_022793988_1 | COesterase.HG1.8:like:NLGN1/NLGN2/NLGN3/NLGN4...
-Spis_XP_022794004_1	1	1	7tm_1/	GPCR-rhodopsin.HG18.1:NA	Spis_XP_022794004_1 | GPCR-rhodopsin.HG18.1:NA
-Spis_XP_022794081_1	10	10	p450/	CYP.HG1.7:like:CYP1A1/CYP1A2/CYP1B1:likeclu:13	Spis_XP_022794081_1 | CYP.HG1.7:like:CYP1A1/CYP1A2/CYP1B1:likeclu:13
-Spis_XP_022794083_1	5	5	""	""	""
-Spis_XP_022794122_1	6	6	""	galaxin-like isoform X2	Spis_XP_022794122_1 | galaxin-like isoform X2
-Spis_XP_022794137_1	8	8	7tm_1/	GPCR-rhodopsin.HG8.33:like:ADORA2B:likeclu:11	Spis_XP_022794137_1 | GPCR-rhodopsin.HG8.33:like:ADORA2B:likeclu:11
-Spis_XP_022794162_1	8	8	MFS_2/MFS_1/	major_facilitator_superfamily_domain_containing_12	Spis_XP_022794162_1 | major_facilitator_superfamily_domain_containi...
-Spis_XP_022794286_1	1	1	FAM124/	family_with_sequence_similarity_124_member_A	Spis_XP_022794286_1 | family_with_sequence_similarity_124_member_A
-Spis_XP_022794466_1	10	10	Usp/	""	""
-Spis_XP_022794476_1	5	5	""	protein PFC0760c-like isoform X7	Spis_XP_022794476_1 | protein PFC0760c-like isoform X7
-Spis_XP_022794494_1	3	3	""	meiotic_double_stranded_break_formation_protein_4	Spis_XP_022794494_1 | meiotic_double_stranded_break_formation_prote...
-Spis_XP_022794511_1	3	3	Sclerostin/	sclerostin_domain_containing_1	Spis_XP_022794511_1 | sclerostin_domain_containing_1
-Spis_XP_022794535_1	1	1	Mab-21/	mab_21_like_2	Spis_XP_022794535_1 | mab_21_like_2
-Spis_XP_022794549_1	1	1	""	""	""
-Spis_XP_022794550_1	3	3	HEPN_DZIP3/	DAZ_interacting_zinc_finger_protein_3	Spis_XP_022794550_1 | DAZ_interacting_zinc_finger_protein_3
-Spis_XP_022794554_1	7	7	BRICHOS/	""	""
-Spis_XP_022794573_1	7	7	BRICHOS/	""	""
-Spis_XP_022794589_1	7	7	Fibrinogen_C/	angiopoietin_like_7	Spis_XP_022794589_1 | angiopoietin_like_7
-Spis_XP_022794658_1	1	1	""	""	""
-Spis_XP_022794697_1	3	3	ANTP_HMX1	Homeodomains.ANTP_HMX1/ANTP_HMX2/ANTP_HMX3/ANTP_NKX6-1/ANTP_NKX6-2/ANTP_NKX6-3	Spis_XP_022794697_1 | Homeodomains.ANTP_HMX1/ANTP_HMX2/ANTP_HMX3/AN...
-Spis_XP_022794740_1	7	7	7tm_1/	GPCR-rhodopsin.HG33.5:NA	Spis_XP_022794740_1 | GPCR-rhodopsin.HG33.5:NA
-Spis_XP_022794785_1	9	9	AATase/	""	""
-Spis_XP_022794844_1	3	3	ABC_membrane/ABC_tran/ABC_membrane/	ATP_binding_cassette_subfamily_C_member_4	Spis_XP_022794844_1 | ATP_binding_cassette_subfamily_C_member_4
-Spis_XP_022794924_1	8	8	""	""	""
-Spis_XP_022795039_1	1	1	SAM_2/SAM_1/	SAM.HG3.0:like:ANKS1A/ANKS1B/CASKIN1/CASKIN2/INPPL1/SAMD5/SAMSN1/SASH1/SASH3:likeclu:2/5/6/8	Spis_XP_022795039_1 | SAM.HG3.0:like:ANKS1A/ANKS1B/CASKIN1/CASKIN2/...
-Spis_XP_022795050_1	7	7	Fibrinogen_C/	tenascin_R	Spis_XP_022795050_1 | tenascin_R
-Spis_XP_022795051_1	7	7	Fibrinogen_C/	angiopoietin_like_7	Spis_XP_022795051_1 | angiopoietin_like_7
-Spis_XP_022795055_1	6	6	p450/	CYP.HG1.16:CYP17A1/CYP21A2	Spis_XP_022795055_1 | CYP.HG1.16:CYP17A1/CYP21A2
-Spis_XP_022795056_1	5	5	Mab-21/	mitochondrial_elongation_factor_1	Spis_XP_022795056_1 | mitochondrial_elongation_factor_1
-Spis_XP_022795087_1	9	9	Mab-21/	mitochondrial_elongation_factor_1	Spis_XP_022795087_1 | mitochondrial_elongation_factor_1
-Spis_XP_022795088_1	5	5	Mab-21/	cyclic_GMP_AMP_synthase	Spis_XP_022795088_1 | cyclic_GMP_AMP_synthase
-Spis_XP_022795099_1	7	7	START/	phosphatidylcholine_transfer_protein	Spis_XP_022795099_1 | phosphatidylcholine_transfer_protein
-Spis_XP_022795140_1	4	4	Zona_pellucida/	CUB_and_zona_pellucida_like_domains_1	Spis_XP_022795140_1 | CUB_and_zona_pellucida_like_domains_1
-Spis_XP_022795160_1	6	6	Fz/Kringle/fn3/Pkinase_Tyr/	Pkinase.HG2.13:TEK/TIE1	Spis_XP_022795160_1 | Pkinase.HG2.13:TEK/TIE1
-Spis_XP_022795186_1	3	3	p450/	CYP.HG1.7:like:CYP1A1/CYP1A2/CYP1B1:likeclu:13	Spis_XP_022795186_1 | CYP.HG1.7:like:CYP1A1/CYP1A2/CYP1B1:likeclu:13
-Spis_XP_022795231_1	9	9	GST_N_4/GST_C_6/	failed_axon_connections_homolog_metaxin_like_GST_domain_containing	Spis_XP_022795231_1 | failed_axon_connections_homolog_metaxin_like_...
-Spis_XP_022795242_1	9	9	GST_N_4/GST_C_6/	failed_axon_connections_homolog_metaxin_like_GST_domain_containing	Spis_XP_022795242_1 | failed_axon_connections_homolog_metaxin_like_...
-Spis_XP_022795250_1	5	5	""	""	""
-Spis_XP_022795352_1	3	3	ELFV_dehydrog_N/ELFV_dehydrog/	glutamate_dehydrogenase_2	Spis_XP_022795352_1 | glutamate_dehydrogenase_2
-Spis_XP_022795420_1	2	2	Mab-21/	Mab_21_domain_containing_2	Spis_XP_022795420_1 | Mab_21_domain_containing_2
-Spis_XP_022795430_1	5	5	CC2-LZ/	TNFAIP3-interacting protein 3-like isoform X2	Spis_XP_022795430_1 | TNFAIP3-interacting protein 3-like isoform X2
-Spis_XP_022795453_1	6	6	PLAC8/	placenta_associated_8	Spis_XP_022795453_1 | placenta_associated_8
-Spis_XP_022795476_1	5	5	Ank_2/Ank_2/Ank_5/Mab-21/	zinc_finger_DHHC_type_palmitoyltransferase_13	Spis_XP_022795476_1 | zinc_finger_DHHC_type_palmitoyltransferase_13
-Spis_XP_022795488_1	2	2	""	""	""
-Spis_XP_022795490_1	2	2	""	""	""
-Spis_XP_022795494_1	2	2	""	""	""
-Spis_XP_022795498_1	2	2	Rhodanese/Rhodanese/	mercaptopyruvate_sulfurtransferase	Spis_XP_022795498_1 | mercaptopyruvate_sulfurtransferase
-Spis_XP_022795505_1	7	7	""	""	""
-Spis_XP_022795519_1	2	2	Mab-21/	cyclic_GMP_AMP_synthase	Spis_XP_022795519_1 | cyclic_GMP_AMP_synthase
-Spis_XP_022795525_1	7	7	Ferric_reduct/FAD_binding_8/NAD_binding_6/	NADPH_oxidase_4	Spis_XP_022795525_1 | NADPH_oxidase_4
-Spis_XP_022795601_1	6	6	Collagen/I-set/	Collagen.HG1.1:like:COLEC10/COLEC11/GLDN:likeclu:7/9	Spis_XP_022795601_1 | Collagen.HG1.1:like:COLEC10/COLEC11/GLDN:like...
-Spis_XP_022795602_1	8	8	Sushi/	CUB_and_Sushi_multiple_domains_3	Spis_XP_022795602_1 | CUB_and_Sushi_multiple_domains_3
-Spis_XP_022795636_1	3	3	zf-RING_UBOX/zf-B_box/	tripartite_motif_containing_33	Spis_XP_022795636_1 | tripartite_motif_containing_33
-Spis_XP_022795803_1	7	7	Trypsin/	transmembrane_serine_protease_6	Spis_XP_022795803_1 | transmembrane_serine_protease_6
-Spis_XP_022795842_1	1	1	""	""	""
-Spis_XP_022795893_1	7	7	Macro/Macro/Macro/PARP/	poly_ADP_ribose_polymerase_family_member_14	Spis_XP_022795893_1 | poly_ADP_ribose_polymerase_family_member_14
-Spis_XP_022795912_1	7	7	Ank_4/	protein phosphatase 1 regulatory subunit 27-like	Spis_XP_022795912_1 | protein phosphatase 1 regulatory subunit 27-like
-Spis_XP_022795919_1	3	3	cNMP_binding/	protein_kinase_cGMP_dependent_2	Spis_XP_022795919_1 | protein_kinase_cGMP_dependent_2
-Spis_XP_022795966_1	5	5	GBP/Peptidase_S74/	guanylate_binding_protein_4	Spis_XP_022795966_1 | guanylate_binding_protein_4
-Spis_XP_022795995_1	2	2	Collagen/	Collagen.HG3.8:NA	Spis_XP_022795995_1 | Collagen.HG3.8:NA
-Spis_XP_022795998_1	10	10	Lectin_C/	Lectin_C.HG10.3:NA	Spis_XP_022795998_1 | Lectin_C.HG10.3:NA
-Spis_XP_022796009_1	7	7	XK-related/	XK_related_7	Spis_XP_022796009_1 | XK_related_7
-Spis_XP_022796017_1	6	6	Cyt-b5/FA_desaturase/	FA_desaturase.HG4.2:NA	Spis_XP_022796017_1 | FA_desaturase.HG4.2:NA
-Spis_XP_022796041_1	3	3	DnaJ/	DnaJ_heat_shock_protein_family_Hsp40_member_C16	Spis_XP_022796041_1 | DnaJ_heat_shock_protein_family_Hsp40_member_C16
-Spis_XP_022796115_1	6	6	SAM_1/	SAM.HG1.26:like:SAMD10/SAMD12:likeclu:25	Spis_XP_022796115_1 | SAM.HG1.26:like:SAMD10/SAMD12:likeclu:25
-Spis_XP_022796188_1	4	4	VWA/TSP_1/F5_F8_type_C/	collagen_type_XXII_alpha_1_chain	Spis_XP_022796188_1 | collagen_type_XXII_alpha_1_chain
-Spis_XP_022796291_1	2	2	7tm_1/	GPCR-rhodopsin.HG33.7:NA	Spis_XP_022796291_1 | GPCR-rhodopsin.HG33.7:NA
-Spis_XP_022796398_1	1	1	OATP/OATP/Kazal_2/	solute_carrier_organic_anion_transporter_family_member_4A1	Spis_XP_022796398_1 | solute_carrier_organic_anion_transporter_fami...
-Spis_XP_022796424_1	3	3	Methyltransf_25/	methyltransferase_like_27	Spis_XP_022796424_1 | methyltransferase_like_27
-Spis_XP_022796493_1	10	10	""	skin secretory protein xP2-like	Spis_XP_022796493_1 | skin secretory protein xP2-like
-Spis_XP_022796567_1	3	3	Ank_2/Ank_2/Ank_4/Ank_2/Ank/Ank_2/Ank/Ank_2/Ank_2/Ank_2/Ank_5/	ankyrin_repeat_domain_46	Spis_XP_022796567_1 | ankyrin_repeat_domain_46
-Spis_XP_022796590_1	3	3	zf-4CXXC_R1/	cell_division_cycle_associated_7_like	Spis_XP_022796590_1 | cell_division_cycle_associated_7_like
-Spis_XP_022796635_1	3	3	FYVE/	zinc_finger_FYVE_type_containing_27	Spis_XP_022796635_1 | zinc_finger_FYVE_type_containing_27
-Spis_XP_022796638_1	10	10	Endonuclease_NS/	endonuclease domain-containing 1 protein-like	Spis_XP_022796638_1 | endonuclease domain-containing 1 protein-like
-Spis_XP_022796693_1	7	7	BRICHOS/	""	""
-Spis_XP_022796708_1	1	1	DUF4773/DUF4773/	""	""
-Spis_XP_022796800_1	10	10	Pep_M12B_propep/Reprolysin/ADAM_CR_2/TSP_1/TSP1_ADAMTS/TSP1_ADAMTS/TSP1_ADAMTS/CUB/CUB/	ADAM_metallopeptidase_with_thrombospondin_type_1_motif_16	Spis_XP_022796800_1 | ADAM_metallopeptidase_with_thrombospondin_typ...
-Spis_XP_022796814_1	7	7	Pkinase/Pkinase/	Pkinase.HG19.3:NA	Spis_XP_022796814_1 | Pkinase.HG19.3:NA
-Spis_XP_022796837_1	3	3	Cystatin/	cystatin_B	Spis_XP_022796837_1 | cystatin_B
-Spis_XP_022796880_1	6	6	PK/PK_C/	pyruvate_kinase_M1_2	Spis_XP_022796880_1 | pyruvate_kinase_M1_2
-Spis_XP_022796886_1	10	10	""	lymphocyte antigen 6 complex locus protein G6d-like	Spis_XP_022796886_1 | lymphocyte antigen 6 complex locus protein G6...
-Spis_XP_022796963_1	8	8	F5_F8_type_C/F5_F8_type_C/Zona_pellucida/	EGF_like_repeats_and_discoidin_domains_3	Spis_XP_022796963_1 | EGF_like_repeats_and_discoidin_domains_3
-Spis_XP_022796979_1	9	9	""	""	""
-Spis_XP_022796981_1	1	1	""	""	""
-Spis_XP_022797007_1	9	9	""	""	""
-Spis_XP_022797025_1	9	9	""	""	""
-Spis_XP_022797061_1	4	4	""	""	""
-Spis_XP_022797064_1	10	10	""	""	""
-Spis_XP_022797081_1	4	4	""	papilin_proteoglycan_like_sulfated_glycoprotein	Spis_XP_022797081_1 | papilin_proteoglycan_like_sulfated_glycoprotein
-Spis_XP_022797088_1	10	10	ShK/	""	""
-Spis_XP_022797095_1	6	6	ShK/ShK/	""	""
-Spis_XP_022797097_1	1	1	ShK/ShK/	""	""
-Spis_XP_022797120_1	3	3	7tm_1/	GPCR-rhodopsin.HG74.2:NA	Spis_XP_022797120_1 | GPCR-rhodopsin.HG74.2:NA
-Spis_XP_022797123_1	4	4	Ig_3/I-set/	NCam.HG4.10:NA	Spis_XP_022797123_1 | NCam.HG4.10:NA
-Spis_XP_022797194_1	9	9	TNFR_c6/	TNF_receptor_superfamily_member_19	Spis_XP_022797194_1 | TNF_receptor_superfamily_member_19
-Spis_XP_022797212_1	5	5	zf-TRAF/	TNF_receptor_associated_factor_2	Spis_XP_022797212_1 | TNF_receptor_associated_factor_2
-Spis_XP_022797314_1	10	10	Collagen/TNF/	Collagen.HG2.29:like:COL6A1/COL6A2/COL6A3/COL6A5/COL6A6/COL12A1/COL14A1/COL20A1:likeclu:25/28	Spis_XP_022797314_1 | Collagen.HG2.29:like:COL6A1/COL6A2/COL6A3/COL...
-Spis_XP_022797333_1	2	2	7tm_1/	GPCR-rhodopsin.HG11.9:like:GPR176:likeclu:1	Spis_XP_022797333_1 | GPCR-rhodopsin.HG11.9:like:GPR176:likeclu:1
-Spis_XP_022797344_1	9	9	Collagen/	Collagen.HG6.0:NA	Spis_XP_022797344_1 | Collagen.HG6.0:NA
-Spis_XP_022797364_1	7	7	Peptidase_M14/	carboxypeptidase_A4	Spis_XP_022797364_1 | carboxypeptidase_A4
-Spis_XP_022797403_1	4	4	""	leucine-rich repeat extensin-like protein 3	Spis_XP_022797403_1 | leucine-rich repeat extensin-like protein 3
-Spis_XP_022797406_1	10	10	Gal_Lectin/	adhesion_G_protein_coupled_receptor_L1	Spis_XP_022797406_1 | adhesion_G_protein_coupled_receptor_L1
-Spis_XP_022797414_1	5	5	FG-GAP/FG-GAP/Integrin_alpha2/	Integrin_alpha.HG1.1:like:ITGA1/ITGA2/ITGA2B/ITGA3/ITGA4/ITGA5/ITGA6/ITGA7/ITGA8/ITGA9/ITGA10/ITGA11/ITGAD/ITGAE/ITGAL/ITGAM/ITGAV/ITGAX:likeclu:0/2/4/5	Spis_XP_022797414_1 | Integrin_alpha.HG1.1:like:ITGA1/ITGA2/ITGA2B/...
-Spis_XP_022797425_1	10	10	""	leucine-rich repeat extensin-like protein 3	Spis_XP_022797425_1 | leucine-rich repeat extensin-like protein 3
-Spis_XP_022797426_1	10	10	""	vegetative cell wall protein gp1-like	Spis_XP_022797426_1 | vegetative cell wall protein gp1-like
-Spis_XP_022797462_1	6	6	NAD_kinase/	NAD_kinase	Spis_XP_022797462_1 | NAD_kinase
-Spis_XP_022797495_1	9	9	7tm_1/	GPCR-rhodopsin.HG11.39:like:GPR176:likeclu:1	Spis_XP_022797495_1 | GPCR-rhodopsin.HG11.39:like:GPR176:likeclu:1
-Spis_XP_022797568_1	3	3	Arginase/	agmatinase	Spis_XP_022797568_1 | agmatinase
-Spis_XP_022797575_1	6	6	Arginase/	agmatinase	Spis_XP_022797575_1 | agmatinase
-Spis_XP_022797582_1	5	5	EGF_CA/EGF_CA/EGF_CA/	signal_peptide_CUB_domain_and_EGF_like_domain_containing_2	Spis_XP_022797582_1 | signal_peptide_CUB_domain_and_EGF_like_domain...
-Spis_XP_022797636_1	9	9	""	""	""
-Spis_XP_022797641_1	3	3	Serpin/	serpin_family_B_member_1	Spis_XP_022797641_1 | serpin_family_B_member_1
-Spis_XP_022797687_1	7	7	I-set/Ig_3/	hemicentin_1	Spis_XP_022797687_1 | hemicentin_1
-Spis_XP_022797688_1	7	7	MAM/Trypsin/	transmembrane_serine_protease_6	Spis_XP_022797688_1 | transmembrane_serine_protease_6
-Spis_XP_022797695_1	7	7	MAM/Trypsin/	plasminogen	Spis_XP_022797695_1 | plasminogen
-Spis_XP_022797743_1	3	3	""	golgin subfamily B member 1-like	Spis_XP_022797743_1 | golgin subfamily B member 1-like
-Spis_XP_022797785_1	8	8	Zona_pellucida/	uromodulin	Spis_XP_022797785_1 | uromodulin
-Spis_XP_022797813_1	5	5	Mab-21/	Mab_21_domain_containing_2	Spis_XP_022797813_1 | Mab_21_domain_containing_2
-Spis_XP_022797815_1	10	10	""	""	""
-Spis_XP_022797817_1	4	4	""	flocculation protein FLO11-like	Spis_XP_022797817_1 | flocculation protein FLO11-like
-Spis_XP_022797820_1	10	10	""	""	""
-Spis_XP_022797868_1	1	1	ABC_membrane/ABC_tran/ABC_membrane/	ATP_binding_cassette_subfamily_C_member_4	Spis_XP_022797868_1 | ATP_binding_cassette_subfamily_C_member_4
-Spis_XP_022797898_1	7	7	Trypsin/	serine_protease_1	Spis_XP_022797898_1 | serine_protease_1
-Spis_XP_022797910_1	6	6	""	""	""
-Spis_XP_022798068_1	10	10	islike:PRDM6	zf-C2H2.PRDM6	Spis_XP_022798068_1 | zf-C2H2.PRDM6
-Spis_XP_022798150_1	1	1	PDZ/C2/RhoGAP/	PDZ.HG7.0:like:PARD6A/PARD6B/PARD6G:likeclu:2	Spis_XP_022798150_1 | PDZ.HG7.0:like:PARD6A/PARD6B/PARD6G:likeclu:2
-Spis_XP_022798180_1	5	5	Mab-21/	mab_21_like_3	Spis_XP_022798180_1 | mab_21_like_3
-Spis_XP_022798198_1	7	7	CHB_HEX/Glyco_hydro_20b/Glyco_hydro_20/CHB_HEX/Glyco_hydro_20b/Glyco_hydro_20/CHB_HEX_C/	hexosaminidase_subunit_alpha	Spis_XP_022798198_1 | hexosaminidase_subunit_alpha
-Spis_XP_022798238_1	10	10	Ldh_1_N/Ldh_1_C/	lactate_dehydrogenase_A	Spis_XP_022798238_1 | lactate_dehydrogenase_A
-Spis_XP_022798266_1	10	10	WAP/	proline-rich protein 36-like	Spis_XP_022798266_1 | proline-rich protein 36-like
-Spis_XP_022798336_1	5	5	""	""	""
-Spis_XP_022798340_1	10	10	ThiF/	SUMO1_activating_enzyme_subunit_1	Spis_XP_022798340_1 | SUMO1_activating_enzyme_subunit_1
-Spis_XP_022798350_1	2	2	S-methyl_trans/	betaine_homocysteine_S_methyltransferase	Spis_XP_022798350_1 | betaine_homocysteine_S_methyltransferase
-Spis_XP_022798437_1	5	5	An_peroxidase/	peroxidasin	Spis_XP_022798437_1 | peroxidasin
-Spis_XP_022798462_1	7	7	""	""	""
-Spis_XP_022798486_1	7	7	7tm_1/	GPCR-rhodopsin.HG22.1:NA	Spis_XP_022798486_1 | GPCR-rhodopsin.HG22.1:NA
-Spis_XP_022798608_1	5	5	Linker_histone/	LinkerHistone.HG1.5:like:HP1BP3/SHPRH:likeclu:12/15	Spis_XP_022798608_1 | LinkerHistone.HG1.5:like:HP1BP3/SHPRH:likeclu...
-Spis_XP_022798651_1	1	1	ApoL/	""	""
-Spis_XP_022798655_1	10	10	""	""	""
-Spis_XP_022798678_1	4	4	Peptidase_M1_N/Peptidase_M1/ERAP1_C/	endoplasmic_reticulum_aminopeptidase_1	Spis_XP_022798678_1 | endoplasmic_reticulum_aminopeptidase_1
-Spis_XP_022798683_1	7	7	""	galaxin-2-like	Spis_XP_022798683_1 | galaxin-2-like
-Spis_XP_022798880_1	3	3	GST_N_4/GST_C_6/	failed_axon_connections_homolog_metaxin_like_GST_domain_containing	Spis_XP_022798880_1 | failed_axon_connections_homolog_metaxin_like_...
-Spis_XP_022798926_1	6	6	Fuseless/	""	""
-Spis_XP_022798953_1	6	6	""	collagen alpha-1(IV) chain-like	Spis_XP_022798953_1 | collagen alpha-1(IV) chain-like
-Spis_XP_022798958_1	6	6	Collagen/	Collagen.HG6.0:NA	Spis_XP_022798958_1 | Collagen.HG6.0:NA
-Spis_XP_022798959_1	6	6	Collagen/	Collagen.HG6.0:NA	Spis_XP_022798959_1 | Collagen.HG6.0:NA
-Spis_XP_022798989_1	7	7	""	""	""
-Spis_XP_022799004_1	1	1	7tm_1/	GPCR-rhodopsin.HG26.0:GPR148	Spis_XP_022799004_1 | GPCR-rhodopsin.HG26.0:GPR148
-Spis_XP_022799088_1	8	8	Kazal_2/Lectin_C/	Lectin_C.HG4.2:NA	Spis_XP_022799088_1 | Lectin_C.HG4.2:NA
-Spis_XP_022799095_1	3	3	Ank_4/Ank_2/Mab-21/Mab-21/	""	""
-Spis_XP_022799155_1	10	10	Noggin/	noggin	Spis_XP_022799155_1 | noggin
-Spis_XP_022799205_1	7	7	MAM/MAM/Trypsin/	serine_protease_1	Spis_XP_022799205_1 | serine_protease_1
-Spis_XP_022799238_1	9	9	Mab-21/	mab_21_like_1	Spis_XP_022799238_1 | mab_21_like_1
-Spis_XP_022799346_1	3	3	7tm_1/	GPCR-rhodopsin.HG6.34:NA	Spis_XP_022799346_1 | GPCR-rhodopsin.HG6.34:NA
-Spis_XP_022799368_1	6	6	CD36/	scavenger_receptor_class_B_member_2	Spis_XP_022799368_1 | scavenger_receptor_class_B_member_2
-Spis_XP_022799395_1	10	10	""	""	""
-Spis_XP_022799403_1	10	10	F5_F8_type_C/	neuropilin_2	Spis_XP_022799403_1 | neuropilin_2
-Spis_XP_022799421_1	1	1	p450/	CYP.HG2.0:CYP3A4/CYP3A43/CYP3A5/CYP3A7/TBXAS1	Spis_XP_022799421_1 | CYP.HG2.0:CYP3A4/CYP3A43/CYP3A5/CYP3A7/TBXAS1
-Spis_XP_022799435_1	3	3	DNA_alkylation/	""	""
-Spis_XP_022799445_1	9	9	""	""	""
-Spis_XP_022799531_1	6	6	""	crumbs_cell_polarity_complex_component_1	Spis_XP_022799531_1 | crumbs_cell_polarity_complex_component_1
-Spis_XP_022799532_1	8	8	""	""	""
-Spis_XP_022799542_1	9	9	TSP_1/TSP_1/TSP_1/TSP_1/TSP_1/TSP_1/TSP_1/TSP_1/TSP_1/TSP_1/TSP_1/TSP_1/TSP_1/TSP_1/TSP_1/TSP_1/	hemicentin_1	Spis_XP_022799542_1 | hemicentin_1
-Spis_XP_022799577_1	9	9	""	""	""
-Spis_XP_022799578_1	8	8	""	""	""
-Spis_XP_022799605_1	4	4	ShK/Lectin_C/Lectin_C/Laminin_G_3/GLEYA/PA14/Laminin_G_3/EGF/WSC/PLAT/	Lectin_C.HG5.11:like:DGCR2:likeclu:1	Spis_XP_022799605_1 | Lectin_C.HG5.11:like:DGCR2:likeclu:1
-Spis_XP_022799644_1	1	1	7tm_1/	GPCR-rhodopsin.HG14.0:NA	Spis_XP_022799644_1 | GPCR-rhodopsin.HG14.0:NA
-Spis_XP_022799671_1	3	3	zf-B_box/Filamin/NHL/NHL/NHL/NHL/NHL/	tripartite_motif_containing_45	Spis_XP_022799671_1 | tripartite_motif_containing_45
-Spis_XP_022799677_1	7	7	EGF_3/TLD/	signal_peptide_CUB_domain_and_EGF_like_domain_containing_2	Spis_XP_022799677_1 | signal_peptide_CUB_domain_and_EGF_like_domain...
-Spis_XP_022799694_1	9	9	BHLHA15	HLH.BHLHA15	Spis_XP_022799694_1 | HLH.BHLHA15
-Spis_XP_022799707_1	7	7	Collagen/Ig_3/I-set/Ig_3/Sushi/Sushi/Sushi/Sushi/Sushi/	Collagen.HG1.1:like:COLEC10/COLEC11/GLDN:likeclu:7/9	Spis_XP_022799707_1 | Collagen.HG1.1:like:COLEC10/COLEC11/GLDN:like...
-Spis_XP_022799787_1	6	6	MCM_N/MCM_OB/MCM/MCM_lid/	minichromosome_maintenance_complex_component_4	Spis_XP_022799787_1 | minichromosome_maintenance_complex_component_4
-Spis_XP_022799917_1	8	8	7tm_1/	GPCR-rhodopsin.HG6.34:NA	Spis_XP_022799917_1 | GPCR-rhodopsin.HG6.34:NA
-Spis_XP_022799949_1	7	7	Fibrinogen_C/	angiopoietin_like_7	Spis_XP_022799949_1 | angiopoietin_like_7
-Spis_XP_022799962_1	10	10	EGF/EGF/EGF/EGF/EGF/EGF/EGF/EGF/EGF/EGF/EGF/EGF/	delta_notch_like_EGF_repeat_containing	Spis_XP_022799962_1 | delta_notch_like_EGF_repeat_containing
-Spis_XP_022799980_1	4	4	EGF/EGF/EGF/EGF/EGF/EGF/EGF/EGF/EGF/EGF/EGF/EGF/EGF/EGF/EGF/EGF/EGF/EGF/EGF/EGF/EGF/EGF/Laminin_G_3/	Laminin.HG4.5:NA	Spis_XP_022799980_1 | Laminin.HG4.5:NA
-Spis_XP_022799981_1	10	10	EGF/hEGF/EGF/EGF/EGF/EGF/EGF/EGF/EGF/EGF/EGF/EGF/	delta_like_canonical_Notch_ligand_3	Spis_XP_022799981_1 | delta_like_canonical_Notch_ligand_3
-Spis_XP_022800066_1	10	10	PEPCK_N/PEPCK_GTP/	phosphoenolpyruvate_carboxykinase_2_mitochondrial	Spis_XP_022800066_1 | phosphoenolpyruvate_carboxykinase_2_mitochond...
-Spis_XP_022800078_1	8	8	adh_short/	sterol_dehydrogenase.HG1.17:like:DCXR/DHRS11/KDSR:likeclu:20/21/22	Spis_XP_022800078_1 | sterol_dehydrogenase.HG1.17:like:DCXR/DHRS11/...
-Spis_XP_022800080_1	10	10	CAP/	GLI_pathogenesis_related_2	Spis_XP_022800080_1 | GLI_pathogenesis_related_2
-Spis_XP_022800083_1	1	1	7tm_1/	GPCR-rhodopsin.HG6.34:NA	Spis_XP_022800083_1 | GPCR-rhodopsin.HG6.34:NA
-Spis_XP_022800103_1	6	6	WD40/	WD_repeat_domain_54	Spis_XP_022800103_1 | WD_repeat_domain_54
-Spis_XP_022800114_1	10	10	Lectin_C/	aggrecan	Spis_XP_022800114_1 | aggrecan
-Spis_XP_022800197_1	5	5	Mab-21/	mab_21_like_1	Spis_XP_022800197_1 | mab_21_like_1
-Spis_XP_022800284_1	3	3	Pribosyltran_N/Pribosyl_synth/	phosphoribosyl_pyrophosphate_synthetase_associated_protein_2	Spis_XP_022800284_1 | phosphoribosyl_pyrophosphate_synthetase_assoc...
-Spis_XP_022800330_1	1	1	CUB/CUB/CUB/CUB/CUB/CUB/	cubilin	Spis_XP_022800330_1 | cubilin
-Spis_XP_022800385_1	4	4	MAM/MAM/MAM/MAM/MAM/	MAM_and_LDL_receptor_class_A_domain_containing_1	Spis_XP_022800385_1 | MAM_and_LDL_receptor_class_A_domain_containing_1
-Spis_XP_022800445_1	6	6	ABC_membrane/ABC_tran/ABC_membrane/ABC_tran/	ATP_binding_cassette_subfamily_C_member_4	Spis_XP_022800445_1 | ATP_binding_cassette_subfamily_C_member_4
-Spis_XP_022800512_1	1	1	GFA/	centromere_protein_V	Spis_XP_022800512_1 | centromere_protein_V
-Spis_XP_022800513_1	3	3	GFA/	centromere_protein_V	Spis_XP_022800513_1 | centromere_protein_V
-Spis_XP_022800518_1	4	4	""	""	""
-Spis_XP_022800542_1	1	1	VWA/VWA/VWA/VWA/VWA/Laminin_G_3/	collagen_type_VI_alpha_3_chain	Spis_XP_022800542_1 | collagen_type_VI_alpha_3_chain
-Spis_XP_022800547_1	10	10	Sugar_tr/	Sugar_tr.HG1.15:like:SLC22A15:likeclu:4	Spis_XP_022800547_1 | Sugar_tr.HG1.15:like:SLC22A15:likeclu:4
-Spis_XP_022800559_1	1	1	Sep15_SelM/	selenoprotein_M	Spis_XP_022800559_1 | selenoprotein_M
-Spis_XP_022800590_1	7	7	CSRNP_N/CSRNP_N/	cysteine_and_serine_rich_nuclear_protein_1	Spis_XP_022800590_1 | cysteine_and_serine_rich_nuclear_protein_1
-Spis_XP_022800599_1	10	10	""	mediator of RNA polymerase II transcription subunit 1-like	Spis_XP_022800599_1 | mediator of RNA polymerase II transcription s...
-Spis_XP_022800603_1	5	5	Mab-21/Mab-21/	mitochondrial_elongation_factor_1	Spis_XP_022800603_1 | mitochondrial_elongation_factor_1
-Spis_XP_022800612_1	10	10	""	""	""
-Spis_XP_022800704_1	3	3	Acetyltransf_2/	N_acetyltransferase_1	Spis_XP_022800704_1 | N_acetyltransferase_1
-Spis_XP_022800769_1	9	9	Patatin/	""	""
-Spis_XP_022800802_1	8	8	fn3/CUB/CUB/fn3/fn3/CUB/	fibronectin.HG8.9:like:SNED1:likeclu:5	Spis_XP_022800802_1 | fibronectin.HG8.9:like:SNED1:likeclu:5
-Spis_XP_022800806_1	8	8	fn3/fn3/CUB/CUB/NIDO/VWD/FXa_inhibition/EGF_CA/cEGF/EGF_CA/	fibronectin.HG8.4:like:SNED1:likeclu:5	Spis_XP_022800806_1 | fibronectin.HG8.4:like:SNED1:likeclu:5
-Spis_XP_022800808_1	6	6	zf-C3HC4/zf-B_box/Filamin/NHL/NHL/NHL/	tripartite_motif_containing_2	Spis_XP_022800808_1 | tripartite_motif_containing_2
-Spis_XP_022800814_1	6	6	Peptidase_C2/Calpain_III/	calpain_3	Spis_XP_022800814_1 | calpain_3
-Spis_XP_022800953_1	6	6	PLAT/Lipoxygenase/	arachidonate_5_lipoxygenase	Spis_XP_022800953_1 | arachidonate_5_lipoxygenase
-Spis_XP_022800959_1	5	5	Mab-21/	Mab_21_domain_containing_2	Spis_XP_022800959_1 | Mab_21_domain_containing_2
-Spis_XP_022800963_1	3	3	""	""	""
-Spis_XP_022801123_1	4	4	Octopine_DH/	tauropine dehydrogenase-like	Spis_XP_022801123_1 | tauropine dehydrogenase-like
-Spis_XP_022801139_1	5	5	TauE/	""	""
-Spis_XP_022801160_1	6	6	KLF15	zf-C2H2.KLF15	Spis_XP_022801160_1 | zf-C2H2.KLF15
-Spis_XP_022801214_1	1	1		Homeodomains.like:PRD_PAX4/PRD_PAX6	Spis_XP_022801214_1 | Homeodomains.like:PRD_PAX4/PRD_PAX6
-Spis_XP_022801240_1	10	10	""	KIAA0319	Spis_XP_022801240_1 | KIAA0319
-Spis_XP_022801241_1	10	10	""	""	""
-Spis_XP_022801266_1	9	9	""	""	""
-Spis_XP_022801302_1	6	6	ABC_membrane/ABC_tran/ABC_membrane/ABC_tran/	ATP_binding_cassette_subfamily_C_member_4	Spis_XP_022801302_1 | ATP_binding_cassette_subfamily_C_member_4
-Spis_XP_022801358_1	1	1	Carb_anhydrase/Carb_anhydrase/	carbonic_anhydrase_2	Spis_XP_022801358_1 | carbonic_anhydrase_2
-Spis_XP_022801359_1	8	8	Carb_anhydrase/Carb_anhydrase/	carbonic_anhydrase_2	Spis_XP_022801359_1 | carbonic_anhydrase_2
-Spis_XP_022801403_1	9	9	""	""	""
-Spis_XP_022801683_1	8	8	""	""	""
-Spis_XP_022801686_1	3	3	Arrestin_N/Arrestin_C/	arrestin_domain_containing_3	Spis_XP_022801686_1 | arrestin_domain_containing_3
-Spis_XP_022801703_1	8	8	""	""	""
-Spis_XP_022801764_1	6	6	DHDPS/	N_acetylneuraminate_pyruvate_lyase	Spis_XP_022801764_1 | N_acetylneuraminate_pyruvate_lyase
-Spis_XP_022801785_1	1	1	Crystall/	""	""
-Spis_XP_022801787_1	1	1	Crystall/	""	""
-Spis_XP_022801827_1	3	3	RtcB/	RNA_2_3_cyclic_phosphate_and_5_OH_ligase	Spis_XP_022801827_1 | RNA_2_3_cyclic_phosphate_and_5_OH_ligase
-Spis_XP_022801879_1	9	9	zf-TRAF/	TNF_receptor_associated_factor_2	Spis_XP_022801879_1 | TNF_receptor_associated_factor_2
-Spis_XP_022801895_1	10	10	""	""	""
-Spis_XP_022801909_1	9	9	HSP70/	heat_shock_protein_family_A_Hsp70_member_12A	Spis_XP_022801909_1 | heat_shock_protein_family_A_Hsp70_member_12A
-Spis_XP_022802083_1	10	10	""	""	""
-Spis_XP_022802087_1	3	3	Dcc1/	DNA_replication_and_sister_chromatid_cohesion_1	Spis_XP_022802087_1 | DNA_replication_and_sister_chromatid_cohesion_1
-Spis_XP_022802098_1	10	10	CAP/	GLI_pathogenesis_related_2	Spis_XP_022802098_1 | GLI_pathogenesis_related_2
-Spis_XP_022802113_1	1	1	""	""	""
-Spis_XP_022802148_1	1	1	p450/	CYP.HG4.0:CYP11A1/CYP11B1/CYP11B2/CYP24A1/CYP27A1/CYP27B1/CYP27C1	Spis_XP_022802148_1 | CYP.HG4.0:CYP11A1/CYP11B1/CYP11B2/CYP24A1/CYP...
-Spis_XP_022802149_1	3	3	p450/	CYP.HG4.0:CYP11A1/CYP11B1/CYP11B2/CYP24A1/CYP27A1/CYP27B1/CYP27C1	Spis_XP_022802149_1 | CYP.HG4.0:CYP11A1/CYP11B1/CYP11B2/CYP24A1/CYP...
-Spis_XP_022802222_1	7	7	""	""	""
-Spis_XP_022802268_1	1	1	Tyrosinase/Tyrosinase/	tyrosinase	Spis_XP_022802268_1 | tyrosinase
-Spis_XP_022802298_1	7	7	Pkinase/	Pkinase.HG11.0:NA	Spis_XP_022802298_1 | Pkinase.HG11.0:NA
-Spis_XP_022802461_1	10	10	DSL/DSL/DSL/DSL/DSL/DSL/DSL/MNNL/DSL/DSL/DSL/MNNL/DSL/DSL/DSL/	DSL.HG1.3:like:DLL1/DLL4/JAG1/JAG2:likeclu:0	Spis_XP_022802461_1 | DSL.HG1.3:like:DLL1/DLL4/JAG1/JAG2:likeclu:0
-Spis_XP_022802485_1	3	3	Peptidase_M20/M20_dimer/	peptidase_M20_domain_containing_2	Spis_XP_022802485_1 | peptidase_M20_domain_containing_2
-Spis_XP_022802763_1	7	7	""	heat_shock_protein_family_A_Hsp70_member_12A	Spis_XP_022802763_1 | heat_shock_protein_family_A_Hsp70_member_12A
-Spis_XP_022802787_1	5	5	""	""	""
-Spis_XP_022802825_1	7	7	Fibrinogen_C/	angiopoietin_like_6	Spis_XP_022802825_1 | angiopoietin_like_6
-Spis_XP_022802911_1	9	9	""	""	""
-Spis_XP_022802921_1	5	5	Mab-21/	""	""
-Spis_XP_022803026_1	6	6	Methyltransf_25/	""	""
-Spis_XP_022803130_1	7	7	Fibrinogen_C/	angiopoietin_like_7	Spis_XP_022803130_1 | angiopoietin_like_7
-Spis_XP_022803190_1	3	3	TFAM	HMGbox_Sox.TFAM	Spis_XP_022803190_1 | HMGbox_Sox.TFAM
-Spis_XP_022803353_1	5	5	AOX/	alternative oxidase, mitochondrial-like	Spis_XP_022803353_1 | alternative oxidase, mitochondrial-like
-Spis_XP_022803398_1	10	10	Thioredoxin/	protein_disulfide_isomerase_family_A_member_3	Spis_XP_022803398_1 | protein_disulfide_isomerase_family_A_member_3
-Spis_XP_022803468_1	3	3	Cyt-b5/	cytochrome_b5_type_B	Spis_XP_022803468_1 | cytochrome_b5_type_B
-Spis_XP_022803514_1	10	10	Sugar_tr/	Sugar_tr.HG1.0:like:SLC22A1/SLC22A2/SLC22A3/SLC22A4/SLC22A5/SLC22A6/SLC22A7/SLC22A8/SLC22A9/SLC22A10/SLC22A11/SLC22A12/SLC22A13/SLC22A14/SLC22A15/SLC22A16/SLC22A17/SLC22A23/SLC22A24/SLC22A25/SLC22A31:likeclu:4/6/10/11/12/24/25/26/29/30/31/37/74/76/77	Spis_XP_022803514_1 | Sugar_tr.HG1.0:like:SLC22A1/SLC22A2/SLC22A3/S...
-Spis_XP_022803531_1	7	7	""	""	""
-Spis_XP_022803605_1	3	3	Ca_hom_mod/	calcium_homeostasis_modulator_family_member_2	Spis_XP_022803605_1 | calcium_homeostasis_modulator_family_member_2
-Spis_XP_022803624_1	10	10	""	wiskott-Aldrich syndrome protein family member 2-like isoform X2	Spis_XP_022803624_1 | wiskott-Aldrich syndrome protein family membe...
-Spis_XP_022803626_1	10	10	""	vegetative cell wall protein gp1-like isoform X2	Spis_XP_022803626_1 | vegetative cell wall protein gp1-like isoform X2
-Spis_XP_022803627_1	10	10	""	""	""
-Spis_XP_022803634_1	10	10	""	""	""
-Spis_XP_022803638_1	10	10	""	formin-like protein 5	Spis_XP_022803638_1 | formin-like protein 5
-Spis_XP_022803668_1	9	9	Mab-21/	mitochondrial_elongation_factor_1	Spis_XP_022803668_1 | mitochondrial_elongation_factor_1
-Spis_XP_022803684_1	5	5	Mab-21/	mitochondrial_elongation_factor_1	Spis_XP_022803684_1 | mitochondrial_elongation_factor_1
-Spis_XP_022803704_1	1	1	CBAH/	""	""
-Spis_XP_022803803_1	5	5	EGF_CA/CUB/CUB/CUB/SRCR/	deleted_in_malignant_brain_tumors_1	Spis_XP_022803803_1 | deleted_in_malignant_brain_tumors_1
-Spis_XP_022803808_1	1	1	EGF_CA/CUB/CUB/CUB/SRCR/	deleted_in_malignant_brain_tumors_1	Spis_XP_022803808_1 | deleted_in_malignant_brain_tumors_1
-Spis_XP_022803815_1	7	7	Trypsin/ShK/	chymotrypsin_like	Spis_XP_022803815_1 | chymotrypsin_like
-Spis_XP_022803819_1	7	7	Trypsin/	chymotrypsin_like_elastase_3A	Spis_XP_022803819_1 | chymotrypsin_like_elastase_3A
-Spis_XP_022803824_1	7	7	Trypsin/	chymotrypsin_like	Spis_XP_022803824_1 | chymotrypsin_like
-Spis_XP_022803863_1	1	1	""	""	""
-Spis_XP_022803939_1	6	6	Dickkopf_N/	dickkopf_WNT_signaling_pathway_inhibitor_3	Spis_XP_022803939_1 | dickkopf_WNT_signaling_pathway_inhibitor_3
-Spis_XP_022804023_1	6	6	ANTP_HOXA2/ANTP_HOXA3/ANTP_HOXB2/ANTP_HOXB3/ANTP_HOXD3	Homeodomains.ANTP_HOXA2/ANTP_HOXA3/ANTP_HOXB2/ANTP_HOXB3/ANTP_HOXD3	Spis_XP_022804023_1 | Homeodomains.ANTP_HOXA2/ANTP_HOXA3/ANTP_HOXB2...
-Spis_XP_022804094_1	1	1	ABC_membrane/ABC_membrane/ABC_tran/	ATP_binding_cassette_subfamily_C_member_1	Spis_XP_022804094_1 | ATP_binding_cassette_subfamily_C_member_1
-Spis_XP_022804110_1	3	3	""	""	""
-Spis_XP_022804134_1	5	5	Macro/Macro/PARP/	poly_ADP_ribose_polymerase_family_member_14	Spis_XP_022804134_1 | poly_ADP_ribose_polymerase_family_member_14
-Spis_XP_022804218_1	7	7	Str_synth/Str_synth/	adipocyte_plasma_membrane_associated_protein	Spis_XP_022804218_1 | adipocyte_plasma_membrane_associated_protein
-Spis_XP_022804270_1	10	10	Collagen/	Collagen.HG10.2:NA	Spis_XP_022804270_1 | Collagen.HG10.2:NA
-Spis_XP_022804287_1	10	10	Collagen/	Collagen.HG10.2:NA	Spis_XP_022804287_1 | Collagen.HG10.2:NA
-Spis_XP_022804364_1	5	5	""	""	""
-Spis_XP_022804460_1	6	6	Ras/	RASD_family_member_2	Spis_XP_022804460_1 | RASD_family_member_2
-Spis_XP_022804500_1	7	7	""	""	""
-Spis_XP_022804503_1	5	5	""	""	""
-Spis_XP_022804535_1	7	7	Trypsin/	chymotrypsinogen_B2	Spis_XP_022804535_1 | chymotrypsinogen_B2
-Spis_XP_022804556_1	7	7	Trypsin/	chymotrypsin_like	Spis_XP_022804556_1 | chymotrypsin_like
-Spis_XP_022804589_1	5	5	Mab-21/	mab_21_like_1	Spis_XP_022804589_1 | mab_21_like_1
-Spis_XP_022804603_1	7	7	Collagen/Collagen/Collagen/	Collagen.HG3.7:NA	Spis_XP_022804603_1 | Collagen.HG3.7:NA
-Spis_XP_022804688_1	7	7	EGF/hEGF/hEGF/EGF/hEGF/EGF/EGF/EGF/EGF/EGF/hEGF/	von_Willebrand_factor_D_and_EGF_domains	Spis_XP_022804688_1 | von_Willebrand_factor_D_and_EGF_domains
-Spis_XP_022804693_1	3	3	DUF885/	""	""
-Spis_XP_022804741_1	7	7	I-set/Ig_3/	hemicentin_1	Spis_XP_022804741_1 | hemicentin_1
-Spis_XP_022804742_1	7	7	Fibrinogen_C/	fibrinogen_like_1	Spis_XP_022804742_1 | fibrinogen_like_1
-Spis_XP_022804878_1	7	7	VWA/	collagen_type_XIV_alpha_1_chain	Spis_XP_022804878_1 | collagen_type_XIV_alpha_1_chain
-Spis_XP_022804905_1	5	5	HTH_Tnp_4/DDE_Tnp_4/	harbinger_transposase_derived_1	Spis_XP_022804905_1 | harbinger_transposase_derived_1
-Spis_XP_022804986_1	7	7	""	TNF_receptor_associated_factor_3	Spis_XP_022804986_1 | TNF_receptor_associated_factor_3
-Spis_XP_022805017_1	3	3	TauD/	clavaminate synthase-like protein At3g21360	Spis_XP_022805017_1 | clavaminate synthase-like protein At3g21360
-Spis_XP_022805022_1	10	10	Thioredoxin/	protein_disulfide_isomerase_family_A_member_3	Spis_XP_022805022_1 | protein_disulfide_isomerase_family_A_member_3
-Spis_XP_022805023_1	7	7	wnt/	wnt.HG1.10:like:WNT1/WNT2/WNT2B/WNT3/WNT3A/WNT4/WNT5A/WNT5B/WNT6/WNT7A/WNT7B/WNT16:likeclu:12/13/17/18/19/20/22/23	Spis_XP_022805023_1 | wnt.HG1.10:like:WNT1/WNT2/WNT2B/WNT3/WNT3A/WN...
-Spis_XP_022805087_1	6	6	MCM2_N/MCM_N/MCM_OB/MCM/MCM_lid/	minichromosome_maintenance_complex_component_2	Spis_XP_022805087_1 | minichromosome_maintenance_complex_component_2
-Spis_XP_022805094_1	7	7	""	""	""
-Spis_XP_022805104_1	7	7	COLFI/	Collagen.HG1.18:like:FCN1/MSR1/SCARA5:likeclu:15	Spis_XP_022805104_1 | Collagen.HG1.18:like:FCN1/MSR1/SCARA5:likeclu:15
-Spis_XP_022805193_1	3	3	DEP/	DEP_domain_containing_7	Spis_XP_022805193_1 | DEP_domain_containing_7
-Spis_XP_022805224_1	8	8	Sugar_tr/	Sugar_tr.HG1.0:like:SLC22A1/SLC22A2/SLC22A3/SLC22A4/SLC22A5/SLC22A6/SLC22A7/SLC22A8/SLC22A9/SLC22A10/SLC22A11/SLC22A12/SLC22A13/SLC22A14/SLC22A15/SLC22A16/SLC22A17/SLC22A23/SLC22A24/SLC22A25/SLC22A31:likeclu:4/6/10/11/12/24/25/26/29/30/31/37/74/76/77	Spis_XP_022805224_1 | Sugar_tr.HG1.0:like:SLC22A1/SLC22A2/SLC22A3/S...
-Spis_XP_022805226_1	3	3	Sugar_tr/	Sugar_tr.HG1.0:like:SLC22A1/SLC22A2/SLC22A3/SLC22A4/SLC22A5/SLC22A6/SLC22A7/SLC22A8/SLC22A9/SLC22A10/SLC22A11/SLC22A12/SLC22A13/SLC22A14/SLC22A15/SLC22A16/SLC22A17/SLC22A23/SLC22A24/SLC22A25/SLC22A31:likeclu:4/6/10/11/12/24/25/26/29/30/31/37/74/76/77	Spis_XP_022805226_1 | Sugar_tr.HG1.0:like:SLC22A1/SLC22A2/SLC22A3/S...
-Spis_XP_022805259_1	5	5	""	""	""
-Spis_XP_022805321_1	5	5	""	""	""
-Spis_XP_022805352_1	7	7	""	""	""
-Spis_XP_022805379_1	10	10	hEGF/EGF/EGF/hEGF/hEGF/EGF/EGF/EGF/EGF/	cadherin_EGF_LAG_seven_pass_G_type_receptor_2	Spis_XP_022805379_1 | cadherin_EGF_LAG_seven_pass_G_type_receptor_2
-Spis_XP_022805384_1	10	10	EGF/EGF/EGF/EGF/EGF/EGF/EGF/EGF/EGF/EGF/EGF/EGF/EGF/EGF/EGF/EGF/EGF/EGF/	von_Willebrand_factor_A_domain_containing_2	Spis_XP_022805384_1 | von_Willebrand_factor_A_domain_containing_2
-Spis_XP_022805387_1	7	7	Collagen/Ig_3/Ig_3/Ig_3/Sushi/Sushi/TLD/	Collagen.HG1.1:like:COLEC10/COLEC11/GLDN:likeclu:7/9	Spis_XP_022805387_1 | Collagen.HG1.1:like:COLEC10/COLEC11/GLDN:like...
-Spis_XP_022805400_1	8	8	FolB/HPPK/adh_short_C2/	sterol_dehydrogenase.HG1.28:like:DCXR:likeclu:22	Spis_XP_022805400_1 | sterol_dehydrogenase.HG1.28:like:DCXR:likeclu:22
-Spis_XP_022805546_1	3	3	7tm_1/	GPCR-rhodopsin.HG38.1:ADORA2A/GPR22	Spis_XP_022805546_1 | GPCR-rhodopsin.HG38.1:ADORA2A/GPR22
-Spis_XP_022805570_1	9	9	zf-C3HC4_2/zf-TRAF/	TNF_receptor_associated_factor_5	Spis_XP_022805570_1 | TNF_receptor_associated_factor_5
-Spis_XP_022805780_1	9	9	""	""	""
-Spis_XP_022805782_1	7	7	""	""	""
-Spis_XP_022805783_1	1	1	DUF1011/	solute_carrier_family_52_member_3	Spis_XP_022805783_1 | solute_carrier_family_52_member_3
-Spis_XP_022805844_1	8	8	Cu-oxidase_3/Cu-oxidase/Cu-oxidase_2/	LOW QUALITY PROTEIN: laccase-5-like	Spis_XP_022805844_1 | LOW QUALITY PROTEIN: laccase-5-like
-Spis_XP_022805865_1	6	6	COesterase/	COesterase.HG1.11:like:NLGN1/NLGN2/NLGN3/NLGN4X/NLGN4Y:likeclu:13	Spis_XP_022805865_1 | COesterase.HG1.11:like:NLGN1/NLGN2/NLGN3/NLGN...
-Spis_XP_022805869_1	1	1	MFS_2/MFS_1/	major_facilitator_superfamily_domain_containing_12	Spis_XP_022805869_1 | major_facilitator_superfamily_domain_containi...
-Spis_XP_022805878_1	5	5	""	""	""
-Spis_XP_022806040_1	1	1	MFS_1_like/	major_facilitator_superfamily_domain_containing_6	Spis_XP_022806040_1 | major_facilitator_superfamily_domain_containi...
-Spis_XP_022806141_1	1	1	""	""	""
-Spis_XP_022806227_1	1	1	""	""	""
-Spis_XP_022806293_1	9	9	""	TNF_receptor_superfamily_member_19	Spis_XP_022806293_1 | TNF_receptor_superfamily_member_19
-Spis_XP_022806296_1	1	1	FAD_binding_4/ALO/	fad_oxireduct.HG1.2:like:DHCR24:likeclu:4	Spis_XP_022806296_1 | fad_oxireduct.HG1.2:like:DHCR24:likeclu:4
-Spis_XP_022806326_1	8	8	Zona_pellucida/	CUB_and_zona_pellucida_like_domains_1	Spis_XP_022806326_1 | CUB_and_zona_pellucida_like_domains_1
-Spis_XP_022806395_1	5	5	EGF_CA/EGF_CA/EGF_CA/EGF_CA/EGF_CA/EGF_CA/EGF_CA/	hemicentin_1	Spis_XP_022806395_1 | hemicentin_1
-Spis_XP_022806423_1	1	1	""	""	""
-Spis_XP_022806456_1	2	2	Mab-21/	mitochondrial_elongation_factor_1	Spis_XP_022806456_1 | mitochondrial_elongation_factor_1
-Spis_XP_022806467_1	10	10	""	protein rolling stone-like	Spis_XP_022806467_1 | protein rolling stone-like
-Spis_XP_022806507_1	6	6	p450/p450/	CYP.HG1.304:like:CYP17A1/CYP21A2:likeclu:16	Spis_XP_022806507_1 | CYP.HG1.304:like:CYP17A1/CYP21A2:likeclu:16
-Spis_XP_022806573_1	7	7	Glyco_hydro_18/	chitinase_1	Spis_XP_022806573_1 | chitinase_1
-Spis_XP_022806616_1	5	5	Mab-21/	cyclic_GMP_AMP_synthase	Spis_XP_022806616_1 | cyclic_GMP_AMP_synthase
-Spis_XP_022806650_1	4	4	Collagen/Collagen/Gal_Lectin/	Collagen.HG11.2:NA	Spis_XP_022806650_1 | Collagen.HG11.2:NA
-Spis_XP_022806664_1	10	10	Collagen/Collagen/Gal_Lectin/	Collagen.HG11.3:NA	Spis_XP_022806664_1 | Collagen.HG11.3:NA
-Spis_XP_022806666_1	4	4	Gal_Lectin/	eva_1_homolog_C	Spis_XP_022806666_1 | eva_1_homolog_C
-Spis_XP_022806671_1	4	4	Collagen/Collagen/Gal_Lectin/	Collagen.HG11.1:NA	Spis_XP_022806671_1 | Collagen.HG11.1:NA
-Spis_XP_022806676_1	8	8	Sugar_tr/	Sugar_tr.HG1.0:like:SLC22A1/SLC22A2/SLC22A3/SLC22A4/SLC22A5/SLC22A6/SLC22A7/SLC22A8/SLC22A9/SLC22A10/SLC22A11/SLC22A12/SLC22A13/SLC22A14/SLC22A15/SLC22A16/SLC22A17/SLC22A23/SLC22A24/SLC22A25/SLC22A31:likeclu:4/6/10/11/12/24/25/26/29/30/31/37/74/76/77	Spis_XP_022806676_1 | Sugar_tr.HG1.0:like:SLC22A1/SLC22A2/SLC22A3/S...
-Spis_XP_022806677_1	6	6	Sugar_tr/	Sugar_tr.HG1.0:like:SLC22A1/SLC22A2/SLC22A3/SLC22A4/SLC22A5/SLC22A6/SLC22A7/SLC22A8/SLC22A9/SLC22A10/SLC22A11/SLC22A12/SLC22A13/SLC22A14/SLC22A15/SLC22A16/SLC22A17/SLC22A23/SLC22A24/SLC22A25/SLC22A31:likeclu:4/6/10/11/12/24/25/26/29/30/31/37/74/76/77	Spis_XP_022806677_1 | Sugar_tr.HG1.0:like:SLC22A1/SLC22A2/SLC22A3/S...
-Spis_XP_022806679_1	8	8	Sugar_tr/	Sugar_tr.HG1.0:like:SLC22A1/SLC22A2/SLC22A3/SLC22A4/SLC22A5/SLC22A6/SLC22A7/SLC22A8/SLC22A9/SLC22A10/SLC22A11/SLC22A12/SLC22A13/SLC22A14/SLC22A15/SLC22A16/SLC22A17/SLC22A23/SLC22A24/SLC22A25/SLC22A31:likeclu:4/6/10/11/12/24/25/26/29/30/31/37/74/76/77	Spis_XP_022806679_1 | Sugar_tr.HG1.0:like:SLC22A1/SLC22A2/SLC22A3/S...
-Spis_XP_022806681_1	6	6	Kazal_2/Lectin_C/EGF_CA/Fibrinogen_C/	Collagen.HG4.3:CCBE1/COLEC12/SCARA3	Spis_XP_022806681_1 | Collagen.HG4.3:CCBE1/COLEC12/SCARA3
-Spis_XP_022806699_1	6	6	Collagen/Collagen/	Collagen.HG6.1:NA	Spis_XP_022806699_1 | Collagen.HG6.1:NA
-Spis_XP_022806701_1	9	9	""	""	""
-Spis_XP_022806709_1	3	3	Sulfotransfer_1/	sulfotransferase_family_1C_member_2	Spis_XP_022806709_1 | sulfotransferase_family_1C_member_2
-Spis_XP_022806807_1	3	3	TIR_2/	TIR.HG1.11:like:IL1R1/IL1RAP/IL1RAPL1/IL1RAPL2/IL1RL1/IL1RL2/IL18R1/IL18RAP/SIGIRR:likeclu:9	Spis_XP_022806807_1 | TIR.HG1.11:like:IL1R1/IL1RAP/IL1RAPL1/IL1RAPL...
-Spis_XP_022806836_1	4	4	""	""	""
-Spis_XP_022806847_1	6	6	""	""	""
-Spis_XP_022806848_1	1	1	""	""	""
-Spis_XP_022806864_1	7	7	Collagen/	Collagen.HG3.7:NA	Spis_XP_022806864_1 | Collagen.HG3.7:NA
-Spis_XP_022806984_1	1	1	Kazal_2/Kazal_2/Kazal_1/Kazal_1/Kazal_2/	agrin	Spis_XP_022806984_1 | agrin
-Spis_XP_022806989_1	4	4	Usp/	""	""
-Spis_XP_022806992_1	7	7	""	""	""
-Spis_XP_022806994_1	4	4	Usp/	""	""
-Spis_XP_022807057_1	10	10	""	dentin sialophosphoprotein-like	Spis_XP_022807057_1 | dentin sialophosphoprotein-like
-Spis_XP_022807061_1	3	3	""	""	""
-Spis_XP_022807079_1	6	6	Creatinase_N/Peptidase_M24/	""	""
-Spis_XP_022807081_1	6	6	p450/	CYP.HG1.14:like:CYP17A1/CYP21A2:likeclu:16	Spis_XP_022807081_1 | CYP.HG1.14:like:CYP17A1/CYP21A2:likeclu:16
-Spis_XP_022807093_1	7	7	FAD_binding_4/BBE/	fad_oxireduct.HG1.7:like:DHCR24:likeclu:4	Spis_XP_022807093_1 | fad_oxireduct.HG1.7:like:DHCR24:likeclu:4
-Spis_XP_022807098_1	1	1	XRCC4/	X_ray_repair_cross_complementing_4	Spis_XP_022807098_1 | X_ray_repair_cross_complementing_4
-Spis_XP_022807103_1	7	7	Astacin/ShK/	tolloid_like_1	Spis_XP_022807103_1 | tolloid_like_1
-Spis_XP_022807111_1	9	9	MACPF/	macrophage_expressed_1	Spis_XP_022807111_1 | macrophage_expressed_1
-Spis_XP_022807161_1	7	7	MACPF/ApeC/	""	""
-Spis_XP_022807181_1	10	10	GSHPx/	glutathione_peroxidase_7	Spis_XP_022807181_1 | glutathione_peroxidase_7
-Spis_XP_022807225_1	10	10	Collagen/Collagen/	Collagen.HG20.0:NA	Spis_XP_022807225_1 | Collagen.HG20.0:NA
-Spis_XP_022807232_1	4	4	SEA/WSC/	kringle_containing_transmembrane_protein_1	Spis_XP_022807232_1 | kringle_containing_transmembrane_protein_1
-Spis_XP_022807233_1	10	10	EGF/Lipoxygenase/	arachidonate_5_lipoxygenase	Spis_XP_022807233_1 | arachidonate_5_lipoxygenase
-Spis_XP_022807241_1	8	8	Pentaxin/	Laminin.HG7.4:NA	Spis_XP_022807241_1 | Laminin.HG7.4:NA
-Spis_XP_022807257_1	6	6	Dynamin_N/	mitofusin_2	Spis_XP_022807257_1 | mitofusin_2
-Spis_XP_022807324_1	7	7	BRICHOS/	integral_membrane_protein_2C	Spis_XP_022807324_1 | integral_membrane_protein_2C
-Spis_XP_022807352_1	5	5	zf-C3HC4_4/zf-TRAF/	TNF_receptor_associated_factor_5	Spis_XP_022807352_1 | TNF_receptor_associated_factor_5
-Spis_XP_022807389_1	6	6	""	""	""
-Spis_XP_022807433_1	1	1	TGFb_propeptide/TGF_beta/	TGF_beta.HG1.6:like:AMH/GDF15/INHA/INHBA/INHBB/INHBC/INHBE:likeclu:8/13/29/31	Spis_XP_022807433_1 | TGF_beta.HG1.6:like:AMH/GDF15/INHA/INHBA/INHB...
-Spis_XP_022807443_1	6	6	""	proteoglycan 4-like	Spis_XP_022807443_1 | proteoglycan 4-like
-Spis_XP_022807459_1	9	9	ubiquitin/	ubiquitin_B	Spis_XP_022807459_1 | ubiquitin_B
-Spis_XP_022807466_1	9	9	ubiquitin/	ubiquitin_B	Spis_XP_022807466_1 | ubiquitin_B
-Spis_XP_022807476_1	3	3	""	""	""
-Spis_XP_022807487_1	9	9	UQ_con/	ubiquitin_conjugating_enzyme_E2_D1	Spis_XP_022807487_1 | ubiquitin_conjugating_enzyme_E2_D1
-Spis_XP_022807488_1	9	9	EGF_CA/EGF_CA/EGF_CA/EGF_CA/EGF_CA/EGF_CA/EGF_CA/EGF_CA/EGF_CA/	nidogen_1	Spis_XP_022807488_1 | nidogen_1
-Spis_XP_022807506_1	3	3	FA_desaturase/	FA_desaturase.HG3.1:SCD5	Spis_XP_022807506_1 | FA_desaturase.HG3.1:SCD5
-Spis_XP_022807508_1	10	10	FA_desaturase/	FA_desaturase.HG3.1:SCD5	Spis_XP_022807508_1 | FA_desaturase.HG3.1:SCD5
-Spis_XP_022807539_1	5	5	Mab-21/	""	""
-Spis_XP_022807557_1	3	3	Dimerisation2/Methyltransf_2/	acetylserotonin_O_methyltransferase_like	Spis_XP_022807557_1 | acetylserotonin_O_methyltransferase_like
-Spis_XP_022807580_1	7	7	""	von_Willebrand_factor_A_domain_containing_7	Spis_XP_022807580_1 | von_Willebrand_factor_A_domain_containing_7
-Spis_XP_022807613_1	7	7	Mab-21/	cyclic_GMP_AMP_synthase	Spis_XP_022807613_1 | cyclic_GMP_AMP_synthase
-Spis_XP_022807665_1	6	6	GlcNAc_2-epim/	renin_binding_protein	Spis_XP_022807665_1 | renin_binding_protein
-Spis_XP_022807675_1	4	4	ShK/ShK/	basic proline-rich protein-like	Spis_XP_022807675_1 | basic proline-rich protein-like
-Spis_XP_022807736_1	6	6	CathepsinC_exc/Peptidase_C1/	cathepsin_C	Spis_XP_022807736_1 | cathepsin_C
-Spis_XP_022807759_1	7	7	Fibrinogen_C/	angiopoietin_like_7	Spis_XP_022807759_1 | angiopoietin_like_7
-Spis_XP_022807760_1	7	7	Fibrinogen_C/	fibrinogen_like_2	Spis_XP_022807760_1 | fibrinogen_like_2
-Spis_XP_022807769_1	7	7	Fibrinogen_C/	ficolin_2	Spis_XP_022807769_1 | ficolin_2
-Spis_XP_022807804_1	7	7	RT_RNaseH/Integrase_H2C2/rve/	""	""
-Spis_XP_022807872_1	7	7	CUB/	tolloid_like_1	Spis_XP_022807872_1 | tolloid_like_1
-Spis_XP_022808023_1	5	5	Mab-21/	""	""
-Spis_XP_022808027_1	7	7	""	""	""
-Spis_XP_022808100_1	5	5	""	calponin homology domain-containing protein DDB_G0272472-like	Spis_XP_022808100_1 | calponin homology domain-containing protein D...
-Spis_XP_022808149_1	10	10	MFS_1/	solute_carrier_family_16_member_10	Spis_XP_022808149_1 | solute_carrier_family_16_member_10
-Spis_XP_022808171_1	2	2	7tm_1/	GPCR-rhodopsin.HG8.33:like:ADORA2B:likeclu:11	Spis_XP_022808171_1 | GPCR-rhodopsin.HG8.33:like:ADORA2B:likeclu:11
-Spis_XP_022808176_1	3	3	PDZ/	PDZ.HG10.0:like:AFDN:likeclu:1	Spis_XP_022808176_1 | PDZ.HG10.0:like:AFDN:likeclu:1
-Spis_XP_022808243_1	7	7	F5_F8_type_C/Sushi/	EGF_like_repeats_and_discoidin_domains_3	Spis_XP_022808243_1 | EGF_like_repeats_and_discoidin_domains_3
-Spis_XP_022808259_1	5	5	Mab-21/	Mab_21_domain_containing_2	Spis_XP_022808259_1 | Mab_21_domain_containing_2
-Spis_XP_022808265_1	6	6	TPMT/	thiopurine_S_methyltransferase	Spis_XP_022808265_1 | thiopurine_S_methyltransferase
-Spis_XP_022808334_1	7	7	7tm_1/	GPCR-rhodopsin.HG9.17:NA	Spis_XP_022808334_1 | GPCR-rhodopsin.HG9.17:NA
-Spis_XP_022808348_1	5	5	Mab-21/	cyclic_GMP_AMP_synthase	Spis_XP_022808348_1 | cyclic_GMP_AMP_synthase
-Spis_XP_022808349_1	5	5	Mab-21/	mab_21_like_2	Spis_XP_022808349_1 | mab_21_like_2
-Spis_XP_022808355_1	5	5	Mab-21/	cyclic GMP-AMP synthase-like	Spis_XP_022808355_1 | cyclic GMP-AMP synthase-like
-Spis_XP_022808428_1	6	6	Cyclin_N/Cyclin_C/	cyclin_D2	Spis_XP_022808428_1 | cyclin_D2
-Spis_XP_022808525_1	5	5	Mab-21/	cyclic GMP-AMP synthase-like	Spis_XP_022808525_1 | cyclic GMP-AMP synthase-like
-Spis_XP_022808575_1	10	10	Endonuclease_NS/	""	""
-Spis_XP_022808577_1	4	4	Endonuclease_NS/	""	""
-Spis_XP_022808578_1	10	10	Endonuclease_NS/	""	""
-Spis_XP_022808614_1	9	9	HEPN_DZIP3/AAA_22/HEPN_DZIP3/NB-ARC/HEPN_DZIP3/	""	""
-Spis_XP_022808624_1	7	7	Trypsin/	transmembrane_serine_protease_6	Spis_XP_022808624_1 | transmembrane_serine_protease_6
-Spis_XP_022808681_1	3	3	Glyco_tran_10_N/Glyco_transf_10/	fucosyltransferase_10	Spis_XP_022808681_1 | fucosyltransferase_10
-Spis_XP_022808684_1	10	10	""	""	""
-Spis_XP_022808707_1	3	3	Mab-21/	Mab_21_domain_containing_2	Spis_XP_022808707_1 | Mab_21_domain_containing_2
-Spis_XP_022808730_1	3	3	Trp_dioxygenase/	tryptophan_2_3_dioxygenase	Spis_XP_022808730_1 | tryptophan_2_3_dioxygenase
-Spis_XP_022808793_1	7	7	""	repellent protein 1-like	Spis_XP_022808793_1 | repellent protein 1-like
-Spis_XP_022808827_1	3	3	p450/	CYP.HG1.27:like:CYP17A1/CYP21A2:likeclu:16	Spis_XP_022808827_1 | CYP.HG1.27:like:CYP17A1/CYP21A2:likeclu:16
-Spis_XP_022808833_1	2	2	H_lectin/Kazal_2/Lectin_C/EGF/EGF/EGF/Fibrinogen_C/	Lectin_C.HG4.2:NA	Spis_XP_022808833_1 | Lectin_C.HG4.2:NA
-Spis_XP_022808835_1	2	2	Kazal_2/Lectin_C/	Lectin_C.HG4.2:NA	Spis_XP_022808835_1 | Lectin_C.HG4.2:NA
-Spis_XP_022808836_1	3	3	Methyltransf_2/	""	""
-Spis_XP_022808845_1	10	10	NAD_binding_2/NAD_binding_11/	glyoxylate_reductase_1_homolog	Spis_XP_022808845_1 | glyoxylate_reductase_1_homolog
-Spis_XP_022808891_1	9	9	Collagen/Collagen/Ig_3/	Collagen.HG1.0:like:COLEC10/COLEC11/FCN1/FCN2/GLDN/MARCO/MBL2/MSR1/SCARA5/SFTPD:likeclu:2/7/9/12/13/15	Spis_XP_022808891_1 | Collagen.HG1.0:like:COLEC10/COLEC11/FCN1/FCN2...
-Spis_XP_022808892_1	5	5	Lectin_C/	Lectin_C.HG4.2:NA	Spis_XP_022808892_1 | Lectin_C.HG4.2:NA
-Spis_XP_022808994_1	7	7	Lectin_C/EGF_CA/	Lectin_C.HG4.2:NA	Spis_XP_022808994_1 | Lectin_C.HG4.2:NA
-Spis_XP_022808995_1	7	7	TLD/	""	""
-Spis_XP_022808997_1	7	7	Lectin_C/	Lectin_C.HG4.2:NA	Spis_XP_022808997_1 | Lectin_C.HG4.2:NA
-Spis_XP_022808998_1	7	7	TLD/TLD/	""	""
-Spis_XP_022809053_1	8	8	SBP56/	selenium_binding_protein_1	Spis_XP_022809053_1 | selenium_binding_protein_1
-Spis_XP_022809512_1	7	7	BRICHOS/	""	""
-Spis_XP_022809623_1	1	1	H_lectin/Lectin_C/EGF/EGF/EGF/Fibrinogen_C/	Lectin_C.HG4.2:NA	Spis_XP_022809623_1 | Lectin_C.HG4.2:NA
-Spis_XP_022809664_1	9	9	""	""	""
-Spis_XP_022809869_1	9	9	GBP_C/	guanylate_binding_protein_7	Spis_XP_022809869_1 | guanylate_binding_protein_7
-Spis_XP_022810051_1	1	1	SLC35F/	solute_carrier_family_35_member_F3	Spis_XP_022810051_1 | solute_carrier_family_35_member_F3
-Spis_XP_022810073_1	9	9	""	tumor necrosis factor receptor superfamily member 4-like isoform X2	Spis_XP_022810073_1 | tumor necrosis factor receptor superfamily me...
-Spis_XP_022810074_1	7	7	""	tumor necrosis factor receptor superfamily member 16-like	Spis_XP_022810074_1 | tumor necrosis factor receptor superfamily me...
-Spis_XP_022810122_1	7	7	Fibrinogen_C/	fibrinogen_like_2	Spis_XP_022810122_1 | fibrinogen_like_2
-Spis_XP_022810124_1	7	7	Fibrinogen_C/Fibrinogen_C/Fibrinogen_C/	angiopoietin_2	Spis_XP_022810124_1 | angiopoietin_2
-Spis_XP_022810127_1	7	7	7tm_1/7tm_1/	GPCR-rhodopsin.HG33.11:NA	Spis_XP_022810127_1 | GPCR-rhodopsin.HG33.11:NA
-Spis_XP_022810165_1	9	9	HEPN_DZIP3/NACHT/	DAZ_interacting_zinc_finger_protein_3	Spis_XP_022810165_1 | DAZ_interacting_zinc_finger_protein_3
-Spis_XP_022810191_1	7	7	NB-ARC/TPR_1/Beta_helix/zf-MYND/	small_glutamine_rich_tetratricopeptide_repeat_containing_alpha	Spis_XP_022810191_1 | small_glutamine_rich_tetratricopeptide_repeat...
-Spis_XP_022810218_1	7	7	C2/PLA2_B/	Synaptotagmin.HG15.0:PLA2G4A	Spis_XP_022810218_1 | Synaptotagmin.HG15.0:PLA2G4A
-Spis_XP_022810220_1	6	6	Collagen/Ig_3/Ig_3/	Collagen.HG1.0:like:COLEC10/COLEC11/FCN1/FCN2/GLDN/MARCO/MBL2/MSR1/SCARA5/SFTPD:likeclu:2/7/9/12/13/15	Spis_XP_022810220_1 | Collagen.HG1.0:like:COLEC10/COLEC11/FCN1/FCN2...
-Spis_XP_022810238_1	8	8	Chitin_synth_2/SAM_2/SAM_1/	SAM.HG3.0:like:ANKS1A/ANKS1B/CASKIN1/CASKIN2/INPPL1/SAMD5/SAMSN1/SASH1/SASH3:likeclu:2/5/6/8	Spis_XP_022810238_1 | SAM.HG3.0:like:ANKS1A/ANKS1B/CASKIN1/CASKIN2/...
-Spis_XP_022810316_1	1	1	TSP_1/TSP_1/TSP_1/	spondin_1	Spis_XP_022810316_1 | spondin_1
-Spis_XP_022810407_1	3	3	adh_short/	sterol_dehydrogenase.HG2.4:AL049779/DHRS13/DHRSX/RDH11/RDH12/RDH13/RDH14/WWOX	Spis_XP_022810407_1 | sterol_dehydrogenase.HG2.4:AL049779/DHRS13/DH...
-Spis_XP_022810518_1	6	6	Collagen/Collagen/I-set/I-set/TLD/	Collagen.HG1.0:like:COLEC10/COLEC11/FCN1/FCN2/GLDN/MARCO/MBL2/MSR1/SCARA5/SFTPD:likeclu:2/7/9/12/13/15	Spis_XP_022810518_1 | Collagen.HG1.0:like:COLEC10/COLEC11/FCN1/FCN2...
-Spis_YP_002149710_1	7	7	Oxidored_q2/	NADH dehydrogenase subunit 4L (mitochondrion)	Spis_YP_002149710_1 | NADH dehydrogenase subunit 4L (mitochondrion)
-Spis_YP_002149711_1	7	7	Oxidored_q4/	mitochondrially_encoded_NADH_ubiquinone_oxidoreductase_core_subunit_3	Spis_YP_002149711_1 | mitochondrially_encoded_NADH_ubiquinone_oxido...
+gene	group	pfam	og
+Spis_XP_022778432_1	1	MARVEL/	MARVEL.HG1.25:like:CMTM3/CMTM4/CMTM5/CMTM6/CMTM7/CMTM8/MAL/MAL2/MALL/MARVELD1/MARVELD2/MYADM/MYADML2/OCLN/PLLP/PLP2:likeclu:0
+Spis_Spis24243_1	1		
+Spis_XP_022798150_1	1	PDZ/C2/RhoGAP/	PDZ.HG7.0:like:PARD6A/PARD6B/PARD6G:likeclu:2
+Spis_XP_022787562_1	1	LRR_5/7tm_1/	GPCR-rhodopsin.HG57.1:FSHR/LHCGR/TSHR
+Spis_XP_022805869_1	1	MFS_2/MFS_1/	major_facilitator_superfamily_domain_containing_12
+Spis_XP_022801358_1	1	Carb_anhydrase/Carb_anhydrase/	carbonic_anhydrase_2
+Spis_XP_022781966_1	1	RUN/	RUN_and_FYVE_domain_containing_4
+Spis_XP_022794286_1	1	FAM124/	family_with_sequence_similarity_124_member_A
+Spis_XP_022786203_1	1		HLH.like:ASCL1/ASCL2
+Spis_XP_022791920_1	1	MFS_1/	solute_carrier_family_46_member_1
+Spis_XP_022779265_1	1	Pyr_redox_2/	apoptosis_inducing_factor_mitochondria_associated_2
+Spis_XP_022794004_1	1	7tm_1/	GPCR-rhodopsin.HG18.1:NA
+Spis_XP_022799004_1	1	7tm_1/	GPCR-rhodopsin.HG26.0:GPR148
+Spis_XP_022779730_1	1	Acyl-CoA_dh_N/Acyl-CoA_dh_1/FAD_binding_6/NAD_binding_1/	cytochrome_b5_reductase_3
+Spis_XP_022806227_1	1	""	""
+Spis_XP_022781214_1	1	An_peroxidase/Lectin_C/	peroxidasin
+Spis_XP_022796398_1	1	OATP/OATP/Kazal_2/	solute_carrier_organic_anion_transporter_family_member_4A1
+Spis_XP_022783240_1	1	PFL-like/	""
+Spis_XP_022806296_1	1	FAD_binding_4/ALO/	fad_oxireduct.HG1.2:like:DHCR24:likeclu:4
+Spis_XP_022806848_1	1	""	""
+Spis_XP_022778286_1	1	MFS_1/	major_facilitator_superfamily_domain_containing_12
+Spis_XP_022795039_1	1	SAM_2/SAM_1/	SAM.HG3.0:like:ANKS1A/ANKS1B/CASKIN1/CASKIN2/INPPL1/SAMD5/SAMSN1/SASH1/SASH3:likeclu:2/5/6/8
+Spis_XP_022797868_1	1	ABC_membrane/ABC_tran/ABC_membrane/	ATP_binding_cassette_subfamily_C_member_4
+Spis_XP_022785465_1	1	ADH_N/ADH_zinc_N/	tumor_protein_p53_inducible_protein_3
+Spis_XP_022796981_1	1	""	""
+Spis_Spis23867_1	1		
+Spis_XP_022786680_1	1	F-box-like/WD40/WD40/WD40/WD40/	epithelial_cell_transforming_2_like
+Spis_Spis25029_1	1		
+Spis_XP_022810316_1	1	TSP_1/TSP_1/TSP_1/	spondin_1
+Spis_XP_022790296_1	1	Collagen/Collagen/Collagen/	Collagen.HG16.0:NA
+Spis_XP_022784241_1	1	Cu-oxidase_3/Cu-oxidase/Cu-oxidase_2/	hephaestin
+Spis_XP_022792717_1	1	I-set/TIR_2/	TIR.HG1.11:like:IL1R1/IL1RAP/IL1RAPL1/IL1RAPL2/IL1RL1/IL1RL2/IL18R1/IL18RAP/SIGIRR:likeclu:9
+Spis_XP_022793128_1	1	VWC/VWD/C8/TIL/	BMP_binding_endothelial_regulator
+Spis_XP_022806984_1	1	Kazal_2/Kazal_2/Kazal_1/Kazal_1/Kazal_2/	agrin
+Spis_XP_022782256_1	1	NAD_binding_5/Inos-1-P_synth/	inositol_3_phosphate_synthase_1
+Spis_XP_022785063_1	1	Calx-beta/Zona_pellucida/	CUB_and_zona_pellucida_like_domains_1
+Spis_XP_022802148_1	1	p450/	CYP.HG4.0:CYP11A1/CYP11B1/CYP11B2/CYP24A1/CYP27A1/CYP27B1/CYP27C1
+Spis_XP_022804094_1	1	ABC_membrane/ABC_membrane/ABC_tran/	ATP_binding_cassette_subfamily_C_member_1
+Spis_XP_022802113_1	1	""	""
+Spis_XP_022803704_1	1	CBAH/	""
+Spis_XP_022799644_1	1	7tm_1/	GPCR-rhodopsin.HG14.0:NA
+Spis_XP_022801214_1	1		Homeodomains.like:PRD_PAX4/PRD_PAX6
+Spis_XP_022792476_1	1	MIP/	aquaporin_3_Gill_blood_group_
+Spis_XP_022803863_1	1	""	""
+Spis_XP_022785115_1	1	CUB/CUB/Zona_pellucida/	CUB_and_zona_pellucida_like_domains_1
+Spis_XP_022787110_1	1	FXa_inhibition/FXa_inhibition/Zona_pellucida/	CUB_and_zona_pellucida_like_domains_1
+Spis_XP_022794535_1	1	Mab-21/	mab_21_like_2
+Spis_XP_022781993_1	1	G_glu_transpept/	""
+Spis_XP_022805783_1	1	DUF1011/	solute_carrier_family_52_member_3
+Spis_XP_022785458_1	1	Collagen/Collagen/	Collagen.HG6.2:NA
+Spis_XP_022800330_1	1	CUB/CUB/CUB/CUB/CUB/CUB/	cubilin
+Spis_Spis10645_1	1		
+Spis_XP_022791746_1	1	CENP-I/	centromere_protein_I
+Spis_XP_022799421_1	1	p450/	CYP.HG2.0:CYP3A4/CYP3A43/CYP3A5/CYP3A7/TBXAS1
+Spis_XP_022800542_1	1	VWA/VWA/VWA/VWA/VWA/Laminin_G_3/	collagen_type_VI_alpha_3_chain
+Spis_XP_022786756_1	1	RSN1_TM/PHM7_cyt/RSN1_7TM/	transmembrane_protein_63B
+Spis_XP_022800559_1	1	Sep15_SelM/	selenoprotein_M
+Spis_XP_022793242_1	1	""	""
+Spis_XP_022810051_1	1	SLC35F/	solute_carrier_family_35_member_F3
+Spis_XP_022788789_1	1	Sugar_tr/	Sugar_tr.HG1.1:like:SLC22A1/SLC22A2/SLC22A3/SLC22A4/SLC22A5/SLC22A6/SLC22A7/SLC22A8/SLC22A9/SLC22A10/SLC22A11/SLC22A12/SLC22A13/SLC22A14/SLC22A15/SLC22A16/SLC22A17/SLC22A23/SLC22A24/SLC22A25/SLC22A31:likeclu:4/6/10/11/12/24/25/26/29/30/31/37/74/76/77
+Spis_XP_022800083_1	1	7tm_1/	GPCR-rhodopsin.HG6.34:NA
+Spis_XP_022777813_1	1	""	""
+Spis_XP_022809623_1	1	H_lectin/Lectin_C/EGF/EGF/EGF/Fibrinogen_C/	Lectin_C.HG4.2:NA
+Spis_XP_022779334_1	1	VWA/VWA/VWA/VWA/Collagen/Collagen/COLFI/	Collagen.HG2.33:like:COL1A1/COL1A2/COL2A1/COL3A1/COL5A2:likeclu:26
+Spis_XP_022790912_1	1	Sulfatase/Sulfatase_C/	steroid_sulfatase
+Spis_XP_022794658_1	1	""	""
+Spis_XP_022782117_1	1	SelP_N/	selenoprotein_P
+Spis_XP_022786665_1	1	Transferrin/	melanotransferrin
+Spis_XP_022807098_1	1	XRCC4/	X_ray_repair_cross_complementing_4
+Spis_XP_022790618_1	1	Fz/Fz/	Frizzled.HG1.12:like:FRZB/FZD1/FZD2/FZD3/FZD4/FZD5/FZD6/FZD7/FZD8/FZD9/FZD10/GPR157/MFRP/SFRP1/SFRP2/SFRP4/SFRP5/SMO:likeclu:15/16/23/25/29/31/32/33/37
+Spis_XP_022800512_1	1	GFA/	centromere_protein_V
+Spis_Spis24242_1	1		
+Spis_XP_022791922_1	1	Ras/	RAS_like_estrogen_regulated_growth_inhibitor
+Spis_XP_022797097_1	1	ShK/ShK/	""
+Spis_XP_022779768_1	1	Tctex-1/	Tctex1_domain_containing_1
+Spis_XP_022792919_1	1	Fz/	Frizzled.HG1.12:like:FRZB/FZD1/FZD2/FZD3/FZD4/FZD5/FZD6/FZD7/FZD8/FZD9/FZD10/GPR157/MFRP/SFRP1/SFRP2/SFRP4/SFRP5/SMO:likeclu:15/16/23/25/29/31/32/33/37
+Spis_XP_022798651_1	1	ApoL/	""
+Spis_XP_022802268_1	1	Tyrosinase/Tyrosinase/	tyrosinase
+Spis_XP_022778969_1	1	MACPF/	DELTA-thalatoxin-Avl2a-like
+Spis_XP_022803808_1	1	EGF_CA/CUB/CUB/CUB/SRCR/	deleted_in_malignant_brain_tumors_1
+Spis_XP_022786741_1	1	""	""
+Spis_XP_022787895_1	1	Sulfotransfer_3/	tyrosylprotein_sulfotransferase_2
+Spis_XP_022795842_1	1	""	""
+Spis_XP_022807433_1	1	TGFb_propeptide/TGF_beta/	TGF_beta.HG1.6:like:AMH/GDF15/INHA/INHBA/INHBB/INHBC/INHBE:likeclu:8/13/29/31
+Spis_XP_022801787_1	1	Crystall/	""
+Spis_XP_022801785_1	1	Crystall/	""
+Spis_XP_022806141_1	1	""	""
+Spis_XP_022787156_1	1	Lipocalin_2/	apolipoprotein_D
+Spis_XP_022782720_1	1	Granulin/Granulin/	granulin_precursor
+Spis_XP_022792932_1	1	Pex24p/C2/C2/	Synaptotagmin.HG3.2:DYSF/MYOF
+Spis_XP_022792545_1	1	""	serum response factor homolog A-like isoform X1
+Spis_XP_022796708_1	1	DUF4773/DUF4773/	""
+Spis_XP_022794549_1	1	""	""
+Spis_XP_022779557_1	1	""	neurogenic locus notch homolog protein 1-like isoform X1
+Spis_XP_022806423_1	1	""	""
+Spis_XP_022782452_1	1	""	""
+Spis_XP_022784942_1	1	""	""
+Spis_XP_022793250_1	1	""	C1q_and_TNF_related_12
+Spis_XP_022806040_1	1	MFS_1_like/	major_facilitator_superfamily_domain_containing_6
+Spis_XP_022795420_1	2	Mab-21/	Mab_21_domain_containing_2
+Spis_XP_022795519_1	2	Mab-21/	cyclic_GMP_AMP_synthase
+Spis_XP_022797333_1	2	7tm_1/	GPCR-rhodopsin.HG11.9:like:GPR176:likeclu:1
+Spis_XP_022798350_1	2	S-methyl_trans/	betaine_homocysteine_S_methyltransferase
+Spis_XP_022808171_1	2	7tm_1/	GPCR-rhodopsin.HG8.33:like:ADORA2B:likeclu:11
+Spis_XP_022787101_1	2	CUB/CUB/FXa_inhibition/Zona_pellucida/	oncoprotein_induced_transcript_3
+Spis_XP_022779541_1	2	Mab-21/	Mab_21_domain_containing_2
+Spis_XP_022793617_1	2	""	LDL_receptor_related_protein_1
+Spis_XP_022791342_1	2	""	""
+Spis_XP_022788470_1	2	""	""
+Spis_XP_022795995_1	2	Collagen/	Collagen.HG3.8:NA
+Spis_Spis25315_1	2		
+Spis_XP_022792842_1	2	MIase/	""
+Spis_Spis1757_1	2		
+Spis_XP_022808835_1	2	Kazal_2/Lectin_C/	Lectin_C.HG4.2:NA
+Spis_XP_022808833_1	2	H_lectin/Kazal_2/Lectin_C/EGF/EGF/EGF/Fibrinogen_C/	Lectin_C.HG4.2:NA
+Spis_Spis22699_1	2		
+Spis_XP_022795498_1	2	Rhodanese/Rhodanese/	mercaptopyruvate_sulfurtransferase
+Spis_XP_022806456_1	2	Mab-21/	mitochondrial_elongation_factor_1
+Spis_XP_022796291_1	2	7tm_1/	GPCR-rhodopsin.HG33.7:NA
+Spis_XP_022795494_1	2	""	""
+Spis_XP_022795488_1	2	""	""
+Spis_XP_022795490_1	2	""	""
+Spis_XP_022795919_1	3	cNMP_binding/	protein_kinase_cGMP_dependent_2
+Spis_XP_022797568_1	3	Arginase/	agmatinase
+Spis_XP_022793467_1	3	zf-RING_UBOX/zf-B_box/Filamin/DUF5128/NHL/NHL/NHL/	tripartite_motif_containing_2
+Spis_XP_022783952_1	3	PG_binding_1/Peptidase_M10/	matrix_metallopeptidase_13
+Spis_XP_022798880_1	3	GST_N_4/GST_C_6/	failed_axon_connections_homolog_metaxin_like_GST_domain_containing
+Spis_XP_022800513_1	3	GFA/	centromere_protein_V
+Spis_XP_022795636_1	3	zf-RING_UBOX/zf-B_box/	tripartite_motif_containing_33
+Spis_XP_022799435_1	3	DNA_alkylation/	""
+Spis_XP_022799671_1	3	zf-B_box/Filamin/NHL/NHL/NHL/NHL/NHL/	tripartite_motif_containing_45
+Spis_XP_022803468_1	3	Cyt-b5/	cytochrome_b5_type_B
+Spis_XP_022782373_1	3	Folate_rec/	""
+Spis_XP_022800704_1	3	Acetyltransf_2/	N_acetyltransferase_1
+Spis_XP_022794550_1	3	HEPN_DZIP3/	DAZ_interacting_zinc_finger_protein_3
+Spis_XP_022806807_1	3	TIR_2/	TIR.HG1.11:like:IL1R1/IL1RAP/IL1RAPL1/IL1RAPL2/IL1RL1/IL1RL2/IL18R1/IL18RAP/SIGIRR:likeclu:9
+Spis_XP_022787383_1	3	zf-C3HC4_2/zf-TRAF/zf-TRAF/	TNF_receptor_associated_factor_3
+Spis_XP_022790272_1	3	MFS_1_like/	major_facilitator_superfamily_domain_containing_6
+Spis_XP_022803190_1	3	TFAM	HMGbox_Sox.TFAM
+Spis_Spis25549_1	3		
+Spis_XP_022778218_1	3	""	""
+Spis_XP_022803605_1	3	Ca_hom_mod/	calcium_homeostasis_modulator_family_member_2
+Spis_XP_022799095_1	3	Ank_4/Ank_2/Mab-21/Mab-21/	""
+Spis_XP_022781678_1	3	Endonuclease_NS/	""
+Spis_XP_022786592_1	3	Ca_hom_mod/	protein FAM26E-like
+Spis_XP_022807557_1	3	Dimerisation2/Methyltransf_2/	acetylserotonin_O_methyltransferase_like
+Spis_XP_022795352_1	3	ELFV_dehydrog_N/ELFV_dehydrog/	glutamate_dehydrogenase_2
+Spis_XP_022805193_1	3	DEP/	DEP_domain_containing_7
+Spis_XP_022784683_1	3	dCMP_cyt_deam_1/	cytidine_and_dCMP_deaminase_domain_containing_1
+Spis_XP_022800963_1	3	""	""
+Spis_XP_022781995_1	3	""	""
+Spis_XP_022788408_1	3	HlyIII/	progestin_and_adipoQ_receptor_family_member_5
+Spis_XP_022787954_1	3	TFAP4	HLH.TFAP4
+Spis_XP_022796424_1	3	Methyltransf_25/	methyltransferase_like_27
+Spis_XP_022796590_1	3	zf-4CXXC_R1/	cell_division_cycle_associated_7_like
+Spis_XP_022801686_1	3	Arrestin_N/Arrestin_C/	arrestin_domain_containing_3
+Spis_XP_022787512_1	3	DUF4062/NACHT/	NACHT_and_WD_repeat_domain_containing_2
+Spis_Spis7736_1	3		
+Spis_XP_022808681_1	3	Glyco_tran_10_N/Glyco_transf_10/	fucosyltransferase_10
+Spis_XP_022788020_1	3	Mab-21/	Mab_21_domain_containing_2
+Spis_XP_022782020_1	3	Mab-21/	mab_21_like_1
+Spis_XP_022784673_1	3	TMEM173/	stimulator_of_interferon_response_cGAMP_interactor_1
+Spis_XP_022805546_1	3	7tm_1/	GPCR-rhodopsin.HG38.1:ADORA2A/GPR22
+Spis_XP_022781919_1	3	""	""
+Spis_XP_022805017_1	3	TauD/	clavaminate synthase-like protein At3g21360
+Spis_XP_022796041_1	3	DnaJ/	DnaJ_heat_shock_protein_family_Hsp40_member_C16
+Spis_XP_022807506_1	3	FA_desaturase/	FA_desaturase.HG3.1:SCD5
+Spis_XP_022793099_1	3	Kelch_1/Kelch_1/Kelch_1/Kelch_1/	kelch-like protein 28
+Spis_XP_022794511_1	3	Sclerostin/	sclerostin_domain_containing_1
+Spis_XP_022781044_1	3	Acyl_transf_1/	malonyl_CoA_acyl_carrier_protein_transacylase
+Spis_XP_022796837_1	3	Cystatin/	cystatin_B
+Spis_XP_022802149_1	3	p450/	CYP.HG4.0:CYP11A1/CYP11B1/CYP11B2/CYP24A1/CYP27A1/CYP27B1/CYP27C1
+Spis_XP_022785567_1	3	CH/CH/Spectrin/	Spectrin.HG3.0:like:DMD/DRP2/UTRN:likeclu:2
+Spis_XP_022799346_1	3	7tm_1/	GPCR-rhodopsin.HG6.34:NA
+Spis_XP_022785133_1	3	GPP34/	""
+Spis_XP_022794844_1	3	ABC_membrane/ABC_tran/ABC_membrane/	ATP_binding_cassette_subfamily_C_member_4
+Spis_XP_022793625_1	3	HAD_2/	""
+Spis_XP_022784087_1	3	EcKinase/	""
+Spis_XP_022784838_1	3	Spectrin/	Spectrin.HG3.0:like:DMD/DRP2/UTRN:likeclu:2
+Spis_Spis7585_1	3		
+Spis_XP_022787516_1	3	Filamin/NHL/	NHL_repeat_containing_E3_ubiquitin_protein_ligase_1
+Spis_XP_022791713_1	3	Gal-3-0_sulfotr/Gal-3-0_sulfotr/	galactose_3_O_sulfotransferase_1
+Spis_XP_022794697_1	3	ANTP_HMX1	Homeodomains.ANTP_HMX1/ANTP_HMX2/ANTP_HMX3/ANTP_NKX6-1/ANTP_NKX6-2/ANTP_NKX6-3
+Spis_XP_022797120_1	3	7tm_1/	GPCR-rhodopsin.HG74.2:NA
+Spis_XP_022806709_1	3	Sulfotransfer_1/	sulfotransferase_family_1C_member_2
+Spis_XP_022784090_1	3	RRM_1/RRM_1/	RRM.HG41.0:RBPMS/RBPMS2
+Spis_XP_022795186_1	3	p450/	CYP.HG1.7:like:CYP1A1/CYP1A2/CYP1B1:likeclu:13
+Spis_XP_022804110_1	3	""	""
+Spis_XP_022781440_1	3	PALP/	serine_dehydratase
+Spis_XP_022796635_1	3	FYVE/	zinc_finger_FYVE_type_containing_27
+Spis_Spis14732_1	3		
+Spis_XP_022790112_1	3	fn3/fn3/fn3/	fibronectin.HG2.7:like:AXL/MERTK/NPHS1/ROS1/TEK/TIE1/TYRO3/VSIG10L2:likeclu:13/15/17/18/24
+Spis_XP_022810407_1	3	adh_short/	sterol_dehydrogenase.HG2.4:AL049779/DHRS13/DHRSX/RDH11/RDH12/RDH13/RDH14/WWOX
+Spis_Spis4474_1	3		
+Spis_XP_022784143_1	3	TPMT/	thiopurine_S_methyltransferase
+Spis_XP_022808836_1	3	Methyltransf_2/	""
+Spis_XP_022797743_1	3	""	golgin subfamily B member 1-like
+Spis_XP_022800284_1	3	Pribosyltran_N/Pribosyl_synth/	phosphoribosyl_pyrophosphate_synthetase_associated_protein_2
+Spis_XP_022789375_1	3	DAN/	""
+Spis_XP_022802485_1	3	Peptidase_M20/M20_dimer/	peptidase_M20_domain_containing_2
+Spis_XP_022787410_1	3	Mab-21/	""
+Spis_XP_022808730_1	3	Trp_dioxygenase/	tryptophan_2_3_dioxygenase
+Spis_XP_022796567_1	3	Ank_2/Ank_2/Ank_4/Ank_2/Ank/Ank_2/Ank/Ank_2/Ank_2/Ank_2/Ank_5/	ankyrin_repeat_domain_46
+Spis_XP_022802087_1	3	Dcc1/	DNA_replication_and_sister_chromatid_cohesion_1
+Spis_XP_022788692_1	3	ATP-gua_PtransN/ATP-gua_Ptrans/	creatine_kinase_B
+Spis_XP_022793765_1	3	""	integumentary mucin C.1-like
+Spis_Spis16479_1	3		
+Spis_XP_022786014_1	3	Sarcoglycan_1/	Sarcoglycan.HG1.1:SGCD/SGCG/SGCZ
+Spis_XP_022807061_1	3	""	""
+Spis_XP_022808176_1	3	PDZ/	PDZ.HG10.0:like:AFDN:likeclu:1
+Spis_XP_022808707_1	3	Mab-21/	Mab_21_domain_containing_2
+Spis_XP_022790012_1	3	CH/	calponin_1
+Spis_XP_022778934_1	3	MORN/	""
+Spis_XP_022791734_1	3	adh_short_C2/	sterol_dehydrogenase.HG1.19:DHRS2/DHRS4/DHRS4L2
+Spis_XP_022778966_1	3	cNMP_binding/	cyclic_nucleotide_binding_domain_containing_2
+Spis_XP_022801827_1	3	RtcB/	RNA_2_3_cyclic_phosphate_and_5_OH_ligase
+Spis_XP_022783145_1	3	DUF1445/	D_glutamate_cyclase
+Spis_XP_022783317_1	3	Thioredoxin_8/	nucleoredoxin_like_2
+Spis_XP_022797641_1	3	Serpin/	serpin_family_B_member_1
+Spis_XP_022790299_1	3	Phosphodiest/	ectonucleotide_pyrophosphatase_phosphodiesterase_family_member_5
+Spis_XP_022804693_1	3	DUF885/	""
+Spis_XP_022807476_1	3	""	""
+Spis_XP_022808827_1	3	p450/	CYP.HG1.27:like:CYP17A1/CYP21A2:likeclu:16
+Spis_XP_022794494_1	3	""	meiotic_double_stranded_break_formation_protein_4
+Spis_XP_022791276_1	3	PARG_cat/PARG_cat/	poly_ADP_ribose_glycohydrolase
+Spis_XP_022805226_1	3	Sugar_tr/	Sugar_tr.HG1.0:like:SLC22A1/SLC22A2/SLC22A3/SLC22A4/SLC22A5/SLC22A6/SLC22A7/SLC22A8/SLC22A9/SLC22A10/SLC22A11/SLC22A12/SLC22A13/SLC22A14/SLC22A15/SLC22A16/SLC22A17/SLC22A23/SLC22A24/SLC22A25/SLC22A31:likeclu:4/6/10/11/12/24/25/26/29/30/31/37/74/76/77
+Spis_XP_022800385_1	4	MAM/MAM/MAM/MAM/MAM/	MAM_and_LDL_receptor_class_A_domain_containing_1
+Spis_Spis13728_1	4		
+Spis_XP_022797081_1	4	""	papilin_proteoglycan_like_sulfated_glycoprotein
+Spis_XP_022779066_1	4	MACPF/	DELTA-alicitoxin-Pse2b-like
+Spis_XP_022789505_1	4	""	""
+Spis_XP_022799980_1	4	EGF/EGF/EGF/EGF/EGF/EGF/EGF/EGF/EGF/EGF/EGF/EGF/EGF/EGF/EGF/EGF/EGF/EGF/EGF/EGF/EGF/EGF/Laminin_G_3/	Laminin.HG4.5:NA
+Spis_XP_022790136_1	4	AbfB/TSP_1/TSP_1/	thrombospondin_1
+Spis_XP_022799605_1	4	ShK/Lectin_C/Lectin_C/Laminin_G_3/GLEYA/PA14/Laminin_G_3/EGF/WSC/PLAT/	Lectin_C.HG5.11:like:DGCR2:likeclu:1
+Spis_XP_022782128_1	4	""	""
+Spis_XP_022808577_1	4	Endonuclease_NS/	""
+Spis_XP_022791745_1	4	CAP/	GLI_pathogenesis_related_2
+Spis_XP_022797061_1	4	""	""
+Spis_XP_022787941_1	4	Peptidase_M13_N/Peptidase_M13/	endothelin_converting_enzyme_2
+Spis_XP_022807232_1	4	SEA/WSC/	kringle_containing_transmembrane_protein_1
+Spis_XP_022790178_1	4	AbfB/	""
+Spis_XP_022783895_1	4	Gal_Lectin/Gal_Lectin/Gal_Lectin/Gal_Lectin/	adhesion_G_protein_coupled_receptor_L3
+Spis_XP_022789521_1	4	""	""
+Spis_XP_022782988_1	4	SEA/	""
+Spis_XP_022806650_1	4	Collagen/Collagen/Gal_Lectin/	Collagen.HG11.2:NA
+Spis_XP_022796188_1	4	VWA/TSP_1/F5_F8_type_C/	collagen_type_XXII_alpha_1_chain
+Spis_XP_022785880_1	4	""	vegetative cell wall protein gp1-like
+Spis_XP_022806666_1	4	Gal_Lectin/	eva_1_homolog_C
+Spis_XP_022788575_1	4	""	aspartate, glycine, lysine and serine-rich protein-like
+Spis_XP_022797817_1	4	""	flocculation protein FLO11-like
+Spis_XP_022798678_1	4	Peptidase_M1_N/Peptidase_M1/ERAP1_C/	endoplasmic_reticulum_aminopeptidase_1
+Spis_XP_022780819_1	4	Laminin_G_3/	Laminin.HG4.3:NA
+Spis_XP_022797403_1	4	""	leucine-rich repeat extensin-like protein 3
+Spis_XP_022806671_1	4	Collagen/Collagen/Gal_Lectin/	Collagen.HG11.1:NA
+Spis_XP_022807675_1	4	ShK/ShK/	basic proline-rich protein-like
+Spis_XP_022786719_1	4	Pyridoxal_deC/	""
+Spis_XP_022790199_1	4	""	mucin-2-like
+Spis_XP_022801123_1	4	Octopine_DH/	tauropine dehydrogenase-like
+Spis_XP_022787151_1	4	zf-C3HC4_3/	""
+Spis_XP_022792536_1	4	DUF885/	""
+Spis_Spis14506_1	4		
+Spis_XP_022793988_1	4	COesterase/	COesterase.HG1.8:like:NLGN1/NLGN2/NLGN3/NLGN4X/NLGN4Y:likeclu:13
+Spis_XP_022781487_1	4	DUF885/	""
+Spis_XP_022806994_1	4	Usp/	""
+Spis_XP_022778881_1	4	Ank_5/	ankyrin_repeat_domain_22
+Spis_XP_022792216_1	4	7tm_1/	GPCR-rhodopsin.HG16.9:NA
+Spis_XP_022806989_1	4	Usp/	""
+Spis_XP_022780848_1	4	Cu_amine_oxidN2/DUF1965/Cu_amine_oxid/	amine_oxidase_copper_containing_1
+Spis_XP_022795140_1	4	Zona_pellucida/	CUB_and_zona_pellucida_like_domains_1
+Spis_XP_022785544_1	4	CH/CH/Spectrin/	Spectrin.HG3.0:like:DMD/DRP2/UTRN:likeclu:2
+Spis_Spis168_1	4		
+Spis_Spis169_1	4		
+Spis_XP_022792363_1	4	Laminin_G_3/Lectin_C/	Lectin_C.HG5.10:like:DGCR2:likeclu:1
+Spis_XP_022783671_1	4	""	protein DD3-3-like
+Spis_XP_022806836_1	4	""	""
+Spis_Spis13729_1	4		
+Spis_XP_022797123_1	4	Ig_3/I-set/	NCam.HG4.10:NA
+Spis_XP_022783669_1	4	""	protein DD3-3-like isoform X1
+Spis_XP_022800518_1	4	""	""
+Spis_XP_022780695_1	5	TMEM173/	stimulator_of_interferon_response_cGAMP_interactor_1
+Spis_XP_022798608_1	5	Linker_histone/	LinkerHistone.HG1.5:like:HP1BP3/SHPRH:likeclu:12/15
+Spis_XP_022804905_1	5	HTH_Tnp_4/DDE_Tnp_4/	harbinger_transposase_derived_1
+Spis_XP_022808892_1	5	Lectin_C/	Lectin_C.HG4.2:NA
+Spis_XP_022784873_1	5	""	""
+Spis_XP_022800603_1	5	Mab-21/Mab-21/	mitochondrial_elongation_factor_1
+Spis_XP_022804134_1	5	Macro/Macro/PARP/	poly_ADP_ribose_polymerase_family_member_14
+Spis_XP_022808100_1	5	""	calponin homology domain-containing protein DDB_G0272472-like
+Spis_XP_022804364_1	5	""	""
+Spis_Spis21323_1	5		
+Spis_XP_022798180_1	5	Mab-21/	mab_21_like_3
+Spis_XP_022786249_1	5	Peptidase_S8/P_proprotein/TSP_1/TSP_1/	proprotein_convertase_subtilisin_kexin_type_6
+Spis_XP_022794083_1	5	""	""
+Spis_XP_022794476_1	5	""	protein PFC0760c-like isoform X7
+Spis_XP_022795250_1	5	""	""
+Spis_XP_022786118_1	5	Tropomyosin/	tropomyosin-like
+Spis_XP_022797582_1	5	EGF_CA/EGF_CA/EGF_CA/	signal_peptide_CUB_domain_and_EGF_like_domain_containing_2
+Spis_XP_022802787_1	5	""	""
+Spis_XP_022806395_1	5	EGF_CA/EGF_CA/EGF_CA/EGF_CA/EGF_CA/EGF_CA/EGF_CA/	hemicentin_1
+Spis_XP_022795966_1	5	GBP/Peptidase_S74/	guanylate_binding_protein_4
+Spis_XP_022808525_1	5	Mab-21/	cyclic GMP-AMP synthase-like
+Spis_XP_022786049_1	5	CARD/Death/	caspase_recruitment_domain_family_member_10
+Spis_XP_022785288_1	5	Mab-21/	mab_21_like_3
+Spis_XP_022801139_1	5	TauE/	""
+Spis_XP_022803803_1	5	EGF_CA/CUB/CUB/CUB/SRCR/	deleted_in_malignant_brain_tumors_1
+Spis_XP_022787439_1	5	Mab-21/	Mab_21_domain_containing_2
+Spis_XP_022807539_1	5	Mab-21/	""
+Spis_XP_022808023_1	5	Mab-21/	""
+Spis_XP_022805259_1	5	""	""
+Spis_XP_022808259_1	5	Mab-21/	Mab_21_domain_containing_2
+Spis_XP_022798336_1	5	""	""
+Spis_XP_022780216_1	5	Ank_2/Ank_2/Mab-21/	protein_phosphatase_1_regulatory_subunit_13_like
+Spis_Spis22141_1	5		
+Spis_Spis24095_1	5		
+Spis_XP_022790458_1	5	Mab-21/	Mab_21_domain_containing_2
+Spis_XP_022795476_1	5	Ank_2/Ank_2/Ank_5/Mab-21/	zinc_finger_DHHC_type_palmitoyltransferase_13
+Spis_XP_022785413_1	5	""	""
+Spis_XP_022798437_1	5	An_peroxidase/	peroxidasin
+Spis_XP_022800197_1	5	Mab-21/	mab_21_like_1
+Spis_XP_022784635_1	5	TMEM173/	stimulator_of_interferon_response_cGAMP_interactor_1
+Spis_XP_022804589_1	5	Mab-21/	mab_21_like_1
+Spis_XP_022808349_1	5	Mab-21/	mab_21_like_2
+Spis_XP_022786676_1	5	BRICHOS/	""
+Spis_XP_022802921_1	5	Mab-21/	""
+Spis_XP_022797813_1	5	Mab-21/	Mab_21_domain_containing_2
+Spis_XP_022779765_1	5	Mab-21/	mab_21_like_3
+Spis_XP_022795088_1	5	Mab-21/	cyclic_GMP_AMP_synthase
+Spis_XP_022800959_1	5	Mab-21/	Mab_21_domain_containing_2
+Spis_XP_022787007_1	5	Mab-21/	Mab_21_domain_containing_2
+Spis_XP_022806616_1	5	Mab-21/	cyclic_GMP_AMP_synthase
+Spis_Spis4905_1	5		
+Spis_XP_022780772_1	5	""	""
+Spis_XP_022808355_1	5	Mab-21/	cyclic GMP-AMP synthase-like
+Spis_XP_022780981_1	5	AAA_11/AAA_11/AAA_12/	zinc_finger_NFX1_type_containing_1
+Spis_XP_022797212_1	5	zf-TRAF/	TNF_receptor_associated_factor_2
+Spis_XP_022807352_1	5	zf-C3HC4_4/zf-TRAF/	TNF_receptor_associated_factor_5
+Spis_XP_022791402_1	5	""	probable serine/threonine-protein kinase DDB_G0277165
+Spis_XP_022805321_1	5	""	""
+Spis_XP_022808348_1	5	Mab-21/	cyclic_GMP_AMP_synthase
+Spis_XP_022795430_1	5	CC2-LZ/	TNFAIP3-interacting protein 3-like isoform X2
+Spis_XP_022782960_1	5	Mab-21/	Mab_21_domain_containing_2
+Spis_Spis24995_1	5		
+Spis_XP_022789286_1	5	FGF/	FGF.HG1.39:like:FGF8/FGF17/FGF18:likeclu:34
+Spis_XP_022797414_1	5	FG-GAP/FG-GAP/Integrin_alpha2/	Integrin_alpha.HG1.1:like:ITGA1/ITGA2/ITGA2B/ITGA3/ITGA4/ITGA5/ITGA6/ITGA7/ITGA8/ITGA9/ITGA10/ITGA11/ITGAD/ITGAE/ITGAL/ITGAM/ITGAV/ITGAX:likeclu:0/2/4/5
+Spis_XP_022783992_1	5	WSC/An_peroxidase/	prostaglandin_endoperoxide_synthase_2
+Spis_Spis14561_1	5		
+Spis_XP_022786498_1	5	""	""
+Spis_XP_022804503_1	5	""	""
+Spis_XP_022795056_1	5	Mab-21/	mitochondrial_elongation_factor_1
+Spis_XP_022803684_1	5	Mab-21/	mitochondrial_elongation_factor_1
+Spis_XP_022805878_1	5	""	""
+Spis_XP_022782284_1	5	""	""
+Spis_XP_022803353_1	5	AOX/	alternative oxidase, mitochondrial-like
+Spis_XP_022785637_1	6	""	""
+Spis_XP_022792109_1	6	Fz/Fz/	Frizzled.HG1.12:like:FRZB/FZD1/FZD2/FZD3/FZD4/FZD5/FZD6/FZD7/FZD8/FZD9/FZD10/GPR157/MFRP/SFRP1/SFRP2/SFRP4/SFRP5/SMO:likeclu:15/16/23/25/29/31/32/33/37
+Spis_XP_022803026_1	6	Methyltransf_25/	""
+Spis_XP_022780416_1	6	""	""
+Spis_XP_022797095_1	6	ShK/ShK/	""
+Spis_XP_022796880_1	6	PK/PK_C/	pyruvate_kinase_M1_2
+Spis_XP_022793426_1	6	14-3-3/	tyrosine_3_monooxygenase_tryptophan_5_monooxygenase_activation_protein_beta
+Spis_XP_022795453_1	6	PLAC8/	placenta_associated_8
+Spis_XP_022791794_1	6	BRICHOS/	""
+Spis_XP_022779345_1	6	WAP/VWA/	collagen_type_XIV_alpha_1_chain
+Spis_XP_022780462_1	6	DUF885/	""
+Spis_XP_022807443_1	6	""	proteoglycan 4-like
+Spis_XP_022799368_1	6	CD36/	scavenger_receptor_class_B_member_2
+Spis_XP_022800445_1	6	ABC_membrane/ABC_tran/ABC_membrane/ABC_tran/	ATP_binding_cassette_subfamily_C_member_4
+Spis_XP_022784982_1	6	DOMON/	DBH-like monooxygenase protein 2 homolog
+Spis_XP_022795601_1	6	Collagen/I-set/	Collagen.HG1.1:like:COLEC10/COLEC11/GLDN:likeclu:7/9
+Spis_XP_022810220_1	6	Collagen/Ig_3/Ig_3/	Collagen.HG1.0:like:COLEC10/COLEC11/FCN1/FCN2/GLDN/MARCO/MBL2/MSR1/SCARA5/SFTPD:likeclu:2/7/9/12/13/15
+Spis_XP_022798953_1	6	""	collagen alpha-1(IV) chain-like
+Spis_XP_022798958_1	6	Collagen/	Collagen.HG6.0:NA
+Spis_XP_022793185_1	6	zf-B_box/	nucleoporin_98_and_96_precursor
+Spis_XP_022807665_1	6	GlcNAc_2-epim/	renin_binding_protein
+Spis_XP_022790350_1	6	AAA/Rep_fac_C/	replication_factor_C_subunit_4
+Spis_XP_022806507_1	6	p450/p450/	CYP.HG1.304:like:CYP17A1/CYP21A2:likeclu:16
+Spis_XP_022807257_1	6	Dynamin_N/	mitofusin_2
+Spis_XP_022787450_1	6	""	protein rolling stone-like
+Spis_XP_022800808_1	6	zf-C3HC4/zf-B_box/Filamin/NHL/NHL/NHL/	tripartite_motif_containing_2
+Spis_XP_022808265_1	6	TPMT/	thiopurine_S_methyltransferase
+Spis_XP_022797462_1	6	NAD_kinase/	NAD_kinase
+Spis_XP_022780690_1	6	""	skeletal aspartic acid-rich protein 2-like
+Spis_XP_022799531_1	6	""	crumbs_cell_polarity_complex_component_1
+Spis_XP_022789665_1	6	Ank_2/TRP_2/Ion_trans/	ion-NaKCa.HG5.0:TRPC1/TRPC3/TRPC4/TRPC5/TRPC6/TRPC7
+Spis_XP_022792784_1	6	""	""
+Spis_XP_022790633_1	6	Aldo_ket_red/	aldo_keto_reductase_family_7_member_A2
+Spis_XP_022807079_1	6	Creatinase_N/Peptidase_M24/	""
+Spis_XP_022784146_1	6	Anoct_dimer/Anoctamin/	anoctamin_3
+Spis_XP_022791704_1	6	p450/	CYP.HG4.0:CYP11A1/CYP11B1/CYP11B2/CYP24A1/CYP27A1/CYP27B1/CYP27C1
+Spis_XP_022786105_1	6	Sulfatase/	iduronate_2_sulfatase
+Spis_XP_022800103_1	6	WD40/	WD_repeat_domain_54
+Spis_XP_022784876_1	6	Sulfotransfer_3/	""
+Spis_XP_022796115_1	6	SAM_1/	SAM.HG1.26:like:SAMD10/SAMD12:likeclu:25
+Spis_XP_022782799_1	6	DAO/	FAD_dependent_oxidoreductase_domain_containing_1
+Spis_XP_022807081_1	6	p450/	CYP.HG1.14:like:CYP17A1/CYP21A2:likeclu:16
+Spis_XP_022785669_1	6	ACAS_N/AMP-binding/AMP-binding_C/	acyl_CoA_synthetase_short_chain_family_member_3
+Spis_XP_022784348_1	6	Peptidase_S9/	acylaminoacyl_peptide_hydrolase
+Spis_XP_022807736_1	6	CathepsinC_exc/Peptidase_C1/	cathepsin_C
+Spis_XP_022806677_1	6	Sugar_tr/	Sugar_tr.HG1.0:like:SLC22A1/SLC22A2/SLC22A3/SLC22A4/SLC22A5/SLC22A6/SLC22A7/SLC22A8/SLC22A9/SLC22A10/SLC22A11/SLC22A12/SLC22A13/SLC22A14/SLC22A15/SLC22A16/SLC22A17/SLC22A23/SLC22A24/SLC22A25/SLC22A31:likeclu:4/6/10/11/12/24/25/26/29/30/31/37/74/76/77
+Spis_XP_022797575_1	6	Arginase/	agmatinase
+Spis_XP_022801764_1	6	DHDPS/	N_acetylneuraminate_pyruvate_lyase
+Spis_Spis14348_1	6		
+Spis_XP_022787005_1	6	2OG-FeII_Oxy_3/	prolyl_4_hydroxylase_transmembrane
+Spis_XP_022779460_1	6	Il2rg/	chromosome_22_open_reading_frame_15
+Spis_XP_022796017_1	6	Cyt-b5/FA_desaturase/	FA_desaturase.HG4.2:NA
+Spis_XP_022794122_1	6	""	galaxin-like isoform X2
+Spis_XP_022806847_1	6	""	""
+Spis_XP_022780783_1	6	PA/Peptidase_M28/TFR_dimer/	folate_hydrolase_1
+Spis_XP_022806699_1	6	Collagen/Collagen/	Collagen.HG6.1:NA
+Spis_XP_022807389_1	6	""	""
+Spis_XP_022808428_1	6	Cyclin_N/Cyclin_C/	cyclin_D2
+Spis_XP_022786614_1	6	TIMP/	TIMP_metallopeptidase_inhibitor_3
+Spis_XP_022793018_1	6	Collagen/Collagen/Ig_3/Ig_3/TLD/	Collagen.HG1.0:like:COLEC10/COLEC11/FCN1/FCN2/GLDN/MARCO/MBL2/MSR1/SCARA5/SFTPD:likeclu:2/7/9/12/13/15
+Spis_XP_022782025_1	6	""	""
+Spis_XP_022784034_1	6	Trefoil/NtCtMGAM_N/Gal_mutarotas_2/Glyco_hydro_31/	maltase_glucoamylase
+Spis_XP_022801160_1	6	KLF15	zf-C2H2.KLF15
+Spis_XP_022803939_1	6	Dickkopf_N/	dickkopf_WNT_signaling_pathway_inhibitor_3
+Spis_XP_022784867_1	6	""	""
+Spis_XP_022795160_1	6	Fz/Kringle/fn3/Pkinase_Tyr/	Pkinase.HG2.13:TEK/TIE1
+Spis_XP_022806681_1	6	Kazal_2/Lectin_C/EGF_CA/Fibrinogen_C/	Collagen.HG4.3:CCBE1/COLEC12/SCARA3
+Spis_XP_022786943_1	6	2OG-FeII_Oxy_3/	prolyl_4_hydroxylase_transmembrane
+Spis_XP_022792926_1	6	C2/C2/FerI/C2/FerB/C2/C2/C2/Ferlin_C/	Synaptotagmin.HG3.2:DYSF/MYOF
+Spis_XP_022781500_1	6	""	myosin_light_chain_1
+Spis_XP_022799787_1	6	MCM_N/MCM_OB/MCM/MCM_lid/	minichromosome_maintenance_complex_component_4
+Spis_XP_022791169_1	6	MCM_N/MCM_OB/MCM/MCM_lid/	minichromosome_maintenance_complex_component_7
+Spis_XP_022805087_1	6	MCM2_N/MCM_N/MCM_OB/MCM/MCM_lid/	minichromosome_maintenance_complex_component_2
+Spis_XP_022784329_1	6	MCM_N/MCM_OB/MCM/MCM_lid/	minichromosome_maintenance_complex_component_5
+Spis_XP_022798959_1	6	Collagen/	Collagen.HG6.0:NA
+Spis_XP_022782623_1	6	""	""
+Spis_XP_022800814_1	6	Peptidase_C2/Calpain_III/	calpain_3
+Spis_XP_022779771_1	6	""	""
+Spis_XP_022810518_1	6	Collagen/Collagen/I-set/I-set/TLD/	Collagen.HG1.0:like:COLEC10/COLEC11/FCN1/FCN2/GLDN/MARCO/MBL2/MSR1/SCARA5/SFTPD:likeclu:2/7/9/12/13/15
+Spis_XP_022792317_1	6		HMGbox_Sox.like:BHMG1/SOX1/SOX2/SOX3/SOX14/SOX15/SOX21/SRY
+Spis_Spis2456_1	6		
+Spis_XP_022784675_1	6	Zona_pellucida/	uromodulin
+Spis_XP_022782610_1	6	SSF/	SSF.HG2.7:like:SLC5A3:likeclu:6
+Spis_XP_022795055_1	6	p450/	CYP.HG1.16:CYP17A1/CYP21A2
+Spis_XP_022805865_1	6	COesterase/	COesterase.HG1.11:like:NLGN1/NLGN2/NLGN3/NLGN4X/NLGN4Y:likeclu:13
+Spis_XP_022779493_1	6	DUF4962/Sulfotransfer_1/	dermatan_sulfate_epimerase_like
+Spis_XP_022797910_1	6	""	""
+Spis_XP_022804460_1	6	Ras/	RASD_family_member_2
+Spis_XP_022800953_1	6	PLAT/Lipoxygenase/	arachidonate_5_lipoxygenase
+Spis_XP_022801302_1	6	ABC_membrane/ABC_tran/ABC_membrane/ABC_tran/	ATP_binding_cassette_subfamily_C_member_4
+Spis_XP_022798926_1	6	Fuseless/	""
+Spis_XP_022791195_1	6	Ras/	RAP2B_member_of_RAS_oncogene_family
+Spis_XP_022804023_1	6	ANTP_HOXA2/ANTP_HOXA3/ANTP_HOXB2/ANTP_HOXB3/ANTP_HOXD3	Homeodomains.ANTP_HOXA2/ANTP_HOXA3/ANTP_HOXB2/ANTP_HOXB3/ANTP_HOXD3
+Spis_XP_022804742_1	7	Fibrinogen_C/	fibrinogen_like_1
+Spis_XP_022806992_1	7	""	""
+Spis_YP_002149710_1	7	Oxidored_q2/	NADH dehydrogenase subunit 4L (mitochondrion)
+Spis_YP_002149711_1	7	Oxidored_q4/	mitochondrially_encoded_NADH_ubiquinone_oxidoreductase_core_subunit_3
+Spis_XP_022787167_1	7	Tyrosinase/	tyrosinase
+Spis_XP_022808793_1	7	""	repellent protein 1-like
+Spis_XP_022783886_1	7	PG_binding_1/Peptidase_M10/	matrix_metallopeptidase_19
+Spis_XP_022797688_1	7	MAM/Trypsin/	transmembrane_serine_protease_6
+Spis_XP_022790678_1	7	Gla/F5_F8_type_C/	AE_binding_protein_1
+Spis_XP_022805094_1	7	""	""
+Spis_XP_022783887_1	7	PG_binding_1/Peptidase_M10/ShK/	matrix_metallopeptidase_3
+Spis_XP_022792027_1	7	ShK/Trypsin/	transmembrane_serine_protease_3
+Spis_XP_022808624_1	7	Trypsin/	transmembrane_serine_protease_6
+Spis_XP_022795803_1	7	Trypsin/	transmembrane_serine_protease_6
+Spis_XP_022798198_1	7	CHB_HEX/Glyco_hydro_20b/Glyco_hydro_20/CHB_HEX/Glyco_hydro_20b/Glyco_hydro_20/CHB_HEX_C/	hexosaminidase_subunit_alpha
+Spis_XP_022787898_1	7	Astacin/ShK/ShK/Trypsin/	chymotrypsin_like
+Spis_XP_022803819_1	7	Trypsin/	chymotrypsin_like_elastase_3A
+Spis_XP_022804535_1	7	Trypsin/	chymotrypsinogen_B2
+Spis_XP_022788074_1	7	LPMO_10/	""
+Spis_XP_022806573_1	7	Glyco_hydro_18/	chitinase_1
+Spis_XP_022803824_1	7	Trypsin/	chymotrypsin_like
+Spis_XP_022803815_1	7	Trypsin/ShK/	chymotrypsin_like
+Spis_XP_022807103_1	7	Astacin/ShK/	tolloid_like_1
+Spis_XP_022787667_1	7	ShK/ShK/ShK/CAP/	GLI_pathogenesis_related_2
+Spis_XP_022784042_1	7	MAM/Trypsin/	ovochymase_1
+Spis_XP_022797898_1	7	Trypsin/	serine_protease_1
+Spis_XP_022799205_1	7	MAM/MAM/Trypsin/	serine_protease_1
+Spis_XP_022784710_1	7	Glyco_hydro_18/	chitinase_1
+Spis_XP_022797695_1	7	MAM/Trypsin/	plasminogen
+Spis_XP_022797364_1	7	Peptidase_M14/	carboxypeptidase_A4
+Spis_XP_022804556_1	7	Trypsin/	chymotrypsin_like
+Spis_XP_022792901_1	7	Zip/	solute_carrier_family_39_member_10
+Spis_XP_022798462_1	7	""	""
+Spis_XP_022777738_1	7	EGF_3/	uromodulin
+Spis_XP_022798486_1	7	7tm_1/	GPCR-rhodopsin.HG22.1:NA
+Spis_XP_022810127_1	7	7tm_1/7tm_1/	GPCR-rhodopsin.HG33.11:NA
+Spis_XP_022807872_1	7	CUB/	tolloid_like_1
+Spis_XP_022798683_1	7	""	galaxin-2-like
+Spis_XP_022808027_1	7	""	""
+Spis_XP_022793470_1	7	DUF4430/	""
+Spis_XP_022796009_1	7	XK-related/	XK_related_7
+Spis_XP_022782083_1	7	Ephrin_rec_like/	signal_peptide_CUB_domain_and_EGF_like_domain_containing_3
+Spis_XP_022782080_1	7	EGF_CA/cEGF/EGF_CA/EGF_CA/EGF_CA/Sushi/Sushi/Ig_3/	sushi_von_Willebrand_factor_type_A_EGF_and_pentraxin_domain_containing_1
+Spis_XP_022789220_1	7	Patched/ketoacyl-synt/Ketoacyl-synt_C/KAsynt_C_assoc/Acyl_transf_1/PS-DH/KR/Thioesterase/	Patched.HG2.3:NA
+Spis_XP_022781621_1	7	I-set/Ig_3/Ig_3/TIR_2/	TIR.HG1.11:like:IL1R1/IL1RAP/IL1RAPL1/IL1RAPL2/IL1RL1/IL1RL2/IL18R1/IL18RAP/SIGIRR:likeclu:9
+Spis_XP_022783801_1	7	""	Fas_cell_surface_death_receptor
+Spis_XP_022796814_1	7	Pkinase/Pkinase/	Pkinase.HG19.3:NA
+Spis_XP_022804986_1	7	""	TNF_receptor_associated_factor_3
+Spis_XP_022807804_1	7	RT_RNaseH/Integrase_H2C2/rve/	""
+Spis_Spis24497_1	7		
+Spis_XP_022795893_1	7	Macro/Macro/Macro/PARP/	poly_ADP_ribose_polymerase_family_member_14
+Spis_XP_022777815_1	7	""	E3 ubiquitin-protein ligase rnf213-alpha-like
+Spis_XP_022782661_1	7	zf-CHY/	""
+Spis_XP_022810191_1	7	NB-ARC/TPR_1/Beta_helix/zf-MYND/	small_glutamine_rich_tetratricopeptide_repeat_containing_alpha
+Spis_XP_022805782_1	7	""	""
+Spis_XP_022804218_1	7	Str_synth/Str_synth/	adipocyte_plasma_membrane_associated_protein
+Spis_XP_022783033_1	7	""	""
+Spis_XP_022810074_1	7	""	tumor necrosis factor receptor superfamily member 16-like
+Spis_XP_022807613_1	7	Mab-21/	cyclic_GMP_AMP_synthase
+Spis_Spis24917_1	7		
+Spis_XP_022804500_1	7	""	""
+Spis_XP_022792048_1	7	Glycos_transf_2/Ricin_B_lectin/	polypeptide_N_acetylgalactosaminyltransferase_6
+Spis_XP_022807093_1	7	FAD_binding_4/BBE/	fad_oxireduct.HG1.7:like:DHCR24:likeclu:4
+Spis_XP_022788244_1	7	""	""
+Spis_XP_022802763_1	7	""	heat_shock_protein_family_A_Hsp70_member_12A
+Spis_XP_022808334_1	7	7tm_1/	GPCR-rhodopsin.HG9.17:NA
+Spis_XP_022810218_1	7	C2/PLA2_B/	Synaptotagmin.HG15.0:PLA2G4A
+Spis_XP_022782153_1	7	Hexokinase_1/Hexokinase_2/	glucokinase
+Spis_XP_022789359_1	7	MACPF/	""
+Spis_XP_022793097_1	7	PAN_1/	""
+Spis_XP_022795050_1	7	Fibrinogen_C/	tenascin_R
+Spis_XP_022780554_1	7	SH3_2/SH3_1/	Abelson_helper_integration_site_1
+Spis_XP_022789398_1	7	PAN_1/	""
+Spis_XP_022795051_1	7	Fibrinogen_C/	angiopoietin_like_7
+Spis_XP_022792871_1	7	""	""
+Spis_XP_022799677_1	7	EGF_3/TLD/	signal_peptide_CUB_domain_and_EGF_like_domain_containing_2
+Spis_XP_022808995_1	7	TLD/	""
+Spis_XP_022784736_1	7	Collagen/Collagen/I-set/Ig_3/Ig_3/F5_F8_type_C/	Collagen.HG1.0:like:COLEC10/COLEC11/FCN1/FCN2/GLDN/MARCO/MBL2/MSR1/SCARA5/SFTPD:likeclu:2/7/9/12/13/15
+Spis_XP_022786290_1	7	Peptidase_S8/P_proprotein/TSP_1/TSP_1/TSP_1/TSP_1/	proprotein_convertase_subtilisin_kexin_type_4
+Spis_XP_022795525_1	7	Ferric_reduct/FAD_binding_8/NAD_binding_6/	NADPH_oxidase_4
+Spis_XP_022785875_1	7	Death/	""
+Spis_XP_022786308_1	7	BRICHOS/	""
+Spis_XP_022807324_1	7	BRICHOS/	integral_membrane_protein_2C
+Spis_Spis7117_1	7		
+Spis_XP_022804688_1	7	EGF/hEGF/hEGF/EGF/hEGF/EGF/EGF/EGF/EGF/EGF/hEGF/	von_Willebrand_factor_D_and_EGF_domains
+Spis_XP_022807161_1	7	MACPF/ApeC/	""
+Spis_XP_022808243_1	7	F5_F8_type_C/Sushi/	EGF_like_repeats_and_discoidin_domains_3
+Spis_XP_022777477_1	7	TLD/	TLD domain-containing protein 1-like
+Spis_XP_022808994_1	7	Lectin_C/EGF_CA/	Lectin_C.HG4.2:NA
+Spis_XP_022808998_1	7	TLD/TLD/	""
+Spis_XP_022778006_1	7	EGF_3/TLD/TLD/	signal_peptide_CUB_domain_and_EGF_like_domain_containing_2
+Spis_XP_022808997_1	7	Lectin_C/	Lectin_C.HG4.2:NA
+Spis_XP_022797687_1	7	I-set/Ig_3/	hemicentin_1
+Spis_XP_022804741_1	7	I-set/Ig_3/	hemicentin_1
+Spis_XP_022795505_1	7	""	""
+Spis_XP_022785891_1	7	zf-C3HC4_2/RAWUL/	BMI1_proto_oncogene_polycomb_ring_finger
+Spis_XP_022802222_1	7	""	""
+Spis_XP_022807580_1	7	""	von_Willebrand_factor_A_domain_containing_7
+Spis_XP_022800590_1	7	CSRNP_N/CSRNP_N/	cysteine_and_serine_rich_nuclear_protein_1
+Spis_XP_022780712_1	7	""	""
+Spis_XP_022786637_1	7	TIMP/	TIMP_metallopeptidase_inhibitor_3
+Spis_XP_022805023_1	7	wnt/	wnt.HG1.10:like:WNT1/WNT2/WNT2B/WNT3/WNT3A/WNT4/WNT5A/WNT5B/WNT6/WNT7A/WNT7B/WNT16:likeclu:12/13/17/18/19/20/22/23
+Spis_XP_022807769_1	7	Fibrinogen_C/	ficolin_2
+Spis_XP_022785965_1	7	MFS_2/MFS_1/	major_facilitator_superfamily_domain_containing_12
+Spis_XP_022795099_1	7	START/	phosphatidylcholine_transfer_protein
+Spis_XP_022787501_1	7	7tm_1/	GPCR-rhodopsin.HG25.14:NA
+Spis_XP_022795912_1	7	Ank_4/	protein phosphatase 1 regulatory subunit 27-like
+Spis_XP_022802298_1	7	Pkinase/	Pkinase.HG11.0:NA
+Spis_XP_022790632_1	7	Kunitz_BPTI/Kunitz_BPTI/	alpha_1_microglobulin_bikunin_precursor
+Spis_XP_022805104_1	7	COLFI/	Collagen.HG1.18:like:FCN1/MSR1/SCARA5:likeclu:15
+Spis_XP_022807759_1	7	Fibrinogen_C/	angiopoietin_like_7
+Spis_XP_022783270_1	7	fn2/fn2/fn2/	fibronectin.HG4.1:like:ELSPBP1:likeclu:0
+Spis_XP_022780504_1	7	""	hemicentin_2
+Spis_XP_022803531_1	7	""	""
+Spis_XP_022799707_1	7	Collagen/Ig_3/I-set/Ig_3/Sushi/Sushi/Sushi/Sushi/Sushi/	Collagen.HG1.1:like:COLEC10/COLEC11/GLDN:likeclu:7/9
+Spis_XP_022787910_1	7	Lectin_C/Lectin_C/	mannose_receptor_C_type_2
+Spis_XP_022802825_1	7	Fibrinogen_C/	angiopoietin_like_6
+Spis_XP_022806864_1	7	Collagen/	Collagen.HG3.7:NA
+Spis_Spis3465_1	7		
+Spis_XP_022804878_1	7	VWA/	collagen_type_XIV_alpha_1_chain
+Spis_XP_022777544_1	7	""	""
+Spis_XP_022796693_1	7	BRICHOS/	""
+Spis_XP_022787899_1	7	""	""
+Spis_XP_022794589_1	7	Fibrinogen_C/	angiopoietin_like_7
+Spis_XP_022807760_1	7	Fibrinogen_C/	fibrinogen_like_2
+Spis_XP_022798989_1	7	""	""
+Spis_XP_022804603_1	7	Collagen/Collagen/Collagen/	Collagen.HG3.7:NA
+Spis_XP_022779991_1	7	""	""
+Spis_XP_022803130_1	7	Fibrinogen_C/	angiopoietin_like_7
+Spis_XP_022805352_1	7	""	""
+Spis_XP_022810122_1	7	Fibrinogen_C/	fibrinogen_like_2
+Spis_XP_022810124_1	7	Fibrinogen_C/Fibrinogen_C/Fibrinogen_C/	angiopoietin_2
+Spis_XP_022784735_1	7	Collagen/I-set/Ig_3/F5_F8_type_C/	Collagen.HG1.0:like:COLEC10/COLEC11/FCN1/FCN2/GLDN/MARCO/MBL2/MSR1/SCARA5/SFTPD:likeclu:2/7/9/12/13/15
+Spis_XP_022779378_1	7	""	""
+Spis_XP_022799949_1	7	Fibrinogen_C/	angiopoietin_like_7
+Spis_XP_022791001_1	7	TNF/	""
+Spis_XP_022794740_1	7	7tm_1/	GPCR-rhodopsin.HG33.5:NA
+Spis_Spis13751_1	7		
+Spis_XP_022791207_1	7	""	""
+Spis_XP_022794554_1	7	BRICHOS/	""
+Spis_XP_022794573_1	7	BRICHOS/	""
+Spis_Spis24683_1	7		
+Spis_XP_022793144_1	7	zf-RING_2/zf-B_box/	tripartite_motif_containing_2
+Spis_XP_022809512_1	7	BRICHOS/	""
+Spis_XP_022787964_1	7	I-set/Ig_3/Ig_3/Fibrinogen_C/	NCam.HG3.10:like:MFAP3L:likeclu:3
+Spis_XP_022805387_1	7	Collagen/Ig_3/Ig_3/Ig_3/Sushi/Sushi/TLD/	Collagen.HG1.1:like:COLEC10/COLEC11/GLDN:likeclu:7/9
+Spis_XP_022795602_1	8	Sushi/	CUB_and_Sushi_multiple_domains_3
+Spis_XP_022805400_1	8	FolB/HPPK/adh_short_C2/	sterol_dehydrogenase.HG1.28:like:DCXR:likeclu:22
+Spis_XP_022805844_1	8	Cu-oxidase_3/Cu-oxidase/Cu-oxidase_2/	LOW QUALITY PROTEIN: laccase-5-like
+Spis_XP_022805224_1	8	Sugar_tr/	Sugar_tr.HG1.0:like:SLC22A1/SLC22A2/SLC22A3/SLC22A4/SLC22A5/SLC22A6/SLC22A7/SLC22A8/SLC22A9/SLC22A10/SLC22A11/SLC22A12/SLC22A13/SLC22A14/SLC22A15/SLC22A16/SLC22A17/SLC22A23/SLC22A24/SLC22A25/SLC22A31:likeclu:4/6/10/11/12/24/25/26/29/30/31/37/74/76/77
+Spis_XP_022797785_1	8	Zona_pellucida/	uromodulin
+Spis_XP_022801359_1	8	Carb_anhydrase/Carb_anhydrase/	carbonic_anhydrase_2
+Spis_XP_022787224_1	8	Lectin_C/EGF_CA/EGF_3/EGF_3/TLD/	Lectin_C.HG4.2:NA
+Spis_XP_022806679_1	8	Sugar_tr/	Sugar_tr.HG1.0:like:SLC22A1/SLC22A2/SLC22A3/SLC22A4/SLC22A5/SLC22A6/SLC22A7/SLC22A8/SLC22A9/SLC22A10/SLC22A11/SLC22A12/SLC22A13/SLC22A14/SLC22A15/SLC22A16/SLC22A17/SLC22A23/SLC22A24/SLC22A25/SLC22A31:likeclu:4/6/10/11/12/24/25/26/29/30/31/37/74/76/77
+Spis_XP_022782959_1	8	Zona_pellucida/	""
+Spis_XP_022779133_1	8	SDF/	solute_carrier_family_1_member_2
+Spis_XP_022780192_1	8	C2/C2/	Synaptotagmin.HG1.39:like:SYT1/SYT2/SYT3/SYT4/SYT5/SYT6/SYT7/SYT8/SYT9/SYT10/SYT11/SYT12/SYT13/SYT17:likeclu:25/30/31/36/38/40/41
+Spis_XP_022799917_1	8	7tm_1/	GPCR-rhodopsin.HG6.34:NA
+Spis_XP_022791673_1	8	wnt/	wnt.HG1.19:WNT6
+Spis_XP_022799578_1	8	""	""
+Spis_XP_022788278_1	8	""	""
+Spis_XP_022782385_1	8	""	LOW QUALITY PROTEIN: unconventional myosin-XVIIIa-like
+Spis_XP_022794137_1	8	7tm_1/	GPCR-rhodopsin.HG8.33:like:ADORA2B:likeclu:11
+Spis_XP_022781222_1	8	7tm_1/	GPCR-rhodopsin.HG14.4:NA
+Spis_XP_022785513_1	8	wnt/	wnt.HG1.1:like:WNT8A/WNT8B:likeclu:2
+Spis_XP_022782999_1	8	Zona_pellucida/Zona_pellucida/Zona_pellucida/Zona_pellucida/	""
+Spis_XP_022800806_1	8	fn3/fn3/CUB/CUB/NIDO/VWD/FXa_inhibition/EGF_CA/cEGF/EGF_CA/	fibronectin.HG8.4:like:SNED1:likeclu:5
+Spis_XP_022793023_1	8	Collagen/Collagen/Ig_3/Ig_3/TLD/	Collagen.HG1.0:like:COLEC10/COLEC11/FCN1/FCN2/GLDN/MARCO/MBL2/MSR1/SCARA5/SFTPD:likeclu:2/7/9/12/13/15
+Spis_Spis3061_1	8		
+Spis_XP_022794162_1	8	MFS_2/MFS_1/	major_facilitator_superfamily_domain_containing_12
+Spis_XP_022787864_1	8	Ldl_recept_b/SRCR/SRCR/SRCR/FXa_inhibition/SRCR/SRCR/SRCR/Ldl_recept_b/FXa_inhibition/SRCR/SRCR/SRCR/	Ldl_recept_b.HG1.8:like:EGF/LDLR/LRP1/LRP1B/LRP2/LRP4/LRP5/LRP5L/LRP6/LRP8/VLDLR:likeclu:16/18/19/20/24/27
+Spis_XP_022810238_1	8	Chitin_synth_2/SAM_2/SAM_1/	SAM.HG3.0:like:ANKS1A/ANKS1B/CASKIN1/CASKIN2/INPPL1/SAMD5/SAMSN1/SASH1/SASH3:likeclu:2/5/6/8
+Spis_XP_022799532_1	8	""	""
+Spis_XP_022809053_1	8	SBP56/	selenium_binding_protein_1
+Spis_XP_022777811_1	8	Lectin_C/EGF_CA/EGF_CA/CUB/SRCR/SRCR/	Lectin_C.HG4.2:NA
+Spis_XP_022799088_1	8	Kazal_2/Lectin_C/	Lectin_C.HG4.2:NA
+Spis_XP_022800802_1	8	fn3/CUB/CUB/fn3/fn3/CUB/	fibronectin.HG8.9:like:SNED1:likeclu:5
+Spis_XP_022787367_1	8	TGF_beta/	TGF_beta.HG1.25:like:INHA/INHBA/INHBB/INHBC/INHBE:likeclu:29/31
+Spis_XP_022793814_1	8	LRR_8/	leucine-rich repeat-containing protein 4C-like isoform X2
+Spis_XP_022794924_1	8	""	""
+Spis_XP_022786534_1	8	Pyridoxal_deC/	""
+Spis_XP_022800078_1	8	adh_short/	sterol_dehydrogenase.HG1.17:like:DCXR/DHRS11/KDSR:likeclu:20/21/22
+Spis_XP_022786230_1	8	Collagen/Collagen/	Collagen.HG8.4:NA
+Spis_XP_022786520_1	8	Pyridoxal_deC/	glutamate_decarboxylase_like_1
+Spis_XP_022778950_1	8	Amino_oxidase/Amino_oxidase/	lysine_demethylase_1B
+Spis_XP_022806676_1	8	Sugar_tr/	Sugar_tr.HG1.0:like:SLC22A1/SLC22A2/SLC22A3/SLC22A4/SLC22A5/SLC22A6/SLC22A7/SLC22A8/SLC22A9/SLC22A10/SLC22A11/SLC22A12/SLC22A13/SLC22A14/SLC22A15/SLC22A16/SLC22A17/SLC22A23/SLC22A24/SLC22A25/SLC22A31:likeclu:4/6/10/11/12/24/25/26/29/30/31/37/74/76/77
+Spis_XP_022806326_1	8	Zona_pellucida/	CUB_and_zona_pellucida_like_domains_1
+Spis_XP_022790998_1	8	""	branched-chain-amino-acid aminotransferase-like protein 2
+Spis_XP_022807241_1	8	Pentaxin/	Laminin.HG7.4:NA
+Spis_XP_022801683_1	8	""	""
+Spis_XP_022801703_1	8	""	""
+Spis_XP_022786561_1	8	TSP_1/TSP_1/TSP_1/TSP_1/TSP1_ADAMTS/Ig_3/	cartilage_intermediate_layer_protein
+Spis_XP_022796963_1	8	F5_F8_type_C/F5_F8_type_C/Zona_pellucida/	EGF_like_repeats_and_discoidin_domains_3
+Spis_XP_022784466_1	8	""	""
+Spis_XP_022779255_1	8	Collagen/Collagen/COLFI/	Collagen.HG2.31:like:COL1A1/COL1A2/COL2A1/COL3A1/COL5A2:likeclu:26
+Spis_XP_022779335_1	8	Collagen/Collagen/Collagen/Collagen/COLFI/	Collagen.HG2.31:like:COL1A1/COL1A2/COL2A1/COL3A1/COL5A2:likeclu:26
+Spis_XP_022785973_1	9	""	""
+Spis_XP_022797636_1	9	""	""
+Spis_XP_022801403_1	9	""	""
+Spis_XP_022783442_1	9	CECR6_TMEM121/	""
+Spis_XP_022785476_1	9	""	""
+Spis_Spis18978_1	9		
+Spis_XP_022810165_1	9	HEPN_DZIP3/NACHT/	DAZ_interacting_zinc_finger_protein_3
+Spis_Spis14795_1	9		
+Spis_XP_022792730_1	9	""	""
+Spis_XP_022801266_1	9	""	""
+Spis_XP_022783981_1	9	""	""
+Spis_XP_022799445_1	9	""	""
+Spis_XP_022790575_1	9	BTB/BTB/BACK/	BTB.HG1.21:like:AL033529/BACH1/BACH2/BCL6/BCL6B/ENC1/GZF1/HIC1/HIC2/IPP/IVNS1ABP/KBTBD2/KBTBD3/KBTBD4/KBTBD6/KBTBD7/KBTBD8/KBTBD11/KBTBD12/KBTBD13/KEAP1/KLHL1/KLHL2/KLHL3/KLHL4/KLHL5/KLHL6/KLHL7/KLHL8/KLHL9/KLHL10/KLHL12/KLHL13/KLHL14/KLHL15/KLHL17/KLHL18/KLHL20/KLHL21/KLHL22/KLHL23/KLHL24/KLHL25/KLHL26/KLHL28/KLHL29/KLHL30/KLHL31/KLHL32/KLHL33/KLHL34/KLHL35/KLHL36/KLHL38/KLHL40/KLHL41/MYNN/NACC1/NACC2/PATZ1/ZBTB1/ZBTB2/ZBTB3/ZBTB4/ZBTB5/ZBTB6/ZBTB7A/ZBTB7B/ZBTB7C/ZBTB8A/ZBTB8B/ZBTB9/ZBTB10/ZBTB11/ZBTB12/ZBTB14/ZBTB16/ZBTB17/ZBTB18/ZBTB20/ZBTB21/ZBTB22/ZBTB24/ZBTB25/ZBTB26/ZBTB32/ZBTB33/ZBTB34/ZBTB37/ZBTB38/ZBTB39/ZBTB40/ZBTB41/ZBTB42/ZBTB43/ZBTB44/ZBTB45/ZBTB46/ZBTB47/ZBTB48/ZBTB49/ZNF131:likeclu:10/16/17/22/26/27/29/30/33/34/36/38/40/44/46/47/48/51/52/54/56/57/58/59/61/62/65/66/68/69/71/72/74/76/78/79/80/82/86/88/89/91/95/96/97/98/99/100/101/102/103/104/105/106/107/108/109/110/111/112/113/114/115/116/117/118/119/120/121/122/123/124/125/126/127/134
+Spis_XP_022803668_1	9	Mab-21/	mitochondrial_elongation_factor_1
+Spis_XP_022783595_1	9	NIDO/AMOP/VWD/Sushi/Sushi/	sushi_domain_containing_2
+Spis_XP_022800769_1	9	Patatin/	""
+Spis_XP_022795087_1	9	Mab-21/	mitochondrial_elongation_factor_1
+Spis_XP_022784636_1	9	TMEM173/	stimulator_of_interferon_response_cGAMP_interactor_1
+Spis_XP_022784703_1	9	TMEM173/	stimulator_of_interferon_response_cGAMP_interactor_1
+Spis_XP_022784637_1	9	TMEM173/	stimulator_of_interferon_response_cGAMP_interactor_1
+Spis_XP_022809869_1	9	GBP_C/	guanylate_binding_protein_7
+Spis_XP_022779509_1	9	Hint_2/	neural_EGFL_like_1
+Spis_XP_022807487_1	9	UQ_con/	ubiquitin_conjugating_enzyme_E2_D1
+Spis_Spis25897_1	9		
+Spis_XP_022807466_1	9	ubiquitin/	ubiquitin_B
+Spis_XP_022797025_1	9	""	""
+Spis_XP_022796979_1	9	""	""
+Spis_XP_022797007_1	9	""	""
+Spis_XP_022784639_1	9	TMEM173/	stimulator_of_interferon_response_cGAMP_interactor_1
+Spis_Spis3943_1	9		
+Spis_XP_022801879_1	9	zf-TRAF/	TNF_receptor_associated_factor_2
+Spis_XP_022797194_1	9	TNFR_c6/	TNF_receptor_superfamily_member_19
+Spis_XP_022801909_1	9	HSP70/	heat_shock_protein_family_A_Hsp70_member_12A
+Spis_XP_022806701_1	9	""	""
+Spis_XP_022795231_1	9	GST_N_4/GST_C_6/	failed_axon_connections_homolog_metaxin_like_GST_domain_containing
+Spis_XP_022795242_1	9	GST_N_4/GST_C_6/	failed_axon_connections_homolog_metaxin_like_GST_domain_containing
+Spis_XP_022810073_1	9	""	tumor necrosis factor receptor superfamily member 4-like isoform X2
+Spis_XP_022792312_1	9	Amino_oxidase/	interleukin_4_induced_1
+Spis_XP_022799577_1	9	""	""
+Spis_XP_022799694_1	9	BHLHA15	HLH.BHLHA15
+Spis_XP_022788666_1	9	""	""
+Spis_XP_022797344_1	9	Collagen/	Collagen.HG6.0:NA
+Spis_XP_022786730_1	9	Pyridoxal_deC/	""
+Spis_XP_022787887_1	9	""	""
+Spis_XP_022782678_1	9	""	galaxin-like
+Spis_XP_022794785_1	9	AATase/	""
+Spis_XP_022808891_1	9	Collagen/Collagen/Ig_3/	Collagen.HG1.0:like:COLEC10/COLEC11/FCN1/FCN2/GLDN/MARCO/MBL2/MSR1/SCARA5/SFTPD:likeclu:2/7/9/12/13/15
+Spis_XP_022799542_1	9	TSP_1/TSP_1/TSP_1/TSP_1/TSP_1/TSP_1/TSP_1/TSP_1/TSP_1/TSP_1/TSP_1/TSP_1/TSP_1/TSP_1/TSP_1/TSP_1/	hemicentin_1
+Spis_XP_022805780_1	9	""	""
+Spis_XP_022797495_1	9	7tm_1/	GPCR-rhodopsin.HG11.39:like:GPR176:likeclu:1
+Spis_XP_022782129_1	9	EF-hand_7/EF-hand_7/	sorcin
+Spis_XP_022793983_1	9	""	N_acetyltransferase_16_putative_
+Spis_XP_022784454_1	9	Pkinase/TBK1_ULD/	Pkinase.HG86.1:IKBKE/TBK1
+Spis_XP_022805570_1	9	zf-C3HC4_2/zf-TRAF/	TNF_receptor_associated_factor_5
+Spis_XP_022808614_1	9	HEPN_DZIP3/AAA_22/HEPN_DZIP3/NB-ARC/HEPN_DZIP3/	""
+Spis_XP_022777771_1	9	CHAT/	tetratricopeptide_repeat_domain_28
+Spis_XP_022792718_1	9	""	""
+Spis_XP_022802911_1	9	""	""
+Spis_XP_022791600_1	9	NB-ARC/NosD/zf-MYND/	stress_induced_phosphoprotein_1
+Spis_XP_022809664_1	9	""	""
+Spis_XP_022799238_1	9	Mab-21/	mab_21_like_1
+Spis_XP_022786045_1	9	GBP/	""
+Spis_XP_022807459_1	9	ubiquitin/	ubiquitin_B
+Spis_XP_022786035_1	9	GBP/Peptidase_S74/	""
+Spis_XP_022786062_1	9	""	""
+Spis_XP_022778125_1	9	FGF/	FGF.HG1.9:like:FGF8/FGF17/FGF18:likeclu:34
+Spis_XP_022780711_1	9	""	""
+Spis_XP_022791409_1	9	zf-CHY/zf-RING_2/	zinc finger CCCH domain-containing protein 13-like
+Spis_Spis20046_1	9		
+Spis_XP_022784472_1	9	Ras/	ras_homolog_family_member_C
+Spis_XP_022806293_1	9	""	TNF_receptor_superfamily_member_19
+Spis_XP_022807488_1	9	EGF_CA/EGF_CA/EGF_CA/EGF_CA/EGF_CA/EGF_CA/EGF_CA/EGF_CA/EGF_CA/	nidogen_1
+Spis_XP_022785096_1	9	adh_short/adh_short_C2/	sterol_dehydrogenase.HG2.0:like:AL049779/DHRS13/DHRSX/HSD17B7/RDH11/RDH12/RDH13/RDH14/WWOX:likeclu:2/4
+Spis_XP_022807111_1	9	MACPF/	macrophage_expressed_1
+Spis_XP_022794081_1	10	p450/	CYP.HG1.7:like:CYP1A1/CYP1A2/CYP1B1:likeclu:13
+Spis_XP_022788034_1	10	TIMP/	TIMP_metallopeptidase_inhibitor_3
+Spis_XP_022806467_1	10	""	protein rolling stone-like
+Spis_XP_022781771_1	10	""	""
+Spis_XP_022786692_1	10	VWA/VWA/	collagen_type_VI_alpha_5_chain
+Spis_XP_022802461_1	10	DSL/DSL/DSL/DSL/DSL/DSL/DSL/MNNL/DSL/DSL/DSL/MNNL/DSL/DSL/DSL/	DSL.HG1.3:like:DLL1/DLL4/JAG1/JAG2:likeclu:0
+Spis_XP_022787119_1	10	Lipocalin_2/	apolipoprotein_D
+Spis_XP_022791919_1	10	7tm_1/	GPCR-rhodopsin.HG5.46:like:ADORA1/ADORA3/GPR119/TMIGD3:likeclu:40/45
+Spis_XP_022791945_1	10	Sugar_tr/	Sugar_tr.HG1.36:like:SLC22A15:likeclu:4
+Spis_XP_022808575_1	10	Endonuclease_NS/	""
+Spis_XP_022797088_1	10	ShK/	""
+Spis_XP_022784353_1	10	Peptidase_M10/	matrix_metallopeptidase_15
+Spis_XP_022788743_1	10	Ig_3/	peroxidasin homolog
+Spis_XP_022779763_1	10	""	""
+Spis_XP_022799155_1	10	Noggin/	noggin
+Spis_XP_022793643_1	10	Glyco_transf_18/	alpha_1_6_mannosylglycoprotein_6_beta_N_acetylglucosaminyltransferase
+Spis_XP_022800066_1	10	PEPCK_N/PEPCK_GTP/	phosphoenolpyruvate_carboxykinase_2_mitochondrial
+Spis_XP_022807181_1	10	GSHPx/	glutathione_peroxidase_7
+Spis_XP_022798340_1	10	ThiF/	SUMO1_activating_enzyme_subunit_1
+Spis_XP_022794466_1	10	Usp/	""
+Spis_XP_022798238_1	10	Ldh_1_N/Ldh_1_C/	lactate_dehydrogenase_A
+Spis_XP_022803624_1	10	""	wiskott-Aldrich syndrome protein family member 2-like isoform X2
+Spis_XP_022804270_1	10	Collagen/	Collagen.HG10.2:NA
+Spis_XP_022805022_1	10	Thioredoxin/	protein_disulfide_isomerase_family_A_member_3
+Spis_XP_022797425_1	10	""	leucine-rich repeat extensin-like protein 3
+Spis_XP_022797426_1	10	""	vegetative cell wall protein gp1-like
+Spis_XP_022778973_1	10	MACPF/	LOW QUALITY PROTEIN: DELTA-thalatoxin-Avl2a-like
+Spis_XP_022805379_1	10	hEGF/EGF/EGF/hEGF/hEGF/EGF/EGF/EGF/EGF/	cadherin_EGF_LAG_seven_pass_G_type_receptor_2
+Spis_XP_022803638_1	10	""	formin-like protein 5
+Spis_XP_022804287_1	10	Collagen/	Collagen.HG10.2:NA
+Spis_XP_022779065_1	10	CAP/Trypsin/	ovochymase_1
+Spis_XP_022789498_1	10	""	spidroin-1-like isoform X2
+Spis_XP_022781799_1	10	""	glycine-rich protein 23-like isoform X7
+Spis_XP_022796493_1	10	""	skin secretory protein xP2-like
+Spis_XP_022797815_1	10	""	""
+Spis_XP_022803626_1	10	""	vegetative cell wall protein gp1-like isoform X2
+Spis_XP_022806664_1	10	Collagen/Collagen/Gal_Lectin/	Collagen.HG11.3:NA
+Spis_XP_022779882_1	10	""	dickkopf-related protein 3-like
+Spis_XP_022789479_1	10	""	""
+Spis_XP_022789525_1	10	""	keratin-associated protein 10-6-like
+Spis_XP_022798655_1	10	""	""
+Spis_XP_022787406_1	10	""	vegetative cell wall protein gp1-like
+Spis_XP_022805384_1	10	EGF/EGF/EGF/EGF/EGF/EGF/EGF/EGF/EGF/EGF/EGF/EGF/EGF/EGF/EGF/EGF/EGF/EGF/	von_Willebrand_factor_A_domain_containing_2
+Spis_XP_022783827_1	10	""	mucin-7-like
+Spis_XP_022781725_1	10	""	""
+Spis_XP_022779932_1	10	""	""
+Spis_XP_022789503_1	10	""	""
+Spis_XP_022782820_1	10	Vps62/Vps62/	""
+Spis_XP_022783869_1	10	Lectin_C/	C_type_lectin_domain_containing_10A
+Spis_XP_022795998_1	10	Lectin_C/	Lectin_C.HG10.3:NA
+Spis_XP_022797314_1	10	Collagen/TNF/	Collagen.HG2.29:like:COL6A1/COL6A2/COL6A3/COL6A5/COL6A6/COL12A1/COL14A1/COL20A1:likeclu:25/28
+Spis_XP_022802083_1	10	""	""
+Spis_XP_022792467_1	10	MIP/	aquaporin_3_Gill_blood_group_
+Spis_XP_022786717_1	10	Ldl_recept_a/Ldl_recept_a/Ldl_recept_a/	sortilin_related_receptor_1
+Spis_XP_022790471_1	10	MFS_1/	Sugar_tr.HG5.1:NA
+Spis_XP_022777516_1	10	Ephrin/	Ephrin.HG1.0:AL691442/EFNA1/EFNA2/EFNA3/EFNA4/EFNA5/EFNB1/EFNB2/EFNB3
+Spis_XP_022799395_1	10	""	""
+Spis_XP_022779906_1	10	""	dickkopf-related protein 3-like
+Spis_XP_022800599_1	10	""	mediator of RNA polymerase II transcription subunit 1-like
+Spis_XP_022786116_1	10	ApeC/	""
+Spis_XP_022790518_1	10	islike:PRD_DUX4/PRD_DUXA/PRD_DUXB	Homeodomains.PRD_DUX4/PRD_DUXA/PRD_DUXB
+Spis_XP_022800547_1	10	Sugar_tr/	Sugar_tr.HG1.15:like:SLC22A15:likeclu:4
+Spis_XP_022801241_1	10	""	""
+Spis_XP_022799962_1	10	EGF/EGF/EGF/EGF/EGF/EGF/EGF/EGF/EGF/EGF/EGF/EGF/	delta_notch_like_EGF_repeat_containing
+Spis_XP_022803514_1	10	Sugar_tr/	Sugar_tr.HG1.0:like:SLC22A1/SLC22A2/SLC22A3/SLC22A4/SLC22A5/SLC22A6/SLC22A7/SLC22A8/SLC22A9/SLC22A10/SLC22A11/SLC22A12/SLC22A13/SLC22A14/SLC22A15/SLC22A16/SLC22A17/SLC22A23/SLC22A24/SLC22A25/SLC22A31:likeclu:4/6/10/11/12/24/25/26/29/30/31/37/74/76/77
+Spis_XP_022790188_1	10	""	""
+Spis_XP_022798068_1	10	islike:PRDM6	zf-C2H2.PRDM6
+Spis_XP_022808149_1	10	MFS_1/	solute_carrier_family_16_member_10
+Spis_XP_022799981_1	10	EGF/hEGF/EGF/EGF/EGF/EGF/EGF/EGF/EGF/EGF/EGF/EGF/	delta_like_canonical_Notch_ligand_3
+Spis_XP_022801895_1	10	""	""
+Spis_XP_022798266_1	10	WAP/	proline-rich protein 36-like
+Spis_XP_022788891_1	10	Peptidase_M13_N/Peptidase_M13/	endothelin_converting_enzyme_1
+Spis_XP_022780781_1	10	Laminin_G_3/Laminin_G_3/Laminin_G_3/Laminin_G_3/	Laminin.HG4.1:NA
+Spis_XP_022788336_1	10	islike:JUN/JUNB/JUND	bZIP.JUN/JUNB/JUND
+Spis_XP_022800612_1	10	""	""
+Spis_XP_022789491_1	10	""	""
+Spis_XP_022790163_1	10	AbfB/	""
+Spis_XP_022778185_1	10	GFP/	GFP-like fluorescent chromoprotein amFP486
+Spis_XP_022789489_1	10	""	""
+Spis_XP_022780747_1	10	PLAT/EGF/CAP/Lectin_C/	Lectin_C.HG15.4:NA
+Spis_XP_022803627_1	10	""	""
+Spis_XP_022792965_1	10	FerI/C2/C2/	dysferlin
+Spis_XP_022796886_1	10	""	lymphocyte antigen 6 complex locus protein G6d-like
+Spis_XP_022807508_1	10	FA_desaturase/	FA_desaturase.HG3.1:SCD5
+Spis_Spis9588_1	10		
+Spis_XP_022780354_1	10	DUF885/	""
+Spis_XP_022784603_1	10	GST_N/GST_C_3/	glutathione_S_transferase_mu_3
+Spis_XP_022792715_1	10	PhyH/	phytanoyl_CoA_2_hydroxylase
+Spis_XP_022783257_1	10	Lectin_C/Lectin_C/VWA/	mannose_receptor_C_type_2
+Spis_XP_022808845_1	10	NAD_binding_2/NAD_binding_11/	glyoxylate_reductase_1_homolog
+Spis_XP_022782970_1	10	""	proline-rich protein 36-like
+Spis_XP_022791679_1	10	CAP/	GLI_pathogenesis_related_2
+Spis_XP_022807225_1	10	Collagen/Collagen/	Collagen.HG20.0:NA
+Spis_XP_022807233_1	10	EGF/Lipoxygenase/	arachidonate_5_lipoxygenase
+Spis_XP_022791736_1	10	CAP/	""
+Spis_XP_022797820_1	10	""	""
+Spis_XP_022803398_1	10	Thioredoxin/	protein_disulfide_isomerase_family_A_member_3
+Spis_XP_022797406_1	10	Gal_Lectin/	adhesion_G_protein_coupled_receptor_L1
+Spis_XP_022781682_1	10	""	formin-like protein 7 isoform X2
+Spis_XP_022788893_1	10	HNF_HMBOX1	Homeodomains.HNF_HMBOX1
+Spis_XP_022789330_1	10	Astacin/Astacin/	bone_morphogenetic_protein_1
+Spis_XP_022803634_1	10	""	""
+Spis_XP_022777712_1	10	""	""
+Spis_XP_022807057_1	10	""	dentin sialophosphoprotein-like
+Spis_XP_022800114_1	10	Lectin_C/	aggrecan
+Spis_XP_022790152_1	10	AbfB/fn2/fn2/	fibronectin.HG4.10:like:ELSPBP1:likeclu:0
+Spis_XP_022808578_1	10	Endonuclease_NS/	""
+Spis_XP_022797064_1	10	""	""
+Spis_XP_022796638_1	10	Endonuclease_NS/	endonuclease domain-containing 1 protein-like
+Spis_XP_022799403_1	10	F5_F8_type_C/	neuropilin_2
+Spis_XP_022779853_1	10	Phospholip_A2_1/	phospholipase_A2_group_IIA
+Spis_XP_022791759_1	10	CAP/	GLI_pathogenesis_related_2
+Spis_XP_022801240_1	10	""	KIAA0319
+Spis_XP_022808684_1	10	""	""
+Spis_XP_022778944_1	10	MORN/MORN/	MORN_repeat_containing_1
+Spis_XP_022793246_1	10	""	rRNA-processing protein EFG1-like
+Spis_XP_022788500_1	10	""	""
+Spis_XP_022796800_1	10	Pep_M12B_propep/Reprolysin/ADAM_CR_2/TSP_1/TSP1_ADAMTS/TSP1_ADAMTS/TSP1_ADAMTS/CUB/CUB/	ADAM_metallopeptidase_with_thrombospondin_type_1_motif_16
+Spis_XP_022800080_1	10	CAP/	GLI_pathogenesis_related_2
+Spis_XP_022802098_1	10	CAP/	GLI_pathogenesis_related_2
