@@ -1,8 +1,0 @@
-group	GO.ID	Term	Annotated	Significant	Expected	pval_test	pval_adj	ontology
-down	GO:0015245	fatty acid transmembrane transporter act...	6	4	0.12	2e-06	0.00659568	MF
-down	GO:0090482	vitamin transmembrane transporter activi...	35	7	0.68	4e-06	0.00659568	MF
-down	GO:0004656	procollagen-proline 4-dioxygenase activi...	3	3	0.06	7.3e-06	0.00659568	MF
-down	GO:0019798	procollagen-proline dioxygenase activity	3	3	0.06	7.3e-06	0.00659568	MF
-down	GO:0016491	oxidoreductase activity	591	28	11.53	9.1e-06	0.00659568	MF
-down	GO:0008028	monocarboxylic acid transmembrane transp...	42	7	0.82	1.4e-05	0.008456	MF
-down	GO:0061061	muscle structure development	637	32	12.05	3e-07	0.0044406	BP

@@ -1,0 +1,171 @@
+group	GO.ID	Term	Annotated	Significant	Expected	pval_test	pval_adj	ontology
+capup	GO:0005043	netrin receptor activity involved in che...	8	7	0.26	2.8e-10	1.01472e-06	MF
+capup	GO:0005042	netrin receptor activity	12	7	0.39	2.4e-08	4.3488e-05	MF
+capup	GO:0061507	2',3'-cyclic GMP-AMP binding	9	6	0.29	8.6e-08	0.000103888	MF
+capup	GO:0003950	NAD+ ADP-ribosyltransferase activity	29	9	0.94	2e-07	0.0001812	MF
+capup	GO:0035438	cyclic-di-GMP binding	11	6	0.36	4.5e-07	0.00032012	MF
+capup	GO:0070403	NAD+ binding	24	8	0.78	5.3e-07	0.00032012	MF
+capup	GO:0005790	smooth endoplasmic reticulum	35	9	1.04	5.8e-07	0.00105734	CC
+capup	GO:0002831	regulation of response to biotic stimulu...	391	46	11.9	1.2e-15	1.77624e-11	BP
+capup	GO:0045088	regulation of innate immune response	311	39	9.47	2.8e-14	2.07228e-10	BP
+capup	GO:0031347	regulation of defense response	482	48	14.67	1.8e-13	8.8812e-10	BP
+capup	GO:0098542	defense response to other organism	677	58	20.61	2.8e-13	1.03614e-09	BP
+capup	GO:0002218	activation of innate immune response	119	23	3.62	8.8e-13	2.605152e-09	BP
+capup	GO:0006952	defense response	915	67	27.86	4.7e-12	1.15949e-08	BP
+capup	GO:0050776	regulation of immune response	521	47	15.86	1.2e-11	2.53748571428571e-08	BP
+capup	GO:0032101	regulation of response to external stimu...	814	61	24.78	2e-11	3.7005e-08	BP
+capup	GO:0045087	innate immune response	484	44	14.73	4.6e-11	7.56546666666667e-08	BP
+capup	GO:0002697	regulation of immune effector process	244	30	7.43	5.4e-11	7.99308e-08	BP
+capup	GO:0045089	positive regulation of innate immune res...	223	28	6.79	1.5e-10	2.01845454545455e-07	BP
+capup	GO:0080134	regulation of response to stress	1043	69	31.75	2.2e-10	2.7137e-07	BP
+capup	GO:0010468	regulation of gene expression	2705	132	82.35	2.8e-10	2.86172e-07	BP
+capup	GO:0031349	positive regulation of defense response	277	31	8.43	2.8e-10	2.86172e-07	BP
+capup	GO:0031325	positive regulation of cellular metaboli...	2144	112	65.27	2.9e-10	2.86172e-07	BP
+capup	GO:0002833	positive regulation of response to bioti...	246	29	7.49	3.2e-10	2.9604e-07	BP
+capup	GO:0009607	response to biotic stimulus	945	64	28.77	4.5e-10	3.91817647058824e-07	BP
+capup	GO:0002682	regulation of immune system process	849	59	25.85	9.5e-10	7.81216666666667e-07	BP
+capup	GO:0044419	biological process involved in interspec...	1108	70	33.73	1.2e-09	8.74663636363637e-07	BP
+capup	GO:0043207	response to external biotic stimulus	923	62	28.1	1.3e-09	8.74663636363637e-07	BP
+capup	GO:0051707	response to other organism	923	62	28.1	1.3e-09	8.74663636363637e-07	BP
+capup	GO:0009893	positive regulation of metabolic process	2420	120	73.67	1.3e-09	8.74663636363637e-07	BP
+capup	GO:0010604	positive regulation of macromolecule met...	2281	114	69.44	3e-09	1.93069565217391e-06	BP
+capup	GO:0043331	response to dsRNA	73	15	2.22	3.7e-09	2.281975e-06	BP
+capup	GO:0051173	positive regulation of nitrogen compound...	2045	105	62.26	4.2e-09	2.486736e-06	BP
+capup	GO:0048518	positive regulation of biological proces...	3837	165	116.81	6.6e-09	3.75743076923077e-06	BP
+capup	GO:0070212	protein poly-ADP-ribosylation	22	9	0.67	7e-09	3.83755555555556e-06	BP
+capup	GO:0060255	regulation of macromolecule metabolic pr...	3576	156	108.87	1.1e-08	5.81507142857143e-06	BP
+capup	GO:0071359	cellular response to dsRNA	68	14	2.07	1.2e-08	6.12496551724138e-06	BP
+capup	GO:0019222	regulation of metabolic process	3937	167	119.86	1.5e-08	7.16225806451613e-06	BP
+capup	GO:0060759	regulation of response to cytokine stimu...	105	17	3.2	1.5e-08	7.16225806451613e-06	BP
+capup	GO:0051090	regulation of DNA-binding transcription ...	291	29	8.86	1.6e-08	7.401e-06	BP
+capup	GO:0019221	cytokine-mediated signaling pathway	292	29	8.89	1.7e-08	7.62527272727273e-06	BP
+capup	GO:0001819	positive regulation of cytokine producti...	177	22	5.39	1.8e-08	7.83635294117647e-06	BP
+capup	GO:1902216	positive regulation of interleukin-4-med...	18	8	0.55	2.3e-08	9.6012972972973e-06	BP
+capup	GO:0002253	activation of immune response	261	27	7.95	2.4e-08	9.6012972972973e-06	BP
+capup	GO:0050691	regulation of defense response to virus ...	41	11	1.25	2.4e-08	9.6012972972973e-06	BP
+capup	GO:0032103	positive regulation of response to exter...	428	36	13.03	2.5e-08	9.73815789473684e-06	BP
+capup	GO:0002230	positive regulation of defense response ...	33	10	1	2.9e-08	1.10066153846154e-05	BP
+capup	GO:0035771	interleukin-4-mediated signaling pathway	19	8	0.58	3.8e-08	1.37189268292683e-05	BP
+capup	GO:1902214	regulation of interleukin-4-mediated sig...	19	8	0.58	3.8e-08	1.37189268292683e-05	BP
+capup	GO:0002224	toll-like receptor signaling pathway	113	17	3.44	4.7e-08	1.65641428571429e-05	BP
+capup	GO:0001959	regulation of cytokine-mediated signalin...	100	16	3.04	4.9e-08	1.68673953488372e-05	BP
+capup	GO:0050778	positive regulation of immune response	382	33	11.63	5.3e-08	1.77624e-05	BP
+capup	GO:0032481	positive regulation of type I interferon...	44	11	1.34	5.4e-08	1.77624e-05	BP
+capup	GO:0060331	negative regulation of response to inter...	20	8	0.61	6.2e-08	1.95260425531915e-05	BP
+capup	GO:0060336	negative regulation of interferon-gamma-...	20	8	0.61	6.2e-08	1.95260425531915e-05	BP
+capup	GO:0050688	regulation of defense response to virus	90	15	2.74	7.3e-08	2.2511375e-05	BP
+capup	GO:0002758	innate immune response-activating signal...	91	15	2.77	8.6e-08	2.59790204081633e-05	BP
+capup	GO:0031323	regulation of cellular metabolic process	3520	151	107.16	8.9e-08	2.634756e-05	BP
+capup	GO:0032479	regulation of type I interferon producti...	92	15	2.8	9.9e-08	2.81807307692308e-05	BP
+capup	GO:0032606	type I interferon production	92	15	2.8	9.9e-08	2.81807307692308e-05	BP
+capup	GO:0001816	cytokine production	357	31	10.87	1.2e-07	3.35139622641509e-05	BP
+capup	GO:0001817	regulation of cytokine production	322	29	9.8	1.5e-07	4.11166666666667e-05	BP
+capup	GO:0048522	positive regulation of cellular process	3549	151	108.04	1.6e-07	4.30603636363636e-05	BP
+capup	GO:0050789	regulation of biological process	6269	231	190.85	2e-07	5.28642857142857e-05	BP
+capup	GO:0002221	pattern recognition receptor signaling p...	141	18	4.29	2.5e-07	6.49210526315789e-05	BP
+capup	GO:0042532	negative regulation of tyrosine phosphor...	32	9	0.97	3e-07	7.65620689655172e-05	BP
+capup	GO:0035458	cellular response to interferon-beta	17	7	0.52	3.4e-07	8.3878e-05	BP
+capup	GO:0038007	netrin-activated signaling pathway	17	7	0.52	3.4e-07	8.3878e-05	BP
+capup	GO:0071353	cellular response to interleukin-4	42	10	1.28	3.6e-07	8.73560655737705e-05	BP
+capup	GO:0051607	defense response to virus	193	21	5.88	3.9e-07	9.16314285714286e-05	BP
+capup	GO:0140546	defense response to symbiont	193	21	5.88	3.9e-07	9.16314285714286e-05	BP
+capup	GO:0046426	negative regulation of receptor signalin...	53	11	1.61	4.2e-07	9.41945454545455e-05	BP
+capup	GO:0050732	negative regulation of peptidyl-tyrosine...	53	11	1.61	4.2e-07	9.41945454545455e-05	BP
+capup	GO:1904893	negative regulation of receptor signalin...	53	11	1.61	4.2e-07	9.41945454545455e-05	BP
+capup	GO:0051171	regulation of nitrogen compound metaboli...	3290	141	100.16	4.4e-07	9.72071641791045e-05	BP
+capup	GO:0009615	response to virus	229	23	6.97	4.6e-07	9.868e-05	BP
+capup	GO:0070670	response to interleukin-4	43	10	1.31	4.6e-07	9.868e-05	BP
+capup	GO:0006955	immune response	1032	60	31.42	4.8e-07	0.000101499428571429	BP
+capup	GO:0010467	gene expression	3451	146	105.06	5e-07	0.000104239436619718	BP
+capup	GO:0002376	immune system process	1656	84	50.41	5.6e-07	0.000115126666666667	BP
+capup	GO:0080090	regulation of primary metabolic process	3402	144	103.57	6.4e-07	0.00012977095890411	BP
+capup	GO:0001961	positive regulation of cytokine-mediated...	45	10	1.37	7.3e-07	0.00014601972972973	BP
+capup	GO:0065007	biological regulation	6797	243	206.92	8.4e-07	0.0001657824	BP
+capup	GO:0033209	tumor necrosis factor-mediated signaling...	46	10	1.4	9.1e-07	0.000176855064935065	BP
+capup	GO:0060333	interferon-gamma-mediated signaling path...	57	11	1.74	9.2e-07	0.000176855064935065	BP
+capup	GO:0032608	interferon-beta production	37	9	1.13	1.2e-06	0.000227723076923077	BP
+capup	GO:0002684	positive regulation of immune system pro...	524	37	15.95	1.3e-06	0.000243577215189873	BP
+capup	GO:0050731	positive regulation of peptidyl-tyrosine...	112	15	3.41	1.4e-06	0.000259035	BP
+capup	GO:0051091	positive regulation of DNA-binding trans...	176	19	5.36	1.6e-06	0.000292385185185185	BP
+capup	GO:0060760	positive regulation of response to cytok...	49	10	1.49	1.7e-06	0.000303173493975904	BP
+capup	GO:0051252	regulation of RNA metabolic process	2061	97	62.74	1.7e-06	0.000303173493975904	BP
+capup	GO:0002832	negative regulation of response to bioti...	101	14	3.07	2e-06	0.000352428571428571	BP
+capup	GO:0050794	regulation of cellular process	5924	218	180.35	2.1e-06	0.000365696470588235	BP
+capup	GO:0071345	cellular response to cytokine stimulus	558	38	16.99	2.3e-06	0.000395867441860465	BP
+capup	GO:0006471	protein ADP-ribosylation	40	9	1.22	2.4e-06	0.000399155056179775	BP
+capup	GO:0060330	regulation of response to interferon-gam...	40	9	1.22	2.4e-06	0.000399155056179775	BP
+capup	GO:0060334	regulation of interferon-gamma-mediated ...	40	9	1.22	2.4e-06	0.000399155056179775	BP
+capup	GO:0043330	response to exogenous dsRNA	31	8	0.94	2.9e-06	0.000471712087912088	BP
+capup	GO:0002700	regulation of production of molecular me...	104	14	3.17	2.9e-06	0.000471712087912088	BP
+capup	GO:0042531	positive regulation of tyrosine phosphor...	42	9	1.28	3.7e-06	0.000595297826086957	BP
+capup	GO:0006355	regulation of transcription, DNA-templat...	1844	88	56.14	3.8e-06	0.000604812903225807	BP
+capup	GO:2000112	regulation of cellular macromolecule bio...	2188	100	66.61	4.3e-06	0.000677112765957447	BP
+capup	GO:0007166	cell surface receptor signaling pathway	1769	85	53.85	4.6e-06	0.000716728421052632	BP
+capup	GO:0042509	regulation of tyrosine phosphorylation o...	55	10	1.67	5.1e-06	0.00078635625	BP
+capup	GO:0035666	TRIF-dependent toll-like receptor signal...	10	5	0.3	5.6e-06	0.000854548453608247	BP
+capup	GO:0007260	tyrosine phosphorylation of STAT protein	56	10	1.7	6e-06	0.000906244897959184	BP
+capup	GO:0009605	response to external stimulus	2122	97	64.6	6.5e-06	0.000971848484848485	BP
+capup	GO:0038095	Fc-epsilon receptor signaling pathway	45	9	1.37	6.7e-06	0.0009868	BP
+capup	GO:0002250	adaptive immune response	143	16	4.35	6.8e-06	0.0009868	BP
+capup	GO:1903506	regulation of nucleic acid-templated tra...	1870	88	56.93	6.8e-06	0.0009868	BP
+capup	GO:0031047	gene silencing by RNA	177	18	5.39	7.1e-06	0.00102033203883495	BP
+capup	GO:2001141	regulation of RNA biosynthetic process	1873	88	57.02	7.3e-06	0.00103898653846154	BP
+capup	GO:0007249	I-kappaB kinase/NF-kappaB signaling	113	14	3.44	7.9e-06	0.00111367428571429	BP
+capup	GO:0034097	response to cytokine	616	39	18.75	9.5e-06	0.00132659433962264	BP
+capup	GO:0046427	positive regulation of receptor signalin...	59	10	1.8	9.8e-06	0.00134314444444444	BP
+capup	GO:1904894	positive regulation of receptor signalin...	59	10	1.8	9.8e-06	0.00134314444444444	BP
+capup	GO:0045824	negative regulation of innate immune res...	60	10	1.83	1.1e-05	0.00149377981651376	BP
+capup	GO:0071360	cellular response to exogenous dsRNA	27	7	0.82	1.2e-05	0.00161476363636364	BP
+capup	GO:0050730	regulation of peptidyl-tyrosine phosphor...	150	16	4.57	1.3e-05	0.00171808928571429	BP
+capup	GO:0051246	regulation of protein metabolic process	1817	85	55.32	1.3e-05	0.00171808928571429	BP
+capup	GO:0046425	regulation of receptor signaling pathway...	103	13	3.14	1.4e-05	0.00181778947368421	BP
+capup	GO:1904892	regulation of receptor signaling pathway...	103	13	3.14	1.4e-05	0.00181778947368421	BP
+capup	GO:0002777	antimicrobial peptide biosynthetic proce...	19	6	0.58	1.5e-05	0.00191405172413793	BP
+capup	GO:0002805	regulation of antimicrobial peptide bios...	19	6	0.58	1.5e-05	0.00191405172413793	BP
+capup	GO:0031326	regulation of cellular biosynthetic proc...	2370	104	72.15	1.6e-05	0.00202420512820513	BP
+capup	GO:0006351	transcription, DNA-templated	1968	90	59.91	1.7e-05	0.00213249152542373	BP
+capup	GO:0010556	regulation of macromolecule biosynthetic...	2258	100	68.74	1.8e-05	0.0022203	BP
+capup	GO:0060761	negative regulation of response to cytok...	63	10	1.92	1.8e-05	0.0022203	BP
+capup	GO:0045893	positive regulation of transcription, DN...	1002	54	30.5	1.9e-05	0.00232428099173554	BP
+capup	GO:0045944	positive regulation of transcription by ...	779	45	23.72	2e-05	0.00242655737704918	BP
+capup	GO:0002699	positive regulation of immune effector p...	123	14	3.74	2.1e-05	0.00252717073170732	BP
+capup	GO:0002764	immune response-regulating signaling pat...	288	23	8.77	2.2e-05	0.00262616129032258	BP
+capup	GO:0097659	nucleic acid-templated transcription	1985	90	60.43	2.4e-05	0.00281942857142857	BP
+capup	GO:0002683	negative regulation of immune system pro...	250	21	7.61	2.4e-05	0.00281942857142857	BP
+capup	GO:0032268	regulation of cellular protein metabolic...	1706	80	51.94	2.5e-05	0.00286860465116279	BP
+capup	GO:0007259	receptor signaling pathway via JAK-STAT	109	13	3.32	2.5e-05	0.00286860465116279	BP
+capup	GO:0097696	receptor signaling pathway via STAT	109	13	3.32	2.5e-05	0.00286860465116279	BP
+capup	GO:0051254	positive regulation of RNA metabolic pro...	1195	61	36.38	2.6e-05	0.0029604	BP
+capup	GO:0002756	MyD88-independent toll-like receptor sig...	13	5	0.4	2.7e-05	0.00300491729323308	BP
+capup	GO:0009889	regulation of biosynthetic process	2426	105	73.86	2.7e-05	0.00300491729323308	BP
+capup	GO:0032774	RNA biosynthetic process	1992	90	60.64	2.7e-05	0.00300491729323308	BP
+capup	GO:0019219	regulation of nucleobase-containing comp...	2282	100	69.47	2.8e-05	0.0030929552238806	BP
+capup	GO:0002460	adaptive immune response based on somati...	128	14	3.9	3.3e-05	0.00361826666666667	BP
+capup	GO:0034654	nucleobase-containing compound biosynthe...	2441	105	74.31	3.6e-05	0.00391817647058824	BP
+capup	GO:0031348	negative regulation of defense response	149	15	4.54	4.7e-05	0.00507805839416059	BP
+capup	GO:0007432	salivary gland boundary specification	33	7	1	4.9e-05	0.00525578260869565	BP
+capup	GO:0051247	positive regulation of protein metabolic...	1089	56	33.15	5e-05	0.00532446043165468	BP
+capup	GO:0002440	production of molecular mediator of immu...	134	14	4.08	5.5e-05	0.00577382978723404	BP
+capup	GO:0071356	cellular response to tumor necrosis fact...	86	11	2.62	5.5e-05	0.00577382978723404	BP
+capup	GO:1903508	positive regulation of nucleic acid-temp...	1045	54	31.81	6.1e-05	0.00635860563380282	BP
+capup	GO:0010628	positive regulation of gene expression	1473	70	44.84	6.2e-05	0.00641765034965035	BP
+capup	GO:1902680	positive regulation of RNA biosynthetic ...	1046	54	31.84	6.3e-05	0.006475875	BP
+capup	GO:0030422	production of siRNA involved in post-tra...	24	6	0.73	6.4e-05	0.00653329655172414	BP
+capup	GO:0016070	RNA metabolic process	2714	113	82.62	6.6e-05	0.00669131506849315	BP
+capup	GO:1901222	regulation of NIK/NF-kappaB signaling	73	10	2.22	6.7e-05	0.00674648979591837	BP
+capup	GO:0035194	post-transcriptional gene silencing by R...	154	15	4.69	6.8e-05	0.00680091891891892	BP
+capup	GO:0071346	cellular response to interferon-gamma	88	11	2.68	6.9e-05	0.00685461744966443	BP
+capup	GO:0002252	immune effector process	722	41	21.98	7.1e-05	0.00700628	BP
+capup	GO:0010803	regulation of tumor necrosis factor-medi...	25	6	0.76	8.2e-05	0.00803817218543046	BP
+capup	GO:0048583	regulation of response to stimulus	2578	108	78.48	8.3e-05	0.00808267105263158	BP
+capup	GO:0030968	endoplasmic reticulum unfolded protein r...	90	11	2.74	8.5e-05	0.00816993506493507	BP
+capup	GO:0016441	post-transcriptional gene silencing	157	15	4.78	8.5e-05	0.00816993506493507	BP
+capup	GO:0018130	heterocycle biosynthetic process	2553	107	77.72	9e-05	0.00859470967741936	BP
+capup	GO:0002757	immune response-activating signal transd...	214	18	6.51	9.1e-05	0.0086345	BP
+capup	GO:0010033	response to organic substance	2172	94	66.12	9.3e-05	0.00876806369426752	BP
+capup	GO:0001960	negative regulation of cytokine-mediated...	62	9	1.89	9.8e-05	0.00918098734177215	BP
+capup	GO:0034620	cellular response to unfolded protein	108	12	3.29	1e-04	0.00930943396226415	BP
+capup	GO:0038061	NIK/NF-kappaB signaling	77	10	2.34	0.00011	0.00998907975460123	BP
+capup	GO:0071226	cellular response to molecule of fungal ...	4	3	0.12	0.00011	0.00998907975460123	BP
+capup	GO:0006950	response to stress	2867	117	87.28	0.00011	0.00998907975460123	BP
+capup	GO:0044260	cellular macromolecule metabolic process	4975	183	151.46	0.00011	0.00998907975460123	BP

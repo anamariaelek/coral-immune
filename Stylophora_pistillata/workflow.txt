@@ -1,0 +1,16 @@
+
+wdir=/users/asebe/aelek/proj/coral_collab
+cd ${wdir}
+gtf=${wdir}/genome/Spis_long.annot.gtf
+fas=${wdir}/genome/Spis_gDNA.fasta
+
+for pid in Control-1A-2 Control-1B-2 Control-1C-1 Control-2A-2 Control-2B-2 Control-2C-2 cApUp-1A-1 cApUp-1B-1 cApUp-1C-2 cApUp-2A-2 cApUp-2B-2 cApUp-2C-1 cGAMP-1A-1 cGAMP-1B-2 cGAMP-1C-1 cGAMP-2A-2 cGAMP-2B-2 cGAMP-2C-1
+do
+	echo ${pid}
+	f1=${wdir}/raw_reads/${pid}_R1_001.fastq.gz
+	f2=${wdir}/raw_reads/${pid}_R2_001.fastq.gz
+	qsub -V -o ${pid}.out -e ${pid}.err -N ${pid} map_sample.qsub.sh ${pid} ${gtf} ${fas} ${f1} ${f2} 64 ${pid}
+done
+
+
+

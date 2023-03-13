@@ -1,0 +1,1136 @@
+---
+title: "Stylophora pistillata"
+output:
+  html_document:
+    self_contained: true
+    toc: true
+    toc_float: true
+    toc-location: left
+editor: visual
+---
+
+## Setup
+
+Load packages
+
+```{r warning=FALSE, message=FALSE, results = FALSE}
+library(data.table)
+library(stringr)
+library(ggplot2)
+theme_py <- theme_light() + theme(
+  panel.grid.major = element_blank(),
+  panel.grid.minor = element_blank(),
+  panel.border = element_rect(colour = "black", fill = NA),
+  text = element_text(size = 20),
+  strip.placement = "outside",
+  strip.text = element_text(size = 20, color = "black"),
+  strip.background = element_rect(fill = "white")
+)
+theme_set(theme_py)
+library(patchwork)
+library(ggrepel)
+library(RColorBrewer)
+library(ComplexHeatmap)
+library(Rsubread)
+library(DESeq2)
+library(eulerr)
+library(pathview)
+library(clusterProfiler)
+library(KEGGREST)
+library(gage)
+library(openxlsx)
+source("functions.R")
+```
+
+Directories and inputs
+
+```{r}
+dat_dir <- file.path("Stylophora_pistillata", "differential_expression")
+ann_dir <- file.path("Stylophora_pistillata", "annotation")
+res_dir <- file.path(dat_dir, "results")
+fig_dir <- file.path(dat_dir, "plots")
+for (newdir in c(res_dir, fig_dir))
+  dir.create(newdir, showWarnings = FALSE)
+```
+
+Gene annotations
+
+```{r}
+# all gene annotations
+gene_ann <- fread(
+    file.path(ann_dir, "Spis_annotation_v7_2020-10-26_clean"),
+    select = 1:3
+)
+tf_ann <- fread(
+  file.path(ann_dir, "curated_TFh_Spis_EDITED_NAMES.csv"),
+  header = FALSE
+)[, c(1, 3, 2)]
+setnames(gene_ann, c("gene", "pfam", "og"))
+setnames(tf_ann, c("gene", "pfam", "og"))
+gene_ann <- rbindlist(list(
+  tf_ann, gene_ann[!gene %in% tf_ann$gene]
+))
+gene_ann[, name := ""]
+gene_ann[og != "", name := paste(gene, og, sep = " | ")]
+gene_ann[
+  nchar(name) > 70,
+  name := paste0(substr(name, 1, 67), "...")
+]
+
+# gene sets of interest
+cglr_genes <- readLines(file.path(ann_dir, "cGLR.txt"))
+cglr_genes <- paste0("Spis_", cglr_genes)
+cglr_genes <- str_replace(cglr_genes, "\\.", "_")
+sting_genes <- readLines(file.path(ann_dir, "STING.txt"))
+sting_genes <- paste0("Spis_", sting_genes)
+sting_genes <- str_replace(sting_genes, "\\.", "_")
+```
+
+## Mapping QCs
+
+```{r}
+parse_flagstat <- function(flagstat_file, pattern = "properly paired") {
+  lns <- readLines(flagstat_file)
+  ln <- grep(pattern, lns, value = TRUE)[1]
+  as.integer(stringr::str_extract(ln, "\\d+"))
+}
+samples <- fread(file.path(dat_dir, "design.tsv"))$sample
+flag_fns <- sapply(samples, function(smp) {file.path(
+    smp,
+    "alignments",
+    sprintf("%s.Aligned.sortedByCoord.out.bam.flagstat", smp)
+)}, USE.NAMES = TRUE)
+flag_dt <- data.table(
+  sample = names(flag_fns)
+)
+flag_dt[, total_reads := sapply(
+    flag_dt$filename, parse_flagstat, "total"
+)]
+flag_dt[, mapped_reads := sapply(
+    flag_dt$filename, parse_flagstat, "mapped"
+)]
+flag_dt[, dup_reads := sapply(
+    flag_dt$filename, parse_flagstat, "secondary"
+)]
+flag_dt[, percent_mapped := mapped_reads / total_reads]
+flag_dt[, percent_dups := dup_reads / total_reads]
+flag_dt
+fwrite(flag_dt, file.path(res_dir, "mapping_qc.tsv"), sep = "\t")
+```
+
+## Gene counts
+
+Load design table
+
+```{r}
+col_fn <- file.path(dat_dir, "design.tsv")
+col_dt <- fread(col_fn)
+col_dt[, treatment := factor(
+  treatment, levels = c("control", "cApUp", "cGAMP")
+)]
+col_dt[, biol_rep := factor(biol_rep, levels = 1:3)]
+col_dt[, tech_rep := factor(tech_rep, levels = c("A", "B", "C"))]
+
+mol_cols <- c("cApUp" = "#ff7f00", "cGAMP" = "#984ea3", "control" = "#4daf4a")
+
+col_df <- copy(col_dt)
+class(col_df) <- "data.frame"
+rownames(col_df) <- col_df$name
+```
+
+Load gene counts from all samples into expression matrix
+
+```{r eval=FALSE, include=FALSE}
+samples <- col_dt$sample
+con_lst <- sapply(samples, function(smp) {
+    fn <- list.files(
+        file.path(smp, "alignments"),
+        "*ReadsPerGene.out.tab$",
+        full.names = TRUE
+    )
+    dt <- fread(fn, skip = 4L)[, 1:2]
+    setnames(dt, c("gene", str_remove(smp, "-[12]$")))
+    dt
+}, USE.NAMES = TRUE, simplify = FALSE)
+con_dt <- Reduce(function(...) merge(..., by = "gene", all = TRUE), con_lst)
+fwrite(con_dt, file.path(dat_dir, "raw_counts_rnaseq.tsv"), sep = "\t")
+```
+
+```{r}
+samples <- col_dt$sample
+con_lst <- sapply(samples, function(smp) {
+    fn <- list.files(
+        file.path(smp, "alignments"),
+        "*.featureCounts.paired.tab$",
+        full.names = TRUE
+    )
+    dt <- fread(fn, select = c(1, 7), header = TRUE)
+    setnames(dt, c("gene", str_remove(smp, "-[12]$")))
+    dt
+}, USE.NAMES = TRUE, simplify = FALSE)
+con_dt <- Reduce(function(...) merge(..., by = "gene", all = TRUE), con_lst)
+fwrite(con_dt, file.path(dat_dir, "raw_counts_rnaseq.tsv"), sep = "\t")
+```
+
+Load count matrix
+
+```{r}
+con_fn <- file.path(dat_dir, "raw_counts_rnaseq.tsv")
+con_dt <- fread(con_fn, header = TRUE)
+con_mt <- data.matrix(con_dt[, -1])
+con_mt <- con_mt[, rownames(col_df)]
+rownames(con_mt) <- con_dt[[1]]
+```
+
+Inspect TPMs distribution
+
+```{r fig.width=8, fig.height=6, warning=FALSE, message=FALSE}
+# load gene lengths
+gtf <- as.data.table(
+    rtracklayer::import("genome/Spis_long.annot.gtf")
+)
+gen_lens <- structure(gtf$width, names = gtf$gene_id)
+# calculate TPMs
+tpm <- function(counts, len) {
+  x <- counts / len
+  return(t(t(x) * 1e6 / colSums(x)))
+}
+tpm_mt <- tpm(con_mt, gen_lens[rownames(con_mt)])
+tpm_dt <- as.data.table(tpm_mt, keep.rownames = "gene")
+tpm_dt <- melt.data.table(
+  tpm_dt,
+  id.vars = "gene",
+  variable.name = "name",
+  value.name = "TPM"
+)
+tpm_dt <- merge.data.table(tpm_dt, col_dt, by = "name")
+tpm_dt[, name := factor(name, levels = unique(tpm_dt$name))]
+
+gp_exp <- ggplot(tpm_dt, aes(name, log10(TPM), fill = treatment)) +
+  geom_violin(scale = "width", alpha = 0.8, color = "black") +
+  geom_boxplot(width = 0.5, outlier.shape = NA, alpha = 0.8, color = "black") +
+  scale_fill_manual(values = mol_cols, limits = force) +
+  scale_y_continuous(expand = expansion(mult = c(0, 0.01))) +
+  labs(x = "samples", y = "log10(TPMs)") +
+  theme(
+    axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1),
+    legend.title = element_blank(), legend.position = "none"
+  )
+
+var_dt <- tpm_dt[, .(var = var(TPM)), .(gene)]
+gp_var <- ggplot(var_dt, aes(log10(var))) + 
+  geom_density() +
+  scale_x_continuous(limits = c(-4,NA)) +
+  scale_y_continuous(expand = expansion(mult = c(0,0.01))) +
+  labs(x = "log10(expression variance)")
+
+gp_pch <- gp_exp / gp_var + plot_layout(heights = c(2,1))
+gp_pch
+```
+
+```{r include=FALSE, eval=TRUE}
+pdf(
+  file.path(fig_dir, "tpms_var.pdf"),
+  width = 8, height = 6
+)
+gp_pch
+dev.off()
+```
+
+Data for differential expression analysis
+
+```{r}
+# kill samples
+kill <- c(
+  "cApUp-2A",
+  "Control-1A"
+)
+
+col_df <- col_df[setdiff(rownames(col_df), kill), ]
+con_mt <- con_mt[, rownames(col_df)]
+
+# DESeq2 object
+require(DESeq2)
+dds <- DESeqDataSetFromMatrix(
+  countData = con_mt,
+  colData = col_df,
+  design = ~ treatment
+)
+saveRDS(dds, file.path(res_dir, "dds.rds"))
+
+# collapse technical replicates
+# col_df$sample <- paste(col_df$treatment, col_df$biol_rep, sep = "_")
+# ddscol <- collapseReplicates(dds, dds$sample)
+# saveRDS(ddscol, file.path(res_dir, "ddscol.rds"))
+```
+
+Use normalized log-transformed expression data
+
+```{r}
+# normalize samples
+dds <- readRDS(file.path(res_dir, "dds.rds"))
+dds <- estimateSizeFactors(dds)
+norm_mt <- counts(dds, normalized = TRUE)
+
+# row normalize to bring genes to same range
+norm_mt <- (norm_mt + 10) / apply(norm_mt + 10, 1, median)
+norm_mt <- log2(norm_mt)
+
+# save
+write.table(
+  norm_mt,
+  file.path(res_dir, "norm_expression.tsv"),
+  sep = "\t",
+  row.names = TRUE,
+  quote = FALSE
+)
+```
+
+## Samples correlation
+
+```{r fig.width=7, fig.height=6}
+dds <- readRDS(file.path(res_dir, "dds.rds"))
+vsd <- vst(dds, blind = FALSE)
+mark_genes <- names(which(apply(norm_mt, 1, function(x) max(abs(x)) > 2)))
+smp_dist <- dist(t(assay(vsd)[mark_genes, ]))
+smp_dist_mt <- as.matrix(smp_dist)
+smp_cor_mt <- cor(smp_dist_mt)
+
+#ord <- rownames(smp_cor_mt)[hclust(dist(smp_cor_mt), method = "single")$order]
+#ord <- rownames(smp_cor_mt)[c(1:12, 15, 13:14)]
+#smp_cor_mt <- smp_cor_mt[ord, ord]
+
+col_vec <- rev(colorRampPalette(rev(brewer.pal(9, "RdBu")))(255))
+col_fun <- circlize::colorRamp2(
+  seq(-1, 1, length.out = length(col_vec)),
+  col_vec
+)
+
+col_ann <- HeatmapAnnotation(
+    which = "column",
+    border = TRUE,
+    "treatment" = as.character(
+      col_dt[match(colnames(smp_cor_mt), name)]$treatment
+    ),
+    col = list("treatment" = mol_cols)
+)
+
+row_ann <- HeatmapAnnotation(
+    which = "row",
+    border = TRUE,
+    show_legend = FALSE,
+    "treatment" = as.character(
+      col_dt[match(colnames(smp_cor_mt), name)]$treatment
+    ),
+    col = list("treatment" = mol_cols)
+)
+
+smp_dist_hm <- Heatmap(
+  smp_cor_mt,
+  name = "sample\ncorrelation", col = col_fun,
+  cluster_rows = FALSE, cluster_columns = FALSE,
+  top_annotation = col_ann, left_annotation = row_ann,
+  border = TRUE
+)
+smp_dist_hm
+```
+
+```{r include=FALSE, eval=TRUE}
+pdf(file.path(fig_dir, "samples_dist_all_samples.pdf"), width = 7, height = 5.6)
+smp_dist_hm
+dev.off()
+```
+
+## PCA
+
+PCA on (collapsed) samples
+
+```{r fig.width=8, fig.height=10, warning=FALSE}
+set.seed(1950)
+pca_res <- prcomp(t(norm_mt), center = TRUE)
+
+# variance explained
+pca_var <- data.table(
+    pct_var = round(((pca_res$sdev) ^ 2 /
+    sum((pca_res$sdev) ^ 2) * 100), 2)
+)
+pca_var[, pct_cum := cumsum(pct_var)]
+pca_var[, PC := factor(seq_len(.N))]
+gp_var <- ggplot(pca_var, aes(PC, pct_var)) +
+  geom_bar(stat = "identity") +
+  geom_line(aes(y = pct_cum, group = 1)) +
+  geom_point(aes(y = pct_cum)) +
+  scale_y_continuous(expand = expansion(0.01, 0)) +
+  labs(y = "% of variance\nexplained", x = "PC") +
+  theme(panel.grid.major.y = element_line(size = 0.5))
+
+pca_dt <- as.data.table(pca_res$x, keep.rownames = "name")
+pca_dt <- merge.data.table(col_dt, pca_dt, by = "name", sort = FALSE)
+
+gp_bip <- ggplot(pca_dt, aes(PC1, PC2, fill = treatment, shape = biol_rep)) +
+  geom_point(size = 5) +
+  scale_fill_manual(values = mol_cols) +
+  scale_color_manual(values = mol_cols) +
+  scale_shape_manual(values = c("1" = 21, "2" = 24)) +
+  geom_text_repel(aes(color = treatment, label = sample)) +
+  guides(fill = guide_legend(override.aes = list(shape = 21)))
+
+gp_var / gp_bip
+```
+
+
+```{r include=FALSE, eval=TRUE}
+pdf(file.path(fig_dir, "pca.pdf"), width = 8, height = 10)
+gp_var / gp_bip
+dev.off()
+```
+
+## Marker genes
+
+Use normalized gene counts
+
+```{r}
+# load counts
+norm_mt <- read.table(
+  file.path(res_dir, "norm_expression.tsv"),
+  header = TRUE
+)
+colnames(norm_mt) <- str_replace_all(colnames(norm_mt), "\\.", "-")
+# load column data
+col_dt <- fread(col_fn)
+```
+
+Identify marker genes
+
+```{r include=TRUE, eval=TRUE}
+# gene markers by normalized expression
+genes_fc <- names(which(apply(norm_mt, 1, function(x) {
+  sort(x, decreasing = TRUE)[1] >= 2
+})))
+genes_vari <- names(which(apply(norm_mt, 1, function(x) {
+  var(x) > 1.5
+})))
+```
+
+```{r include=TRUE, eval=TRUE}
+# gene markers by high FC + significant DEseq2 LTR test
+dds <- readRDS(file.path(res_dir, "ddscol.rds"))
+dds <- DESeq(dds, test = "LRT", reduced = ~ 1)
+dds_res <- results(dds)
+dds_qval <- dds_res$padj
+names(dds_qval) <- rownames(dds_res)
+genes_deseq <- names(which(dds_qval < 1e-2))
+
+genes_high <- names(which(apply(norm_mt, 1, function(x) {
+  sort(x, decreasing = TRUE)[2] > 1.5
+})))
+
+gene_marks <- intersect(genes_high, genes_deseq)
+```
+
+Load gene sets of interest
+
+```{r}
+gene_marks <- unique(c(
+  gene_marks,
+  cglr_genes[cglr_genes %in% rownames(norm_mt)],
+  sting_genes[sting_genes %in% rownames(norm_mt)]
+))
+```
+
+Select number of clusters for genes
+
+```{r fig.width=10, fig.height=6}
+set.seed(1950)
+
+# determine k for kmeans
+ks <- 1:30
+tot_withinss <- sapply(ks,  function(k) {
+  cl <- kmeans(norm_mt[gene_marks, ], k)
+  cl$tot.withinss
+})
+elbow_dt <- data.table(k = ks, tot_withinss = tot_withinss)
+elbow_gp <- ggplot(elbow_dt, aes(x = k, y = tot_withinss)) +
+  geom_line() + geom_point() +
+  scale_x_continuous(breaks = ks) + 
+  theme(panel.grid.major = element_line(size = 0.5))
+elbow_gp
+```
+
+```{r include=FALSE, eval=TRUE}
+pdf(file.path(fig_dir, "kmeans_elbow.pdf"), width = 8, height = 6)
+elbow_gp
+dev.off()
+```
+
+Cluster genes
+
+```{r}
+set.seed(1950)
+
+# kmeans
+k <- 10
+cl <- kmeans(norm_mt[gene_marks, ], k)
+gene_order_list <- tapply(names(cl$cluster), cl$cluster, function(gs) {
+  cor_genes <- cor(t(norm_mt[gs,]))
+  hclust_genes <- hclust(as.dist(1 - cor(cor_genes)), method = "ward.D2")
+  rownames(cor_genes)[hclust_genes$order]
+})
+names(gene_order_list) <- unique(cl$cluster)
+gene_order_list <- gene_order_list[as.character(seq_along(gene_order_list))]
+
+# cluster clusters
+cluster_order <- hclust(
+  dist(cor(t(cl$centers)),
+  method = "euclidean"),
+  method = "ward.D2"
+)$order
+gene_order_list <- gene_order_list[as.character(cluster_order)]
+gene_order <- unname(unlist(gene_order_list[cluster_order]))
+clusters_dt <- data.table(
+  gene = unlist(gene_order_list),
+  clusters = as.character(
+    rep(names(gene_order_list), sapply(gene_order_list, length))
+  )
+)
+
+# group clusters (manually)
+clusters_dt[, group := as.integer(clusters)]
+clusters_dt[, group := factor(
+  group
+  #levels = c(1, 4, 5, 8, 6, 7, 3, 2, 10, 9)
+)]
+clusters_dt[, group := as.integer(group)]
+setorder(clusters_dt, group)
+gene_order <- clusters_dt$gene
+
+# gene annotaiton
+clusters_dt[, gene := factor(gene, levels = gene_order)]
+setorder(clusters_dt, gene)
+clusters_dt <- merge.data.table(
+  clusters_dt, gene_ann,
+  by = "gene", all.x = TRUE, sort = FALSE
+)
+
+# save
+clusters_dt[, clusters := NULL]
+clusters_dt[, name := NULL]
+fwrite(clusters_dt, file.path(res_dir, "genes_clusters.tsv"), sep = "\t")
+```
+
+Heatmap of markers
+
+```{r fig.height=10, fig.width=8, warning=FALSE, message=FALSE}
+# order rows and columns
+samples_order <- col_dt[name %in% colnames(norm_mt)]$name
+plot_mt <- norm_mt[gene_order, samples_order]
+
+# center at 0
+plot_min <- quantile(abs(range(plot_mt)), 0.75)
+plot_min <- 4
+plot_mt[plot_mt < (-1 * plot_min)] <- -1 * plot_min
+plot_mt[plot_mt > plot_min] <- plot_min
+
+# heatmap colors
+col_vec <- colorRampPalette(RColorBrewer::brewer.pal(11, "BrBG"))(1000)
+col_fun <- circlize::colorRamp2(
+  seq(-plot_min, plot_min, length.out = length(col_vec)),
+  col_vec
+)
+
+# color annotations
+col_ann <- HeatmapAnnotation(
+    which = "column",
+    border = TRUE,
+    "treatment" = as.character(
+      col_dt[match(colnames(plot_mt), name)]$treatment
+    ),
+    col = list("treatment" = mol_cols)
+)
+
+# gene module annotations
+grann <- clusters_dt[match(rownames(plot_mt), gene)]$group
+grann_lab <- unique(clusters_dt[match(rownames(plot_mt), gene)]$group)
+grann <- factor(grann, levels = grann_lab)
+module_ann <- HeatmapAnnotation(
+    which = "row", border = TRUE,
+    "group" = anno_block(
+      labels = grann_lab,
+      gp = gpar(col = NA)
+    )
+)
+row_split <- grann
+
+# genes annotations
+marks <- gene_ann[gene %in% rownames(plot_mt)][name != ""]
+row_labels_marks_ids <- match(marks$gene, rownames(plot_mt))
+row_labels_marks <- marks[
+  match(rownames(plot_mt)[row_labels_marks_ids], gene)
+]$name
+
+gset_marks <- sapply(rownames(plot_mt), function(x) {
+  if (x %in% cglr_genes) {
+    "cGLR"
+  } else if (x %in% sting_genes) {
+    "STING"
+  } else {
+    " "
+  }
+})
+pval_marks <- sapply(rownames(plot_mt), function(x) {
+  if (x %in% genes_deseq) {
+    "·"
+  } else {
+    ""
+  }
+})
+
+mark_ann <- HeatmapAnnotation(
+    which = "row", border = TRUE,
+    "gene set" = anno_simple(
+      gset_marks,
+      col = c("cGLR" = "#e6ab02", "STING" = "#3690c0", " " = "#d9d9d9"),
+      pch = pval_marks
+    ),
+    "marker" = anno_mark(
+      at = row_labels_marks_ids,
+      labels = row_labels_marks, labels_gp = gpar(fontsize = 6)
+    )
+)
+lgd_set <- Legend(
+  title = "gene\nset",
+  at = c("cGLR", "STING", " "),
+  legend_gp = gpar(fill = c("#e6ab02", "#3690c0", "#d9d9d9")),
+)
+lgd_sig <- Legend(
+  title = "pval<0.01",
+  pch = "·",
+  type = "points",
+  labels = "< 0.01"
+)
+
+# heatmap
+hm <- Heatmap(
+  plot_mt, name = "normalized\nexpression",
+  col = col_fun,
+  cluster_rows = FALSE, cluster_columns = FALSE,
+  show_row_names = FALSE, show_column_names = TRUE, 
+  column_names_gp = gpar(fontsize = 8),
+  row_title = "genes",
+  row_split = row_split,
+  cluster_row_slices = FALSE,
+  top_annotation = col_ann,
+  right_annotation = mark_ann,
+  left_annotation = module_ann,
+  border = TRUE
+)
+draw(hm, annotation_legend_list = list(lgd_set, lgd_sig))
+```
+
+```{r include=FALSE, eval=TRUE}
+pdf(
+    file.path(fig_dir, "clustering_heatmap.pdf"),
+    width = 8, height = 76
+)
+draw(hm, annotation_legend_list = list(lgd_set, lgd_sig))
+dev.off()
+```
+
+## Differential gene analysis
+
+Load design table
+
+```{r}
+col_fn <- file.path(dat_dir, "design.tsv")
+col_dt <- fread(col_fn)
+col_dt[, treatment := factor(
+  treatment, levels = c("control", "cApUp", "cGAMP")
+)]
+col_dt[, biol_rep := factor(biol_rep, levels = 1:3)]
+col_dt[, tech_rep := factor(tech_rep, levels = c("A", "B", "C"))]
+
+mol_cols <- c("cApUp" = "#ff7f00", "cGAMP" = "#984ea3", "control" = "#4daf4a")
+
+col_df <- copy(col_dt)
+class(col_df) <- "data.frame"
+rownames(col_df) <- col_df$name
+```
+
+Load count matrix
+
+```{r}
+con_fn <- file.path(dat_dir, "raw_counts_rnaseq.tsv")
+con_dt <- fread(con_fn, header = TRUE)
+con_mt <- data.matrix(con_dt[, -1])
+con_mt <- con_mt[, rownames(col_df)]
+rownames(con_mt) <- con_dt[[1]]
+```
+
+Data for differential expression analysis
+
+```{r}
+# kill samples
+kill <- c(
+  "cApUp-2A",
+  "Control-1A"
+)
+
+col_df <- col_df[setdiff(rownames(col_df), kill), ]
+con_mt <- con_mt[, rownames(col_df)]
+
+# DESeq2 object
+require(DESeq2)
+dds <- DESeqDataSetFromMatrix(
+  countData = con_mt,
+  colData = col_df,
+  design = ~ treatment
+)
+dds <- DESeq(dds)
+saveRDS(dds, file.path(res_dir, "dds.rds"))
+
+# collapse technical replicates
+col_df$sample <- paste(col_df$treatment, col_df$biol_rep, sep = "_")
+ddscol <- collapseReplicates(dds, dds$sample)
+ddscol <- DESeq(ddscol)
+saveRDS(ddscol, file.path(res_dir, "ddscol.rds"))
+
+```
+
+Contrasts to control
+```{r}
+dds <- readRDS(file.path(res_dir, "dds.rds"))
+padj_thr <- 0.05
+
+# get results tables
+contrast_capup <- c("treatment", "cApUp", "control")
+res_capup <- results(dds, contrast = contrast_capup)
+res_lfc_capup <- lfcShrink(dds, contrast = contrast_capup, type = "ashr")
+
+contrast_cgamp <- c("treatment", "cGAMP", "control")
+res_cgamp <- results(dds, contrast = contrast_cgamp)
+res_lfc_cgamp <- lfcShrink(dds, contrast = contrast_cgamp, type = "ashr")
+
+# add gene annotations
+res_list <- sapply(
+  list(
+    "cApUp" = res_lfc_capup,
+    "cGAMP" = res_lfc_cgamp
+  ),
+  function(x) {
+    dt <- as.data.table(x, keep.rownames = "gene")
+    dt[is.na(pvalue), pvalue := 1]
+    dt[is.na(padj), padj := 1]
+    dt_ann <- merge.data.table(
+      dt, gene_ann,
+      by = "gene",
+      all.x = TRUE
+    )
+    dt_ann[is.na(dt_ann)] <- ""
+    dt_ann[, TF := gene %in% tf_ann$gene]
+    dt_ann[, STING := gene %in% sting_genes]
+    dt_ann[, cGLR := gene %in% cglr_genes]
+    dt_ann[, name := ""]
+    setorder(dt_ann, padj, log2FoldChange)
+    dt_ann
+}, simplify = FALSE, USE.NAMES = FALSE)
+
+# significant genes from gene lists of interest
+dt_sign <- rbindlist(sapply(names(res_list), function(x) {
+  res_list[[x]][
+    padj < 0.05 & (cGLR==TRUE | STING == TRUE)][
+      order(-log2FoldChange)][, 1:8]
+}, simplify = FALSE, USE.NAMES = TRUE), idcol = "treatment")
+setorder(dt_sign, -log2FoldChange)
+
+# significant TFs
+dt_tfs <- rbindlist(sapply(names(res_list), function(x) {
+  res_list[[x]][
+    padj < 0.05 & (TF==TRUE)][
+      order(-log2FoldChange)][, 1:8]
+}, simplify = FALSE, USE.NAMES = TRUE), idcol = "treatment")
+setorder(dt_tfs, -log2FoldChange)
+
+# save results to excel
+res_list <- c(
+  res_list,
+  list(
+    "STING_cGLR_significant_genes" = dt_sign,
+    "TFs_significant genes" = dt_tfs
+  )
+)
+wb <- createWorkbook()
+for (i in names(res_list)) {
+  message(i)
+  addWorksheet(wb, sheetName = i)
+  writeData(wb, sheet = i, res_list[[i]])
+}
+saveWorkbook(
+  wb,
+  file.path(res_dir, sprintf("dds_res_ashr.xlsx")),
+  overwrite = TRUE
+)
+
+# plot
+gp_capup_vo <- ggplotVolcano(
+  res_lfc_capup, padj_thr = padj_thr,
+  lims_fc = c(-3, 3), lims_sig = c(NA, 25),
+  title = sprintf("%s vs %s", contrast_capup[2], contrast_capup[3])
+)
+gp_capup_ma <- ggplotMA(
+  res_lfc_capup, padj_thr = padj_thr,
+  lims_fc = c(-3, 3), lims_mean = c(NA, NA), trans_mean = "log10",
+  title = sprintf("%s vs %s", contrast_capup[2], contrast_capup[3])
+)
+
+gp_cgamp_vo <- ggplotVolcano(
+  res_lfc_cgamp, padj_thr = padj_thr,
+  lims_fc = c(-3, 3), lims_sig = c(NA, 25),
+  title = sprintf("%s vs %s", contrast_cgamp[2], contrast_cgamp[3])
+)
+gp_cgamp_ma <- ggplotMA(
+  res_lfc_cgamp, padj_thr = padj_thr,
+  lims_fc = c(-3, 3), lims_mean = c(NA, NA), trans_mean = "log10",
+  title = sprintf("%s vs %s", contrast_cgamp[2], contrast_cgamp[3])
+)
+
+gp_pch <- ((gp_capup_vo + gp_capup_ma) / (gp_cgamp_vo + gp_cgamp_ma)) +
+  plot_layout(guides = "collect") & theme(legend.position = "bottom")
+gp_pch
+
+```
+
+```{r include=FALSE, eval=TRUE}
+pdf(
+  file.path(fig_dir, sprintf("dds_res_ashr_padj%s.pdf", padj_thr)),
+  width = 10, height = 12
+)
+gp_pch
+dev.off()
+```
+
+Differentially expressed genes in overlap
+
+```{r}
+res_lfc <- rbindlist(list(
+  cApUp = as.data.table(res_lfc_capup, keep.rownames = "gene"),
+  cGAMP = as.data.table(res_lfc_cgamp, keep.rownames = "gene")
+), idcol = "treatment")
+
+# up-regulated
+res_up <- res_lfc[padj < padj_thr & log2FoldChange > 0]
+gen_up <- dcast.data.table(
+  res_up[, .(gene, treatment)][, log := 1],
+  gene ~ treatment,
+  fill = 0,
+  value.var = "log"
+)
+class(gen_up) <- "data.frame"
+rownames(gen_up) <- gen_up[, 1]
+gen_up <- gen_up[, -1]
+gen_up[gen_up != 0] <- 1
+fit_up <- euler(gen_up)
+
+eul_up <- plot(
+  fit_up,
+  quantities = TRUE,
+  fills = c(mol_cols[rownames(fit_up$ellipses)]),
+  main = "up"
+)
+
+# down-regulated
+res_down <- res_lfc[padj < padj_thr & log2FoldChange < 0]
+gen_down <- dcast.data.table(
+  res_down[, .(gene, treatment)][, log := 1],
+  gene ~ treatment,
+  fill = 0,
+  value.var = "log"
+)
+class(gen_down) <- "data.frame"
+rownames(gen_down) <- gen_down[, 1]
+gen_down <- gen_down[, -1]
+gen_down[gen_down != 0] <- 1
+fit_down <- euler(gen_down)
+
+eul_down <- plot(
+  fit_down,
+  quantities = TRUE,
+  fills = c(mol_cols[rownames(fit_up$ellipses)]),
+  main = "down"
+)
+```
+```{r include=FALSE, eval=TRUE}
+pdf(
+  file.path(fig_dir, sprintf("venn_padj%s.pdf", padj_thr)),
+  width = 5, height = 4
+)
+eul_up
+eul_down
+dev.off()
+```
+
+GO analysis on the intersect of upregulated genes.
+
+```{r}
+res_list <- list(
+  up = rownames(gen_up[apply(gen_up, 1, sum) == 2, ]),
+  down = rownames(gen_down[apply(gen_down, 1, sum) == 2, ]),
+  cgamp = rownames(gen_up[gen_up$cGAMP == 1, ]),
+  capup = rownames(gen_up[gen_up$cApUp == 1, ])
+)
+
+# go results
+go_map <- readRDS(file.path(ann_dir, "gomap_spis.RDS"))
+tgalg <- "classic"
+go_dir <- file.path(res_dir, sprintf("GO_%s_padj%s", tgalg, padj_thr))
+dir.create(go_dir, recursive = TRUE, showWarnings = FALSE)
+
+# calculate GO enrichment
+go_dt <- rbindlist(sapply(names(res_list), function(i) {
+    list_interest <- res_list[[i]]
+    setDT(topgofun(
+      list_interest, go_map,
+      tg_algorithm = tgalg,
+      output_name = file.path(go_dir, "go"),
+      name_geneset = i,
+      ontology_set = c("MF", "CC", "BP"),
+      firstSigNodes = 20
+    ))
+}, USE.NAMES = TRUE, simplify = FALSE), idcol = "group")
+fwrite(
+  go_dt,
+  file.path(go_dir, sprintf("topGO.%s.padj%s.tsv", tgalg, padj_thr)),
+  sep = "\t"
+)
+for (i in unique(go_dt$group)) {
+  fwrite(
+    go_dt[group == i & pval_adj < padj_thr],
+    file.path(go_dir, sprintf("topGO.%s.padj%s.%s.tsv", tgalg, padj_thr, i)),
+    sep = "\t"
+  )
+}
+
+res_list <- sapply(unique(go_dt$group), function(i) {
+  go_dt[group == i & pval_adj < padj_thr][, group := NULL]
+}, simplify = FALSE, USE.NAMES = TRUE)
+wb <- createWorkbook()
+for (i in names(res_list)) {
+  message(i)
+  addWorksheet(wb, sheetName = i)
+  writeData(wb, sheet = i, res_list[[i]])
+}
+saveWorkbook(
+  wb,
+  file.path(res_dir, sprintf("go_res_padj%s.xlsx", padj_thr)),
+  overwrite = TRUE
+)
+```
+
+Plot
+
+```{r}
+# select significant results
+go_dt <- fread(
+  file.path(go_dir, sprintf("topGO.%s.padj%s.tsv", tgalg, padj_thr))
+)
+go_sign <- go_dt[pval_adj < 0.01][["GO.ID"]]
+go_sign_dt <- go_dt[GO.ID %in% go_sign][order(pval_adj, decreasing = FALSE)]
+go_sign_dt[, logpadj := -1 * log10(pval_adj)]
+go_sign_dt[, label := sprintf("%s | %s", GO.ID, Term)]
+
+plot_dt <- copy(go_sign_dt)
+plot_dt[, go_id := factor(
+  GO.ID,
+  levels = unique(
+    plot_dt[group == "up"][order(Significant)][["GO.ID"]]
+  )
+)]
+plot_dt[, group := factor(group, levels = c("capup", "cgamp", "up", "down"))]
+plot_dt[, gene_num := Significant][gene_num > 800, gene_num := 800]
+go_vect <- structure(plot_dt$label, names = as.character(plot_dt$go_id))
+
+gp <- ggplot(plot_dt, aes(group, go_id, size = gene_num, fill = pval_adj)) +
+  geom_point(shape = 21) +
+  labs(
+    x = "", y = "GO term",
+    size = "significant genes",
+    fill = "-log10\nadjusted\np value"
+  ) +
+  scale_fill_distiller() +
+  scale_y_discrete(labels = go_vect, position = "right") +
+  theme(strip.background = element_blank())
+gp
+```
+
+```{r include=FALSE, eval=TRUE}
+pdf(
+  file.path(fig_dir, sprintf("go%s_plot_padj%s.pdf", tgalg, padj_thr)),
+  height = 76,
+  width = 12,
+  useDingbats = TRUE
+)
+print(gp)
+dev.off()
+```
+Plot revigo 
+
+```{r}
+revigo_lst <- lapply(c("cApUp", "cGAMP", "up", "down"), function(x) {
+
+  df_mf <- fread(file.path(go_dir, sprintf("Revigo_%s_MF_Scatterplot.tsv", x)))
+  p_mf <- plot_revigo(df_mf) + labs(title = x)
+
+  df_bp <- fread(file.path(go_dir, sprintf("Revigo_%s_BP_Scatterplot.tsv", x)))
+  p_bp <- plot_revigo(df_bp)
+
+  df_cc <- fread(file.path(go_dir, sprintf("Revigo_%s_CC_Scatterplot.tsv", x)))
+  p_cc <- plot_revigo(df_cc)
+
+  p_mf + p_bp + p_cc
+})
+
+```
+
+```{r include=FALSE, eval=TRUE}
+pdf(
+  file.path(fig_dir, sprintf("go%s_revigo_plot_padj%s.pdf", tgalg, padj_thr)),
+  height = 8,
+  width = 16,
+  useDingbats = TRUE
+)
+print(revigo_lst)
+dev.off()
+```
+
+Identify up or down regulated KEGG pathways
+```{r}
+require(gage)
+
+wdir <- getwd()
+kegg_dir <- file.path(res_dir, sprintf("KEGG_padj%s", padj_thr))
+dir.create(kegg_dir, showWarnings = FALSE)
+
+# kegg pathways
+ko <- fread(
+  file.path(ann_dir, "Stylophora_KEGGpathway_table"),
+  header = FALSE
+)
+setnames(ko, c("gene", "ko"))
+ko_ids <- unique(ko[[2]])
+ko_list <- sapply(ko_ids, function(x) {
+  ko[ko == x]$gene
+}, USE.NAMES = TRUE, simplify = FALSE)
+
+
+# gage
+kegg_res <- sapply(c("cApUp", "cGAMP"), function(i) {
+  kegg_gage <- gage(
+    exprs = structure(
+      res_lfc[treatment == i]$log2FoldChange,
+      names = res_lfc[treatment == i]$gene
+    ),
+    gsets = ko_list,
+    same.dir = FALSE,
+    ref = NULL, samp = NULL
+  )
+}, USE.NAMES = TRUE, simplify = FALSE)
+
+# parse gage results
+kegg_lst <- sapply(kegg_res, function(x) {
+  dt <- as.data.table(x[[j]], keep.rownames = "kegg.id")
+  dt[grepl("ko", dt$kegg.id)]
+}, simplify = FALSE, USE.NAMES = TRUE)
+kegg_dt <- rbindlist(kegg_lst, idcol = "group")
+
+# mapping kegg ids to labels may take a while
+kgs <- unique(dt$kegg.id)
+kgl <- sapply(kgs, function(i) {
+  tryCatch(
+    keggGet(i)[[1]]$NAME,
+    error = function(e) NA
+  )
+}, simplify = TRUE, USE.NAMES = TRUE)
+kegg_dt[, kegg.lab := kgl[kegg.id]]
+setcolorder(kegg_dt, c("group", "kegg.id", "kegg.lab"))
+
+# save all
+fwrite(
+  kegg_dt,
+  file.path(kegg_dir, sprintf("kegg.results.padj%s.tsv", padj_thr)),
+  sep = "\t"
+)
+
+kegg_dt[order(p.val)]
+kegg_dt[kegg.id == "ko04024"]
+```
+
+Visualize KEGG pathways
+
+```{r}
+require(clusterProfiler)
+require(pathview)
+
+kegg_dt <- fread(file.path(kegg_dir, sprintf("kegg.results.padj%s.tsv", padj_thr)))
+
+# top pathways
+kegg_sig <- kegg_dt[q.val < padj_thr]
+fwrite(
+  kegg_sig,
+  file.path(kegg_dir, sprintf("kegg.results.significant.padj%s.tsv", padj_thr)),
+  sep = "\t"
+)
+
+res_list <- sapply(unique(kegg_sig$group), function(i) {
+  kegg_sig[group == i][order(q.val)][, group := NULL]
+}, simplify = FALSE, USE.NAMES = TRUE)
+wb <- createWorkbook()
+for (i in names(res_list)) {
+  message(i)
+  addWorksheet(wb, sheetName = i)
+  writeData(wb, sheet = i, res_list[[i]])
+}
+saveWorkbook(
+  wb,
+  file.path(res_dir, sprintf("kegg_res_padj%s.xlsx", padj_thr)),
+  overwrite = TRUE
+)
+
+# load kegg info
+ko <- fread(file.path(ann_dir, "Stylophora_KEGGKO_table"), header = FALSE)
+setnames(ko, c("gene", "ko"))
+
+# add gene fold change to kegg info
+ko_lfc <- dcast.data.table(
+  res_lfc[, .(treatment, gene, log2FoldChange)],
+  gene ~ treatment
+)
+ko_lfc <- merge.data.table(ko, ko_lfc, by = "gene", all.x = TRUE)
+ko_lfc <- ko_lfc[,
+  lapply(.SD, mean, na.rm = TRUE),
+  .SDcols = colnames(ko_lfc)[-c(1:2)],
+  by = ko
+]
+
+# plot top pathways
+wdir <- getwd()
+setwd(kegg_dir)
+for (k in unique(kegg_sig$kegg.id)) {
+  lab <- kegg_sig[match(k, kegg.id)]$kegg.lab
+  message("")
+  message(k, " | ", lab)
+  message("")
+  for (x in c("cApUp", "cGAMP")) {
+    tryCatch({
+      pathview(
+        gene.data = structure(ko_lfc[[x]], names = ko_lfc$ko),
+        pathway.id = k,
+        species = "ko",
+        limit = list(gene = 1, cpd = 1),
+        both.dirs = FALSE,
+        high = list(gene = "chartreuse"),
+        out.suffix = x
+      )
+    }, error = function(e) warning("Failed plotting pathway for ", k))
+  }
+}
+setwd(wdir)
+```
