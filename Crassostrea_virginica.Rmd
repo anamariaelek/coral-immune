@@ -87,7 +87,6 @@ sting_genes <- str_replace(sting_genes, "\\.", "_")
 
 cglr_genes %in% og$V1
 sting_genes %in% og$V1
-
 ```
 
 ## Gene counts
@@ -689,78 +688,47 @@ gp_pch
 dev.off()
 ```
 
-Differentially expressed genes in overlap
+Differentially expressed genes in cApUp treatment
 
 ```{r}
-res_lfc <- rbindlist(list(
-  cApUp = as.data.table(res_lfc_capup, keep.rownames = "gene"),
-  cGAMP = as.data.table(res_lfc_cgamp, keep.rownames = "gene")
-), idcol = "treatment")
+res_lfc <- as.data.table(res_lfc_capup, keep.rownames = "gene")
 
 # up-regulated
-res_up <- res_lfc[padj < padj_thr & log2FoldChange > 0]
-gen_up <- dcast.data.table(
-  res_up[, .(gene, treatment)][, log := 1],
-  gene ~ treatment,
-  fill = 0,
-  value.var = "log"
-)
-class(gen_up) <- "data.frame"
-rownames(gen_up) <- gen_up[, 1]
-gen_up <- gen_up[, -1]
-gen_up[gen_up != 0] <- 1
-fit_up <- euler(gen_up)
-
-eul_up <- plot(
-  fit_up,
-  quantities = TRUE,
-  fills = c(mol_cols[rownames(fit_up$ellipses)]),
-  main = "up"
-)
+res_up <- res_lfc[padj < padj_thr & log2FoldChange > 1]
 
 # down-regulated
-res_down <- res_lfc[padj < padj_thr & log2FoldChange < 0]
-gen_down <- dcast.data.table(
-  res_down[, .(gene, treatment)][, log := 1],
-  gene ~ treatment,
-  fill = 0,
-  value.var = "log"
-)
-class(gen_down) <- "data.frame"
-rownames(gen_down) <- gen_down[, 1]
-gen_down <- gen_down[, -1]
-gen_down[gen_down != 0] <- 1
-fit_down <- euler(gen_down)
-
-eul_down <- plot(
-  fit_down,
-  quantities = TRUE,
-  fills = c(mol_cols[rownames(fit_up$ellipses)]),
-  main = "down"
-)
-```
-```{r include=FALSE, eval=TRUE}
-pdf(
-  file.path(fig_dir, sprintf("venn_padj%s.pdf", padj_thr)),
-  width = 5, height = 4
-)
-eul_up
-eul_down
-dev.off()
+res_down <- res_lfc[padj < padj_thr & log2FoldChange < 1]
 ```
 
-GO analysis on the intersect of upregulated genes.
+GO analysis on the upregulated genes.
+
+```{r, eval=FALSE, include=FALSE}
+# parse go annotations from eggNOG results
+go_dat <- fread(
+  file.path(ann_dir, "eggNOG", "MM_9o_a6n2t.emapper.annotations.tsv"),
+  sep = "\t",
+  fill = TRUE,
+  skip = 4,
+  header = TRUE
+)
+setnames(go_dat, "#query", "query")
+go_dat[, .(query, GOs)]
+go_map <- sapply(go_dat[, query], function(x) {
+  gos <- go_dat[query == x, GOs]
+  strsplit(gos, ",")[[1]]
+}, simplify = FALSE, USE.NAMES = TRUE)
+saveRDS(go_map, file.path(ann_dir, "gomap_cvir.RDS"))
+```
 
 ```{r}
+# differential analysis results
 res_list <- list(
-  up = rownames(gen_up[apply(gen_up, 1, sum) == 2, ]),
-  down = rownames(gen_down[apply(gen_down, 1, sum) == 2, ]),
-  cgamp = rownames(gen_up[gen_up$cGAMP == 1, ]),
-  capup = rownames(gen_up[gen_up$cApUp == 1, ])
+  up = res_up$gene,
+  down = res_down$gene
 )
 
-# go results
-go_map <- readRDS(file.path(ann_dir, "gomap_spis.RDS"))
+# GO
+go_map <- readRDS(file.path(ann_dir, "gomap_cvir.RDS"))
 tgalg <- "classic"
 go_dir <- file.path(res_dir, sprintf("GO_%s_padj%s", tgalg, padj_thr))
 dir.create(go_dir, recursive = TRUE, showWarnings = FALSE)
@@ -768,8 +736,22 @@ dir.create(go_dir, recursive = TRUE, showWarnings = FALSE)
 # calculate GO enrichment
 go_dt <- rbindlist(sapply(names(res_list), function(i) {
     list_interest <- res_list[[i]]
+    # map gene IDs to protein IDs
+    list_int_fixd <- dictionary_t2g(
+      gtf_fn = file.path(
+        gen_dir, "GCF_002022765.2_C_virginica-3.0_genomic.gtf"
+      ),
+      vector_to_fix = str_remove(list_interest, "Cvig_"),
+      t2g = FALSE,
+      transcript_field = "CDS",
+      transcript_id = "protein_id",
+      gene_id = "gene_id"
+    )
+    list_int_prot <- list_int_fixd[!is.na(names(list_int_fixd))]
+    list_int_prot <- paste0("Cvig_", list_int_prot)
+    # enrichment
     setDT(topgofun(
-      list_interest, go_map,
+      list_int_prot, go_map,
       tg_algorithm = tgalg,
       output_name = file.path(go_dir, "go"),
       name_geneset = i,
@@ -777,6 +759,8 @@ go_dt <- rbindlist(sapply(names(res_list), function(i) {
       firstSigNodes = 20
     ))
 }, USE.NAMES = TRUE, simplify = FALSE), idcol = "group")
+
+# save
 fwrite(
   go_dt,
   file.path(go_dir, sprintf("topGO.%s.padj%s.tsv", tgalg, padj_thr)),
@@ -789,7 +773,6 @@ for (i in unique(go_dt$group)) {
     sep = "\t"
   )
 }
-
 res_list <- sapply(unique(go_dt$group), function(i) {
   go_dt[group == i & pval_adj < padj_thr][, group := NULL]
 }, simplify = FALSE, USE.NAMES = TRUE)
@@ -825,7 +808,7 @@ plot_dt[, go_id := factor(
     plot_dt[group == "up"][order(Significant)][["GO.ID"]]
   )
 )]
-plot_dt[, group := factor(group, levels = c("capup", "cgamp", "up", "down"))]
+plot_dt[, group := factor(group, levels = c("up", "down"))]
 plot_dt[, gene_num := Significant][gene_num > 800, gene_num := 800]
 go_vect <- structure(plot_dt$label, names = as.character(plot_dt$go_id))
 
@@ -852,37 +835,29 @@ pdf(
 print(gp)
 dev.off()
 ```
-Plot revigo 
-
-```{r}
-revigo_lst <- lapply(c("cApUp", "cGAMP", "up", "down"), function(x) {
-
-  df_mf <- fread(file.path(go_dir, sprintf("Revigo_%s_MF_Scatterplot.tsv", x)))
-  p_mf <- plot_revigo(df_mf) + labs(title = x)
-
-  df_bp <- fread(file.path(go_dir, sprintf("Revigo_%s_BP_Scatterplot.tsv", x)))
-  p_bp <- plot_revigo(df_bp)
-
-  df_cc <- fread(file.path(go_dir, sprintf("Revigo_%s_CC_Scatterplot.tsv", x)))
-  p_cc <- plot_revigo(df_cc)
-
-  p_mf + p_bp + p_cc
-})
-
-```
-
-```{r include=FALSE, eval=TRUE}
-pdf(
-  file.path(fig_dir, sprintf("go%s_revigo_plot_padj%s.pdf", tgalg, padj_thr)),
-  height = 8,
-  width = 16,
-  useDingbats = TRUE
-)
-print(revigo_lst)
-dev.off()
-```
 
 Identify up or down regulated KEGG pathways
+
+```{r, eval=FALSE, include=FALSE}
+# parse KEGG annotations from eggNOG results
+ko_dat <- fread(
+  file.path(ann_dir, "eggNOG", "MM_9o_a6n2t.emapper.annotations.tsv"),
+  sep = "\t",
+  fill = TRUE,
+  skip = 4,
+  header = TRUE
+)
+setnames(ko_dat, "#query", "query")
+ko_map <- ko_dat[!KEGG_Pathway %in% c("-", ""), .(query, KEGG_Pathway)]
+ko_map <- tidyr::separate_rows(ko_map, KEGG_Pathway, sep = ",")
+setDT(ko_map)
+fwrite(
+  ko_map,
+  file.path(ann_dir, "Crassostrea_virginica_KEGGpathway_table.tsv"),
+  sep = "\t"
+)
+```
+
 ```{r}
 require(gage)
 
@@ -892,8 +867,8 @@ dir.create(kegg_dir, showWarnings = FALSE)
 
 # kegg pathways
 ko <- fread(
-  file.path(ann_dir, "Stylophora_KEGGpathway_table"),
-  header = FALSE
+  file.path(ann_dir, "Crassostrea_virginica_KEGGpathway_table.tsv"),
+  header = TRUE
 )
 setnames(ko, c("gene", "ko"))
 ko_ids <- unique(ko[[2]])
@@ -903,7 +878,7 @@ ko_list <- sapply(ko_ids, function(x) {
 
 
 # gage
-kegg_res <- sapply(c("cApUp", "cGAMP"), function(i) {
+kegg_res <- sapply(c("up", "down"), function(i) {
   kegg_gage <- gage(
     exprs = structure(
       res_lfc[treatment == i]$log2FoldChange,

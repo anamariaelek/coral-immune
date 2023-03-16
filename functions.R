@@ -215,22 +215,6 @@ ggplotVolcano <- function(
 
 require(topGO)
 
-read_eggnog <- function (file){
-  # col_names <- c(
-  #   "query_name", "seed_eggNOG_ortholog", "seed_ortholog_evalue", 
-  #   "seed_ortholog_score", "predicted_gene_name", "GO_terms", "KEGG_KOs", 
-  #   "BiGG_reactions", "Annotation_tax_scope", "OGs", "bestOG_evalue_score", 
-  #   "COG_cat", "eggNOG_annot"
-  # )
-  col_names <- c(
-    "query_name","seed_eggNOG_ortholog","seed_ortholog_evalue","seed_ortholog_score",
-    "best_tax_level","Preferred_name","GOs","EC",
-    "KEGG_ko","KEGG_Pathway","KEGG_Module","KEGG_Reaction","KEGG_rclass",
-    "BRITE","KEGG_TC","CAZy","BiGG_Reaction"
-  )
-  fread(cmd=sprintf("grep -v '^#' %s",file), col.names=col_names, sep="\t", select=1:length(col_names))
-}
-
 #' @param list_interest character, gene names
 #' @param gomap named list of GO annotations for genes, names of list should be gene names
 #' @param output_name character, prefix for output file names
@@ -383,4 +367,51 @@ plot_revigo <- function(
         )
 
     p1
+}
+
+
+# create a transcript to gene dictionary from a GTF annotation file
+dictionary_t2g <- function(
+  gtf_fn,
+  vector_to_fix,
+  t2g = TRUE,
+  transcript_field = "transcript",
+  transcript_id = "transcript_id",
+  gene_id = "gene_id",
+  return_elements_not_in_gtf = TRUE
+) {
+
+  # import gtf
+  gene_txgtf <- rtracklayer::import(gtf_fn)
+
+  if (t2g) {
+    dic = as.data.frame(
+      GenomicRanges::mcols(gene_txgtf[gene_txgtf$type == transcript_field])
+    )[, gene_id]
+    names(dic) <- as.data.frame(
+      GenomicRanges::mcols(gene_txgtf[gene_txgtf$type == transcript_field])
+    )[, transcript_id]
+  } else {
+    dic <- as.data.frame(
+      GenomicRanges::mcols(gene_txgtf[gene_txgtf$type == transcript_field])
+    )[, transcript_id]
+    names(dic) <- as.data.frame(
+      GenomicRanges::mcols(gene_txgtf[gene_txgtf$type == transcript_field])
+    )[, gene_id]
+  }
+
+  # return object
+
+  out <- dic [vector_to_fix]
+
+  # return elements not in GTF dictionary, unaltered
+  if (return_elements_not_in_gtf) {
+    ixs_to_keep <- is.na(out)
+    out[ixs_to_keep] <- vector_to_fix[ixs_to_keep]
+    names(out[ixs_to_keep]) <- out[ixs_to_keep]
+  }
+  
+  # return
+  out
+
 }
