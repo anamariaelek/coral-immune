@@ -4,13 +4,15 @@ ggplotMA <- function(
   res,
   pval_thr = NULL,
   padj_thr = 0.05,
+  lfc_thr = 1,
   sign_col = c("red", "blue"),
   lims_fc = c(NA, NA),
   lims_mean = c(NA, NA),
   trans_mean = "identity",
   title = "",
   xlab = "mean of normalized counts",
-  ylab = "log2 fold change"
+  ylab = "log2 fold change",
+  raster = TRUE
 ) {
   res_dt <- as.data.table(res)
   res_dt[log2FoldChange < lims_fc[1], log2FoldChange := lims_fc[1]]
@@ -18,7 +20,7 @@ ggplotMA <- function(
   res_dt[, dir := ifelse(log2FoldChange > 0, "up", "down")]
   if (!is.null(padj_thr)) {
     res_dt[is.na(padj), padj := 1]
-    res_dt[, signif := padj < padj_thr]
+    res_dt[, signif := padj < padj_thr & abs(log2FoldChange) > lfc_thr]
     res_dt[signif == FALSE, dir := NA]
     legend_name <- sprintf("adjusted p value < %s", padj_thr)
     gp <- ggplot(
@@ -29,13 +31,13 @@ ggplotMA <- function(
         y = ylab,
         subtitle = sprintf(
           "up=%s; down=%s",
-          nrow(res_dt[padj < padj_thr & log2FoldChange > 0]),
-          nrow(res_dt[padj < padj_thr & log2FoldChange < 0])
+          nrow(res_dt[padj < padj_thr & log2FoldChange > lfc_thr]),
+          nrow(res_dt[padj < padj_thr & log2FoldChange < -1 * lfc_thr])
         )
       )
   } else if (!is.null(pval_thr)) {
     res_dt[is.na(pvalue), pvalue := 1]
-    res_dt[, signif := pvalue < pval_thr]
+    res_dt[, signif := pvalue < pval_thr & abs(log2FoldChange) > lfc_thr]
     res_dt[signif == FALSE, dir := NA]
     legend_name <- sprintf("p value < %s", pval_thr)
     gp <- ggplot(
@@ -47,24 +49,30 @@ ggplotMA <- function(
         y = ylab,
         subtitle = sprintf(
           "up=%s; down=%s",
-          nrow(res_dt[pvalue < pval_thr & log2FoldChange > 0]),
-          nrow(res_dt[pvalue < pval_thr & log2FoldChange < 0])
+          nrow(res_dt[pvalue < pval_thr & log2FoldChange > lfc_thr]),
+          nrow(res_dt[pvalue < pval_thr & log2FoldChange < -1 * lfc_thr])
         )
       )
   } else {
     stop("One of padj_thr or pval_thr has to be supplied!")
   }
   if (length(sign_col) == 1) {
-    gp <- gp +
-    geom_point(aes(colour = signif), size = 0.5) +
-    scale_color_manual(
+    if (raster == TRUE) {
+      gp <- gp + ggrastr::geom_point_rast(aes(colour = signif), size = 0.5)
+    } else {
+      gp <- gp + geom_point(aes(colour = signif), size = 0.5)
+    }
+    gp <- gp + scale_color_manual(
       values = c("FALSE" = "grey", "TRUE" = sign_col),
       name = legend_name
     )
   } else if (length(sign_col) > 1) {
-    gp <- gp +
-    geom_point(aes(colour = dir), size = 0.5) +
-    scale_color_manual(
+    if (raster == TRUE) {
+      gp <- gp + ggrastr::geom_point_rast(aes(colour = dir), size = 0.5)
+    } else {
+      gp <- gp + geom_point(aes(colour = dir), size = 0.5)
+    }
+    gp <- gp + scale_color_manual(
       values = c("up" = sign_col[2], down = sign_col[1]),
       na.value = "grey",
       name = legend_name
@@ -95,6 +103,7 @@ ggplotVolcano <- function(
   res,
   pval_thr = NULL,
   padj_thr = 0.05,
+  lfc_thr = 1,
   sign_col = c("red", "blue"),
   lims_fc = c(NA, NA),
   lims_sig = c(NA, NA),
@@ -102,14 +111,15 @@ ggplotVolcano <- function(
   label_fc_thr = 2,
   title = "",
   xlab = "log2 fold change",
-  ylab = "- log10 adjusted p value"
+  ylab = "- log10 adjusted p value",
+  raster = TRUE
 ) {
   res_dt <- as.data.table(res)
   res_dt[log2FoldChange < lims_fc[1], log2FoldChange := lims_fc[1]]
   res_dt[log2FoldChange > lims_fc[2], log2FoldChange := lims_fc[2]]
   res_dt[, dir := ifelse(log2FoldChange > 0, "up", "down")]
   if (!is.null(padj_thr)) {
-    res_dt[, sign := padj < padj_thr]
+    res_dt[, sign := padj < padj_thr & abs(log2FoldChange) > lfc_thr]
     res_dt[, minuslog10padj := -1 * log10(padj)]
     res_dt[sign == FALSE, dir := NA]
     legend_name <- sprintf("adjusted p value < %s", padj_thr)
@@ -122,12 +132,12 @@ ggplotVolcano <- function(
       y = ylab,
       subtitle = sprintf(
         "up=%s; down=%s",
-        nrow(res_dt[padj < padj_thr & log2FoldChange > 0]),
-        nrow(res_dt[padj < padj_thr & log2FoldChange < 0])
+        nrow(res_dt[padj < padj_thr & log2FoldChange > lfc_thr]),
+        nrow(res_dt[padj < padj_thr & log2FoldChange < -1 * lfc_thr])
       )
     )
   } else if (!is.null(pval_thr)) {
-    res_dt[, sign := pvalue < pval_thr]
+    res_dt[, sign := pvalue < pval_thr & abs(log2FoldChange) > lfc_thr]
     res_dt[, minuslog10pval := -1 * log10(pvalue)]
     res_dt[sign == FALSE, dir := NA]
     legend_name <- sprintf("p value < %s", pval_thr)
@@ -140,24 +150,30 @@ ggplotVolcano <- function(
       y = ylab,
       subtitle = sprintf(
         "up=%s; down=%s",
-        nrow(res_dt[pvalue < pval_thr & log2FoldChange > 0]),
-        nrow(res_dt[pvalue < pval_thr & log2FoldChange < 0])
+        nrow(res_dt[pvalue < pval_thr & log2FoldChange > lfc_thr]),
+        nrow(res_dt[pvalue < pval_thr & log2FoldChange < -1 * lfc_thr])
       )
     )
   } else {
     stop("One of padj_thr or pval_thr has to be supplied!")
   }
   if (length(sign_col) == 1) {
-    gp <- gp +
-    geom_point(aes(colour = sign), size = 0.5) +
-    scale_color_manual(
+    if (raster == TRUE) {
+      gp <- gp + ggrastr::geom_point_rast(aes(colour = signif), size = 0.5)
+    } else {
+      gp <- gp + geom_point(aes(colour = signif), size = 0.5)
+    }
+    gp <- gp + scale_color_manual(
       values = c("FALSE" = "grey", "TRUE" = sign_col),
       name = legend_name
     )
   } else if (length(sign_col) > 1) {
-    gp <- gp +
-    geom_point(aes(colour = dir), size = 0.5) +
-    scale_color_manual(
+    if (raster == TRUE) {
+      gp <- gp + ggrastr::geom_point_rast(aes(colour = dir), size = 0.5)
+    } else {
+      gp <- gp + geom_point(aes(colour = dir), size = 0.5)
+    }
+    gp <- gp + scale_color_manual(
       values = c("up" = sign_col[2], down = sign_col[1]),
       na.value = "grey",
       name = legend_name

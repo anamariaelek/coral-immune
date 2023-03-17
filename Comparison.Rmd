@@ -1,0 +1,132 @@
+---
+title: "Comparison"
+output:
+  html_document:
+    self_contained: true
+    toc: true
+    toc_float: true
+    toc-location: left
+editor: visual
+---
+
+## Setup
+
+```{r warning=FALSE, message=FALSE, results = FALSE}
+library(data.table)
+library(stringr)
+library(ggplot2)
+theme_py <- theme_light() + theme(
+  panel.grid.major = element_blank(),
+  panel.grid.minor = element_blank(),
+  panel.border = element_rect(colour = "black", fill = NA),
+  text = element_text(size = 20),
+  strip.placement = "outside",
+  strip.text = element_text(size = 20, color = "black"),
+  strip.background = element_rect(fill = "white")
+)
+theme_set(theme_py)
+library(patchwork)
+source("functions.R")
+```
+
+Directories and inputs
+
+```{r}
+spis_dir <- file.path(
+    "Stylophora_pistillata", "differential_expression", "results"
+)
+cvig_dir <- file.path(
+    "Crassostrea_virginica", "differential_expression", "results"
+)
+data_dir <- file.path("comparison")
+figs_dir <- file.path(data_dir, "plots")
+for (newdir in c(figs_dir))
+  dir.create(newdir, showWarnings = FALSE)
+```
+
+Load ortholog pairs
+
+```{r}
+og <- fread(file.path(
+    data_dir, "orthologous_pairs.txt"
+), header = FALSE)
+og <- unique(rbindlist(list(
+    og[grepl("Cvig", V1) & grepl("Spis", V2)][, 2:1],
+    og[grepl("Spis", V1) & grepl("Cvig", V2)]
+), use.names = FALSE))
+setnames(og, c("gene_spis", "gene_cvig"))
+```
+
+Load Stylophora annotations
+
+```{r}
+gene_ann <- fread(file.path(
+    "Stylophora_pistillata", "annotation", "Spis_annotation_v7_2020-10-26_clean"
+), select = 1:3)
+tf_ann <- fread(file.path(
+    "Stylophora_pistillata", "annotation", "curated_TFh_Spis_EDITED_NAMES.csv"
+), header = FALSE
+)[, c(1, 3, 2)]
+setnames(gene_ann, c("gene", "pfam", "og"))
+setnames(tf_ann, c("gene", "pfam", "og"))
+gene_ann <- rbindlist(list(
+  tf_ann, gene_ann[!gene %in% tf_ann$gene]
+))
+gene_ann[, name := ""]
+gene_ann[og != "", name := paste(gene, og, sep = " | ")]
+gene_ann[
+  nchar(name) > 70,
+  name := paste0(substr(name, 1, 67), "...")
+]
+```
+
+Load gene lists from both species
+
+```{r}
+spis_res <- fread(file.path(spis_dir, "dss_res.tsv"))
+cvig_res <- fread(file.path(cvig_dir, "dss_res.tsv"))
+
+padj_thr <- 0.05
+lfc_thr <- 1
+
+# select genes upregulated in intersect
+spis_sgn <- spis_res[log2FoldChange > lfc_thr & padj < padj_thr]
+spis_sgn <- spis_sgn[gene %in% spis_sgn[, .N, gene][N == 2]$gene]
+setnames(spis_sgn, colnames(spis_sgn), paste0(colnames(spis_sgn), "_spis"))
+
+# map gene IDs to protein IDs
+cvig_sgn <- cvig_res[log2FoldChange > lfc_thr & padj < padj_thr]
+list_int_fixd <- dictionary_t2g(
+  gtf_fn = file.path(
+    "Crassostrea_virginica", "genome",
+    "GCF_002022765.2_C_virginica-3.0_genomic.gtf"
+  ),
+  vector_to_fix = str_remove(cvig_sgn$gene, "Cvig_"),
+  t2g = FALSE,
+  transcript_field = "CDS",
+  transcript_id = "protein_id",
+  gene_id = "gene_id"
+)
+list_int_prot <- list_int_fixd[!is.na(names(list_int_fixd))]
+list_int_prot <- structure(
+  paste0("Cvig_", list_int_prot),
+  names = paste0("Cvig_", names(list_int_prot))
+)
+cvig_sgn[, gene_id := gene][, gene := list_int_prot[gene_id]]
+cvig_sgn <- cvig_sgn[!is.na(gene)]
+setnames(cvig_sgn, colnames(cvig_sgn), paste0(colnames(cvig_sgn), "_cvig"))
+
+og_sgn <- merge.data.table(
+  merge.data.table(og, spis_sgn, by = "gene_spis"),
+  merge.data.table(og, cvig_sgn, by = "gene_cvig"),
+  by = c("gene_spis", "gene_cvig")
+)
+setorder(og_sgn, log2FoldChange_spis)
+unique(og_sgn[, .(gene_spis, gene_cvig)])
+
+fwrite(
+  og_sgn,
+  file.path(data_dir, sprintf("dds_padj%s_ogs.tsv", padj_thr)),
+  sep = "\t"
+)
+```
