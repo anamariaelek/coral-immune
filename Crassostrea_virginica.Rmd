@@ -579,6 +579,7 @@ Contrasts to control
 ```{r}
 dds <- readRDS(file.path(res_dir, "dds.rds"))
 padj_thr <- 0.05
+lfc_thr <- 1
 
 # get results tables
 contrast_capup <- c("treatment", "cApUp", "control")
@@ -589,6 +590,57 @@ contrast_cgamp <- c("treatment", "cGAMP", "control")
 res_cgamp <- results(dds, contrast = contrast_cgamp)
 res_lfc_cgamp <- lfcShrink(dds, contrast = contrast_cgamp, type = "ashr")
 
+# plot
+gp_capup_vo <- ggplotVolcano(
+  res_lfc_capup, padj_thr = padj_thr, lfc_thr = 1,
+  lims_fc = c(-5, 5), lims_sig = c(NA, 30),
+  title = sprintf("%s vs %s", contrast_capup[2], contrast_capup[3])
+)
+gp_capup_ma <- ggplotMA(
+  res_lfc_capup, padj_thr = padj_thr, lfc_thr = 1,
+  lims_fc = c(-5, 5), lims_mean = c(NA, NA), trans_mean = "log10",
+  title = sprintf("%s vs %s", contrast_capup[2], contrast_capup[3])
+)
+
+gp_cgamp_vo <- ggplotVolcano(
+  res_cgamp, padj_thr = NULL, pval_thr = padj_thr, lfc_thr = 1,
+  lims_fc = c(-5, 5), lims_sig = c(NA, 6),
+  title = sprintf("%s vs %s", contrast_cgamp[2], contrast_cgamp[3]),
+  ylab = "-log10 p value"
+)
+gp_cgamp_vo_adj <- ggplotVolcano(
+  res_cgamp, padj_thr = padj_thr, lfc_thr = 1,
+  lims_fc = c(-5, 5), lims_sig = c(NA, 6),
+  title = sprintf("%s vs %s", contrast_cgamp[2], contrast_cgamp[3])
+)
+gp_cgamp_ma <- ggplotMA(
+  res_cgamp, padj_thr = NULL, pval_thr = padj_thr, lfc_thr = 1,
+  lims_fc = c(-5, 5), lims_mean = c(NA, NA), trans_mean = "log10",
+  title = sprintf("%s vs %s", contrast_cgamp[2], contrast_cgamp[3])
+)
+
+gp_pch <- ((gp_capup_vo + gp_capup_ma) / (gp_cgamp_vo + gp_cgamp_ma))
+gp_pch
+```
+
+```{r include=FALSE, eval=TRUE}
+pdf(
+  file.path(fig_dir, sprintf("dds_res_cGAMP_padj%s.pdf", padj_thr)),
+  width = 5, height = 12
+)
+gp_cgamp_vo / gp_cgamp_vo_adj
+dev.off()
+pdf(
+  file.path(fig_dir, sprintf("dds_res_ashr_cApUp_padj%s.pdf", padj_thr)),
+  width = 5, height = 6
+)
+gp_capup_vo
+dev.off()
+```
+
+Save results
+
+```{r}
 # add gene annotations
 res_list <- sapply(
   list(
@@ -613,14 +665,16 @@ res_list <- sapply(
 
 # significant genes from gene lists of interest
 dt_sign <- rbindlist(sapply(names(res_list), function(x) {
-  res_list[[x]][padj < 0.05][order(-log2FoldChange)][, 1:8]
+  res_list[[x]][
+    padj < padj_thr & abs(log2FoldChange) > lfc_thr][
+      order(-log2FoldChange)][, 1:8]
 }, simplify = FALSE, USE.NAMES = TRUE), idcol = "treatment")
 setorder(dt_sign, -log2FoldChange)
 
 # significant TFs
 dt_tfs <- rbindlist(sapply(names(res_list), function(x) {
   res_list[[x]][
-    padj < 0.05 & (TF == TRUE)][
+    padj < padj_thr & abs(log2FoldChange) > lfc_thr & (TF == TRUE)][
       order(-log2FoldChange)][, 1:8]
 }, simplify = FALSE, USE.NAMES = TRUE), idcol = "treatment")
 setorder(dt_tfs, -log2FoldChange)
@@ -644,54 +698,13 @@ saveWorkbook(
   file.path(res_dir, sprintf("dds_res_ashr.xlsx")),
   overwrite = TRUE
 )
-
-# plot
-gp_capup_vo <- ggplotVolcano(
-  res_lfc_capup, padj_thr = padj_thr,
-  lims_fc = c(-5, 5), lims_sig = c(NA, 30),
-  title = sprintf("%s vs %s", contrast_capup[2], contrast_capup[3])
-)
-gp_capup_ma <- ggplotMA(
-  res_lfc_capup, padj_thr = padj_thr,
-  lims_fc = c(-5, 5), lims_mean = c(NA, NA), trans_mean = "log10",
-  title = sprintf("%s vs %s", contrast_capup[2], contrast_capup[3])
-)
-
-gp_cgamp_vo <- ggplotVolcano(
-  res_cgamp, padj_thr = NULL, pval_thr = 0.05,
-  lims_fc = c(-5, 5), lims_sig = c(NA, 6),
-  title = sprintf("%s vs %s", contrast_cgamp[2], contrast_cgamp[3]),
-  ylab = "-log10 p value"
-)
-gp_cgamp_vo_adj <- ggplotVolcano(
-  res_cgamp, padj_thr = padj_thr,
-  lims_fc = c(-5, 5), lims_sig = c(NA, 6),
-  title = sprintf("%s vs %s", contrast_cgamp[2], contrast_cgamp[3])
-)
-gp_cgamp_ma <- ggplotMA(
-  res_cgamp, padj_thr = NULL, pval_thr = 0.05,
-  lims_fc = c(-5, 5), lims_mean = c(NA, NA), trans_mean = "log10",
-  title = sprintf("%s vs %s", contrast_cgamp[2], contrast_cgamp[3])
-)
-
-#gp_pch <- ((gp_capup_vo + gp_capup_ma) / (gp_cgamp_vo + gp_cgamp_ma))
-gp_pch <- gp_cgamp_vo / gp_cgamp_vo_adj
-gp_pch
-```
-
-```{r include=FALSE, eval=TRUE}
-pdf(
-  file.path(fig_dir, sprintf("dds_res_cGAMP_padj%s.pdf", padj_thr)),
-  width = 5, height = 12
-)
-gp_pch
-dev.off()
 ```
 
 Differentially expressed genes in cApUp treatment
 
 ```{r}
 res_lfc <- as.data.table(res_lfc_capup, keep.rownames = "gene")
+fwrite(res_lfc, file.path(res_dir, "dss_res.tsv"))
 
 # up-regulated
 res_up <- res_lfc[padj < padj_thr & log2FoldChange > 1]
@@ -699,6 +712,8 @@ res_up <- res_lfc[padj < padj_thr & log2FoldChange > 1]
 # down-regulated
 res_down <- res_lfc[padj < padj_thr & log2FoldChange < 1]
 ```
+
+## GO
 
 GO analysis on the upregulated genes.
 
@@ -759,7 +774,11 @@ go_dt <- rbindlist(sapply(names(res_list), function(i) {
       firstSigNodes = 20
     ))
 }, USE.NAMES = TRUE, simplify = FALSE), idcol = "group")
+```
 
+Save results
+
+```{r}
 # save
 fwrite(
   go_dt,
@@ -789,23 +808,29 @@ saveWorkbook(
 )
 ```
 
-Plot
+Plot results
 
 ```{r}
 # select significant results
 go_dt <- fread(
   file.path(go_dir, sprintf("topGO.%s.padj%s.tsv", tgalg, padj_thr))
 )
-go_sign <- go_dt[pval_adj < 0.01][["GO.ID"]]
-go_sign_dt <- go_dt[GO.ID %in% go_sign][order(pval_adj, decreasing = FALSE)]
-go_sign_dt[, logpadj := -1 * log10(pval_adj)]
-go_sign_dt[, label := sprintf("%s | %s", GO.ID, Term)]
+#go_sign <- go_dt[pval_adj < 0.01][["GO.ID"]]
+#go_sign_dt <- go_dt[GO.ID %in% go_sign][order(pval_adj, decreasing = FALSE)]
+#go_sign_dt[, logpadj := -1 * log10(pval_adj)]
+#go_sign_dt[, label := sprintf("%s | %s", GO.ID, Term)]
 
-plot_dt <- copy(go_sign_dt)
+# plot
+cats <- go_dt[,
+  .SD[group == "up"][order(pval_adj)][1:20][pval_adj < 0.01],
+  .(ontology)
+]$GO.ID
+plot_dt <- copy(go_dt)[GO.ID %in% cats]
+plot_dt[, label := sprintf("%s | %s", GO.ID, Term)]
 plot_dt[, go_id := factor(
   GO.ID,
   levels = unique(
-    plot_dt[group == "up"][order(Significant)][["GO.ID"]]
+    plot_dt[order(Significant)][["GO.ID"]]
   )
 )]
 plot_dt[, group := factor(group, levels = c("up", "down"))]
@@ -816,25 +841,50 @@ gp <- ggplot(plot_dt, aes(group, go_id, size = gene_num, fill = pval_adj)) +
   geom_point(shape = 21) +
   labs(
     x = "", y = "GO term",
-    size = "significant genes",
-    fill = "-log10\nadjusted\np value"
+    size = "significant\ngenes",
+    fill = "adjusted\np value"
   ) +
-  scale_fill_distiller() +
+  scale_fill_distiller(
+    breaks = c(0, 0.05), limits = c(0, 0.05), oob = scales::squish
+  ) +
   scale_y_discrete(labels = go_vect, position = "right") +
-  theme(strip.background = element_blank())
+  facet_grid(ontology ~ ., scales = "free", space = "free", switch = "y") +
+  theme(
+    strip.background = element_blank(),
+    panel.grid.major = element_line(linewidth = 0.2),
+    axis.text.x = element_text(angle = 90, vjust = 0.5, hjust = 1)
+  )
 gp
 ```
 
 ```{r include=FALSE, eval=TRUE}
 pdf(
   file.path(fig_dir, sprintf("go%s_plot_padj%s.pdf", tgalg, padj_thr)),
-  height = 76,
-  width = 12,
+  height = 13,
+  width = 9,
   useDingbats = TRUE
 )
 print(gp)
 dev.off()
+fwrite(
+  plot_dt,
+  file.path(res_dir, sprintf("go%s_plot_padj%s.tsv", tgalg, padj_thr)),
+  sep = "\t"
+)
 ```
+
+```{r}
+plot_cvir <- fread(file.path(
+  res_dir, sprintf("go%s_plot_padj%s.tsv", tgalg, padj_thr)
+))
+plot_spis <- fread(file.path(
+  "Stylophora_pistillata", "differential_expression", "results",
+  sprintf("go%s_plot_padj%s.tsv", tgalg, padj_thr)
+))
+unique(plot_cvir[GO.ID %in% intersect(plot_spis$GO.ID, plot_cvir$GO.ID)][, .(ontology, label)])
+```
+
+## KEGG
 
 Identify up or down regulated KEGG pathways
 
@@ -877,28 +927,40 @@ ko_list <- sapply(ko_ids, function(x) {
 }, USE.NAMES = TRUE, simplify = FALSE)
 
 
+# map gene IDs to protein IDs
+res_lfc_map <- dictionary_t2g(
+  gtf_fn = file.path(
+    gen_dir, "GCF_002022765.2_C_virginica-3.0_genomic.gtf"
+  ),
+  vector_to_fix = str_remove(res_lfc$gene, "Cvig_"),
+  t2g = FALSE,
+  transcript_field = "CDS",
+  transcript_id = "protein_id",
+  gene_id = "gene_id"
+)
+res_lfc_map <- res_lfc_map[!is.na(names(res_lfc_map))]
+res_lfc_genes <- structure(
+  paste0("Cvig_", res_lfc_map),
+  names = paste0("Cvig_", names(res_lfc_map))
+)
+
 # gage
-kegg_res <- sapply(c("up", "down"), function(i) {
-  kegg_gage <- gage(
-    exprs = structure(
-      res_lfc[treatment == i]$log2FoldChange,
-      names = res_lfc[treatment == i]$gene
-    ),
-    gsets = ko_list,
-    same.dir = FALSE,
-    ref = NULL, samp = NULL
-  )
-}, USE.NAMES = TRUE, simplify = FALSE)
+kegg_res <- gage(
+  exprs = structure(
+    res_lfc[match(names(res_lfc_genes), res_lfc$gene)]$log2FoldChange,
+    names = unname(res_lfc_genes)
+  ),
+  gsets = ko_list,
+  same.dir = FALSE,
+  ref = NULL, samp = NULL
+)
 
 # parse gage results
-kegg_lst <- sapply(kegg_res, function(x) {
-  dt <- as.data.table(x[[j]], keep.rownames = "kegg.id")
-  dt[grepl("ko", dt$kegg.id)]
-}, simplify = FALSE, USE.NAMES = TRUE)
-kegg_dt <- rbindlist(kegg_lst, idcol = "group")
+kegg_dt <- as.data.table(kegg_res$greater, keep.rownames = "kegg.id")
+kegg_dt <- kegg_dt[grepl("ko", kegg_dt$kegg.id)]
 
 # mapping kegg ids to labels may take a while
-kgs <- unique(dt$kegg.id)
+kgs <- unique(kegg_dt$kegg.id)
 kgl <- sapply(kgs, function(i) {
   tryCatch(
     keggGet(i)[[1]]$NAME,
@@ -906,7 +968,7 @@ kgl <- sapply(kgs, function(i) {
   )
 }, simplify = TRUE, USE.NAMES = TRUE)
 kegg_dt[, kegg.lab := kgl[kegg.id]]
-setcolorder(kegg_dt, c("group", "kegg.id", "kegg.lab"))
+setcolorder(kegg_dt, c("kegg.id", "kegg.lab"))
 
 # save all
 fwrite(
@@ -925,7 +987,10 @@ Visualize KEGG pathways
 require(clusterProfiler)
 require(pathview)
 
-kegg_dt <- fread(file.path(kegg_dir, sprintf("kegg.results.padj%s.tsv", padj_thr)))
+kegg_dt <- fread(file.path(
+  kegg_dir,
+  sprintf("kegg.results.padj%s.tsv", padj_thr)
+))
 
 # top pathways
 kegg_sig <- kegg_dt[q.val < padj_thr]
@@ -935,15 +1000,10 @@ fwrite(
   sep = "\t"
 )
 
-res_list <- sapply(unique(kegg_sig$group), function(i) {
-  kegg_sig[group == i][order(q.val)][, group := NULL]
-}, simplify = FALSE, USE.NAMES = TRUE)
+res_sig <- kegg_sig[order(q.val)]
 wb <- createWorkbook()
-for (i in names(res_list)) {
-  message(i)
-  addWorksheet(wb, sheetName = i)
-  writeData(wb, sheet = i, res_list[[i]])
-}
+addWorksheet(wb, sheetName = "significant")
+writeData(wb, sheet = "significant", res_sig)
 saveWorkbook(
   wb,
   file.path(res_dir, sprintf("kegg_res_padj%s.xlsx", padj_thr)),
@@ -951,20 +1011,37 @@ saveWorkbook(
 )
 
 # load kegg info
-ko <- fread(file.path(ann_dir, "Stylophora_KEGGKO_table"), header = FALSE)
+ko <- fread(file.path(
+  ann_dir, "Crassostrea_virginica_KEGGpathway_table.tsv"
+), header = FALSE)
 setnames(ko, c("gene", "ko"))
 
-# add gene fold change to kegg info
-ko_lfc <- dcast.data.table(
-  res_lfc[, .(treatment, gene, log2FoldChange)],
-  gene ~ treatment
+# map gene IDs to protein IDs
+ko_lfc <- res_lfc[, .(gene, log2FoldChange)]
+res_lfc_map <- dictionary_t2g(
+  gtf_fn = file.path(
+    gen_dir, "GCF_002022765.2_C_virginica-3.0_genomic.gtf"
+  ),
+  vector_to_fix = str_remove(res_lfc$gene, "Cvig_"),
+  t2g = FALSE,
+  transcript_field = "CDS",
+  transcript_id = "protein_id",
+  gene_id = "gene_id"
 )
+res_lfc_map <- res_lfc_map[!is.na(names(res_lfc_map))]
+res_lfc_genes <- structure(
+  paste0("Cvig_", res_lfc_map),
+  names = paste0("Cvig_", names(res_lfc_map))
+)
+ko_lfc[, gene_id := gene][, gene := res_lfc_genes[gene_id]]
+ko_lfc <- ko_lfc[!is.na(gene)]
+
+# add gene fold change to kegg info
 ko_lfc <- merge.data.table(ko, ko_lfc, by = "gene", all.x = TRUE)
-ko_lfc <- ko_lfc[,
-  lapply(.SD, mean, na.rm = TRUE),
-  .SDcols = colnames(ko_lfc)[-c(1:2)],
-  by = ko
-]
+ko_lfc <- ko_lfc[!is.na(gene_id)]
+ko_lfc[, gene_id := NULL]
+ko_lfc <- unique(ko_lfc)
+ko_lfc <- ko_lfc[, .(log2FoldChange = mean(log2FoldChange)), by = ko]
 
 # plot top pathways
 wdir <- getwd()
@@ -974,19 +1051,85 @@ for (k in unique(kegg_sig$kegg.id)) {
   message("")
   message(k, " | ", lab)
   message("")
-  for (x in c("cApUp", "cGAMP")) {
-    tryCatch({
-      pathview(
-        gene.data = structure(ko_lfc[[x]], names = ko_lfc$ko),
-        pathway.id = k,
-        species = "ko",
-        limit = list(gene = 1, cpd = 1),
-        both.dirs = FALSE,
-        high = list(gene = "chartreuse"),
-        out.suffix = x
-      )
-    }, error = function(e) warning("Failed plotting pathway for ", k))
-  }
+  tryCatch({
+    pathview(
+      gene.data = structure(ko_lfc$log2FoldChange, names = ko_lfc$ko),
+      pathway.id = k,
+      species = "ko",
+      limit = list(gene = 1, cpd = 1),
+      both.dirs = FALSE,
+      high = list(gene = "chartreuse"),
+      out.suffix = x
+    )
+  }, error = function(e) warning("Failed plotting pathway for ", k))
 }
 setwd(wdir)
+```
+
+Heatmap
+```{r}
+kegg_sig <- fread(
+  file.path(kegg_dir, sprintf("kegg.results.significant.padj%s.tsv", padj_thr)),
+  sep = "\t"
+)
+
+# plot
+plot_dt <- kegg_sig[order(q.val)][1:20][q.val < 0.01]
+plot_dt[, label := sprintf("%s | %s", kegg.id, kegg.lab)]
+plot_dt[, kegg_id := factor(
+  kegg.id,
+  levels = unique(
+    plot_dt[order(stat.mean)][["kegg.id"]]
+  )
+)]
+plot_dt[, change := stat.mean][change > 800, change := 800]
+plot_dt[, x := "x"]
+go_vect <- structure(plot_dt$label, names = as.character(plot_dt$kegg_id))
+
+gp <- ggplot(plot_dt, aes(x, kegg_id, size = change, fill = q.val)) +
+  geom_point(shape = 21) +
+  labs(
+    x = "", y = "KEGG pathway",
+    size = "expression\nchange",
+    fill = "adjusted\np value"
+  ) +
+  scale_fill_distiller(
+    breaks = c(0, 0.05), limits = c(0, 0.05), oob = scales::squish
+  ) +
+  scale_y_discrete(labels = go_vect, position = "right") +
+  theme(
+    strip.background = element_blank(),
+    panel.grid.major = element_line(linewidth = 0.2),
+    axis.text.x = element_text(angle = 90, vjust = 0.5, hjust = 1)
+  )
+gp
+```
+
+```{r include=FALSE, eval=TRUE}
+pdf(
+  file.path(fig_dir, sprintf("kegg_plot_padj%s.pdf", padj_thr)),
+  height = 6,
+  width = 8.5,
+  useDingbats = TRUE
+)
+print(gp)
+dev.off()
+fwrite(
+  plot_dt,
+  file.path(res_dir, sprintf("kegg_plot_padj%s.tsv", padj_thr)),
+  sep = "\t"
+)
+```
+
+```{r}
+plot_cvir <- fread(file.path(
+  res_dir, sprintf("kegg_plot_padj%s.tsv", padj_thr)
+))
+plot_spis <- fread(file.path(
+  "Stylophora_pistillata", "differential_expression", "results",
+  sprintf("kegg_plot_padj%s.tsv", padj_thr)
+))
+unique(plot_cvir[
+  kegg.id %in% intersect(plot_spis$kegg.id, plot_cvir$kegg.id)
+][, .(label)])
 ```

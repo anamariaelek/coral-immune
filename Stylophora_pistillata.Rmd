@@ -700,6 +700,7 @@ Contrasts to control
 ```{r}
 dds <- readRDS(file.path(res_dir, "dds.rds"))
 padj_thr <- 0.05
+lfc_thr <- 1
 
 # get results tables
 contrast_capup <- c("treatment", "cApUp", "control")
@@ -710,6 +711,59 @@ contrast_cgamp <- c("treatment", "cGAMP", "control")
 res_cgamp <- results(dds, contrast = contrast_cgamp)
 res_lfc_cgamp <- lfcShrink(dds, contrast = contrast_cgamp, type = "ashr")
 
+# plot
+gp_capup_vo <- ggplotVolcano(
+  res_lfc_capup, padj_thr = padj_thr, lfc_thr = 1,
+  lims_fc = c(-5, 5), lims_sig = c(NA, 30),
+  title = sprintf("%s vs %s", contrast_capup[2], contrast_capup[3])
+)
+gp_capup_ma <- ggplotMA(
+  res_lfc_capup, padj_thr = padj_thr, lfc_thr = 1,
+  lims_fc = c(-5, 5), lims_mean = c(NA, NA), trans_mean = "log10",
+  title = sprintf("%s vs %s", contrast_capup[2], contrast_capup[3])
+)
+
+gp_cgamp_vo <- ggplotVolcano(
+  res_lfc_cgamp, padj_thr = padj_thr, lfc_thr = 1,
+  lims_fc = c(-5, 5), lims_sig = c(NA, 30),
+  title = sprintf("%s vs %s", contrast_cgamp[2], contrast_cgamp[3])
+)
+gp_cgamp_ma <- ggplotMA(
+  res_lfc_cgamp, padj_thr = padj_thr, lfc_thr = 1,
+  lims_fc = c(-5, 5), lims_mean = c(NA, NA), trans_mean = "log10",
+  title = sprintf("%s vs %s", contrast_cgamp[2], contrast_cgamp[3])
+)
+
+gp_pch <- ((gp_capup_vo + gp_capup_ma) / (gp_cgamp_vo + gp_cgamp_ma)) +
+  plot_layout(guides = "collect") & theme(legend.position = "bottom")
+gp_pch
+
+```
+
+```{r include=FALSE, eval=TRUE}
+pdf(
+  file.path(fig_dir, sprintf("dds_res_ashr_cApUp_padj%s.pdf", padj_thr)),
+  width = 5, height = 6
+)
+gp_capup_vo
+dev.off()
+pdf(
+  file.path(fig_dir, sprintf("dds_res_ashr_cGAMP_padj%s.pdf", padj_thr)),
+  width = 5, height = 6
+)
+gp_cgamp_vo
+dev.off()
+pdf(
+  file.path(fig_dir, sprintf("dds_res_ashr_padj%s.pdf", padj_thr)),
+  width = 10, height = 12
+)
+gp_pch
+dev.off()
+```
+
+Save results tables
+
+```{r}
 # add gene annotations
 res_list <- sapply(
   list(
@@ -737,7 +791,8 @@ res_list <- sapply(
 # significant genes from gene lists of interest
 dt_sign <- rbindlist(sapply(names(res_list), function(x) {
   res_list[[x]][
-    padj < 0.05 & (cGLR==TRUE | STING == TRUE)][
+    padj < 0.05 & abs(log2FoldChange) > lfc_thr &
+    (cGLR == TRUE | STING == TRUE)][
       order(-log2FoldChange)][, 1:8]
 }, simplify = FALSE, USE.NAMES = TRUE), idcol = "treatment")
 setorder(dt_sign, -log2FoldChange)
@@ -745,7 +800,7 @@ setorder(dt_sign, -log2FoldChange)
 # significant TFs
 dt_tfs <- rbindlist(sapply(names(res_list), function(x) {
   res_list[[x]][
-    padj < 0.05 & (TF==TRUE)][
+    padj < 0.05 & abs(log2FoldChange) > lfc_thr & (TF == TRUE)][
       order(-log2FoldChange)][, 1:8]
 }, simplify = FALSE, USE.NAMES = TRUE), idcol = "treatment")
 setorder(dt_tfs, -log2FoldChange)
@@ -769,43 +824,6 @@ saveWorkbook(
   file.path(res_dir, sprintf("dds_res_ashr.xlsx")),
   overwrite = TRUE
 )
-
-# plot
-gp_capup_vo <- ggplotVolcano(
-  res_lfc_capup, padj_thr = padj_thr,
-  lims_fc = c(-3, 3), lims_sig = c(NA, 25),
-  title = sprintf("%s vs %s", contrast_capup[2], contrast_capup[3])
-)
-gp_capup_ma <- ggplotMA(
-  res_lfc_capup, padj_thr = padj_thr,
-  lims_fc = c(-3, 3), lims_mean = c(NA, NA), trans_mean = "log10",
-  title = sprintf("%s vs %s", contrast_capup[2], contrast_capup[3])
-)
-
-gp_cgamp_vo <- ggplotVolcano(
-  res_lfc_cgamp, padj_thr = padj_thr,
-  lims_fc = c(-3, 3), lims_sig = c(NA, 25),
-  title = sprintf("%s vs %s", contrast_cgamp[2], contrast_cgamp[3])
-)
-gp_cgamp_ma <- ggplotMA(
-  res_lfc_cgamp, padj_thr = padj_thr,
-  lims_fc = c(-3, 3), lims_mean = c(NA, NA), trans_mean = "log10",
-  title = sprintf("%s vs %s", contrast_cgamp[2], contrast_cgamp[3])
-)
-
-gp_pch <- ((gp_capup_vo + gp_capup_ma) / (gp_cgamp_vo + gp_cgamp_ma)) +
-  plot_layout(guides = "collect") & theme(legend.position = "bottom")
-gp_pch
-
-```
-
-```{r include=FALSE, eval=TRUE}
-pdf(
-  file.path(fig_dir, sprintf("dds_res_ashr_padj%s.pdf", padj_thr)),
-  width = 10, height = 12
-)
-gp_pch
-dev.off()
 ```
 
 Differentially expressed genes in overlap
@@ -815,9 +833,10 @@ res_lfc <- rbindlist(list(
   cApUp = as.data.table(res_lfc_capup, keep.rownames = "gene"),
   cGAMP = as.data.table(res_lfc_cgamp, keep.rownames = "gene")
 ), idcol = "treatment")
+fwrite(res_lfc, file.path(res_dir, "dss_res.tsv"))
 
 # up-regulated
-res_up <- res_lfc[padj < padj_thr & log2FoldChange > 0]
+res_up <- res_lfc[padj < padj_thr & log2FoldChange > lfc_thr]
 gen_up <- dcast.data.table(
   res_up[, .(gene, treatment)][, log := 1],
   gene ~ treatment,
@@ -838,7 +857,7 @@ eul_up <- plot(
 )
 
 # down-regulated
-res_down <- res_lfc[padj < padj_thr & log2FoldChange < 0]
+res_down <- res_lfc[padj < padj_thr & log2FoldChange < -1 * lfc_thr]
 gen_down <- dcast.data.table(
   res_down[, .(gene, treatment)][, log := 1],
   gene ~ treatment,
@@ -867,6 +886,8 @@ eul_up
 eul_down
 dev.off()
 ```
+
+## GO
 
 GO analysis on the intersect of upregulated genes.
 
@@ -932,16 +953,22 @@ Plot
 go_dt <- fread(
   file.path(go_dir, sprintf("topGO.%s.padj%s.tsv", tgalg, padj_thr))
 )
-go_sign <- go_dt[pval_adj < 0.01][["GO.ID"]]
-go_sign_dt <- go_dt[GO.ID %in% go_sign][order(pval_adj, decreasing = FALSE)]
-go_sign_dt[, logpadj := -1 * log10(pval_adj)]
-go_sign_dt[, label := sprintf("%s | %s", GO.ID, Term)]
+#go_sign <- go_dt[pval_adj < 0.01][["GO.ID"]]
+#go_sign_dt <- go_dt[GO.ID %in% go_sign][order(pval_adj, decreasing = FALSE)]
+#go_sign_dt[, logpadj := -1 * log10(pval_adj)]
+#go_sign_dt[, label := sprintf("%s | %s", GO.ID, Term)]
 
-plot_dt <- copy(go_sign_dt)
+# plot
+cats <- go_dt[,
+  .SD[order(pval_adj)][1:20][pval_adj < 0.01],
+  .(group, ontology)
+]$GO.ID
+plot_dt <- copy(go_dt)[GO.ID %in% cats]
+plot_dt[, label := sprintf("%s | %s", GO.ID, Term)]
 plot_dt[, go_id := factor(
   GO.ID,
   levels = unique(
-    plot_dt[group == "up"][order(Significant)][["GO.ID"]]
+    plot_dt[order(Significant)][["GO.ID"]]
   )
 )]
 plot_dt[, group := factor(group, levels = c("capup", "cgamp", "up", "down"))]
@@ -953,24 +980,37 @@ gp <- ggplot(plot_dt, aes(group, go_id, size = gene_num, fill = pval_adj)) +
   labs(
     x = "", y = "GO term",
     size = "significant genes",
-    fill = "-log10\nadjusted\np value"
+    fill = "adjusted\np value"
   ) +
-  scale_fill_distiller() +
+  scale_fill_distiller(
+    breaks = c(0, 0.05), limits = c(0, 0.05), oob = scales::squish
+  ) +
   scale_y_discrete(labels = go_vect, position = "right") +
-  theme(strip.background = element_blank())
+  facet_grid(ontology ~ ., scales = "free", space = "free", switch = "y") +
+  theme(
+    strip.background = element_blank(),
+    panel.grid.major = element_line(linewidth = 0.2),
+    axis.text.x = element_text(angle = 90, vjust = 0.5, hjust = 1)
+  )
 gp
 ```
 
 ```{r include=FALSE, eval=TRUE}
 pdf(
   file.path(fig_dir, sprintf("go%s_plot_padj%s.pdf", tgalg, padj_thr)),
-  height = 76,
-  width = 12,
+  height = 12,
+  width = 10,
   useDingbats = TRUE
 )
 print(gp)
 dev.off()
+fwrite(
+  plot_dt,
+  file.path(res_dir, sprintf("go%s_plot_padj%s.tsv", tgalg, padj_thr)),
+  sep = "\t"
+)
 ```
+
 Plot revigo 
 
 ```{r}
@@ -1000,6 +1040,8 @@ pdf(
 print(revigo_lst)
 dev.off()
 ```
+
+## KEGG
 
 Identify up or down regulated KEGG pathways
 ```{r}
@@ -1036,13 +1078,13 @@ kegg_res <- sapply(c("cApUp", "cGAMP"), function(i) {
 
 # parse gage results
 kegg_lst <- sapply(kegg_res, function(x) {
-  dt <- as.data.table(x[[j]], keep.rownames = "kegg.id")
+  dt <- as.data.table(x[["greater"]], keep.rownames = "kegg.id")
   dt[grepl("ko", dt$kegg.id)]
 }, simplify = FALSE, USE.NAMES = TRUE)
 kegg_dt <- rbindlist(kegg_lst, idcol = "group")
 
 # mapping kegg ids to labels may take a while
-kgs <- unique(dt$kegg.id)
+kgs <- unique(kegg_dt$kegg.id)
 kgl <- sapply(kgs, function(i) {
   tryCatch(
     keggGet(i)[[1]]$NAME,
@@ -1069,7 +1111,9 @@ Visualize KEGG pathways
 require(clusterProfiler)
 require(pathview)
 
-kegg_dt <- fread(file.path(kegg_dir, sprintf("kegg.results.padj%s.tsv", padj_thr)))
+kegg_dt <- fread(file.path(
+  kegg_dir, sprintf("kegg.results.padj%s.tsv", padj_thr)
+))
 
 # top pathways
 kegg_sig <- kegg_dt[q.val < padj_thr]
@@ -1133,4 +1177,59 @@ for (k in unique(kegg_sig$kegg.id)) {
   }
 }
 setwd(wdir)
+```
+
+Heatmap
+```{r}
+kegg_sig <- fread(
+  file.path(kegg_dir, sprintf("kegg.results.significant.padj%s.tsv", padj_thr)),
+  sep = "\t"
+)
+
+# plot
+plot_dt <- kegg_sig[order(q.val)][1:20][q.val < 0.01]
+plot_dt[, label := sprintf("%s | %s", kegg.id, kegg.lab)]
+plot_dt[, kegg_id := factor(
+  kegg.id,
+  levels = unique(
+    plot_dt[order(stat.mean)][["kegg.id"]]
+  )
+)]
+plot_dt[, change := stat.mean][change > 800, change := 800]
+plot_dt[, x := "x"]
+go_vect <- structure(plot_dt$label, names = as.character(plot_dt$kegg_id))
+
+gp <- ggplot(plot_dt, aes(x, kegg_id, size = change, fill = q.val)) +
+  geom_point(shape = 21) +
+  labs(
+    x = "", y = "KEGG pathway",
+    size = "expression\nchange",
+    fill = "adjusted\np value"
+  ) +
+  scale_fill_distiller(
+    breaks = c(0, 0.05), limits = c(0, 0.05), oob = scales::squish
+  ) +
+  scale_y_discrete(labels = go_vect, position = "right") +
+  theme(
+    strip.background = element_blank(),
+    panel.grid.major = element_line(linewidth = 0.2),
+    axis.text.x = element_text(angle = 90, vjust = 0.5, hjust = 1)
+  )
+gp
+```
+
+```{r include=FALSE, eval=TRUE}
+pdf(
+  file.path(fig_dir, sprintf("kegg_plot_padj%s.pdf", padj_thr)),
+  height = 3,
+  width = 8.5,
+  useDingbats = TRUE
+)
+print(gp)
+dev.off()
+fwrite(
+  plot_dt,
+  file.path(res_dir, sprintf("kegg_plot_padj%s.tsv", padj_thr)),
+  sep = "\t"
+)
 ```
