@@ -1,0 +1,13 @@
+Spis_XP_022784639_1	TMEM173/	stimulator_of_interferon_response_cGAMP_interactor_1
+Spis_XP_022801917_1	HSP70/	heat_shock_protein_family_A_Hsp70_member_12A
+Spis_XP_022806515_1	CARD_2/	mitochondrial_antiviral_signaling_protein
+Spis_XP_022810165_1	HEPN_DZIP3/NACHT/	DAZ_interacting_zinc_finger_protein_3
+Spis_XP_022796662_1	MACPF/	Perforin
+Spis_XP_022802168_1	IRF/	IRF3-9
+Spis_XP_022802128_1	zf-TRAF/	TNF_receptor_associated_factor_3
+Spis_XP_022785671_1	ETV6/ETV7	Ets.ETV6/ETV7
+Spis_XP_022806512_1	CARD_2/ResIII/ResIII/RIG-I_C/RIG-I_C-RD/	IFIH1
+Spis_XP_022802147_1	PNP_UDP_1/NACHT/LRR_6/LRR_6/LRR_6/LRR_6/LRR_6/LRR_6/LRR_6/LRR_6/	NLR_family_CARD_domain_containing_5
+Spis_XP_022789210_1	RHD/	RHD_Rel.NFKB1-2
+Spis_XP_022791601_1	Sel1/Sel1/Sel1/Sel1/Sel1/zf-MYND/	SEL1L2_adaptor_subunit_of_ERAD_E3_ligase
+Spis_XP_022807466_1	ubiquitin/	ubiquitin_B

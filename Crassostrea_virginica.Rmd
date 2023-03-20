@@ -603,18 +603,18 @@ gp_capup_ma <- ggplotMA(
 )
 
 gp_cgamp_vo <- ggplotVolcano(
-  res_cgamp, padj_thr = NULL, pval_thr = padj_thr, lfc_thr = 1,
+  res_lfc_cgamp, padj_thr = NULL, pval_thr = padj_thr, lfc_thr = 1,
   lims_fc = c(-5, 5), lims_sig = c(NA, 6),
   title = sprintf("%s vs %s", contrast_cgamp[2], contrast_cgamp[3]),
   ylab = "-log10 p value"
 )
 gp_cgamp_vo_adj <- ggplotVolcano(
-  res_cgamp, padj_thr = padj_thr, lfc_thr = 1,
+  res_lfc_cgamp, padj_thr = padj_thr, lfc_thr = 1,
   lims_fc = c(-5, 5), lims_sig = c(NA, 6),
   title = sprintf("%s vs %s", contrast_cgamp[2], contrast_cgamp[3])
 )
 gp_cgamp_ma <- ggplotMA(
-  res_cgamp, padj_thr = NULL, pval_thr = padj_thr, lfc_thr = 1,
+  res_lfc_cgamp, padj_thr = NULL, pval_thr = padj_thr, lfc_thr = 1,
   lims_fc = c(-5, 5), lims_mean = c(NA, NA), trans_mean = "log10",
   title = sprintf("%s vs %s", contrast_cgamp[2], contrast_cgamp[3])
 )
@@ -625,11 +625,12 @@ gp_pch
 
 ```{r include=FALSE, eval=TRUE}
 pdf(
-  file.path(fig_dir, sprintf("dds_res_cGAMP_padj%s.pdf", padj_thr)),
+  file.path(fig_dir, sprintf("dds_res_ashr_cGAMP_padj%s.pdf", padj_thr)),
   width = 5, height = 12
 )
 gp_cgamp_vo / gp_cgamp_vo_adj
 dev.off()
+
 pdf(
   file.path(fig_dir, sprintf("dds_res_ashr_cApUp_padj%s.pdf", padj_thr)),
   width = 5, height = 6
@@ -744,6 +745,8 @@ res_list <- list(
 
 # GO
 go_map <- readRDS(file.path(ann_dir, "gomap_cvir.RDS"))
+padj_thr <- 0.05
+lfc_thr <- 1
 tgalg <- "classic"
 go_dir <- file.path(res_dir, sprintf("GO_%s_padj%s", tgalg, padj_thr))
 dir.create(go_dir, recursive = TRUE, showWarnings = FALSE)
@@ -808,24 +811,85 @@ saveWorkbook(
 )
 ```
 
-Plot results
+Jaccard overlap between GO gene sets to select which GOs to show in the figure
 
 ```{r}
 # select significant results
 go_dt <- fread(
   file.path(go_dir, sprintf("topGO.%s.padj%s.tsv", tgalg, padj_thr))
 )
-#go_sign <- go_dt[pval_adj < 0.01][["GO.ID"]]
-#go_sign_dt <- go_dt[GO.ID %in% go_sign][order(pval_adj, decreasing = FALSE)]
-#go_sign_dt[, logpadj := -1 * log10(pval_adj)]
-#go_sign_dt[, label := sprintf("%s | %s", GO.ID, Term)]
+go_dt[, label := sprintf("%s | %s", GO.ID, Term)]
 
-# plot
-cats <- go_dt[,
-  .SD[group == "up"][order(pval_adj)][1:20][pval_adj < 0.01],
-  .(ontology)
-]$GO.ID
-plot_dt <- copy(go_dt)[GO.ID %in% cats]
+# categories to consider
+cats <- unique(go_dt[,
+  .SD[order(pval_adj)][1:20][pval_adj < 0.01],
+  .(group, ontology)
+]$GO.ID)
+
+# map genes to categories
+go_map <- readRDS(file.path(ann_dir, "gomap_cvir.RDS"))
+go_map_dt <- data.table(
+  gene = rep(names(go_map), sapply(go_map, length)),
+  category = unlist(go_map)
+)
+
+# calculate jaccard index for all categories pairs
+jaccard <- function(x, y) {
+  length(intersect(x, y)) / length(union(x, y))
+}
+jacc_mt <- matrix(nrow = length(cats), ncol = length(cats))
+rownames(jacc_mt) <- colnames(jacc_mt) <- cats
+for (x in cats) {
+  for (y in cats) {
+    jacc_mt[x, y] <- jaccard(
+      go_map_dt[category == x]$gene,
+      go_map_dt[category == y]$gene
+    )
+  }
+}
+
+# clusters
+hc <- hclust(dist(jacc_mt, method = "maximum"), method = "ward.D2")
+hm_mt <- jacc_mt[hc$order, hc$order]
+rownames(hm_mt) <- go_dt[match(rownames(hm_mt), GO.ID)]$label
+
+# heatmap
+jacc_hm <- Heatmap(
+  hm_mt, name = "jaccard",
+  cluster_rows = FALSE, cluster_columns = FALSE,
+  border = TRUE,
+  rect_gp = gpar(col = "black", lwd = 1),
+  heatmap_legend_param = list(
+    direction = "horizontal", legend_width = unit(6, "cm")
+  )
+)
+
+go_clusters <- cutree(hc, k = 45)
+go_dt_clusters <- go_dt[group == "up"][
+  match(names(go_clusters), GO.ID)][
+    , cluster := go_clusters[GO.ID]]
+cats_red <- go_dt_clusters[
+  order(cluster, pval_adj)][
+    , .SD[1], cluster]$GO.ID
+```
+
+```{r include=FALSE, eval=TRUE}
+pdf(
+  file.path(
+    fig_dir,
+    sprintf("go%s_categories_jaccard_padj%s.pdf", tgalg, padj_thr)
+  ),
+  height = 16, width = 16,
+  useDingbats = TRUE
+)
+draw(jacc_hm, heatmap_legend_side = "bottom")
+dev.off()
+```
+
+Plot GO categories dotplot 
+
+```{r}
+plot_dt <- copy(go_dt)[GO.ID %in% cats_red]
 plot_dt[, label := sprintf("%s | %s", GO.ID, Term)]
 plot_dt[, go_id := factor(
   GO.ID,
@@ -860,8 +924,8 @@ gp
 ```{r include=FALSE, eval=TRUE}
 pdf(
   file.path(fig_dir, sprintf("go%s_plot_padj%s.pdf", tgalg, padj_thr)),
-  height = 13,
-  width = 9,
+  height = 11,
+  width = 8.6,
   useDingbats = TRUE
 )
 print(gp)
@@ -1055,9 +1119,10 @@ for (k in unique(kegg_sig$kegg.id)) {
     pathview(
       gene.data = structure(ko_lfc$log2FoldChange, names = ko_lfc$ko),
       pathway.id = k,
+      gene.idtype = "KEGG",
       species = "ko",
       limit = list(gene = 1, cpd = 1),
-      both.dirs = FALSE,
+      both.dirs = TRUE,
       high = list(gene = "chartreuse"),
       out.suffix = x
     )

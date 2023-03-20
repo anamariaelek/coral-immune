@@ -104,28 +104,38 @@ ggplotVolcano <- function(
   pval_thr = NULL,
   padj_thr = 0.05,
   lfc_thr = 1,
-  sign_col = c("red", "blue"),
+  sign_col = c("#b2182b", "#2166ac"),
   lims_fc = c(NA, NA),
   lims_sig = c(NA, NA),
   label_column = NULL,
+  shape_column = NULL,
   label_fc_thr = 2,
   title = "",
   xlab = "log2 fold change",
   ylab = "- log10 adjusted p value",
   raster = TRUE
 ) {
+
+  # parse data
   res_dt <- as.data.table(res)
   res_dt[log2FoldChange < lims_fc[1], log2FoldChange := lims_fc[1]]
   res_dt[log2FoldChange > lims_fc[2], log2FoldChange := lims_fc[2]]
   res_dt[, dir := ifelse(log2FoldChange > 0, "up", "down")]
+  if (is.null(shape_column)) {
+    res_dt[, shape_column := 1]
+  }
+
+  # using adjusted p value as threshold
   if (!is.null(padj_thr)) {
     res_dt[, sign := padj < padj_thr & abs(log2FoldChange) > lfc_thr]
     res_dt[, minuslog10padj := -1 * log10(padj)]
     res_dt[sign == FALSE, dir := NA]
     legend_name <- sprintf("adjusted p value < %s", padj_thr)
     gp <- ggplot(
-      res_dt,
-      aes(x = log2FoldChange, y = minuslog10padj)
+      res_dt, aes_string(
+        x = "log2FoldChange", y = "minuslog10padj",
+        shape = shape_column
+      )
     ) +
     labs(
       x = xlab,
@@ -136,14 +146,17 @@ ggplotVolcano <- function(
         nrow(res_dt[padj < padj_thr & log2FoldChange < -1 * lfc_thr])
       )
     )
+  # using p value as threshold
   } else if (!is.null(pval_thr)) {
     res_dt[, sign := pvalue < pval_thr & abs(log2FoldChange) > lfc_thr]
     res_dt[, minuslog10pval := -1 * log10(pvalue)]
     res_dt[sign == FALSE, dir := NA]
     legend_name <- sprintf("p value < %s", pval_thr)
     gp <- ggplot(
-      res_dt,
-      aes(x = log2FoldChange, y = minuslog10pval)
+      res_dt, aes_string(
+        x = "log2FoldChange", y = "minuslog10pval",
+        shape = shape_column
+      )
     ) +
     labs(
       x = xlab,
@@ -157,6 +170,8 @@ ggplotVolcano <- function(
   } else {
     stop("One of padj_thr or pval_thr has to be supplied!")
   }
+
+  # using significance for colour
   if (length(sign_col) == 1) {
     if (raster == TRUE) {
       gp <- gp + ggrastr::geom_point_rast(aes(colour = signif), size = 0.5)
@@ -166,7 +181,12 @@ ggplotVolcano <- function(
     gp <- gp + scale_color_manual(
       values = c("FALSE" = "grey", "TRUE" = sign_col),
       name = legend_name
+    ) +
+    scale_fill_manual(
+      values = c("FALSE" = "grey", "TRUE" = sign_col),
+      name = legend_name
     )
+  # using significance and fold change direction for colour
   } else if (length(sign_col) > 1) {
     if (raster == TRUE) {
       gp <- gp + ggrastr::geom_point_rast(aes(colour = dir), size = 0.5)
@@ -177,10 +197,42 @@ ggplotVolcano <- function(
       values = c("up" = sign_col[2], down = sign_col[1]),
       na.value = "grey",
       name = legend_name
+    ) + scale_fill_manual(
+      values = c("up" = sign_col[2], down = sign_col[1]),
+      na.value = "grey",
+      name = legend_name
     )
   }
+
+  # highlight genes by different shape
+  if (!is.null(shape_column)) {
+    shape_levels <- unique(res_dt[[I(shape_column)]])
+    shape_levels <- structure(
+      c(16, 22, 24, 23, 25)[seq_along(shape_levels)],
+      names = shape_levels
+    )
+    gp <- gp +
+      geom_point(
+        data = res_dt[!I(shape_column) %in% c("none", "")][
+          pvalue < pval_thr & abs(log2FoldChange) > lfc_thr],
+        aes_string(shape = shape_column),
+        size = 0.9, color = "grey"
+      ) +
+        scale_shape_manual(values = shape_levels) +
+        guides(
+          shape = guide_legend(override.aes = list(size = 4)),
+          colour = guide_legend(override.aes = list(size = 4))
+        )
+  } else {
   gp <- gp +
-    guides(colour = guide_legend(override.aes = list(size = 4))) +
+    guides(
+      shape = "none",
+      colour = guide_legend(override.aes = list(size = 4))
+    )
+  }
+
+  # plot limits
+  gp <- gp +
     scale_x_continuous(
       limits = lims_fc,
       expand = expansion(mult = c(0.01, 0.01))
@@ -189,13 +241,23 @@ ggplotVolcano <- function(
       limits = lims_sig,
       expand = expansion(mult = c(0.01, 0.01))
     )
+
+  # labeling genes
   if (!is.null(label_column)) {
     if (!is.null(padj_thr)) {
-      lab_dt_up <- res_dt[log2FoldChange > label_fc_thr & padj < padj_thr]
-      lab_dt_down <- res_dt[log2FoldChange < -1 * label_fc_thr & padj < padj_thr]
+      lab_dt_up <- res_dt[
+        log2FoldChange > label_fc_thr & padj < padj_thr
+      ]
+      lab_dt_down <- res_dt[
+        log2FoldChange < -1 * label_fc_thr & padj < padj_thr
+      ]
     } else if (!is.null(pval_thr)) {
-      lab_dt_up <- res_dt[log2FoldChange > label_fc_thr & pvalue < pval_thr]
-      lab_dt_down <- res_dt[log2FoldChange < -1 * label_fc_thr & pvalue < pval_thr]
+      lab_dt_up <- res_dt[
+        log2FoldChange > label_fc_thr & pvalue < pval_thr
+      ]
+      lab_dt_down <- res_dt[
+        log2FoldChange < -1 * label_fc_thr & pvalue < pval_thr
+      ]
     }
     gp <- gp +
       geom_text_repel(
@@ -221,6 +283,8 @@ ggplotVolcano <- function(
         min.segment.length = 0
       )
   }
+
+  # theme elements
   gp <- gp +
     theme(
       legend.position = "bottom",

@@ -706,28 +706,58 @@ lfc_thr <- 1
 contrast_capup <- c("treatment", "cApUp", "control")
 res_capup <- results(dds, contrast = contrast_capup)
 res_lfc_capup <- lfcShrink(dds, contrast = contrast_capup, type = "ashr")
+res_lfc_capup$label <- "none"
+res_lfc_capup[rownames(res_lfc_capup) %in% cglr_genes, ]$label <- "cGLR"
+res_lfc_capup[rownames(res_lfc_capup) %in% sting_genes, ]$label <- "STING"
 
 contrast_cgamp <- c("treatment", "cGAMP", "control")
 res_cgamp <- results(dds, contrast = contrast_cgamp)
 res_lfc_cgamp <- lfcShrink(dds, contrast = contrast_cgamp, type = "ashr")
+res_lfc_cgamp$label <- "none"
+res_lfc_cgamp[rownames(res_lfc_cgamp) %in% cglr_genes, ]$label <- "cGLR"
+res_lfc_cgamp[rownames(res_lfc_cgamp) %in% sting_genes, ]$label <- "STING"
 
-# plot
+# plot cApUp
+gp_capup_lab <- as.data.table(res_lfc_capup)[label != "none"][
+  padj < padj_thr & abs(log2FoldChange) > lfc_thr
+]
+gp_capup_lab[, minuslog10padj := -1 * log10(padj)]
+gp_capup_lab[, dir := ifelse(log2FoldChange > 0, "up", "down")]
 gp_capup_vo <- ggplotVolcano(
   res_lfc_capup, padj_thr = padj_thr, lfc_thr = 1,
   lims_fc = c(-5, 5), lims_sig = c(NA, 30),
-  title = sprintf("%s vs %s", contrast_capup[2], contrast_capup[3])
-)
+  title = sprintf("%s vs %s", contrast_capup[2], contrast_capup[3]),
+  shape_column = "label"
+) +
+  geom_point(
+    data = gp_capup_lab, aes(shape = label, fill = dir),
+    color = "black", size = 2
+  ) +
+  scale_shape_manual(values = c("STING" = 22, "cGLR" = 24, "none" = 20))
+
 gp_capup_ma <- ggplotMA(
   res_lfc_capup, padj_thr = padj_thr, lfc_thr = 1,
   lims_fc = c(-5, 5), lims_mean = c(NA, NA), trans_mean = "log10",
   title = sprintf("%s vs %s", contrast_capup[2], contrast_capup[3])
 )
 
+# plot cGAMP
+gp_cgamp_lab <- as.data.table(res_lfc_cgamp)[label != "none"][
+  padj < padj_thr & abs(log2FoldChange) > lfc_thr
+]
+gp_cgamp_lab[, minuslog10padj := -1 * log10(padj)]
+gp_cgamp_lab[, dir := ifelse(log2FoldChange > 0, "up", "down")]
 gp_cgamp_vo <- ggplotVolcano(
   res_lfc_cgamp, padj_thr = padj_thr, lfc_thr = 1,
   lims_fc = c(-5, 5), lims_sig = c(NA, 30),
   title = sprintf("%s vs %s", contrast_cgamp[2], contrast_cgamp[3])
-)
+) +
+  geom_point(
+    data = gp_cgamp_lab, aes(shape = label, fill = dir),
+    color = "black", size = 2
+  ) +
+  scale_shape_manual(values = c("STING" = 22, "cGLR" = 24, "none" = 20))
+
 gp_cgamp_ma <- ggplotMA(
   res_lfc_cgamp, padj_thr = padj_thr, lfc_thr = 1,
   lims_fc = c(-5, 5), lims_mean = c(NA, NA), trans_mean = "log10",
@@ -747,12 +777,14 @@ pdf(
 )
 gp_capup_vo
 dev.off()
+
 pdf(
   file.path(fig_dir, sprintf("dds_res_ashr_cGAMP_padj%s.pdf", padj_thr)),
   width = 5, height = 6
 )
 gp_cgamp_vo
 dev.off()
+
 pdf(
   file.path(fig_dir, sprintf("dds_res_ashr_padj%s.pdf", padj_thr)),
   width = 10, height = 12
@@ -901,6 +933,8 @@ res_list <- list(
 
 # go results
 go_map <- readRDS(file.path(ann_dir, "gomap_spis.RDS"))
+padj_thr <- 0.05
+lfc_thr <- 1
 tgalg <- "classic"
 go_dir <- file.path(res_dir, sprintf("GO_%s_padj%s", tgalg, padj_thr))
 dir.create(go_dir, recursive = TRUE, showWarnings = FALSE)
@@ -946,25 +980,85 @@ saveWorkbook(
 )
 ```
 
-Plot
+Jaccard overlap between GO gene sets to select which GOs to show in the figure
 
 ```{r}
 # select significant results
 go_dt <- fread(
   file.path(go_dir, sprintf("topGO.%s.padj%s.tsv", tgalg, padj_thr))
 )
-#go_sign <- go_dt[pval_adj < 0.01][["GO.ID"]]
-#go_sign_dt <- go_dt[GO.ID %in% go_sign][order(pval_adj, decreasing = FALSE)]
-#go_sign_dt[, logpadj := -1 * log10(pval_adj)]
-#go_sign_dt[, label := sprintf("%s | %s", GO.ID, Term)]
+go_dt[, label := sprintf("%s | %s", GO.ID, Term)]
 
-# plot
-cats <- go_dt[,
+# categories to consider
+cats <- unique(go_dt[,
   .SD[order(pval_adj)][1:20][pval_adj < 0.01],
   .(group, ontology)
-]$GO.ID
-plot_dt <- copy(go_dt)[GO.ID %in% cats]
-plot_dt[, label := sprintf("%s | %s", GO.ID, Term)]
+]$GO.ID)
+
+# map genes to categories
+go_map <- readRDS(file.path(ann_dir, "gomap_spis.RDS"))
+go_map_dt <- data.table(
+  gene = rep(names(go_map), sapply(go_map, length)),
+  category = unlist(go_map)
+)
+
+# calculate jaccard index for all categories pairs
+jaccard <- function(x, y) {
+  length(intersect(x, y)) / length(union(x, y))
+}
+jacc_mt <- matrix(nrow = length(cats), ncol = length(cats))
+rownames(jacc_mt) <- colnames(jacc_mt) <- cats
+for (x in cats) {
+  for (y in cats) {
+    jacc_mt[x, y] <- jaccard(
+      go_map_dt[category == x]$gene,
+      go_map_dt[category == y]$gene
+    )
+  }
+}
+
+# clusters
+hc <- hclust(dist(jacc_mt, method = "maximum"), method = "ward.D2")
+hm_mt <- jacc_mt[hc$order, hc$order]
+rownames(hm_mt) <- go_dt[match(rownames(hm_mt), GO.ID)]$label
+
+# heatmap
+jacc_hm <- Heatmap(
+  hm_mt, name = "jaccard",
+  cluster_rows = FALSE, cluster_columns = FALSE,
+  border = TRUE,
+  rect_gp = gpar(col = "black", lwd = 1),
+  heatmap_legend_param = list(
+    direction = "horizontal", legend_width = unit(6, "cm")
+  )
+)
+
+go_clusters <- cutree(hc, k = 30)
+go_dt_clusters <- go_dt[group == "up"][
+  match(names(go_clusters), GO.ID)][
+    , cluster := go_clusters[GO.ID]]
+cats_red <- go_dt_clusters[
+  order(cluster, pval_adj)][
+    , .SD[1], cluster]$GO.ID
+```
+
+```{r include=FALSE, eval=TRUE}
+pdf(
+  file.path(
+    fig_dir,
+    sprintf("go%s_categories_jaccard_padj%s.pdf", tgalg, padj_thr)
+  ),
+  height = 12, width = 12,
+  useDingbats = TRUE
+)
+draw(jacc_hm, heatmap_legend_side = "bottom")
+dev.off()
+```
+
+Plot GO categories dotplot 
+
+```{r}
+plot_dt <- copy(go_dt)[GO.ID %in% cats_red]
 plot_dt[, go_id := factor(
   GO.ID,
   levels = unique(
@@ -998,7 +1092,7 @@ gp
 ```{r include=FALSE, eval=TRUE}
 pdf(
   file.path(fig_dir, sprintf("go%s_plot_padj%s.pdf", tgalg, padj_thr)),
-  height = 12,
+  height = 8,
   width = 10,
   useDingbats = TRUE
 )
@@ -1169,7 +1263,7 @@ for (k in unique(kegg_sig$kegg.id)) {
         pathway.id = k,
         species = "ko",
         limit = list(gene = 1, cpd = 1),
-        both.dirs = FALSE,
+        both.dirs = TRUE,
         high = list(gene = "chartreuse"),
         out.suffix = x
       )
@@ -1179,7 +1273,8 @@ for (k in unique(kegg_sig$kegg.id)) {
 setwd(wdir)
 ```
 
-Heatmap
+Dotplot
+
 ```{r}
 kegg_sig <- fread(
   file.path(kegg_dir, sprintf("kegg.results.significant.padj%s.tsv", padj_thr)),
@@ -1232,4 +1327,10 @@ fwrite(
   file.path(res_dir, sprintf("kegg_plot_padj%s.tsv", padj_thr)),
   sep = "\t"
 )
+```
+
+## Session info
+
+```{r}
+sessionInfo()
 ```

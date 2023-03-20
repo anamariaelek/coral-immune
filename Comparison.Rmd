@@ -26,6 +26,7 @@ theme_py <- theme_light() + theme(
 )
 theme_set(theme_py)
 library(patchwork)
+library(eulerr)
 source("functions.R")
 ```
 
@@ -138,4 +139,157 @@ fwrite(
   file.path(data_dir, sprintf("dds_padj%s_ogs.tsv", padj_thr)),
   sep = "\t"
 )
+```
+
+Venn diagram
+
+```{r}
+spis_sgn
+cvig_sgn
+og_sgn_ann
+
+# overlap
+og_sgn_all <- merge.data.table(
+  merge.data.table(
+    og, unique(spis_sgn[, .(gene_spis)]), by = "gene_spis", all.y = TRUE
+  ),
+  merge.data.table(
+    og, unique(cvig_sgn[, .(gene_cvig)]), by = "gene_cvig", all.y = TRUE
+  ),
+  by = c("gene_spis", "gene_cvig"), all = TRUE
+)
+
+
+class(og_sgn_all) <- "data.frame"
+og_sgn_all[!is.na(og_sgn_all)] <- 1
+og_sgn_all[is.na(og_sgn_all)] <- 0
+og_sgn_all[, 1] <- as.integer(og_sgn_all[, 1])
+og_sgn_all[, 2] <- as.integer(og_sgn_all[, 2])
+fit_eu <- euler(og_sgn_all)
+
+eul <- plot(
+  fit_eu,
+  quantities = TRUE,
+  #fills = c(sps_cols[rownames(fit_eu$ellipses)]),
+  main = "significantly upregulated genes"
+)
+eul
+```
+
+```{r include=FALSE, eval=TRUE}
+pdf(
+  file.path(figs_dir, "venn_ogs.pdf"),
+  width = 5, height = 4
+)
+eul
+dev.off()
+```
+
+```{r}
+marks <- fread(
+  file.path(data_dir, "Cvig_Spis_OG_labels_shortlist.txt"),
+  fill = TRUE
+)
+setnames(marks, c("gene_spis", "pfam", "name"))
+marks_all <- merge.data.table(marks, og, all.x = TRUE)
+
+marks_spis <- merge.data.table(marks_all, spis_sgn, by = "gene_spis")
+setnames(
+  marks_spis,
+  colnames(marks_spis)[-1],
+  str_remove(colnames(marks_spis)[-1], "_spis")
+)
+
+marks_cvig <- merge.data.table(marks_all, cvig_sgn, by = "gene_cvig")
+setnames(
+  marks_cvig,
+  colnames(marks_cvig)[-1],
+  str_remove(colnames(marks_cvig)[-1], "_cvig")
+)
+marks_cvig[, treatment := "capup_cvig"][, gene_id := NULL]
+
+marks_fcs <- rbindlist(list(marks_spis, marks_cvig), use.names = TRUE)
+marks_fcs[, minuslog10padj := -1 * log10(padj)]
+marks_fcs[, sample := switch(treatment,
+  cApUp = "S. pistillata cApUp",
+  cGAMP = "S. pistillata cGAMP",
+  capup_cvig = "C. virginica cApUp"
+), by = seq_along(marks_fcs$treatment)]
+marks_fcs[, id := sprintf("%s | %s", gene_spis, gene_cvig)]
+marks_fcs[, id := sprintf("%s | %s", name, pfam)]
+marks_top <- marks_fcs[order(-log2FoldChange)][, .SD[1], .(sample, gene_spis)]
+
+marks_dc <- dcast.data.table(
+  marks_top[, .(id, sample, log2FoldChange)],
+  id ~ sample,
+  value.var = "log2FoldChange"
+)
+marks_mt <- marks_dc[, -1]
+rownames(marks_mt) <- marks_dc[[1]]
+marks_hc <- hclust(dist(marks_mt), method = "ward.D2")
+
+marks_top[, id := factor(id, levels = rownames(marks_mt)[rev(marks_hc$order)])]
+setorder(marks_top, id)
+
+gp_og <- ggplot(
+  marks_top,
+  aes(sample, id, size = minuslog10padj, fill = log2FoldChange)
+) +
+  geom_point(shape = 21) +
+  labs(
+    x = "gene", y = "",
+    size = "log2\nfold change",
+    fill = "-log10\nadjusted p value"
+  ) +
+  scale_y_discrete(
+    breaks = marks_top$id,
+    labels = marks_top$name
+  ) +
+  scale_size_continuous(
+    range = c(1, 10),
+    breaks = c(10, 30, 50)
+  ) +
+  scale_fill_distiller(
+    direction = 1,
+    breaks = c(0, 2, 4),
+    limits = c(0, 5), oob = scales::squish
+  ) +
+  theme(
+    panel.grid.major = element_line(linewidth = 0.2),
+    axis.text.x = element_text(angle = 60, vjust = 1, hjust = 1),
+    axis.ticks = element_blank()
+  )
+
+gp_nm <- ggplot(unique(marks_top[, .(id, pfam)]), aes("x", id)) +
+  scale_y_discrete(
+    position = "left",
+    breaks = marks_top$id,
+    labels = marks_top$pfam
+  ) +
+  scale_x_discrete(
+    expand = c(0, 0)
+  ) +
+  theme(
+    axis.line.x = element_blank(),
+    axis.text.x = element_blank(),
+    axis.text.y = element_text(hjust = 0),
+    axis.ticks = element_blank(),
+    axis.title = element_blank(),
+    plot.margin = unit(c(0, 0, 0, 0), "null"),
+    panel.spacing = unit(c(0, 0, 0, 0), "null"),
+    panel.border = element_blank()
+  )
+
+gp_h <- (gp_og  + gp_nm) +
+  plot_layout(widths = c(3, 1), guides = "collect")
+gp_h
+```
+
+```{r include=FALSE, eval=TRUE}
+pdf(
+  file.path(figs_dir, "dot_ogs.pdf"),
+  width = 17.5, height = 5
+)
+gp_h
+dev.off()
 ```
