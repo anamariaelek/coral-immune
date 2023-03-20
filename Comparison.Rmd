@@ -48,7 +48,7 @@ Load ortholog pairs
 
 ```{r}
 og <- fread(file.path(
-    data_dir, "orthologous_pairs.txt"
+    data_dir, "orthologous_pairs.txt.gz"
 ), header = FALSE)
 og <- unique(rbindlist(list(
     og[grepl("Cvig", V1) & grepl("Spis", V2)][, 2:1],
@@ -78,9 +78,10 @@ gene_ann[
   nchar(name) > 70,
   name := paste0(substr(name, 1, 67), "...")
 ]
+setnames(gene_ann, "gene", "gene_spis")
 ```
 
-Load gene lists from both species
+Overlap DE gene lists from both species
 
 ```{r}
 spis_res <- fread(file.path(spis_dir, "dss_res.tsv"))
@@ -121,11 +122,19 @@ og_sgn <- merge.data.table(
   merge.data.table(og, cvig_sgn, by = "gene_cvig"),
   by = c("gene_spis", "gene_cvig")
 )
-setorder(og_sgn, log2FoldChange_spis)
+setorder(og_sgn, treatment_spis, log2FoldChange_spis)
 unique(og_sgn[, .(gene_spis, gene_cvig)])
 
+# add spis gene annotations
+og_sgn_ann <- merge.data.table(
+  og_sgn, gene_ann, by = "gene_spis", all.x = TRUE, sort = FALSE
+)
+setcolorder(og_sgn_ann, c("gene_cvig", "gene_spis", "pfam", "og"))
+og_sgn_ann[, c("name", "gene_id_cvig") := NULL]
+
+# save
 fwrite(
-  og_sgn,
+  og_sgn_ann,
   file.path(data_dir, sprintf("dds_padj%s_ogs.tsv", padj_thr)),
   sep = "\t"
 )

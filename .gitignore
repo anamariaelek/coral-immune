@@ -5,7 +5,7 @@
 */Control*
 */cApUp*
 */cGAMP*
-comparison/
 Crassostrea_virginica/annotation/eggNOG/
 Crassostrea_virginica/annotation/*xls
+comparison/orthologous_pairs.txt
 .vscode/*

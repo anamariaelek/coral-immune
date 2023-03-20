@@ -190,8 +190,13 @@ ggplotVolcano <- function(
       expand = expansion(mult = c(0.01, 0.01))
     )
   if (!is.null(label_column)) {
-    lab_dt_up <- res_dt[log2FoldChange > label_fc_thr & padj < padj_thr]
-    lab_dt_down <- res_dt[log2FoldChange < -1 * label_fc_thr & padj < padj_thr]
+    if (!is.null(padj_thr)) {
+      lab_dt_up <- res_dt[log2FoldChange > label_fc_thr & padj < padj_thr]
+      lab_dt_down <- res_dt[log2FoldChange < -1 * label_fc_thr & padj < padj_thr]
+    } else if (!is.null(pval_thr)) {
+      lab_dt_up <- res_dt[log2FoldChange > label_fc_thr & pvalue < pval_thr]
+      lab_dt_down <- res_dt[log2FoldChange < -1 * label_fc_thr & pvalue < pval_thr]
+    }
     gp <- gp +
       geom_text_repel(
         mapping       = aes_string(label = label_column),
