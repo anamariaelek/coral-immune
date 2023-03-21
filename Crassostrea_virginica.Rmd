@@ -35,7 +35,6 @@ library(Rsubread)
 library(DESeq2)
 library(eulerr)
 library(pathview)
-library(clusterProfiler)
 library(KEGGREST)
 library(gage)
 library(openxlsx)
@@ -52,6 +51,8 @@ res_dir <- file.path(dat_dir, "results")
 fig_dir <- file.path(dat_dir, "plots")
 for (newdir in c(res_dir, fig_dir))
   dir.create(newdir, showWarnings = FALSE)
+
+mol_cols <- c("cApUp" = "#ff7f00", "cGAMP" = "#984ea3", "control" = "#4daf4a")
 ```
 
 Gene annotations
@@ -101,8 +102,6 @@ col_dt[, treatment := factor(
 )]
 col_dt[, biol_rep := factor(biol_rep, levels = c(6, 12))]
 col_dt[, tech_rep := factor(tech_rep, levels = 1:4)]
-
-mol_cols <- c("cApUp" = "#ff7f00", "cGAMP" = "#984ea3", "control" = "#4daf4a")
 
 col_df <- copy(col_dt)
 class(col_df) <- "data.frame"
@@ -594,7 +593,8 @@ res_lfc_cgamp <- lfcShrink(dds, contrast = contrast_cgamp, type = "ashr")
 gp_capup_vo <- ggplotVolcano(
   res_lfc_capup, padj_thr = padj_thr, lfc_thr = 1,
   lims_fc = c(-5, 5), lims_sig = c(NA, 30),
-  title = sprintf("%s vs %s", contrast_capup[2], contrast_capup[3])
+  title = sprintf("%s vs %s", contrast_capup[2], contrast_capup[3]),
+  raster = FALSE
 )
 gp_capup_ma <- ggplotMA(
   res_lfc_capup, padj_thr = padj_thr, lfc_thr = 1,
@@ -611,7 +611,8 @@ gp_cgamp_vo <- ggplotVolcano(
 gp_cgamp_vo_adj <- ggplotVolcano(
   res_lfc_cgamp, padj_thr = padj_thr, lfc_thr = 1,
   lims_fc = c(-5, 5), lims_sig = c(NA, 6),
-  title = sprintf("%s vs %s", contrast_cgamp[2], contrast_cgamp[3])
+  title = sprintf("%s vs %s", contrast_cgamp[2], contrast_cgamp[3]),
+  raster = FALSE
 )
 gp_cgamp_ma <- ggplotMA(
   res_lfc_cgamp, padj_thr = NULL, pval_thr = padj_thr, lfc_thr = 1,
@@ -704,7 +705,10 @@ saveWorkbook(
 Differentially expressed genes in cApUp treatment
 
 ```{r}
-res_lfc <- as.data.table(res_lfc_capup, keep.rownames = "gene")
+res_lfc <- rbindlist(list(
+  "cApUp" = as.data.table(res_lfc_capup, keep.rownames = "gene"),
+  "cGAMP" = as.data.table(res_lfc_cgamp, keep.rownames = "gene")
+), idcol = "treatment")
 fwrite(res_lfc, file.path(res_dir, "dss_res.tsv"))
 
 # up-regulated
@@ -1048,7 +1052,6 @@ kegg_dt[kegg.id == "ko04024"]
 Visualize KEGG pathways
 
 ```{r}
-require(clusterProfiler)
 require(pathview)
 
 kegg_dt <- fread(file.path(

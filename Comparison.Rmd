@@ -88,22 +88,13 @@ Overlap DE gene lists from both species
 spis_res <- fread(file.path(spis_dir, "dss_res.tsv"))
 cvig_res <- fread(file.path(cvig_dir, "dss_res.tsv"))
 
-padj_thr <- 0.05
-lfc_thr <- 1
-
-# select genes upregulated in intersect
-spis_sgn <- spis_res[log2FoldChange > lfc_thr & padj < padj_thr]
-spis_sgn <- spis_sgn[gene %in% spis_sgn[, .N, gene][N == 2]$gene]
-setnames(spis_sgn, colnames(spis_sgn), paste0(colnames(spis_sgn), "_spis"))
-
-# map gene IDs to protein IDs
-cvig_sgn <- cvig_res[log2FoldChange > lfc_thr & padj < padj_thr]
+# map cvig gene IDs to protein IDs
 list_int_fixd <- dictionary_t2g(
   gtf_fn = file.path(
     "Crassostrea_virginica", "genome",
     "GCF_002022765.2_C_virginica-3.0_genomic.gtf"
   ),
-  vector_to_fix = str_remove(cvig_sgn$gene, "Cvig_"),
+  vector_to_fix = str_remove(cvig_res$gene, "Cvig_"),
   t2g = FALSE,
   transcript_field = "CDS",
   transcript_id = "protein_id",
@@ -114,16 +105,38 @@ list_int_prot <- structure(
   paste0("Cvig_", list_int_prot),
   names = paste0("Cvig_", names(list_int_prot))
 )
-cvig_sgn[, gene_id := gene][, gene := list_int_prot[gene_id]]
-cvig_sgn <- cvig_sgn[!is.na(gene)]
-setnames(cvig_sgn, colnames(cvig_sgn), paste0(colnames(cvig_sgn), "_cvig"))
+cvig_res[, gene_id := gene][, gene := list_int_prot[gene_id]]
+cvig_res <- cvig_res[!is.na(gene)]
+cvig_res[, gene_id := NULL]
 
+# significant genes
+padj_thr <- 0.05
+lfc_thr <- 1
+cvig_sgn <- cvig_res[log2FoldChange > lfc_thr & padj < padj_thr]
+spis_sgn <- spis_res[log2FoldChange > lfc_thr & padj < padj_thr]
+spis_sgn <- spis_sgn[gene %in% spis_sgn[, .N, gene][N == 2]$gene]
+genes <- list(
+  "spis" = spis_sgn$gene,
+  "cvig" = cvig_sgn$gene
+)
+
+# select spis genes upregulated in intersect
+spis_sgn <- spis_res[gene %in% genes$spis]
+setnames(spis_sgn, colnames(spis_sgn), paste0(colnames(spis_sgn), "_spis"))
+setnames(spis_sgn, "treatment_spis", "treatment")
+
+# select cvig genes upregulated in intersect
+cvig_sgn <- cvig_res[gene %in% genes$cvig]
+setnames(cvig_sgn, colnames(cvig_sgn), paste0(colnames(cvig_sgn), "_cvig"))
+setnames(cvig_sgn, "treatment_cvig", "treatment")
+
+# combine
 og_sgn <- merge.data.table(
   merge.data.table(og, spis_sgn, by = "gene_spis"),
   merge.data.table(og, cvig_sgn, by = "gene_cvig"),
-  by = c("gene_spis", "gene_cvig")
+  by = c("gene_spis", "gene_cvig", "treatment")
 )
-setorder(og_sgn, treatment_spis, log2FoldChange_spis)
+setorder(og_sgn, treatment, log2FoldChange_spis)
 unique(og_sgn[, .(gene_spis, gene_cvig)])
 
 # add spis gene annotations
@@ -131,7 +144,7 @@ og_sgn_ann <- merge.data.table(
   og_sgn, gene_ann, by = "gene_spis", all.x = TRUE, sort = FALSE
 )
 setcolorder(og_sgn_ann, c("gene_cvig", "gene_spis", "pfam", "og"))
-og_sgn_ann[, c("name", "gene_id_cvig") := NULL]
+og_sgn_ann[, c("name") := NULL]
 
 # save
 fwrite(
@@ -144,11 +157,6 @@ fwrite(
 Venn diagram
 
 ```{r}
-spis_sgn
-cvig_sgn
-og_sgn_ann
-
-# overlap
 og_sgn_all <- merge.data.table(
   merge.data.table(
     og, unique(spis_sgn[, .(gene_spis)]), by = "gene_spis", all.y = TRUE
@@ -170,7 +178,6 @@ fit_eu <- euler(og_sgn_all)
 eul <- plot(
   fit_eu,
   quantities = TRUE,
-  #fills = c(sps_cols[rownames(fit_eu$ellipses)]),
   main = "significantly upregulated genes"
 )
 eul
@@ -192,8 +199,10 @@ marks <- fread(
 )
 setnames(marks, c("gene_spis", "pfam", "name"))
 marks_all <- merge.data.table(marks, og, all.x = TRUE)
+marks_all[, label := NULL]
 
 marks_spis <- merge.data.table(marks_all, spis_sgn, by = "gene_spis")
+marks_spis[, label := NULL]
 setnames(
   marks_spis,
   colnames(marks_spis)[-1],
@@ -206,15 +215,25 @@ setnames(
   colnames(marks_cvig)[-1],
   str_remove(colnames(marks_cvig)[-1], "_cvig")
 )
-marks_cvig[, treatment := "capup_cvig"][, gene_id := NULL]
 
-marks_fcs <- rbindlist(list(marks_spis, marks_cvig), use.names = TRUE)
+marks_fcs <- rbindlist(list(
+  spis = marks_spis,
+  cvig = marks_cvig
+), idcol = "species", use.names = TRUE)
 marks_fcs[, minuslog10padj := -1 * log10(padj)]
-marks_fcs[, sample := switch(treatment,
-  cApUp = "S. pistillata cApUp",
-  cGAMP = "S. pistillata cGAMP",
-  capup_cvig = "C. virginica cApUp"
+marks_fcs[, species_treatment := paste(species, treatment, sep = "_")]
+marks_fcs[, sample := switch(species_treatment,
+  spis_cApUp = "S. pistillata cApUp",
+  spis_cGAMP = "S. pistillata cGAMP",
+  cvig_cApUp = "C. virginica cApUp",
+  cvig_cGAMP = "C. virginica cGAMP"
 ), by = seq_along(marks_fcs$treatment)]
+marks_fcs[, sample := factor(sample, levels = c(
+  "S. pistillata cApUp",
+  "S. pistillata cGAMP",
+  "C. virginica cApUp",
+  "C. virginica cGAMP"
+))]
 marks_fcs[, id := sprintf("%s | %s", gene_spis, gene_cvig)]
 marks_fcs[, id := sprintf("%s | %s", name, pfam)]
 marks_top <- marks_fcs[order(-log2FoldChange)][, .SD[1], .(sample, gene_spis)]
@@ -288,7 +307,7 @@ gp_h
 ```{r include=FALSE, eval=TRUE}
 pdf(
   file.path(figs_dir, "dot_ogs.pdf"),
-  width = 17.5, height = 5
+  width = 18, height = 5
 )
 gp_h
 dev.off()
