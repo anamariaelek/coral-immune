@@ -63,7 +63,56 @@ gene_ann[, gene := paste0("Cvig_", gene_name)]
 gene_ann[gene_description == "- && - && -", gene_description := ""]
 gene_ann[tf_family == "-0", tf_family := ""]
 gene_ann <- gene_ann[, .(gene, gene_id, gene_description, tf_family)]
+
+# proteins
+list_int_fixd <- dictionary_t2g(
+  gtf_fn = file.path(
+    "Crassostrea_virginica", "genome",
+    "GCF_002022765.2_C_virginica-3.0_genomic.gtf"
+  ),
+  vector_to_fix = str_remove(gene_ann$gene, "Cvig_"),
+  t2g = FALSE,
+  transcript_field = "CDS",
+  transcript_id = "protein_id",
+  gene_id = "gene_id"
+)
+list_int_prot <- list_int_fixd[!is.na(names(list_int_fixd))]
+list_int_prot <- structure(
+  paste0("Cvig_", list_int_prot),
+  names = paste0("Cvig_", names(list_int_prot))
+)
+gene_ann[, gene_id := gene][, gene := list_int_prot[gene_id]]
+gene_ann <- gene_ann[is.na(gene), gene := gene_id]
+gene_ann <- gene_ann[, .(gene, gene_id, gene_description, tf_family)]
+
+# ogs
+og <- fread(file.path(
+    "comparison", "orthologous_pairs.txt.gz"
+), header = FALSE, skip = 1L)
+og <- unique(rbindlist(list(
+    og[grepl("Cvig", V1) & grepl("Spis", V2)][, 2:1],
+    og[grepl("Spis", V1) & grepl("Cvig", V2)]
+), use.names = FALSE))
+setnames(og, c("gene_spis", "gene"))
+gene_ann_og <- merge.data.table(
+  gene_ann, og, by = "gene", all.x = TRUE
+)
+
+# spis ann
+spis_ann <- fread(file.path(
+    "Stylophora_pistillata", "annotation", "Spis_annotation_v7_2020-10-26_clean"
+), select = 1:3)
+setnames(spis_ann, c("gene_spis", "pfam", "og"))
+gene_ann <- merge.data.table(gene_ann_og, spis_ann, by = "gene_spis", all.x = TRUE)
 fwrite(gene_ann, file.path(ann_dir, "gene_ann.tsv"), sep = "\t")
+
+# gene sets of interest
+cglr_genes <- readLines(file.path(ann_dir, "cGLR.txt"))
+cglr_genes <- paste0("Cvig_", cglr_genes)
+cglr_genes <- str_replace(cglr_genes, "\\.", "_")
+sting_genes <- readLines(file.path(ann_dir, "STING.txt"))
+sting_genes <- paste0("Cvig_", sting_genes)
+sting_genes <- str_replace(sting_genes, "\\.", "_")
 ```
 ```{r eval=FALSE, include=FALSE}
 # orthologs
@@ -575,61 +624,155 @@ saveRDS(dds, file.path(res_dir, "dds.rds"))
 ```
 
 Contrasts to control
+
 ```{r}
 dds <- readRDS(file.path(res_dir, "dds.rds"))
 padj_thr <- 0.05
 lfc_thr <- 1
 
-# get results tables
+label_genes <- rbindlist(list(
+  gene_ann[grep("NFkB|IRF|STAT\\d+", pfam, ignore.case = TRUE)][
+    , name := str_replace_all(pfam, c(
+      "IRF3/IRF4/IRF5/IRF6/IRF7/IRF8/IRF9" = "IRF3-9",
+      "NFKB1/NFKB2/REL/RELA/RELB" = "NFKB1/2",
+      "STAT5A/STAT5B/STAT6" = "STAT5-6",
+      "STAT_int/STAT_alpha/STAT_bind/SH2/" = "STA5A",
+      "RHD_DNA_bind/RHD_dimer/Ank_2/Ank_4/Death/" = "NFKB1"
+    ))
+  ],
+  gene_ann[grep(
+    "GN=NFKB|GN=Irf|STAT\\d+",
+    gene_description,
+    ignore.case = TRUE
+  )][, name := str_extract(gene_description, "(?<=GN=)[A-z0-9]+")]
+))
+label_genes[, gene := str_replace(gene, "\\.", "_")]
+label_genes_v <- structure(label_genes$name, names = label_genes$gene)
+
+# get results table - cApUp
 contrast_capup <- c("treatment", "cApUp", "control")
 res_capup <- results(dds, contrast = contrast_capup)
 res_lfc_capup <- lfcShrink(dds, contrast = contrast_capup, type = "ashr")
 
+# map cvig gene IDs to protein IDs
+list_int_fixd <- dictionary_t2g(
+  gtf_fn = file.path(
+    "Crassostrea_virginica", "genome",
+    "GCF_002022765.2_C_virginica-3.0_genomic.gtf"
+  ),
+  vector_to_fix = str_remove(rownames(res_lfc_capup), "Cvig_"),
+  t2g = FALSE,
+  transcript_field = "CDS",
+  transcript_id = "protein_id",
+  gene_id = "gene_id"
+)
+list_int_dt <- data.table(
+  new = paste0("Cvig_", str_replace(list_int_fixd, "\\.", "_")),
+  old = names(list_int_fixd)
+)
+list_int_dt[!is.na(old), old := paste0("Cvig_", old)]
+list_int_dt[is.na(old), old := new]
+res_lfc_capup$gene <- list_int_dt[match(rownames(res_lfc_capup), old), new]
+names <- rownames(res_lfc_capup)
+names[!is.na(res_lfc_capup$gene)] <- res_lfc_capup[
+  !is.na(res_lfc_capup$gene),
+]$gene
+rownames(res_lfc_capup) <- names
+
+# add gene lists annotations
+res_lfc_capup$label <- "none"
+res_lfc_capup[rownames(res_lfc_capup) %in% cglr_genes, ]$label <- "cGLR"
+res_lfc_capup[rownames(res_lfc_capup) %in% sting_genes, ]$label <- "STING"
+res_lfc_capup$label_gene <- label_genes_v[rownames(res_lfc_capup)]
+res_lfc_capup[is.na(res_lfc_capup$label_gene), ]$label_gene <- ""
+
+# get results table - cGAMP
 contrast_cgamp <- c("treatment", "cGAMP", "control")
 res_cgamp <- results(dds, contrast = contrast_cgamp)
 res_lfc_cgamp <- lfcShrink(dds, contrast = contrast_cgamp, type = "ashr")
 
-# plot
+# map cvig gene IDs to protein IDs
+list_int_fixd <- dictionary_t2g(
+  gtf_fn = file.path(
+    "Crassostrea_virginica", "genome",
+    "GCF_002022765.2_C_virginica-3.0_genomic.gtf"
+  ),
+  vector_to_fix = str_remove(rownames(res_lfc_cgamp), "Cvig_"),
+  t2g = FALSE,
+  transcript_field = "CDS",
+  transcript_id = "protein_id",
+  gene_id = "gene_id"
+)
+list_int_dt <- data.table(
+  new = paste0("Cvig_", str_replace(list_int_fixd, "\\.", "_")),
+  old = names(list_int_fixd)
+)
+list_int_dt[!is.na(old), old := paste0("Cvig_", old)]
+list_int_dt[is.na(old), old := new]
+res_lfc_cgamp$gene <- list_int_dt[match(rownames(res_lfc_cgamp), old), new]
+names <- rownames(res_lfc_cgamp)
+names[!is.na(res_lfc_cgamp$gene)] <- res_lfc_cgamp[
+  !is.na(res_lfc_cgamp$gene),
+]$gene
+rownames(res_lfc_cgamp) <- names
+
+# add gene lists annotations
+res_lfc_cgamp$label <- "none"
+res_lfc_cgamp[rownames(res_lfc_cgamp) %in% cglr_genes, ]$label <- "cGLR"
+res_lfc_cgamp[rownames(res_lfc_cgamp) %in% sting_genes, ]$label <- "STING"
+res_lfc_cgamp$label_gene <- label_genes_v[rownames(res_lfc_cgamp)]
+res_lfc_cgamp[is.na(res_lfc_cgamp$label_gene), ]$label_gene <- ""
+
+
+# plot cApUp
+gp_capup_lab <- as.data.table(res_lfc_capup)[label != "none"][
+  padj < padj_thr & abs(log2FoldChange) > lfc_thr
+]
+gp_capup_lab[, minuslog10padj := -1 * log10(padj)]
+gp_capup_lab[, dir := ifelse(log2FoldChange > 0, "up", "down")]
 gp_capup_vo <- ggplotVolcano(
   res_lfc_capup, padj_thr = padj_thr, lfc_thr = 1,
   lims_fc = c(-5, 5), lims_sig = c(NA, 30),
+  sign_col = c("#F27333", "#725CA6"), size = 1.5, alpha = 0.8,
   title = sprintf("%s vs %s", contrast_capup[2], contrast_capup[3]),
-  raster = FALSE
-)
-gp_capup_ma <- ggplotMA(
-  res_lfc_capup, padj_thr = padj_thr, lfc_thr = 1,
-  lims_fc = c(-5, 5), lims_mean = c(NA, NA), trans_mean = "log10",
-  title = sprintf("%s vs %s", contrast_capup[2], contrast_capup[3])
-)
+  shape_column = "label", raster = FALSE,
+  label_column = "label_gene", label_fc_thr = 0.5
+) +
+  geom_point(
+    data = gp_capup_lab, aes(shape = label, fill = dir),
+    color = "black", size = 2
+  ) +
+  scale_shape_manual(values = c("STING" = 22, "cGLR" = 24, "none" = 20))
 
+# plot cGAMP
+gp_cgamp_lab <- as.data.table(res_lfc_cgamp)[label != "none"][
+  padj < padj_thr & abs(log2FoldChange) > lfc_thr
+]
+gp_cgamp_lab[, minuslog10padj := -1 * log10(padj)]
+gp_cgamp_lab[, dir := ifelse(log2FoldChange > 0, "up", "down")]
 gp_cgamp_vo <- ggplotVolcano(
-  res_lfc_cgamp, padj_thr = NULL, pval_thr = padj_thr, lfc_thr = 1,
-  lims_fc = c(-5, 5), lims_sig = c(NA, 6),
-  title = sprintf("%s vs %s", contrast_cgamp[2], contrast_cgamp[3]),
-  ylab = "-log10 p value"
-)
-gp_cgamp_vo_adj <- ggplotVolcano(
   res_lfc_cgamp, padj_thr = padj_thr, lfc_thr = 1,
   lims_fc = c(-5, 5), lims_sig = c(NA, 6),
+  sign_col = c("#F27333", "#725CA6"), size = 1.5, alpha = 0.8,
   title = sprintf("%s vs %s", contrast_cgamp[2], contrast_cgamp[3]),
-  raster = FALSE
-)
-gp_cgamp_ma <- ggplotMA(
-  res_lfc_cgamp, padj_thr = NULL, pval_thr = padj_thr, lfc_thr = 1,
-  lims_fc = c(-5, 5), lims_mean = c(NA, NA), trans_mean = "log10",
-  title = sprintf("%s vs %s", contrast_cgamp[2], contrast_cgamp[3])
-)
+  raster = FALSE,
+  label_column = "label_gene", label_fc_thr = 0.5
+) +
+  geom_point(
+    data = gp_cgamp_lab, aes(shape = label, fill = dir),
+    color = "black", size = 2
+  ) +
+  scale_shape_manual(values = c("STING" = 22, "cGLR" = 24, "none" = 20))
 
-gp_pch <- ((gp_capup_vo + gp_capup_ma) / (gp_cgamp_vo + gp_cgamp_ma))
-gp_pch
+gp_cgamp_vo + gp_capup_vo
 ```
 
 ```{r include=FALSE, eval=TRUE}
 pdf(
   file.path(fig_dir, sprintf("dds_res_ashr_cGAMP_padj%s.pdf", padj_thr)),
-  width = 5, height = 12
+  width = 5, height = 6
 )
-gp_cgamp_vo / gp_cgamp_vo_adj
+gp_cgamp_vo
 dev.off()
 
 pdf(
@@ -1134,15 +1277,17 @@ for (k in unique(kegg_sig$kegg.id)) {
 setwd(wdir)
 ```
 
-Heatmap
+Dotplot
+
 ```{r}
+kegg_dt <- fread(file.path(kegg_dir, "kegg.results.tsv"))
 kegg_sig <- fread(
   file.path(kegg_dir, sprintf("kegg.results.significant.padj%s.tsv", padj_thr)),
   sep = "\t"
 )
 
 # plot
-plot_dt <- kegg_sig[order(q.val)][1:20][q.val < 0.01]
+plot_dt <- kegg_dt[order(q.val)][kegg.id %in% kegg_sig[q.val < 0.01]$kegg.id][1:20]
 plot_dt[, label := sprintf("%s | %s", kegg.id, kegg.lab)]
 plot_dt[, kegg_id := factor(
   kegg.id,
@@ -1150,18 +1295,19 @@ plot_dt[, kegg_id := factor(
     plot_dt[order(stat.mean)][["kegg.id"]]
   )
 )]
-plot_dt[, change := stat.mean][change > 800, change := 800]
-plot_dt[, x := "x"]
+#plot_dt[, change := stat.mean][change > 800, change := 800]
+plot_dt[, group := "cApUp"]
 go_vect <- structure(plot_dt$label, names = as.character(plot_dt$kegg_id))
 
-gp <- ggplot(plot_dt, aes(x, kegg_id, size = change, fill = q.val)) +
+gp <- ggplot(plot_dt, aes(group, kegg_id, size = stat.mean, fill = q.val)) +
   geom_point(shape = 21) +
   labs(
     x = "", y = "KEGG pathway",
     size = "expression\nchange",
     fill = "adjusted\np value"
   ) +
-  scale_fill_distiller(
+  scale_fill_gradient(
+    low = "#725CA6", high = "#ffffff",
     breaks = c(0, 0.05), limits = c(0, 0.05), oob = scales::squish
   ) +
   scale_y_discrete(labels = go_vect, position = "right") +
@@ -1175,7 +1321,7 @@ gp
 
 ```{r include=FALSE, eval=TRUE}
 pdf(
-  file.path(fig_dir, sprintf("kegg_plot_padj%s.pdf", padj_thr)),
+  file.path(fig_dir, sprintf("kegg_plot_padj%s.pdf", 0.01)),
   height = 6,
   width = 8.5,
   useDingbats = TRUE
@@ -1184,7 +1330,7 @@ print(gp)
 dev.off()
 fwrite(
   plot_dt,
-  file.path(res_dir, sprintf("kegg_plot_padj%s.tsv", padj_thr)),
+  file.path(res_dir, sprintf("kegg_plot_padj%s.tsv", 0.01)),
   sep = "\t"
 )
 ```
@@ -1200,4 +1346,10 @@ plot_spis <- fread(file.path(
 unique(plot_cvir[
   kegg.id %in% intersect(plot_spis$kegg.id, plot_cvir$kegg.id)
 ][, .(label)])
+```
+
+## Session info
+
+```{r}
+sessionInfo()
 ```

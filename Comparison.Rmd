@@ -82,6 +82,8 @@ gene_ann[
 setnames(gene_ann, "gene", "gene_spis")
 ```
 
+## Comparison
+
 Overlap DE gene lists from both species
 
 ```{r}
@@ -219,7 +221,7 @@ setnames(
 marks_fcs <- rbindlist(list(
   spis = marks_spis,
   cvig = marks_cvig
-), idcol = "species", use.names = TRUE)
+), idcol = "species", use.names = TRUE, fill = TRUE)
 marks_fcs[, minuslog10padj := -1 * log10(padj)]
 marks_fcs[, species_treatment := paste(species, treatment, sep = "_")]
 marks_fcs[, sample := switch(species_treatment,
@@ -268,8 +270,8 @@ gp_og <- ggplot(
     range = c(1, 10),
     breaks = c(10, 30, 50)
   ) +
-  scale_fill_distiller(
-    direction = 1,
+  scale_fill_gradient(
+    high = "#725CA6", low = "#ffffff",
     breaks = c(0, 2, 4),
     limits = c(0, 5), oob = scales::squish
   ) +
@@ -311,4 +313,10 @@ pdf(
 )
 gp_h
 dev.off()
+```
+
+## Session info
+
+```{r}
+sessionInfo()
 ```

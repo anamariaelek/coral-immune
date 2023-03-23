@@ -105,6 +105,7 @@ ggplotVolcano <- function(
   padj_thr = 0.05,
   lfc_thr = 1,
   sign_col = c("#b2182b", "#2166ac"),
+  size = 0.5, alpha = 0.8,
   lims_fc = c(NA, NA),
   lims_sig = c(NA, NA),
   label_column = NULL,
@@ -174,9 +175,13 @@ ggplotVolcano <- function(
   # using significance for colour
   if (length(sign_col) == 1) {
     if (raster == TRUE) {
-      gp <- gp + ggrastr::geom_point_rast(aes(colour = signif), size = 0.5)
+      gp <- gp + ggrastr::geom_point_rast(
+        aes(colour = signif),
+        size = size, alpha = alpha
+      )
     } else {
-      gp <- gp + geom_point(aes(colour = signif), size = 0.5)
+      gp <- gp + geom_point(
+        aes(colour = signif), size = size, alpha = alpha)
     }
     gp <- gp + scale_color_manual(
       values = c("FALSE" = "grey", "TRUE" = sign_col),
@@ -189,9 +194,11 @@ ggplotVolcano <- function(
   # using significance and fold change direction for colour
   } else if (length(sign_col) > 1) {
     if (raster == TRUE) {
-      gp <- gp + ggrastr::geom_point_rast(aes(colour = dir), size = 0.5)
+      gp <- gp + ggrastr::geom_point_rast(
+        aes(colour = dir), size = size, alpha = alpha
+      )
     } else {
-      gp <- gp + geom_point(aes(colour = dir), size = 0.5)
+      gp <- gp + geom_point(aes(colour = dir), size = size, alpha = alpha)
     }
     gp <- gp + scale_color_manual(
       values = c("up" = sign_col[2], down = sign_col[1]),
@@ -269,7 +276,7 @@ ggplotVolcano <- function(
         direction     = "y",
         hjust         = 0,
         max.overlaps  = Inf,
-        min.segment.length = 0.5
+        min.segment.length = 0
       ) +
       geom_text_repel(
         mapping       = aes_string(label = label_column),
