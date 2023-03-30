@@ -103,7 +103,9 @@ spis_ann <- fread(file.path(
     "Stylophora_pistillata", "annotation", "Spis_annotation_v7_2020-10-26_clean"
 ), select = 1:3)
 setnames(spis_ann, c("gene_spis", "pfam", "og"))
-gene_ann <- merge.data.table(gene_ann_og, spis_ann, by = "gene_spis", all.x = TRUE)
+gene_ann <- merge.data.table(
+  gene_ann_og, spis_ann, by = "gene_spis", all.x = TRUE
+)
 fwrite(gene_ann, file.path(ann_dir, "gene_ann.tsv"), sep = "\t")
 
 # gene sets of interest
@@ -630,12 +632,13 @@ dds <- readRDS(file.path(res_dir, "dds.rds"))
 padj_thr <- 0.05
 lfc_thr <- 1
 
+# label immune genes
 label_genes <- rbindlist(list(
   gene_ann[grep("NFkB|IRF|STAT\\d+", pfam, ignore.case = TRUE)][
     , name := str_replace_all(pfam, c(
-      "IRF3/IRF4/IRF5/IRF6/IRF7/IRF8/IRF9" = "IRF3-9",
+      "IRF3/IRF4/IRF5/IRF6/IRF7/IRF8/IRF9" = "IRF3/4/5/6/7/8/9",
       "NFKB1/NFKB2/REL/RELA/RELB" = "NFKB1/2",
-      "STAT5A/STAT5B/STAT6" = "STAT5-6",
+      "STAT5A/STAT5B/STAT6" = "STAT5/6",
       "STAT_int/STAT_alpha/STAT_bind/SH2/" = "STA5A",
       "RHD_DNA_bind/RHD_dimer/Ank_2/Ank_4/Death/" = "NFKB1"
     ))
@@ -647,7 +650,62 @@ label_genes <- rbindlist(list(
   )][, name := str_extract(gene_description, "(?<=GN=)[A-z0-9]+")]
 ))
 label_genes[, gene := str_replace(gene, "\\.", "_")]
-label_genes_v <- structure(label_genes$name, names = label_genes$gene)
+label_genes_immuno_1 <- structure(label_genes$name, names = label_genes$gene)
+
+immune_dt <- fread(
+  file.path("Stylophora_pistillata", "annotation", "immune.txt"),
+  header = FALSE
+)
+setnames(immune_dt, "V1", c("gene_spis"))
+immune_og <- og[match(immune_dt[[1]], gene_spis)][!is.na(gene)]
+immune_dt <- merge.data.table(immune_og, immune_dt, by = "gene_spis")
+label_genes_immuno_2 <- structure(immune_dt[[3]], names = immune_dt[[2]])
+
+other_genes <- c(
+  "Spis_XP_022802147_1" = "NLR",
+  "Spis_XP_022803640_1" = "NLR",
+  "Spis_XP_022789210_1" = "NFKB",
+  "Spis_XP_022784447_1" = "RIG-I_C-RD/ResIII/Helicase_C/RdRP/",
+  "Spis_XP_022784454_1" = "TBK1",
+  "Spis_XP_022797663_1" = "TRAF6"
+)
+other_genes_dt <- og[match(names(other_genes), gene_spis)][!is.na(gene)]
+other_genes_dt[, desc := other_genes[gene_spis]]
+label_genes_immuno_3 <- structure(
+  other_genes_dt[[3]], names = other_genes_dt[[2]]
+)
+
+label_genes_v <- label_genes_immuno_3
+names(label_genes_v) <- str_replace_all(
+  names(label_genes_immuno_3), 
+  c("\\." = "_")
+)
+
+label_genes_immuno <- c(
+  label_genes_immuno_2,
+  label_genes_immuno_1[
+    names(label_genes_immuno_1) %in% names(label_genes_immuno_2)
+  ], use.names = TRUE
+)
+label_genes_v <- str_replace_all(label_genes_immuno, c(
+  "\\." = "_",
+  "IRF3/IRF4/IRF5/IRF6/IRF7/IRF8/IRF9" = "IRF3/4/5/6/7/8/9",
+  "NFKB1/NFKB2/REL/RELA/RELB" = "NFKB1/2",
+  "STAT5A/STAT5B/STAT6" = "STAT5/6",
+  "Antiviral innate immune response receptor RIG-I" = "RIG-I",
+  "DNA_damage_regulated_autophagy_modulator_1" = "DRAM1",
+  "probable E3 ubiquitin-protein ligase RNF144A-B" = "RNF144A",
+  "delta_like_canonical_Notch_ligand_1" = "DLL1",
+  "calcium_sensing_receptor" = "CaSR",
+  "guanylate_binding_protein_7" = "GBP7",
+  "BAG_cochaperone_5" = "BAG5",
+  "DnaJ_heat_shock_protein_family_Hsp40_member_B4" = "DNAJB4",
+  "platelet glycoprotein V-like" = "GP5-like",
+  "tetratricopeptide_repeat_domain_28" = "TTC28",
+  "ubiquitin_conjugating_enzyme_E2_W" = "UBE2W",
+  "ribosomal_protein_S6_kinase_A5" = "RPS6KA5"
+))
+names(label_genes_v) <- str_replace(names(label_genes_immuno), "\\.", "_")
 
 # get results table - cApUp
 contrast_capup <- c("treatment", "cApUp", "control")
@@ -735,8 +793,8 @@ gp_capup_vo <- ggplotVolcano(
   lims_fc = c(-5, 5), lims_sig = c(NA, 30),
   sign_col = c("#F27333", "#725CA6"), size = 1.5, alpha = 0.8,
   title = sprintf("%s vs %s", contrast_capup[2], contrast_capup[3]),
-  shape_column = "label", raster = FALSE,
-  label_column = "label_gene", label_fc_thr = 0.5
+  shape_column = "label", raster = TRUE,
+  label_column = "label_gene", label_fc_thr = 0.5, label_size = 2.5,
 ) +
   geom_point(
     data = gp_capup_lab, aes(shape = label, fill = dir),
@@ -753,10 +811,10 @@ gp_cgamp_lab[, dir := ifelse(log2FoldChange > 0, "up", "down")]
 gp_cgamp_vo <- ggplotVolcano(
   res_lfc_cgamp, padj_thr = padj_thr, lfc_thr = 1,
   lims_fc = c(-5, 5), lims_sig = c(NA, 6),
-  sign_col = c("#F27333", "#725CA6"), size = 1.5, alpha = 0.8,
+  sign_col = c("#F27333", "#725CA6"), size = 1, alpha = 0.8,
   title = sprintf("%s vs %s", contrast_cgamp[2], contrast_cgamp[3]),
-  raster = FALSE,
-  label_column = "label_gene", label_fc_thr = 0.5
+  raster = TRUE,
+  label_column = "label_gene", label_fc_thr = 0.5, label_size = 2.5,
 ) +
   geom_point(
     data = gp_cgamp_lab, aes(shape = label, fill = dir),

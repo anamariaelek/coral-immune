@@ -1,0 +1,63 @@
+Spis_XP_022795880_1	NFAT 	RHD_DNA_bind/RHD_dimer/
+Spis_XP_022806069_1	 IRF1/IRF2	IRF
+Spis_XP_022802946_1	 IRF1/IRF2	IRF
+Spis_XP_022802168_1	IRF3/4/5/6/7/8/9	IRF
+Spis_XP_022792639_1	ATF3/JDP2	bZIP
+Spis_XP_022801441_1	Homeobox_unclassified	Homeobox/
+Spis_XP_022787195_1	protein HEXIM-like isoform X2	HEXIM/
+Spis_XP_022807111_1	Perforin	MACPF/
+Spis_XP_022796612_1	lipopolysaccharide_binding_protein	LBP_BPI_CETP/LBP_BPI_CETP_C/
+Spis_XP_022796636_1	lipopolysaccharide_binding_protein	LBP_BPI_CETP/LBP_BPI_CETP_C/
+Spis_XP_022805190_1	prosaposin/granulysin	SapA/SapB_1/SapB_2/SapB_1/SapB_2/SapB_1/SapB_2/SapA/
+Spis_XP_022785526_1	DUF4773/	DUF4773/
+Spis_XP_022802936_1	DUF4773/DUF4773/	DUF4773/DUF4773/
+Spis_XP_022779205_1	Endonuclease_NS/	Endonuclease_NS/
+Spis_XP_022799073_1	C_type_lectin_domain_family_4_member_C	Lectin_C/
+Spis_XP_022802268_1	tyrosinase	Tyrosinase/Tyrosinase/
+Spis_XP_022804381_1	uncharacterized protein LOC111341669	ApeC/
+Spis_XP_022783044_1	uncharacterized protein LOC111323869	ApeC/CUB/
+Spis_XP_022810471_1	Nod-like receptor (NLR_family_pyrin_domain_containing_12)	NACHT/LRR_6/
+Spis_XP_022788614_1	Nod-like receptor (NLR_family_pyrin_domain_containing_12)	NACHT/LRR_6/LRR_6/LRR_6/LRR_6/LRR_6/LRR_6/LRR_6/
+Spis_XP_022799424_1	Interleukin1 receptor	Ig_3/ig/TIR_2/
+Spis_XP_022799423_1	Interleukin1 receptor	Ig_3/Ig_3/ig/ig/ig/TIR_2/
+Spis_XP_022784236_1	Hedgeling	HH_signal/VWA/Cadherin/Cadherin/Cadherin/Cadherin/Cadherin/Cadherin/Cadherin/Cadherin/Cadherin/Cadherin/Cadherin/Cadherin/Cadherin/Cadherin/Cadherin/Cadherin/Cadherin/Cadherin/Cadherin/Cadherin/Cadherin/Ig_3/Ig_3/EGF/SH2/
+Spis_XP_022789435_1	delta_like_canonical_Notch_ligand_1	DSL/EGF/hEGF/hEGF/hEGF/hEGF/EGF/hEGF/hEGF/EGF/EGF/EGF/EGF/EGF/EGF_CA/EGF/EGF_CA/EGF/
+Spis_XP_022803635_1	ret_proto_oncogene	Ig_3/SEA/Pkinase_Tyr/
+Spis_XP_022785107_1	ret_proto_oncogene	Pkinase_Tyr/
+Spis_XP_022778684_1	SEFIR/	SEFIR/
+Spis_XP_022800213_1	CD36_molecule	CD36/CD36/
+Spis_XP_022781880_1	calcium_sensing_receptor	ANF_receptor/NCD3G/7tm_3/
+Spis_XP_022798998_1	calcium_sensing_receptor	ANF_receptor/7tm_3/
+Spis_XP_022786554_1	gamma_aminobutyric_acid_type_B_receptor_subunit_1	ANF_receptor/7tm_3/
+Spis_XP_022789620_1	GPCR_7tm1	7tm_1/
+Spis_XP_022800134_1	protein_tyrosine_phosphatase_receptor_type_D	I-set/I-set/Ig_3/I-set/Ig_3/I-set/I-set/I-set/I-set/I-set/Ig_3/I-set/Ig_3/Ig_3/I-set/fn3/fn3/fn3/fn3/Y_phosphatase/Y_phosphatase/
+Spis_XP_022809496_1	C_type_lectin_domain_family_4_member_E	Lectin_C/
+Spis_XP_022779048_1	heat_shock_protein_family_A_Hsp70_member_8	HSP70/
+Spis_XP_022804823_1	DnaJ_heat_shock_protein_family_Hsp40_member_B4	DnaJ/DnaJ_C/
+Spis_XP_022804824_1	BAG_cochaperone_5	BAG/
+Spis_XP_022793052_1	ubiquitin_conjugating_enzyme_E2_W	UQ_con/
+Spis_XP_022779143_1	probable E3 ubiquitin-protein ligase RNF144A-B	-
+Spis_XP_022781957_1	cathepsin_D	A1_Propeptide/Asp/
+Spis_XP_022795065_1	cathepsin_B	Peptidase_C1/
+Spis_XP_022802777_1	cathepsin_B	Peptidase_C1/
+Spis_XP_022807074_1	cathepsin_L	Inhibitor_I29/Peptidase_C1/
+Spis_XP_022780695_1	STING	TMEM173/
+Spis_XP_022796607_1	Antiviral innate immune response receptor RIG-I	CARD_2/ResIII/RIG-I_C/Helicase_C/RIG-I_C-RD/
+Spis_XP_022795721_1	dedicator_of_cytokinesis_1	DOCK_N/DOCK-C2/DHR-2/
+Spis_XP_022782257_1	ribosomal_protein_S6_kinase_A5	Pkinase/Pkinase_C/Pkinase/
+Spis_XP_022785667_1	PRAS/	PRAS/
+Spis_XP_022809869_1	guanylate_binding_protein_7	GBP_C/
+Spis_XP_022796517_1	RAB43_member_RAS_oncogene_family	Ras/
+Spis_XP_022800688_1	DNA_damage_regulated_autophagy_modulator_1	Frag1/
+Spis_XP_022785719_1	BCL2_associated_X_apoptosis_regulator	Bcl-2/
+Spis_XP_022786491_1	BCL2_like_2	BH4/Bcl-2/
+Spis_XP_022808070_1	caspase_3	Peptidase_C14/
+Spis_XP_022781683_1	caspase_recruitment_domain_family_member_11	CARD/
+Spis_XP_022802904_1	major_vault_protein	Vault_2/Vault/Vault/Vault/Vault_2/Vault/Vault_4/Vault_3/MVP_shoulder/
+Spis_XP_022794272_1	major_vault_protein	Vault_2/Vault/Vault/Vault/Vault_2/Vault/Vault_4/Vault_3/MVP_shoulder/
+Spis24340_1	tetratricopeptide_repeat_domain_28	TPR_7/TPR_12/TPR_7/TPR_12/TPR_12/TPR_12/TPR_8/TPR_12/TPR_12/TPR_12/CHAT/
+Spis_XP_022784317_1	tetratricopeptide_repeat_domain_28	TPR_12/TPR_7/TPR_12/TPR_7/TPR_12/TPR_8/CHAT/
+Spis_XP_022780513_1	SV2_related_protein	Sugar_tr/MFS_1/
+Spis_XP_022778077_1	platelet glycoprotein V-like	LRR_8/LRR_1/LRR_8/
+Spis_XP_022791426_1	tetratricopeptide_repeat_domain_28	TPR_12/TPR_12/TPR_12/TPR_12/TPR_12/CHAT/
+Spis_XP_022787469_1	tetratricopeptide_repeat_domain_28	TPR_7/TPR_12/TPR_12/TPR_12/CHAT/

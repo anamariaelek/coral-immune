@@ -111,6 +111,7 @@ ggplotVolcano <- function(
   label_column = NULL,
   shape_column = NULL,
   label_fc_thr = 2,
+  label_size = 5,
   title = "",
   xlab = "log2 fold change",
   ylab = "- log10 adjusted p value",
@@ -270,24 +271,26 @@ ggplotVolcano <- function(
       geom_text_repel(
         mapping       = aes_string(label = label_column),
         data          = lab_dt_up,
-        nudge_x       = 0.25 - lab_dt_up$log2FoldChange,
+        #nudge_x       = 0.25 - lab_dt_up$log2FoldChange,
         segment.size  = 0.2,
         segment.color = "grey50",
         direction     = "y",
         hjust         = 0,
         max.overlaps  = Inf,
-        min.segment.length = 0
+        min.segment.length = 0,
+        size          = label_size
       ) +
       geom_text_repel(
         mapping       = aes_string(label = label_column),
         data          = lab_dt_down,
-        nudge_x       = -0.25 - lab_dt_down$log2FoldChange,
+        #nudge_x       = -0.25 - lab_dt_down$log2FoldChange,
         segment.size  = 0.2,
         segment.color = "grey50",
         direction     = "y",
         hjust         = 1,
         max.overlaps  = Inf,
-        min.segment.length = 0
+        min.segment.length = 0,
+        size          = label_size
       )
   }
 
