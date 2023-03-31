@@ -716,9 +716,8 @@ label_genes_immuno_3 <- c(
   "Spis_XP_022784454_1" = "TBK1",
   "Spis_XP_022797663_1" = "TRAF6"
 )
-label_genes_v <- label_genes_immuno_3
-
 label_genes_immuno <- c(
+  label_genes_immuno_3,
   label_genes_immuno_2,
   label_genes_immuno_1[
     names(label_genes_immuno_1) %in% names(label_genes_immuno_2)
@@ -737,8 +736,14 @@ label_genes_v <- str_replace_all(label_genes_immuno, c(
   "BAG_cochaperone_5" = "BAG5",
   "DnaJ_heat_shock_protein_family_Hsp40_member_B4" = "DNAJB4",
   "platelet glycoprotein V-like" = "GP5-like",
-  "tetratricopeptide_repeat_domain_28" = "TTC28",
-  "ubiquitin_conjugating_enzyme_E2_W" = "UBE2W"
+  "ubiquitin_conjugating_enzyme_E2_W" = "UBE2W",
+  "ribosomal_protein_S6_kinase_A5" = "RPS6KA5",
+  "heat_shock_protein_family_A_Hsp70_member_8" = "HSPA8",
+  "caspase_recruitment_domain_family_member_11" = "CARD11",
+  "BCL2_associated_X_apoptosis_regulator" = "BAX BCL2 associated X",
+  "protein HEXIM-like isoform X2" = "HEXIM2",
+  "lipopolysaccharide_binding_protein" = "LBP",
+  "C_type_lectin_domain_family_4_member_C" = "CLEC4C"
 ))
 names(label_genes_v) <- names(label_genes_immuno)
 
@@ -769,7 +774,7 @@ gp_capup_lab[, minuslog10padj := -1 * log10(padj)]
 gp_capup_lab[, dir := ifelse(log2FoldChange > 0, "up", "down")]
 gp_capup_vo <- ggplotVolcano(
   res_lfc_capup, padj_thr = padj_thr, lfc_thr = 1,
-  lims_fc = c(-5, 5), lims_sig = c(NA, 30),
+  lims_fc = c(-5, 5), lims_sig = c(NA, 35),
   sign_col = c("#F27333", "#725CA6"), size = 1.5, alpha = 0.8,
   title = sprintf("%s vs %s", contrast_capup[2], contrast_capup[3]),
   shape_column = "label", raster = TRUE,
@@ -789,8 +794,8 @@ gp_cgamp_lab[, minuslog10padj := -1 * log10(padj)]
 gp_cgamp_lab[, dir := ifelse(log2FoldChange > 0, "up", "down")]
 gp_cgamp_vo <- ggplotVolcano(
   res_lfc_cgamp, padj_thr = padj_thr, lfc_thr = 1,
-  lims_fc = c(-5, 5), lims_sig = c(NA, 30),
-  sign_col = c("#F27333", "#725CA6"), size = 1.5, alpha = 0.8,
+  lims_fc = c(-5, 5), lims_sig = c(NA, 50),
+  sign_col = c("#F27333", "#725CA6"), size = 0.9, alpha = 0.8,
   title = sprintf("%s vs %s", contrast_cgamp[2], contrast_cgamp[3]),
   raster = TRUE,
   label_column = "label_gene", label_fc_thr = 0.5, label_size = 2.5,
@@ -806,14 +811,14 @@ gp_capup_vo + gp_cgamp_vo
 
 ```{r include=FALSE, eval=TRUE}
 pdf(
-  file.path(fig_dir, sprintf("dds_res_ashr_cApUp_padj%s.pdf", padj_thr)),
+  file.path(fig_dir, sprintf("dds_res_ashr_cApUp_padj%s_2.pdf", padj_thr)),
   width = 5, height = 6, useDingbats = TRUE
 )
 gp_capup_vo
 dev.off()
 
 pdf(
-  file.path(fig_dir, sprintf("dds_res_ashr_cGAMP_padj%s.pdf", padj_thr)),
+  file.path(fig_dir, sprintf("dds_res_ashr_cGAMP_padj%s_2.pdf", padj_thr)),
   width = 5, height = 6
 )
 gp_cgamp_vo

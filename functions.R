@@ -131,6 +131,8 @@ ggplotVolcano <- function(
   if (!is.null(padj_thr)) {
     res_dt[, sign := padj < padj_thr & abs(log2FoldChange) > lfc_thr]
     res_dt[, minuslog10padj := -1 * log10(padj)]
+    res_dt[minuslog10padj < lims_sig[1], minuslog10padj := lims_sig[1]]
+    res_dt[minuslog10padj > lims_sig[2], minuslog10padj := lims_sig[2]]
     res_dt[sign == FALSE, dir := NA]
     legend_name <- sprintf("adjusted p value < %s", padj_thr)
     gp <- ggplot(
@@ -152,6 +154,8 @@ ggplotVolcano <- function(
   } else if (!is.null(pval_thr)) {
     res_dt[, sign := pvalue < pval_thr & abs(log2FoldChange) > lfc_thr]
     res_dt[, minuslog10pval := -1 * log10(pvalue)]
+    res_dt[minuslog10padj < lims_sig[1], minuslog10padj := lims_sig[1]]
+    res_dt[minuslog10padj > lims_sig[2], minuslog10padj := lims_sig[2]]
     res_dt[sign == FALSE, dir := NA]
     legend_name <- sprintf("p value < %s", pval_thr)
     gp <- ggplot(
@@ -219,13 +223,24 @@ ggplotVolcano <- function(
       c(16, 22, 24, 23, 25)[seq_along(shape_levels)],
       names = shape_levels
     )
+    if (!is.null(padj_thr)) {
+      gp <- gp +
+        geom_point(
+          data = res_dt[!get(shape_column) %in% c("none", "")][
+            padj < padj_thr & abs(log2FoldChange) > lfc_thr],
+          aes_string(shape = shape_column),
+          size = 0.9, color = "grey"
+        )
+    } else if (!is.null(pval_thr)) {
+      gp <- gp +
+        geom_point(
+          data = res_dt[!get(shape_column) %in% c("none", "")][
+            pvalue < pval_thr & abs(log2FoldChange) > lfc_thr],
+          aes_string(shape = shape_column),
+          size = 0.9, color = "grey"
+        )
+    }
     gp <- gp +
-      geom_point(
-        data = res_dt[!I(shape_column) %in% c("none", "")][
-          pvalue < pval_thr & abs(log2FoldChange) > lfc_thr],
-        aes_string(shape = shape_column),
-        size = 0.9, color = "grey"
-      ) +
         scale_shape_manual(values = shape_levels) +
         guides(
           shape = guide_legend(override.aes = list(size = 4)),
@@ -271,7 +286,7 @@ ggplotVolcano <- function(
       geom_text_repel(
         mapping       = aes_string(label = label_column),
         data          = lab_dt_up,
-        #nudge_x       = 0.25 - lab_dt_up$log2FoldChange,
+        nudge_x       = 0.25 - lab_dt_up$log2FoldChange,
         segment.size  = 0.2,
         segment.color = "grey50",
         direction     = "y",
@@ -283,7 +298,7 @@ ggplotVolcano <- function(
       geom_text_repel(
         mapping       = aes_string(label = label_column),
         data          = lab_dt_down,
-        #nudge_x       = -0.25 - lab_dt_down$log2FoldChange,
+        nudge_x       = -0.25 - lab_dt_down$log2FoldChange,
         segment.size  = 0.2,
         segment.color = "grey50",
         direction     = "y",
